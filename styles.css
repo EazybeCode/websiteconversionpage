@@ -9134,16 +9134,41 @@ img {
     }
 }
 
-/* iOS specific fixes */
+/* iOS Safari specific fixes */
 @supports (-webkit-touch-callout: none) {
-    .btn {
+
+    /* Reset iOS native button/input styles */
+    button,
+    .btn,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
         -webkit-appearance: none;
+        appearance: none;
+        border-radius: 0;
     }
-    
-    input, textarea, select {
-        font-size: 16px; /* Prevent zoom on focus */
+
+    /* Prevent iOS zoom on input focus */
+    input:not([type="checkbox"]):not([type="radio"]),
+    textarea,
+    select {
+        font-size: 16px;
+    }
+
+    /* Prevent text resizing after orientation change */
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+
+    /* Remove default focus glow on iOS */
+    input:focus,
+    textarea:focus,
+    select:focus,
+    button:focus {
+        outline: none;
     }
 }
+
 
 /* Landscape mobile orientation */
 @media (max-height: 500px) and (orientation: landscape) {
