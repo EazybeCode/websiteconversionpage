@@ -3,222 +3,1296 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A simple responsive one-page portfolio website">
-    <title>Portfolio | John Doe</title>
+    <title>Eazybe — WhatsApp + HubSpot Integration | Chrome Extension</title>
+    <meta name="description" content="Connect WhatsApp with HubSpot CRM. Sync conversations, automate follow-ups, and close deals faster with Eazybe Chrome Extension.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-wrapper">
+        <div class="bg-gradient"></div>
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+        <div class="bg-grid"></div>
+    </div>
+
     <!-- Navigation -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <a href="#" class="nav-logo">John<span>Doe</span></a>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
-                <span class="hamburger"></span>
-            </button>
-            <ul class="nav-menu" id="navMenu">
-                <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="nav">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                </svg>
+            </div>
+            <span class="logo-text">Eazybe</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="#" class="btn btn-ghost">Sign In</a>
+            <a href="https://chrome.google.com/webstore/detail/eazybe-powering-whatsapp/clgficggccelgifppbcaepjdkklfcefd" class="btn btn-primary" target="_blank">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="4" fill="white"/>
+                </svg>
+                Add to Chrome
+            </a>
+        </div>
+    </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero" id="hero">
-            <div class="container hero-content">
-                <p class="hero-greeting">Hello, I'm</p>
-                <h1 class="hero-title">John Doe</h1>
-                <p class="hero-subtitle">Full-Stack Developer & Designer</p>
-                <p class="hero-description">I create beautiful, functional websites and applications that help businesses grow and succeed in the digital world.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-icon">⭐</span>
+                    4.7/5 Rating on Chrome Web Store
+                </div>
+                <h1>Stop Letting Leads Die in Your <span class="gradient-text">WhatsApp Inbox</span></h1>
+                <p class="hero-description">Eazybe syncs every WhatsApp conversation directly into HubSpot CRM. No more manual data entry. No more missed follow-ups. Just seamless sales workflows.</p>
+                <div class="hero-ctas">
+                    <a href="https://chrome.google.com/webstore/detail/eazybe-powering-whatsapp/clgficggccelgifppbcaepjdkklfcefd" class="btn btn-primary btn-large" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="4" fill="white"/>
+                        </svg>
+                        Install Free Chrome Extension
+                    </a>
+                    <a href="https://calendly.com/eazybe/eazybe-demo-call" class="btn btn-secondary btn-large" target="_blank">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                        Book a Demo
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="stat-value">30%</div>
+                        <div class="stat-label">Faster Response Time</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="stat-value">2-Way</div>
+                        <div class="stat-label">CRM Sync</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="stat-value">5 min</div>
+                        <div class="stat-label">Setup Time</div>
+                    </div>
                 </div>
             </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about" id="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="about-content">
-                    <div class="about-image">
-                        <div class="about-image-placeholder">
-                            <span>JD</span>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="chat-header">
+                        <div class="chat-user">
+                            <div class="chat-avatar">SJ</div>
+                            <div class="chat-user-info">
+                                <h4>Sarah Johnson</h4>
+                                <span><span class="online-dot"></span> Online • Synced to HubSpot</span>
+                            </div>
+                        </div>
+                        <div class="chat-actions">
+                            <div class="chat-action" title="View in HubSpot">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.164 7.93V5.355a2.07 2.07 0 0 0 1.2-1.87 2.08 2.08 0 0 0-4.16 0c0 .808.47 1.5 1.14 1.84v2.6a5.06 5.06 0 0 0-2.17 1.17l-5.72-4.45a2.34 2.34 0 0 0-2.28-2.84 2.34 2.34 0 1 0 1.34 4.24l5.6 4.36a5.06 5.06 0 0 0 4.54 7.37 5.1 5.1 0 0 0 1.49-9.97z"/>
+                                </svg>
+                            </div>
+                            <div class="chat-action">⋯</div>
                         </div>
                     </div>
-                    <div class="about-text">
-                        <p>I'm a passionate developer with over 5 years of experience building web applications. I specialize in creating clean, efficient code and intuitive user experiences.</p>
-                        <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying a good cup of coffee.</p>
-                        <div class="skills">
-                            <h3>My Skills</h3>
-                            <ul class="skills-list">
-                                <li>HTML & CSS</li>
-                                <li>JavaScript</li>
-                                <li>React</li>
-                                <li>Node.js</li>
-                                <li>Python</li>
-                                <li>UI/UX Design</li>
-                            </ul>
+                    <div class="chat-messages">
+                        <div class="message incoming">Hi! I saw your demo and I'm interested in the enterprise plan. What's included?</div>
+                        <div class="message outgoing">Great to hear from you, Sarah! 🎉 The Enterprise plan includes unlimited users, priority support, and custom integrations.</div>
+                        <div class="message incoming">Perfect! Can we schedule a call this week?</div>
+                        <div class="message outgoing">Absolutely! I've just sent you a calendar link. Looking forward to it! 📅</div>
+                    </div>
+                    <div class="sync-bar">
+                        <svg class="sync-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/>
+                            <path d="M21 3v5h-5"/>
+                        </svg>
+                        Auto-synced to HubSpot • Contact Created • Deal: $24,500
+                    </div>
+                </div>
+                <!-- Floating Badges -->
+                <div class="floating-badge floating-badge-1">
+                    <span class="badge-dot green"></span>
+                    Chat Synced to CRM
+                </div>
+                <div class="floating-badge floating-badge-2">
+                    <span class="badge-dot pink"></span>
+                    AI Reply Suggested
+                </div>
+                <div class="floating-badge floating-badge-3">
+                    <span class="badge-dot blue"></span>
+                    Task Created
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Section -->
+    <section class="trusted">
+        <div class="trusted-container">
+            <p class="trusted-label">Trusted by 1000+ Sales Leaders Worldwide</p>
+            <div class="trusted-logos">
+                <span class="trusted-logo">University Living</span>
+                <span class="trusted-logo">Satrack</span>
+                <span class="trusted-logo">Orbidi</span>
+                <span class="trusted-logo">Physics Wallah</span>
+                <span class="trusted-logo">WanderOn</span>
+                <span class="trusted-logo">Kreedo</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="video-container">
+            <div class="video-content">
+                <div class="section-badge">
+                    <span class="section-badge-icon"></span>
+                    See It In Action
+                </div>
+                <h2>Watch How Eazybe Works</h2>
+                <p>See how leading sales teams use Eazybe to convert WhatsApp conversations into revenue in under 3 minutes.</p>
+            </div>
+            <div class="video-wrapper">
+                <div class="video-frame">
+                    <iframe 
+                        src="https://www.youtube.com/embed/6-eOrIIhHv8?si=o9dVcDP5Tp7Z1mNc" 
+                        title="Eazybe Demo Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="video-glow"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <div class="section-badge">
+                <span class="section-badge-icon"></span>
+                Features
+            </div>
+            <h2>Everything You Need to Scale WhatsApp Sales</h2>
+            <p>A Chrome extension that transforms WhatsApp Web into a powerful CRM-connected sales tool.</p>
+        </div>
+
+        <!-- Feature Showcase -->
+        <div class="feature-showcase">
+            <div class="feature-showcase-item">
+                <div class="feature-showcase-content">
+                    <div class="feature-number">01</div>
+                    <h3>2-Way HubSpot CRM Sync</h3>
+                    <p>Every WhatsApp conversation automatically syncs to the right HubSpot contact. Update deals, create tasks, add notes — all changes reflect instantly in your CRM. No more copy-pasting or manual data entry.</p>
+                    <ul class="feature-bullets">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Auto-create contacts from WhatsApp chats
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Sync conversation history to contact timeline
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            View deal stage & lifecycle directly in WhatsApp
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-showcase-visual">
+                    <div class="feature-visual-card">
+                        <div class="sync-animation">
+                            <div class="sync-logo whatsapp">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+                            </div>
+                            <div class="sync-arrows">
+                                <div class="sync-arrow left">←</div>
+                                <div class="sync-arrow right">→</div>
+                            </div>
+                            <div class="sync-logo hubspot">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.164 7.93V5.355a2.07 2.07 0 0 0 1.2-1.87 2.08 2.08 0 0 0-2.08-2.08 2.08 2.08 0 0 0-2.08 2.08c0 .808.47 1.5 1.14 1.84v2.6a5.06 5.06 0 0 0-2.17 1.17l-5.72-4.45a2.34 2.34 0 0 0 .06-.5 2.34 2.34 0 1 0-2.34 2.34c.5 0 .96-.16 1.34-.44l5.6 4.36a5.06 5.06 0 0 0-.54 2.27 5.1 5.1 0 0 0 5.1 5.1 5.06 5.06 0 0 0 2.27-.54l2.12 2.12a1.7 1.7 0 1 0 1.17-1.17l-2.12-2.12a5.06 5.06 0 0 0 .54-2.27 5.1 5.1 0 0 0-3.53-4.85z"/></svg>
+                            </div>
+                        </div>
+                        <div class="sync-status">
+                            <span class="status-dot"></span>
+                            Real-time sync active
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section class="projects" id="projects">
-            <div class="container">
-                <h2 class="section-title">My Projects</h2>
-                <div class="projects-grid">
-                    <!-- Project Card 1 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="project-image-placeholder">
-                                <span>E-Commerce</span>
+            <div class="feature-showcase-item reverse">
+                <div class="feature-showcase-content">
+                    <div class="feature-number">02</div>
+                    <h3>ChatGPT AI-Powered Replies</h3>
+                    <p>Stuck on what to say? Our built-in ChatGPT integration suggests contextual, professional responses based on the conversation. Just click to insert and send — or customize before sending.</p>
+                    <ul class="feature-bullets">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Context-aware reply suggestions
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Maintain your brand voice
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Save hours on repetitive responses
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-showcase-visual">
+                    <div class="feature-visual-card ai-card">
+                        <div class="ai-suggestion">
+                            <div class="ai-header">
+                                <span class="ai-icon">🤖</span>
+                                <span>AI Suggested Reply</span>
+                            </div>
+                            <p>"Thank you for your interest! I'd be happy to schedule a demo call. Would tomorrow at 2 PM or Thursday at 10 AM work better for you?"</p>
+                            <div class="ai-actions">
+                                <button class="ai-btn primary">Insert Reply</button>
+                                <button class="ai-btn">Regenerate</button>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">E-Commerce Platform</h3>
-                            <p class="project-description">A full-featured online store with cart functionality, payment integration, and admin dashboard.</p>
-                            <div class="project-tags">
-                                <span class="tag">React</span>
-                                <span class="tag">Node.js</span>
-                                <span class="tag">MongoDB</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">View Live</a>
-                                <a href="#" class="project-link">Source Code</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project Card 2 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="project-image-placeholder">
-                                <span>Task App</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Task Management App</h3>
-                            <p class="project-description">A collaborative task manager with real-time updates, team features, and progress tracking.</p>
-                            <div class="project-tags">
-                                <span class="tag">Vue.js</span>
-                                <span class="tag">Firebase</span>
-                                <span class="tag">Tailwind</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">View Live</a>
-                                <a href="#" class="project-link">Source Code</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project Card 3 -->
-                    <article class="project-card">
-                        <div class="project-image">
-                            <div class="project-image-placeholder">
-                                <span>Weather</span>
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Weather Dashboard</h3>
-                            <p class="project-description">A weather application with location-based forecasts, interactive maps, and severe weather alerts.</p>
-                            <div class="project-tags">
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">API</span>
-                                <span class="tag">CSS3</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link">View Live</a>
-                                <a href="#" class="project-link">Source Code</a>
-                            </div>
-                        </div>
-                    </article>
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Contact Section -->
-        <section class="contact" id="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <p class="contact-intro">Have a project in mind or just want to say hello? Feel free to reach out!</p>
-                <form class="contact-form" id="contactForm" novalidate>
+            <div class="feature-showcase-item">
+                <div class="feature-showcase-content">
+                    <div class="feature-number">03</div>
+                    <h3>Shared Team Inbox</h3>
+                    <p>See all your team's WhatsApp conversations in one centralized inbox. Assign chats, track ownership, and ensure accountability. Perfect for sales managers who need visibility into team performance.</p>
+                    <ul class="feature-bullets">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Centralized view of all team conversations
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Assign & transfer chats between reps
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            Rep activity & performance reports
+                        </li>
+                    </ul>
+                </div>
+                <div class="feature-showcase-visual">
+                    <div class="feature-visual-card inbox-card">
+                        <div class="inbox-header">
+                            <span>Team Inbox</span>
+                            <span class="inbox-badge">12 Active</span>
+                        </div>
+                        <div class="inbox-items">
+                            <div class="inbox-item">
+                                <div class="inbox-avatar">JD</div>
+                                <div class="inbox-info">
+                                    <span class="inbox-name">John Doe</span>
+                                    <span class="inbox-preview">Interested in enterprise plan...</span>
+                                </div>
+                                <span class="inbox-owner">Sarah</span>
+                            </div>
+                            <div class="inbox-item">
+                                <div class="inbox-avatar">AM</div>
+                                <div class="inbox-info">
+                                    <span class="inbox-name">Alice Miller</span>
+                                    <span class="inbox-preview">Can we schedule a call?</span>
+                                </div>
+                                <span class="inbox-owner">Mike</span>
+                            </div>
+                            <div class="inbox-item unassigned">
+                                <div class="inbox-avatar">RK</div>
+                                <div class="inbox-info">
+                                    <span class="inbox-name">Robert Kim</span>
+                                    <span class="inbox-preview">New inquiry - needs response</span>
+                                </div>
+                                <span class="inbox-owner urgent">Unassigned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Features Grid -->
+        <div class="features-grid-header">
+            <h3>And Much More...</h3>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Schedule Messages</h3>
+                <p>Schedule follow-ups and reminders directly in WhatsApp. Never forget an important message again.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Quick Replies & Templates</h3>
+                <p>Create message templates with tokens for personalization. Reply in seconds with pre-saved responses.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚨</div>
+                <h3>Unreplied Chat Alerts</h3>
+                <p>Get notified about important unreplied chats. Ensure timely responses and never lose a lead.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏷️</div>
+                <h3>Chat Labels & Funnels</h3>
+                <p>Organize conversations with custom labels. Track leads through your sales funnel visually.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>CRM Reports & Insights</h3>
+                <p>Leverage powerful reports directly within your CRM — rep activity, response times, and conversation insights.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📞</div>
+                <h3>Google Calendar Sync</h3>
+                <p>See your calendar events directly in WhatsApp. Never miss a scheduled call or meeting.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">1,000+</div>
+                <div class="stat-label">Sales Teams</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4.7/5</div>
+                <div class="stat-label">Chrome Store Rating</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">30%</div>
+                <div class="stat-label">Faster Resolution</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8+</div>
+                <div class="stat-label">CRM Integrations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="pricing-container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="section-badge-icon"></span>
+                    Pricing
+                </div>
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Start free. Upgrade when you need more power. No hidden fees.</p>
+            </div>
+
+            <div class="pricing-toggle">
+                <span class="toggle-label active" data-period="monthly">Monthly</span>
+                <button class="toggle-switch" id="pricingToggle">
+                    <span class="toggle-slider"></span>
+                </button>
+                <span class="toggle-label" data-period="annual">
+                    Annual
+                    <span class="save-badge">Save 40%</span>
+                </span>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <div class="plan-icon starter">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <h3>Free</h3>
+                        <p>Get started with basic features</p>
+                    </div>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="price" data-monthly="0" data-annual="0">0</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <div class="pricing-desc">Forever free</div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>5</strong> Chat Labels</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Unlimited Quick Replies</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Schedule Messages</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Unlimited Follow-Ups</span>
+                        </li>
+                    </ul>
+                    <a href="https://chrome.google.com/webstore/detail/eazybe-powering-whatsapp/clgficggccelgifppbcaepjdkklfcefd" class="btn btn-pricing" target="_blank">
+                        Install Free
+                    </a>
+                </div>
+
+                <!-- Personal Pro Plan -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="pricing-card-header">
+                        <div class="plan-icon professional">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <h3>Personal Pro</h3>
+                        <p>For individual sales professionals</p>
+                    </div>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="price" data-monthly="10" data-annual="6">10</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <div class="pricing-desc">per user, billed <span class="billing-period">monthly</span></div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>Unlimited</strong> Chat Labels</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>HubSpot CRM</strong> Sync</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Unlimited Schedule Messages</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Unlimited Follow-Ups</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>ChatGPT AI</strong> Replies</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="btn btn-pricing-primary">
+                        Start 7-Day Trial
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Teams Plan -->
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <div class="plan-icon enterprise">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Teams</h3>
+                        <p>For sales teams that need collaboration</p>
+                    </div>
+                    <div class="pricing-amount">
+                        <span class="currency">$</span>
+                        <span class="price" data-monthly="50" data-annual="38">50</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <div class="pricing-desc">per team, billed <span class="billing-period">monthly</span></div>
+                    <ul class="pricing-features">
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Everything in Personal Pro</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>Shared Team Inbox</strong></span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Team Access Controls</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span><strong>Rep Activity Reports</strong></span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Conversation Insights</span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                            <span>Priority Support</span>
+                        </li>
+                    </ul>
+                    <a href="#form" class="btn btn-pricing">
+                        Start 7-Day Trial
+                    </a>
+                </div>
+            </div>
+
+            <div class="pricing-footer">
+                <div class="pricing-guarantee">
+                    <div class="guarantee-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <div class="guarantee-content">
+                        <h4>7-Day Free Trial</h4>
+                        <p>Try all features free. No credit card required to start.</p>
+                    </div>
+                </div>
+                <div class="pricing-trust">
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                        </svg>
+                        <span>End-to-End Encrypted</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                        <span>Meta Compliant</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                        <span>GDPR Compliant</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-container">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="section-badge-icon"></span>
+                    Reviews
+                </div>
+                <h2>Loved by Sales Teams Everywhere</h2>
+                <p>See what our customers have to say about Eazybe</p>
+            </div>
+
+            <div class="testimonial-trust-bar">
+                <div class="trust-stat">
+                    <span class="trust-stars">★★★★★</span>
+                    <span>G2 4.9/5</span>
+                </div>
+                <div class="trust-stat">
+                    <span class="trust-stars">★★★★★</span>
+                    <span>Capterra 4.8/5</span>
+                </div>
+                <div class="trust-stat">
+                    <span>1,000+</span>
+                    <span>Teams</span>
+                </div>
+                <div class="trust-stat">
+                    <span>98%</span>
+                    <span>Satisfaction</span>
+                </div>
+            </div>
+
+            <div class="featured-testimonial">
+                <div class="featured-quote">
+                    <div class="quote-mark">"</div>
+                    <p>Eazybe has completely transformed how we manage our WhatsApp sales. The HubSpot integration is seamless, and we've seen a 45% improvement in our response times.</p>
+                    <div class="featured-metrics">
+                        <div class="metric">
+                            <span class="metric-value">45%</span>
+                            <span class="metric-label">Faster Sales Cycle</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">$2.4M</span>
+                            <span class="metric-label">Added Revenue</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-value">2 min</span>
+                            <span class="metric-label">Avg Response Time</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&h=120&fit=crop&crop=face" alt="Michael Chen" class="featured-avatar">
+                    <div class="featured-author-badge">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                    </div>
+                    <div class="featured-author-info">
+                        <h4>Michael Chen</h4>
+                        <p>VP of Sales, TechCorp Global</p>
+                        <span class="company-details">500+ employees • Series C</span>
+                    </div>
+                    <a href="#" class="case-study-link">Read Case Study →</a>
+                </div>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="stars">★★★★★ <span class="rating-score">5.0</span></div>
+                        <span class="verified-badge">✓ Verified Customer</span>
+                    </div>
+                    <p>"The product is just like its name — EAZY and simple yet very effective and powerful in organizing and managing teams."</p>
+                    <div class="testimonial-footer">
+                        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=50&h=50&fit=crop&crop=face" alt="Sarah J." class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <span class="author-name">Sarah J.</span>
+                            <span class="author-role">Head of Growth, ScaleUp Inc.</span>
+                        </div>
+                        <div class="result-badge">+156% Conversions</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="stars">★★★★★ <span class="rating-score">5.0</span></div>
+                        <span class="verified-badge">✓ Verified Customer</span>
+                    </div>
+                    <p>"Efficient Client Communication Tool. Makes Database Updates a Breeze. The real-time sync with HubSpot is a game changer."</p>
+                    <div class="testimonial-footer">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face" alt="David P." class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <span class="author-name">David P.</span>
+                            <span class="author-role">CEO & Founder, GrowthLabs</span>
+                        </div>
+                        <div class="result-badge">2x Output</div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="stars">★★★★★ <span class="rating-score">5.0</span></div>
+                        <span class="verified-badge">✓ Verified Customer</span>
+                    </div>
+                    <p>"WhatsApp is now our #1 lead source. Eazybe makes it easy to track every conversation and never miss a follow-up."</p>
+                    <div class="testimonial-footer">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=50&h=50&fit=crop&crop=face" alt="Emma R." class="testimonial-avatar">
+                        <div class="testimonial-author">
+                            <span class="author-name">Emma R.</span>
+                            <span class="author-role">Director of Sales, Nexus Solutions</span>
+                        </div>
+                        <div class="result-badge">#1 Lead Source</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-platforms">
+                <a href="#" class="platform-link">
+                    <span class="platform-name">G2</span>
+                    <span class="platform-rating">★ 4.9</span>
+                </a>
+                <a href="#" class="platform-link">
+                    <span class="platform-name">Capterra</span>
+                    <span class="platform-rating">★ 4.8</span>
+                </a>
+                <a href="#" class="platform-link">
+                    <span class="platform-name">TrustPilot</span>
+                    <span class="platform-rating">★ 4.9</span>
+                </a>
+                <a href="https://chrome.google.com/webstore/detail/eazybe-powering-whatsapp/clgficggccelgifppbcaepjdkklfcefd" class="platform-link" target="_blank">
+                    <span class="platform-name">Chrome Store</span>
+                    <span class="platform-rating">★ 4.7</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="form">
+        <div class="form-container">
+            <div class="form-content">
+                <h2>Start Your Free Trial</h2>
+                <p>Get started in minutes. No credit card required.</p>
+                <ul class="form-benefits">
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        7-day free trial with all features
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Works with HubSpot Free, Starter & Pro
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        5-minute setup, no coding required
+                    </li>
+                    <li>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                        Priority onboarding support
+                    </li>
+                </ul>
+            </div>
+            <div class="form-card">
+                <form onsubmit="handleSubmit(event)">
                     <div class="form-group">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-input" placeholder="Your name" required aria-required="true">
-                        <span class="form-error" id="nameError"></span>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="John Smith" required>
                     </div>
                     <div class="form-group">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required aria-required="true">
-                        <span class="form-error" id="emailError"></span>
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" placeholder="john@company.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-input" placeholder="What's this about?">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" placeholder="Acme Inc." required>
                     </div>
                     <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-input form-textarea" placeholder="Tell me about your project..." rows="5" required aria-required="true"></textarea>
-                        <span class="form-error" id="messageError"></span>
+                        <label for="team-size">Team Size</label>
+                        <select id="team-size" required>
+                            <option value="">Select team size</option>
+                            <option value="1">Just me</option>
+                            <option value="2-5">2-5 people</option>
+                            <option value="6-20">6-20 people</option>
+                            <option value="21-50">21-50 people</option>
+                            <option value="50+">50+ people</option>
+                        </select>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-large btn-full">
+                        Start Free Trial
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <p class="form-note">By signing up, you agree to our Terms & Privacy Policy</p>
                 </form>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="faq-container">
+            <div class="faq-header">
+                <div class="faq-header-content">
+                    <div class="section-badge">
+                        <span class="section-badge-icon"></span>
+                        FAQ
+                    </div>
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Everything you need to know about connecting WhatsApp with HubSpot using Eazybe.</p>
+                </div>
+                <div class="faq-contact-card">
+                    <div class="faq-contact-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        </svg>
+                    </div>
+                    <div class="faq-contact-info">
+                        <h4>Still have questions?</h4>
+                        <p>Chat with us on WhatsApp</p>
+                    </div>
+                    <a href="https://wa.me/13099294280" class="faq-contact-btn" target="_blank">
+                        Contact Support
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-category">
+                    <div class="faq-category-header">
+                        <div class="faq-category-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Getting Started</h3>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I install Eazybe with HubSpot?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Install the Eazybe Chrome Extension from the Chrome Web Store, open WhatsApp Web, click the integration icon, select HubSpot, and login with your HubSpot credentials. That's it! Your conversations will start syncing automatically.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What are the prerequisites?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>You need: (1) Google Chrome browser, (2) A HubSpot account (works with Free, Starter, and Professional plans), (3) WhatsApp or WhatsApp Business on your phone. No API access or technical setup required.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>How do I invite my team members?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>With the Teams plan, you can add team members from the Eazybe dashboard. Each member installs the Chrome extension and connects their WhatsApp. All conversations are then visible in the shared Team Inbox.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <div class="faq-category-header">
+                        <div class="faq-category-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                <line x1="1" y1="10" x2="23" y2="10"/>
+                            </svg>
+                        </div>
+                        <h3>Pricing & Plans</h3>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>What's included in the free trial?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>The 7-day free trial includes all features with no limitations: unlimited messages, HubSpot integration, AI auto-responses, team inbox, and analytics. No credit card required to start.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I change plans later?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes! You can upgrade or downgrade your plan at any time. When you upgrade, you'll get immediate access to additional features. Changes take effect at your next billing cycle.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Which CRMs does Eazybe support?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Eazybe integrates with HubSpot, Zoho CRM, Salesforce, Bitrix24, Freshdesk, Google Sheets, and supports custom integrations via Webhooks. More integrations are being added regularly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-category">
+                    <div class="faq-category-header">
+                        <div class="faq-category-icon pink">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3>Security & Privacy</h3>
+                    </div>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Is my data secure?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Security is our top priority. Eazybe uses end-to-end encryption and keeps data on your device. We're GDPR compliant and 100% compliant with Meta's WhatsApp policies. We never share or sell your data.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Is Eazybe compliant with WhatsApp policies?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes, Eazybe is 100% compliant with Meta's WhatsApp Business policies. We use official APIs and don't support bulk messaging or spam. The extension is approved by Google's security audit for Chrome Web Store.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">
+                                <span>Can I use multiple WhatsApp numbers?</span>
+                                <span class="faq-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M6 9l6 6 6-6"/>
+                                    </svg>
+                                </span>
+                            </button>
+                            <div class="faq-answer">
+                                <p>Yes! With the Teams plan, you can connect multiple WhatsApp numbers to a single Eazybe account. Perfect for managing different regions, departments, or brands.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-bottom">
+                <div class="faq-resources">
+                    <a href="https://help.eazybe.com/" class="faq-resource-link" target="_blank">
+                        <div class="resource-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <div class="resource-info">
+                            <h4>Documentation</h4>
+                            <p>Read our detailed guides</p>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@eazybe" class="faq-resource-link" target="_blank">
+                        <div class="resource-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="23 7 16 12 23 17 23 7"/>
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                            </svg>
+                        </div>
+                        <div class="resource-info">
+                            <h4>Video Tutorials</h4>
+                            <p>Watch step-by-step videos</p>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="https://community.eazybe.com" class="faq-resource-link" target="_blank">
+                        <div class="resource-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="resource-info">
+                            <h4>Community</h4>
+                            <p>Join 5,000+ members</p>
+                        </div>
+                        <svg class="resource-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <div class="cta-card">
+                <div class="cta-background">
+                    <div class="cta-orb cta-orb-1"></div>
+                    <div class="cta-orb cta-orb-2"></div>
+                    <div class="cta-grid"></div>
+                </div>
+                <div class="cta-content">
+                    <div class="cta-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                        Install in Under 2 Minutes
+                    </div>
+                    <h2>Ready to Transform Your WhatsApp Sales?</h2>
+                    <p>Join 1,000+ sales teams who've already connected WhatsApp with HubSpot. Install the free Chrome extension and start syncing conversations today.</p>
+                    
+                    <div class="cta-features">
+                        <div class="cta-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>7-day free trial</span>
+                        </div>
+                        <div class="cta-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>No credit card required</span>
+                        </div>
+                        <div class="cta-feature">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <span>Works with HubSpot Free</span>
+                        </div>
+                    </div>
+
+                    <div class="cta-buttons">
+                        <a href="https://chrome.google.com/webstore/detail/eazybe-powering-whatsapp/clgficggccelgifppbcaepjdkklfcefd" class="btn btn-cta-primary btn-large" target="_blank">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="4" fill="white"/>
+                            </svg>
+                            Add to Chrome — It's Free
+                        </a>
+                        <a href="https://calendly.com/eazybe/eazybe-demo-call" class="btn btn-cta-secondary btn-large" target="_blank">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            Book a Demo
+                        </a>
+                    </div>
+
+                    <div class="cta-trust">
+                        <div class="cta-trust-avatars">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=40&h=40&fit=crop&crop=face" alt="Customer">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=40&h=40&fit=crop&crop=face" alt="Customer">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Customer">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=40&h=40&fit=crop&crop=face" alt="Customer">
+                            <span class="avatar-count">+1k</span>
+                        </div>
+                        <div class="cta-trust-text">
+                            <div class="trust-stars">★★★★★</div>
+                            <span>Rated 4.7/5 on Chrome Web Store</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-visual">
+                    <div class="cta-stats-card">
+                        <div class="cta-stat-item">
+                            <div class="cta-stat-icon green">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+                                    <polyline points="17 6 23 6 23 12"/>
+                                </svg>
+                            </div>
+                            <div class="cta-stat-info">
+                                <span class="cta-stat-value">30%</span>
+                                <span class="cta-stat-label">Faster Query Resolution</span>
+                            </div>
+                        </div>
+                        <div class="cta-stat-item">
+                            <div class="cta-stat-icon blue">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="cta-stat-info">
+                                <span class="cta-stat-value">0 Manual</span>
+                                <span class="cta-stat-label">Data Entry Required</span>
+                            </div>
+                        </div>
+                        <div class="cta-stat-item">
+                            <div class="cta-stat-icon pink">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                                </svg>
+                            </div>
+                            <div class="cta-stat-info">
+                                <span class="cta-stat-value">100%</span>
+                                <span class="cta-stat-label">Chat History Synced</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cta-badges-row">
+                        <div class="cta-security-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                            End-to-End Encrypted
+                        </div>
+                        <div class="cta-security-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            Meta Compliant
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
+        <div class="footer-main">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="#" class="footer-logo">John<span>Doe</span></a>
-                    <p class="footer-tagline">Building digital experiences that matter.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#hero">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
                             </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </div>
+                        <span class="logo-text">Eazybe</span>
+                    </a>
+                    <p>Powering WhatsApp for Sales and Account Management Teams. Connect WhatsApp with HubSpot, Zoho, Salesforce, and more.</p>
+                    <div class="footer-badges">
+                        <div class="footer-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                             </svg>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            GDPR
+                        </div>
+                        <div class="footer-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                             </svg>
-                        </a>
-                        <a href="mailto:hello@johndoe.com" class="social-link" aria-label="Email">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
-                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                            Meta Compliant
+                        </div>
+                        <div class="footer-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
                             </svg>
-                        </a>
+                            Google Verified
+                        </div>
                     </div>
                 </div>
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="https://chrome.google.com/webstore/detail/eazybe-powering-whatsapp/clgficggccelgifppbcaepjdkklfcefd" target="_blank">Chrome Extension</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Integrations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">HubSpot</a></li>
+                        <li><a href="#">Zoho CRM</a></li>
+                        <li><a href="#">Salesforce</a></li>
+                        <li><a href="#">Google Sheets</a></li>
+                        <li><a href="#">Freshdesk</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://help.eazybe.com/" target="_blank">Help Docs</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="https://community.eazybe.com" target="_blank">Community</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Become a Partner</a></li>
+                        <li><a href="#">Careers <span class="badge">Hiring</span></a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 John Doe. All rights reserved.</p>
+        </div>
+        <div class="footer-bottom">
+            <span class="footer-copyright">© 2026 Eazybe, Inc. 8, The Green STE B Dover, Delaware - 19901</span>
+            <ul class="footer-legal">
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Master Subscription Agreement</a></li>
+            </ul>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/eazybe/" target="_blank" aria-label="LinkedIn">in</a>
+                <a href="https://www.youtube.com/@eazybe" target="_blank" aria-label="YouTube">▶</a>
+                <a href="https://www.instagram.com/eazybe.supercharge/" target="_blank" aria-label="Instagram">📷</a>
+                <a href="https://www.facebook.com/groups/439610157786151" target="_blank" aria-label="Facebook">f</a>
             </div>
         </div>
     </footer>
