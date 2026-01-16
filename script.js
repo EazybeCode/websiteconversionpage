@@ -1,180 +1,257 @@
-// Mobile Menu Functions
-        function toggleMobileMenu() {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (!toggle || !navLinks) return;
-            
-            toggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-            
-            // Prevent body scroll when menu is open
-            if (navLinks.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-                document.body.style.position = 'fixed';
-                document.body.style.width = '100%';
-            } else {
-                document.body.style.overflow = '';
-                document.body.style.position = '';
-                document.body.style.width = '';
-            }
+/* ========================================
+   EAZYBE HUBSPOT LANDING PAGE - SCRIPTS
+   ======================================== */
+
+// ========================================
+// CALENDLY EVENT TRACKING
+// ========================================
+window.addEventListener('message', function(e) {
+    if (e.origin === 'https://calendly.com') {
+        if (e.data.event === 'calendly.profile_page_viewed') {
+            trackCalendlyEvent('calendly_viewed');
         }
-
-        function closeMobileMenu() {
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            if (!toggle || !navLinks) return;
-            
-            toggle.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-            document.body.style.position = '';
-            document.body.style.width = '';
+        if (e.data.event === 'calendly.event_type_viewed') {
+            trackCalendlyEvent('calendly_event_type_viewed');
         }
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeMobileMenu();
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const nav = document.querySelector('.nav');
-            const navLinks = document.querySelector('.nav-links');
-            if (navLinks && navLinks.classList.contains('active') && nav && !nav.contains(e.target)) {
-                closeMobileMenu();
-            }
-        });
-        
-        // Close menu when clicking nav links on mobile
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth <= 768) {
-                    closeMobileMenu();
-                }
-            });
-        });
-
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                if (!item) return;
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-
-        // Pricing Toggle
-        const pricingToggle = document.getElementById('pricingToggle');
-        if (pricingToggle) {
-            const toggleLabels = document.querySelectorAll('.toggle-label');
-            const prices = document.querySelectorAll('.price');
-            const billingPeriods = document.querySelectorAll('.billing-period');
-
-            pricingToggle.addEventListener('click', () => {
-                pricingToggle.classList.toggle('active');
-                const isAnnual = pricingToggle.classList.contains('active');
-                
-                toggleLabels.forEach(label => {
-                    if (label.dataset.period === 'annual') {
-                        label.classList.toggle('active', isAnnual);
-                    } else {
-                        label.classList.toggle('active', !isAnnual);
+        if (e.data.event === 'calendly.date_and_time_selected') {
+            trackCalendlyEvent('calendly_time_selected');
+        }
+        if (e.data.event === 'calendly.event_scheduled') {
+            trackCalendlyEvent('calendly_scheduled');
+            // Fire Google Ads conversion
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-CONVERSION_ID/CONVERSION_LABEL',
+                    'event_callback': function() {
+                        console.log('Conversion tracked');
                     }
                 });
+            }
+        }
+    }
+});
 
-                prices.forEach(price => {
-                    const monthly = price.dataset.monthly;
-                    const annual = price.dataset.annual;
-                    price.textContent = isAnnual ? annual : monthly;
-                });
+// ========================================
+// NAVBAR SCROLL EFFECT
+// ========================================
+window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    }
+});
 
-                billingPeriods.forEach(period => {
-                    period.textContent = isAnnual ? 'annually' : 'monthly';
-                });
+// ========================================
+// FAQ ACCORDION
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const item = this.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(function(i) { 
+                i.classList.remove('active'); 
             });
-        }
-
-        // Form submission
-        function handleSubmit(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            if (!btn) return;
             
-            btn.innerHTML = `<svg class="btn-icon" style="animation: spin 1s linear infinite;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg> Processing...`;
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                btn.innerHTML = `<svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Success! Check your email`;
-                btn.style.background = 'linear-gradient(135deg, #11998e 0%, #00BDA5 100%)';
-            }, 1500);
-        }
+            // Toggle the clicked item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+});
 
-        // Smooth scroll with offset for fixed nav
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
+// ========================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    
+    anchorLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
                 
-                const target = document.querySelector(targetId);
-                if (target) {
-                    const navHeight = document.querySelector('.nav')?.offsetHeight || 80;
-                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight || 0;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
                     
                     window.scrollTo({
                         top: targetPosition,
                         behavior: 'smooth'
                     });
                 }
-            });
-        });
-
-        // Intersection Observer for animations with reduced motion check
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        
-        if (!prefersReducedMotion) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-            document.querySelectorAll('.feature-card, .testimonial-card, .stat-card, .faq-item, .problem-card, .pricing-card').forEach((el, i) => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = `opacity 0.6s ease ${Math.min(i * 0.08, 0.5)}s, transform 0.6s ease ${Math.min(i * 0.08, 0.5)}s`;
-                observer.observe(el);
-            });
-        }
-        
-        // Handle window resize for mobile menu
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                if (window.innerWidth > 768) {
-                    closeMobileMenu();
-                }
-            }, 100);
-        });
-        
-        // Nav scroll effect
-        const nav = document.querySelector('.nav');
-        let lastScroll = 0;
-        
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
             }
-            
-            lastScroll = currentScroll;
         });
+    });
+});
+
+// ========================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if IntersectionObserver is supported
+    if ('IntersectionObserver' in window) {
+        const animateOnScroll = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        // Observe elements that should animate
+        const animatedElements = document.querySelectorAll(
+            '.pain-card, .feature-content, .feature-visual, .testimonial-card, .stat-item, .faq-item'
+        );
+        
+        animatedElements.forEach(function(el) {
+            animateOnScroll.observe(el);
+        });
+    }
+});
+
+// ========================================
+// BUTTON CLICK TRACKING
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaButtons = document.querySelectorAll('.btn-primary');
+    
+    ctaButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'cta_click', {
+                    'event_category': 'CTA',
+                    'event_label': this.textContent.trim(),
+                    'value': 1
+                });
+            }
+        });
+    });
+});
+
+// ========================================
+// MARQUEE PAUSE ON FOCUS (Accessibility)
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    const marquees = document.querySelectorAll('.logo-marquee, .testimonial-marquee');
+    
+    marquees.forEach(function(marquee) {
+        // Pause on keyboard focus within marquee
+        marquee.addEventListener('focusin', function() {
+            const content = this.querySelector('.logo-marquee-content, .testimonial-marquee-content');
+            if (content) {
+                content.style.animationPlayState = 'paused';
+            }
+        });
+        
+        marquee.addEventListener('focusout', function() {
+            const content = this.querySelector('.logo-marquee-content, .testimonial-marquee-content');
+            if (content) {
+                content.style.animationPlayState = 'running';
+            }
+        });
+    });
+});
+
+// ========================================
+// TRACK CALENDLY EVENT HELPER
+// ========================================
+function trackCalendlyEvent(eventName) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            'event_category': 'Calendly',
+            'event_label': 'HubSpot Landing Page'
+        });
+    }
+    console.log('Calendly event tracked:', eventName);
+}
+
+// ========================================
+// LAZY LOAD IMAGES (Performance)
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if native lazy loading is supported
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(function(img) {
+            img.src = img.dataset.src || img.src;
+        });
+    } else {
+        // Fallback for browsers that don't support native lazy loading
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+        script.async = true;
+        document.body.appendChild(script);
+    }
+});
+
+// ========================================
+// SCROLL TO TOP (Optional Feature)
+// ========================================
+document.addEventListener('DOMContentLoaded', function() {
+    // Create scroll to top button if needed
+    const scrollTopBtn = document.createElement('button');
+    scrollTopBtn.innerHTML = '↑';
+    scrollTopBtn.className = 'scroll-top-btn';
+    scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+    scrollTopBtn.style.cssText = `
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: var(--gradient-hubspot, linear-gradient(135deg, #FF7A59 0%, #FF5C35 100%));
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.25rem;
+        box-shadow: 0 4px 15px rgba(255,122,89,0.35);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 999;
+    `;
+    document.body.appendChild(scrollTopBtn);
+
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+            scrollTopBtn.style.opacity = '1';
+            scrollTopBtn.style.visibility = 'visible';
+        } else {
+            scrollTopBtn.style.opacity = '0';
+            scrollTopBtn.style.visibility = 'hidden';
+        }
+    });
+
+    // Scroll to top on click
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+
+// ========================================
+// CONSOLE LOG FOR DEVELOPERS
+// ========================================
+console.log('%cEazybe HubSpot Landing Page', 'font-size: 24px; font-weight: bold; color: #FF7A59;');
+console.log('%cPowered by Eazybe - WhatsApp + HubSpot Integration', 'font-size: 14px; color: #516F90;');
