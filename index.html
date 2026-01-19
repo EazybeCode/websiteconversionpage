@@ -2,87 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>HubSpot WhatsApp Integration | Eazybe</title>
     <meta name="description" content="Sync every WhatsApp message to HubSpot contacts, deals, and tickets. Setup in 5 minutes.">
-    <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- LinkedIn Insight Tag -->
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
-      _linkedin_partner_id = "3942177";
-      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script defer>
-      (function(l) {
-        if (!l) {
-          window.lintrk = function(a, b) { window.lintrk.q.push([a, b]); };
-          window.lintrk.q = [];
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        window.addEventListener('load', function() {
+            gtag('event', 'page_view', {
+                'page_title': 'HubSpot WhatsApp Integration Landing Page',
+                'page_location': window.location.href,
+                'page_path': window.location.pathname,
+                'send_to': 'GA_MEASUREMENT_ID'
+            });
+            
+            gtag('event', 'conversion', {
+                'event_category': 'Landing Page',
+                'event_label': 'HubSpot WhatsApp Integration',
+                'value': 1
+            });
+        });
+        
+        function trackCalendlyEvent(eventName) {
+            gtag('event', eventName, {
+                'event_category': 'Calendly',
+                'event_label': 'HubSpot Landing Page'
+            });
         }
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript"; b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);
-      })(window.lintrk);
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none;" alt=""
-           src="https://px.ads.linkedin.com/collect/?pid=3942177&fmt=gif" />
-    </noscript>
-    <!-- Facebook Pixel Code -->
-     <script>
-       if (window.location.pathname !== "/su") {
-        !function (f, b, e, v, n, t, s) {
-          if (f.fbq) return; n = f.fbq = function () {
-            n.callMethod ?
-              n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-          };
-          if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-          n.queue = []; t = b.createElement(e); t.async = !0;
-          t.src = v; s = b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-          'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '577091703261048');
-        fbq('track', 'PageView');
-       }
-    </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5LHG23HEL"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-H5LHG23HEL');
     </script>
     
     <!-- Calendly CSS -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     
-    <!-- Custom Styles -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K4C7HNNN');</script>
-    <!-- End Google Tag Manager -->
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4C7HNNN"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
-            <a href="https://start.eazybe.com/" class="logo"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="logo-img"></a>
-            <a href="https://start.eazybe.com/#" class="btn btn-primary">Start Free Trial <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="#" class="logo"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="logo-img"></a>
+            <a href="#book-demo" class="btn btn-primary">Start Free Trial <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
     </nav>
 
@@ -95,14 +64,16 @@
                     <span class="hero-badge-text">HubSpot Marketplace ⭐ 4.7 • <span class="hero-badge-highlight">30,000+ Users</span></span>
                 </div>
                 
-                <h1>The #1 HubSpot WhatsApp Integration For Sales Teams</h1>
+                <h1>The #1 HubSpot WhatsApp Integration for Sales Teams</h1>
                 
                 <p class="hero-subtitle">Sync every WhatsApp conversation to HubSpot contacts, deals, and tickets. Track response times. Never lose customer history when reps leave.</p>
                 
                 <div class="hero-trust">
-                    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Works with WhatsApp Personal, Business & API</span></div>
-                    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup in 5 minutes</strong> — No coding required</span></div>
-                    <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Free 7-day trial • Cancel anytime</span></div>
+                    <div class="hero-trust-wrapper">
+                        <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Works with WhatsApp Personal, Business & API</span></div>
+                        <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup in 5 minutes</strong> — No coding required</span></div>
+                        <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Free 7-day trial • Cancel anytime</span></div>
+                    </div>
                 </div>
                 
                 <div class="hero-stats">
@@ -127,7 +98,7 @@
                     <p>Pick a time for a quick setup call</p>
                 </div>
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/grow-with-eazybe" style="min-width:320px;height:700px;"></div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/grow-with-eazybe" style="min-width:280px;"></div>
                 <!-- Calendly inline widget end -->
             </div>
         </div>
@@ -140,7 +111,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
                 <span>Trusted Worldwide</span>
             </div>
-            <h2 class="trusted-by-title">Trusted By <span>30,000+</span> Sales Teams</h2>
+            <h2 class="trusted-by-title">Trusted by <span>30,000+</span> Sales Teams</h2>
             <p class="trusted-by-subtitle">From startups to enterprises, teams rely on Eazybe to never miss a WhatsApp conversation</p>
         </div>
         
@@ -208,7 +179,7 @@
         <div class="section-inner">
             <div class="section-header">
                 <span class="section-tag">The Problem</span>
-                <h2 class="section-title">Your HubSpot Is Blind To WhatsApp</h2>
+                <h2 class="section-title">Your HubSpot is Blind to WhatsApp</h2>
                 <p class="section-subtitle">90% of customer conversations happen in chat. Your CRM sees none of it.</p>
             </div>
             <div class="pain-grid">
@@ -227,12 +198,14 @@
                 <span class="section-tag">Conversation Capture</span>
                 <h2>Every WhatsApp Message → HubSpot Contacts, Deals & Tickets</h2>
                 <p class="description">Eazybe captures every WhatsApp message and syncs it to HubSpot automatically, in real-time.</p>
-                <ul class="feature-points">
-                    <li><span class="check-icon">✓</span> <strong>Real-time sync</strong> — Messages appear in seconds</li>
-                    <li><span class="check-icon">✓</span> <strong>Full context</strong> — Attachments, voice notes included</li>
-                    <li><span class="check-icon">✓</span> <strong>Cloud backup</strong> — Never lose data when reps leave</li>
-                    <li><span class="check-icon">✓</span> <strong>Auto-association</strong> — Link to deals and tickets</li>
-                </ul>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Real-time sync</strong> — Messages appear in seconds</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Full context</strong> — Attachments, voice notes included</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Cloud backup</strong> — Never lose data when reps leave</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Auto-association</strong> — Link to deals and tickets</span></li>
+                    </ul>
+                </div>
             </div>
             <div class="feature-visual">
                 <div class="feature-visual-card">
@@ -257,12 +230,14 @@
                 <span class="section-tag">Revenue Inbox</span>
                 <h2>See Unreplied Chats, Hot Deals & Escalations in One View</h2>
                 <p class="description">Revenue Inbox surfaces conversations that need attention—sorted by urgency and deal value.</p>
-                <ul class="feature-points">
-                    <li><span class="check-icon">✓</span> <strong>Unreplied chats</strong> — Never miss a waiting customer</li>
-                    <li><span class="check-icon">✓</span> <strong>Hot deals</strong> — High-value opportunities first</li>
-                    <li><span class="check-icon">✓</span> <strong>Escalations</strong> — Urgent issues flagged</li>
-                    <li><span class="check-icon">✓</span> <strong>Stalled deals</strong> — Clients going cold</li>
-                </ul>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Unreplied chats</strong> — Never miss a waiting customer</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Hot deals</strong> — High-value opportunities first</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Escalations</strong> — Urgent issues flagged</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Stalled deals</strong> — Clients going cold</span></li>
+                    </ul>
+                </div>
             </div>
             <div class="feature-visual">
                 <div class="feature-visual-card">
@@ -290,13 +265,15 @@
                 <span class="section-tag">WhatsApp Chatbots & Workflows</span>
                 <h2>Automate Responses Based on HubSpot Data</h2>
                 <p class="description">Build WhatsApp chatbots that trigger based on HubSpot contact properties, deal stages, or ticket status.</p>
-                <ul class="feature-points">
-                    <li><span class="check-icon">✓</span> <strong>Trigger by deal stage</strong> — Auto-send follow-ups</li>
-                    <li><span class="check-icon">✓</span> <strong>Lead qualification</strong> — Ask budget, timeline automatically</li>
-                    <li><span class="check-icon">✓</span> <strong>Meeting booking</strong> — Chatbot schedules demos</li>
-                    <li><span class="check-icon">✓</span> <strong>Smart handoff</strong> — Route to rep on buying intent</li>
-                    <li><span class="check-icon">✓</span> <strong>24/7 FAQ handling</strong> — No rep needed</li>
-                </ul>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Trigger by deal stage</strong> — Auto-send follow-ups</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Lead qualification</strong> — Ask budget, timeline automatically</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Meeting booking</strong> — Chatbot schedules demos</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Smart handoff</strong> — Route to rep on buying intent</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>24/7 FAQ handling</strong> — No rep needed</span></li>
+                    </ul>
+                </div>
             </div>
             <div class="feature-visual">
                 <div class="feature-visual-card">
@@ -322,14 +299,16 @@
                 <span class="section-tag">HubSpot Contact Properties</span>
                 <h2>WhatsApp Analytics Pushed Directly to HubSpot Contacts</h2>
                 <p class="description">We automatically populate custom properties on every HubSpot contact so you can filter, segment, and build reports on WhatsApp activity.</p>
-                <ul class="feature-points">
-                    <li><span class="check-icon">✓</span> <strong>Last Message Sent</strong> — When your rep last messaged them</li>
-                    <li><span class="check-icon">✓</span> <strong>Last Reply Received</strong> — When they last responded</li>
-                    <li><span class="check-icon">✓</span> <strong>Last Activity</strong> — Most recent WhatsApp interaction</li>
-                    <li><span class="check-icon">✓</span> <strong>Conversation Summary</strong> — AI-generated summary of chat</li>
-                    <li><span class="check-icon">✓</span> <strong>Response Time</strong> — Average reply speed</li>
-                    <li><span class="check-icon">✓</span> <strong>Message Count</strong> — Total messages exchanged</li>
-                </ul>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Last Message Sent</strong> — When your rep last messaged them</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Last Reply Received</strong> — When they last responded</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Last Activity</strong> — Most recent WhatsApp interaction</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Conversation Summary</strong> — AI-generated summary of chat</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Response Time</strong> — Average reply speed</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Message Count</strong> — Total messages exchanged</span></li>
+                    </ul>
+                </div>
             </div>
             <div class="feature-visual">
                 <div class="feature-visual-card">
@@ -529,9 +508,9 @@
         </div>
         
         <div class="trust-badges">
-            <div class="trust-badge hubspot-badge"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="#FF7A59" d="M18.1 11.3V8.2c.5-.3.9-.8.9-1.4v-.1c0-.9-.7-1.7-1.7-1.7h-.1c-.9 0-1.7.7-1.7 1.7v.1c0 .6.3 1.1.8 1.4v3.1c-.8.2-1.5.5-2.1 1L7.5 7.2c0-.1.1-.3.1-.4 0-1-.8-1.8-1.8-1.8S4 5.8 4 6.8s.8 1.8 1.8 1.8c.3 0 .6-.1.8-.2l6.6 4.9c-.4.6-.7 1.4-.7 2.2 0 2.3 1.9 4.2 4.2 4.2s4.2-1.9 4.2-4.2c0-2-1.4-3.6-3.3-4h-.5v-.2z"/></svg> HubSpot Partner</div>
-            <div class="trust-badge"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#00BDA5" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg> SOC 2 Type II</div>
-            <div class="trust-badge"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#516F90" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg> 24/7 Support</div>
+            <div class="trust-badge hubspot-badge">⭐ 4.7 on HubSpot Marketplace</div>
+            <div class="trust-badge">🔒 SOC 2 Type II Certified</div>
+            <div class="trust-badge">🇪🇺 GDPR Compliant</div>
         </div>
     </section>
 
@@ -540,18 +519,18 @@
         <div class="faq-inner">
             <div class="section-header">
                 <div class="faq-header-badge">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm2-1.645A3.502 3.502 0 0 0 12 6.5a3.501 3.501 0 0 0-3.433 2.813l1.962.393A1.5 1.5 0 1 1 12 11.5a1 1 0 0 0-1 1V14h2v-.645z"/></svg>
                     <span>Common Questions</span>
                 </div>
                 <h2 class="section-title">Got <span>Questions?</span></h2>
-                <p class="faq-subtitle">Everything you need to know about Eazybe + HubSpot</p>
+                <p class="faq-subtitle">Everything you need to know about Eazybe's HubSpot integration</p>
             </div>
             <div class="faq-list">
                 <div class="faq-item">
                     <button class="faq-question">
                         <span class="faq-question-text">
                             <span class="faq-question-number">1</span>
-                            Does Eazybe work with WhatsApp Business API?
+                            Does this work with WhatsApp Business API?
                         </span>
                         <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
@@ -627,7 +606,7 @@
     <section class="final-cta">
         <div class="final-cta-inner">
             <div class="final-cta-content">
-                <h2>Stop Losing Deals In WhatsApp</h2>
+                <h2>Stop Losing Deals in WhatsApp</h2>
                 <p>See every conversation, track every response — all inside HubSpot.</p>
                 <p class="trust-line">✓ Free 7-day trial &nbsp;•&nbsp; ✓ Setup in 5 minutes &nbsp;•&nbsp; ✓ Cancel anytime</p>
             </div>
@@ -636,7 +615,7 @@
                     <h3>🚀 Start Free Trial</h3>
                 </div>
                 <!-- Calendly inline widget begin -->
-                <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/grow-with-eazybe" style="min-width:280px;height:550px;"></div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/grow-with-eazybe" style="min-width:280px;"></div>
                 <!-- Calendly inline widget end -->
             </div>
         </div>
@@ -647,14 +626,14 @@
         <div class="footer-inner">
             <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="footer-logo">
             <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
-            <span class="footer-copyright">© 2026 Eazybe</span>
+            <span class="footer-copyright">© 2025 Eazybe</span>
         </div>
     </footer>
 
     <!-- Calendly Script -->
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
     
-    <!-- Custom Script -->
+    <!-- Custom JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
