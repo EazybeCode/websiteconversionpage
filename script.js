@@ -1,10 +1,6 @@
-/* ========================================
-   EAZYBE HUBSPOT LANDING PAGE - SCRIPTS
-   ======================================== */
-
-// ========================================
+// ============================================
 // CALENDLY EVENT TRACKING
-// ========================================
+// ============================================
 window.addEventListener('message', function(e) {
     if (e.origin === 'https://calendly.com') {
         if (e.data.event === 'calendly.profile_page_viewed') {
@@ -31,9 +27,9 @@ window.addEventListener('message', function(e) {
     }
 });
 
-// ========================================
+// ============================================
 // NAVBAR SCROLL EFFECT
-// ========================================
+// ============================================
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     if (navbar) {
@@ -45,9 +41,9 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// ========================================
+// ============================================
 // FAQ ACCORDION
-// ========================================
+// ============================================
 document.addEventListener('DOMContentLoaded', function() {
     const faqQuestions = document.querySelectorAll('.faq-question');
     
@@ -57,11 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const isActive = item.classList.contains('active');
             
             // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(function(i) { 
-                i.classList.remove('active'); 
+            document.querySelectorAll('.faq-item').forEach(function(i) {
+                i.classList.remove('active');
             });
             
-            // Toggle the clicked item
+            // If the clicked item wasn't active, open it
             if (!isActive) {
                 item.classList.add('active');
             }
@@ -69,109 +65,113 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ========================================
+// ============================================
 // SMOOTH SCROLL FOR ANCHOR LINKS
-// ========================================
+// ============================================
 document.addEventListener('DOMContentLoaded', function() {
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     
     anchorLinks.forEach(function(link) {
         link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
+            const href = this.getAttribute('href');
             
-            if (targetId && targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    e.preventDefault();
-                    
-                    const navbarHeight = document.querySelector('.navbar').offsetHeight || 0;
-                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+            // Skip if it's just "#" or empty
+            if (href === '#' || href === '') {
+                return;
             }
-        });
-    });
-});
-
-// ========================================
-// INTERSECTION OBSERVER FOR ANIMATIONS
-// ========================================
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if IntersectionObserver is supported
-    if ('IntersectionObserver' in window) {
-        const animateOnScroll = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Observe elements that should animate
-        const animatedElements = document.querySelectorAll(
-            '.pain-card, .feature-content, .feature-visual, .testimonial-card, .stat-item, .faq-item'
-        );
-        
-        animatedElements.forEach(function(el) {
-            animateOnScroll.observe(el);
-        });
-    }
-});
-
-// ========================================
-// BUTTON CLICK TRACKING
-// ========================================
-document.addEventListener('DOMContentLoaded', function() {
-    const ctaButtons = document.querySelectorAll('.btn-primary');
-    
-    ctaButtons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'cta_click', {
-                    'event_category': 'CTA',
-                    'event_label': this.textContent.trim(),
-                    'value': 1
+            
+            const target = document.querySelector(href);
+            
+            if (target) {
+                e.preventDefault();
+                
+                // Calculate offset for fixed navbar
+                const navbar = document.getElementById('navbar');
+                const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
     });
 });
 
-// ========================================
-// MARQUEE PAUSE ON FOCUS (Accessibility)
-// ========================================
+// ============================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ============================================
 document.addEventListener('DOMContentLoaded', function() {
-    const marquees = document.querySelectorAll('.logo-marquee, .testimonial-marquee');
-    
-    marquees.forEach(function(marquee) {
-        // Pause on keyboard focus within marquee
-        marquee.addEventListener('focusin', function() {
-            const content = this.querySelector('.logo-marquee-content, .testimonial-marquee-content');
-            if (content) {
-                content.style.animationPlayState = 'paused';
-            }
-        });
+    // Check if IntersectionObserver is supported
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
         
-        marquee.addEventListener('focusout', function() {
-            const content = this.querySelector('.logo-marquee-content, .testimonial-marquee-content');
-            if (content) {
-                content.style.animationPlayState = 'running';
-            }
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements that should animate on scroll
+        const animatedElements = document.querySelectorAll('.pain-card, .feature-visual, .testimonial-card, .faq-item');
+        animatedElements.forEach(function(el) {
+            observer.observe(el);
+        });
+    }
+});
+
+// ============================================
+// INBOX TABS FUNCTIONALITY (Demo)
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const inboxTabs = document.querySelectorAll('.inbox-tab');
+    
+    inboxTabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            inboxTabs.forEach(function(t) {
+                t.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
         });
     });
 });
 
-// ========================================
-// TRACK CALENDLY EVENT HELPER
-// ========================================
+// ============================================
+// UTILITY: DEBOUNCE FUNCTION
+// ============================================
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = function() {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// ============================================
+// RESIZE HANDLER FOR RESPONSIVE ADJUSTMENTS
+// ============================================
+window.addEventListener('resize', debounce(function() {
+    // Handle any resize-specific logic here
+    // For example, recalculating element positions
+}, 250));
+
+// ============================================
+// CALENDLY TRACKING HELPER
+// ============================================
 function trackCalendlyEvent(eventName) {
     if (typeof gtag !== 'undefined') {
         gtag('event', eventName, {
@@ -179,79 +179,18 @@ function trackCalendlyEvent(eventName) {
             'event_label': 'HubSpot Landing Page'
         });
     }
-    console.log('Calendly event tracked:', eventName);
+    
+    // Console log for debugging
+    console.log('Calendly Event:', eventName);
 }
 
-// ========================================
-// LAZY LOAD IMAGES (Performance)
-// ========================================
-document.addEventListener('DOMContentLoaded', function() {
-    // Check if native lazy loading is supported
-    if ('loading' in HTMLImageElement.prototype) {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(function(img) {
-            img.src = img.dataset.src || img.src;
-        });
-    } else {
-        // Fallback for browsers that don't support native lazy loading
-        const script = document.createElement('script');
-        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-        script.async = true;
-        document.body.appendChild(script);
+// ============================================
+// PAGE LOAD TRACKING
+// ============================================
+window.addEventListener('load', function() {
+    // Track page load performance
+    if (window.performance) {
+        const loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+        console.log('Page load time:', loadTime, 'ms');
     }
 });
-
-// ========================================
-// SCROLL TO TOP (Optional Feature)
-// ========================================
-document.addEventListener('DOMContentLoaded', function() {
-    // Create scroll to top button if needed
-    const scrollTopBtn = document.createElement('button');
-    scrollTopBtn.innerHTML = '↑';
-    scrollTopBtn.className = 'scroll-top-btn';
-    scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
-    scrollTopBtn.style.cssText = `
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        background: var(--gradient-hubspot, linear-gradient(135deg, #FF7A59 0%, #FF5C35 100%));
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 1.25rem;
-        box-shadow: 0 4px 15px rgba(255,122,89,0.35);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 999;
-    `;
-    document.body.appendChild(scrollTopBtn);
-
-    // Show/hide button based on scroll position
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 500) {
-            scrollTopBtn.style.opacity = '1';
-            scrollTopBtn.style.visibility = 'visible';
-        } else {
-            scrollTopBtn.style.opacity = '0';
-            scrollTopBtn.style.visibility = 'hidden';
-        }
-    });
-
-    // Scroll to top on click
-    scrollTopBtn.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-});
-
-// ========================================
-// CONSOLE LOG FOR DEVELOPERS
-// ========================================
-console.log('%cEazybe HubSpot Landing Page', 'font-size: 24px; font-weight: bold; color: #FF7A59;');
-console.log('%cPowered by Eazybe - WhatsApp + HubSpot Integration', 'font-size: 14px; color: #516F90;');
