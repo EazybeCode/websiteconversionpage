@@ -1,1 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>HubSpot WhatsApp Integration | Eazybe</title>
+    <meta name="description" content="Sync every WhatsApp message to HubSpot contacts, deals, and tickets. Setup in 5 minutes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'GA_MEASUREMENT_ID');
+        
+        window.addEventListener('load', function() {
+            gtag('event', 'page_view', {
+                'page_title': 'HubSpot WhatsApp Integration Landing Page',
+                'page_location': window.location.href,
+                'page_path': window.location.pathname,
+                'send_to': 'GA_MEASUREMENT_ID'
+            });
+            
+            gtag('event', 'conversion', {
+                'event_category': 'Landing Page',
+                'event_label': 'HubSpot WhatsApp Integration',
+                'value': 1
+            });
+        });
+        
+        function trackCalendlyEvent(eventName) {
+            gtag('event', eventName, {
+                'event_category': 'Calendly',
+                'event_label': 'HubSpot Landing Page'
+            });
+        }
+    </script>
+    
+    <!-- Calendly CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="logo"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="logo-img"></a>
+            <a href="#book-demo" class="btn btn-primary">Start Free Trial <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+    </nav>
 
+    <!-- HERO WITH CALENDLY -->
+    <section class="hero" id="book-demo">
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <div class="hubspot-badge-icon"><svg viewBox="0 0 24 24"><path d="M18.1 11.3V8.2c.5-.3.9-.8.9-1.4v-.1c0-.9-.7-1.7-1.7-1.7h-.1c-.9 0-1.7.7-1.7 1.7v.1c0 .6.3 1.1.8 1.4v3.1c-.8.2-1.5.5-2.1 1L7.5 7.2c0-.1.1-.3.1-.4 0-1-.8-1.8-1.8-1.8S4 5.8 4 6.8s.8 1.8 1.8 1.8c.3 0 .6-.1.8-.2l6.6 4.9c-.4.6-.7 1.4-.7 2.2 0 2.3 1.9 4.2 4.2 4.2s4.2-1.9 4.2-4.2c0-2-1.4-3.6-3.3-4h-.5v-.2zm-1.4 6.1c-1.2 0-2.2-1-2.2-2.2s1-2.2 2.2-2.2 2.2 1 2.2 2.2-1 2.2-2.2 2.2z"/></svg></div>
+                    <span class="hero-badge-text">HubSpot Marketplace ⭐ 4.7 • <span class="hero-badge-highlight">30,000+ Users</span></span>
+                </div>
+                
+                <h1>The #1 HubSpot WhatsApp Integration For Sales Teams</h1>
+                
+                <p class="hero-subtitle">Sync every WhatsApp conversation to HubSpot contacts, deals, and tickets. Track response times. Never lose customer history when reps leave.</p>
+                
+                <div class="hero-trust">
+                    <div class="hero-trust-wrapper">
+                        <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Works with WhatsApp Personal, Business & API</span></div>
+                        <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Setup in 5 minutes</strong> — No coding required</span></div>
+                        <div class="hero-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span>Free 7-day trial • Cancel anytime</span></div>
+                    </div>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">30K+</div>
+                        <div class="hero-stat-label">Active Users</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">10M+</div>
+                        <div class="hero-stat-label">Messages Synced</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">40%</div>
+                        <div class="hero-stat-label">Faster Response</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calendly-container">
+                <div class="calendly-header">
+                    <h3>🚀 Start Your Free Trial</h3>
+                    <p>Pick a time for a quick setup call</p>
+                </div>
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/grow-with-eazybe" style="min-width:280px;"></div>
+                <!-- Calendly inline widget end -->
+            </div>
+        </div>
+    </section>
+
+    <!-- LOGO MARQUEE / TRUSTED BY -->
+    <section class="trusted-by">
+        <div class="trusted-by-header">
+            <div class="trusted-by-label">
+                <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+                <span>Trusted Worldwide</span>
+            </div>
+            <h2 class="trusted-by-title">Trusted By <span>30,000+</span> Sales Teams</h2>
+            <p class="trusted-by-subtitle">From startups to enterprises, teams rely on Eazybe to never miss a WhatsApp conversation</p>
+        </div>
+        
+        <!-- Logo Marquee Row 1 -->
+        <div class="logo-marquee">
+            <div class="logo-marquee-track">
+                <div class="logo-marquee-content">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/676859615a3ec360e3bc5d4c_university%20living.svg" alt="University Living" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685bae06432a9005e774af_satrack.svg" alt="Satrack" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a15f02d0e1fc5306a4d_orbidi.svg" alt="Orbidi" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685961ca70cc2713405aac_pw.svg" alt="Physics Wallah" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/6768596177cb968e98f60728_wanderon.svg" alt="WanderOn" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685ab1ca70cc27134152fa_studyin.svg" alt="Studyin" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a3d0a9398961d72d1_kreedo%20logo.svg" alt="Kreedo" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a1f16e978af267356_travclan%20logo.svg" alt="TravClan" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a141898ff58b264ab16_uniacco.svg" alt="Uniacco" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a158e7a74d2a6ce2193_unicreds.svg" alt="Unicreds" class="brand-logo">
+                    <!-- Duplicate for seamless loop -->
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/676859615a3ec360e3bc5d4c_university%20living.svg" alt="University Living" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685bae06432a9005e774af_satrack.svg" alt="Satrack" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a15f02d0e1fc5306a4d_orbidi.svg" alt="Orbidi" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685961ca70cc2713405aac_pw.svg" alt="Physics Wallah" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/6768596177cb968e98f60728_wanderon.svg" alt="WanderOn" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685ab1ca70cc27134152fa_studyin.svg" alt="Studyin" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a3d0a9398961d72d1_kreedo%20logo.svg" alt="Kreedo" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a1f16e978af267356_travclan%20logo.svg" alt="TravClan" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a141898ff58b264ab16_uniacco.svg" alt="Uniacco" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a158e7a74d2a6ce2193_unicreds.svg" alt="Unicreds" class="brand-logo">
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo Marquee Row 2 (Reverse) -->
+        <div class="logo-marquee reverse">
+            <div class="logo-marquee-track">
+                <div class="logo-marquee-content">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d259050172254d374cf358_buyco.svg" alt="Buyco" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a14a54fe3f4af5ae758_wanderson.svg" alt="Wanderson" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a143e538dd32cc89691_br%20marketing.svg" alt="BR Marketing" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a157766b001fd9135d1_pickyour%20trail.svg" alt="PickYourTrail" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a16d52764746d130664_motochile.svg" alt="Motochile" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a15fca5f9ee4d1ca693_alto%20qi.svg" alt="Alto QI" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d2538dfc57d68938d78ed8_habi.webp" alt="Habi" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25392e01ab88e0c9940a3_toku.webp" alt="Toku" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25390bf14e7cc65047a8e_nuvemshop.webp" alt="Nuvemshop" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d2538dcc1a11c6624bb394_belvo.webp" alt="Belvo" class="brand-logo">
+                    <!-- Duplicate for seamless loop -->
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d259050172254d374cf358_buyco.svg" alt="Buyco" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a14a54fe3f4af5ae758_wanderson.svg" alt="Wanderson" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a143e538dd32cc89691_br%20marketing.svg" alt="BR Marketing" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a157766b001fd9135d1_pickyour%20trail.svg" alt="PickYourTrail" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a16d52764746d130664_motochile.svg" alt="Motochile" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a15fca5f9ee4d1ca693_alto%20qi.svg" alt="Alto QI" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d2538dfc57d68938d78ed8_habi.webp" alt="Habi" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25392e01ab88e0c9940a3_toku.webp" alt="Toku" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25390bf14e7cc65047a8e_nuvemshop.webp" alt="Nuvemshop" class="brand-logo">
+                    <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d2538dcc1a11c6624bb394_belvo.webp" alt="Belvo" class="brand-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="pain-points">
+        <div class="section-inner">
+            <div class="section-header">
+                <span class="section-tag">The Problem</span>
+                <h2 class="section-title">Your HubSpot Is Blind To WhatsApp</h2>
+                <p class="section-subtitle">90% of customer conversations happen in chat. Your CRM sees none of it.</p>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card"><div class="pain-icon">👁️‍🗨️</div><h3>Zero Visibility</h3><p>Deals move in WhatsApp. HubSpot shows stale data.</p></div>
+                <div class="pain-card"><div class="pain-icon">🔥</div><h3>Hot Deals Slip Away</h3><p>Lead asks for pricing. No reply for 6 hours. Deal lost.</p></div>
+                <div class="pain-card"><div class="pain-icon">👻</div><h3>Ghosted Clients Hidden</h3><p>Stalled deals buried in chat threads you can't see.</p></div>
+                <div class="pain-card"><div class="pain-icon">🚪</div><h3>Employee Exit = Data Walkout</h3><p>Rep leaves, customer conversations leave too.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE 1 -->
+    <section class="feature-section">
+        <div class="section-inner">
+            <div class="feature-content">
+                <span class="section-tag">Conversation Capture</span>
+                <h2>Every WhatsApp Message → HubSpot Contacts, Deals & Tickets</h2>
+                <p class="description">Eazybe captures every WhatsApp message and syncs it to HubSpot automatically, in real-time.</p>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Real-time sync</strong> — Messages appear in seconds</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Full context</strong> — Attachments, voice notes included</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Cloud backup</strong> — Never lose data when reps leave</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Auto-association</strong> — Link to deals and tickets</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-card">
+                    <div class="visual-header"><span class="visual-dot red"></span><span class="visual-dot yellow"></span><span class="visual-dot green"></span></div>
+                    <div class="visual-content">
+                        <div class="contact-header"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="John Davidson" class="contact-avatar-img"><div class="contact-info"><h4>John Davidson</h4><span>CEO at TechCorp • $45K Deal</span></div></div>
+                        <div class="activity-list">
+                            <div class="activity-item"><div class="activity-icon">💬</div><div class="activity-details"><span class="type">WhatsApp</span><span class="content">"Can we schedule a call?"</span></div><span class="activity-time">2m</span></div>
+                            <div class="activity-item"><div class="activity-icon">📋</div><div class="activity-details"><span class="type">Ticket</span><span class="content">Support #4521 created</span></div><span class="activity-time">15m</span></div>
+                            <div class="activity-item"><div class="activity-icon">💰</div><div class="activity-details"><span class="type">Deal</span><span class="content">→ Contract Sent</span></div><span class="activity-time">1h</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE 2 -->
+    <section class="feature-section">
+        <div class="section-inner">
+            <div class="feature-content">
+                <span class="section-tag">Revenue Inbox</span>
+                <h2>See Unreplied Chats, Hot Deals & Escalations In One View</h2>
+                <p class="description">Revenue Inbox surfaces conversations that need attention—sorted by urgency and deal value.</p>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Unreplied chats</strong> — Never miss a waiting customer</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Hot deals</strong> — High-value opportunities first</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Escalations</strong> — Urgent issues flagged</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Stalled deals</strong> — Clients going cold</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-card">
+                    <div class="inbox-visual">
+                        <div class="inbox-tabs">
+                            <button class="inbox-tab active">Unreplied <span class="count">7</span></button>
+                            <button class="inbox-tab">Hot <span class="count">4</span></button>
+                            <button class="inbox-tab">Escalation <span class="count">2</span></button>
+                        </div>
+                        <div class="inbox-list">
+                            <div class="inbox-item"><span class="inbox-item-icon">🔥</span><div class="inbox-item-content"><div class="inbox-item-header"><span class="inbox-item-name">Sarah Kim</span><span class="inbox-item-amount">$24,500</span></div><div class="inbox-item-detail">Asked for pricing 2h ago</div></div></div>
+                            <div class="inbox-item"><span class="inbox-item-icon">⚠️</span><div class="inbox-item-content"><div class="inbox-item-header"><span class="inbox-item-name">Mike Chen</span><span class="inbox-item-amount">$18,000</span></div><div class="inbox-item-detail">No reply in 5 days</div></div></div>
+                            <div class="inbox-item"><span class="inbox-item-icon">🚨</span><div class="inbox-item-content"><div class="inbox-item-header"><span class="inbox-item-name">Lisa Park</span><span class="inbox-item-amount">$32,000</span></div><div class="inbox-item-detail">Mentioned competitor</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE 3 -->
+    <section class="feature-section">
+        <div class="section-inner">
+            <div class="feature-content">
+                <span class="section-tag">WhatsApp Chatbots & Workflows</span>
+                <h2>Automate Responses Based On HubSpot Data</h2>
+                <p class="description">Build WhatsApp chatbots that trigger based on HubSpot contact properties, deal stages, or ticket status.</p>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Trigger by deal stage</strong> — Auto-send follow-ups</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Lead qualification</strong> — Ask budget, timeline automatically</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Meeting booking</strong> — Chatbot schedules demos</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Smart handoff</strong> — Route to rep on buying intent</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>24/7 FAQ handling</strong> — No rep needed</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-card">
+                    <div class="visual-header"><span class="visual-dot red"></span><span class="visual-dot yellow"></span><span class="visual-dot green"></span></div>
+                    <div class="workflow-visual">
+                        <div class="workflow-step"><div class="workflow-node trigger"><span class="node-icon">⚡</span><div><span class="node-label">Trigger</span><div class="node-detail">New WhatsApp message</div></div></div></div>
+                        <div class="workflow-connector"></div>
+                        <div class="workflow-step"><div class="workflow-node"><span class="node-icon">🤖</span><div><span class="node-label">Chatbot</span><div class="node-detail">"What's your budget?"</div></div></div></div>
+                        <div class="workflow-connector"></div>
+                        <div class="workflow-step"><div class="workflow-node"><span class="node-icon">🔀</span><div><span class="node-label">If Budget > $10K</span><div class="node-detail">Check HubSpot</div></div></div></div>
+                        <div class="workflow-connector"></div>
+                        <div class="workflow-step"><div class="workflow-node"><span class="node-icon">📅</span><div><span class="node-label">Book Meeting</span></div></div><span class="workflow-arrow">→</span><div class="workflow-node"><span class="node-icon">👤</span><div><span class="node-label">Handoff</span></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE 4: HUBSPOT CONTACT PROPERTIES -->
+    <section class="feature-section">
+        <div class="section-inner">
+            <div class="feature-content">
+                <span class="section-tag">HubSpot Contact Properties</span>
+                <h2>WhatsApp Analytics Pushed Directly To HubSpot Contacts</h2>
+                <p class="description">We automatically populate custom properties on every HubSpot contact so you can filter, segment, and build reports on WhatsApp activity.</p>
+                <div class="feature-points-wrapper">
+                    <ul class="feature-points">
+                        <li><span class="check-icon">✓</span><span><strong>Last Message Sent</strong> — When your rep last messaged them</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Last Reply Received</strong> — When they last responded</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Last Activity</strong> — Most recent WhatsApp interaction</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Conversation Summary</strong> — AI-generated summary of chat</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Response Time</strong> — Average reply speed</span></li>
+                        <li><span class="check-icon">✓</span><span><strong>Message Count</strong> — Total messages exchanged</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="feature-visual">
+                <div class="feature-visual-card">
+                    <div class="visual-header"><span class="visual-dot red"></span><span class="visual-dot yellow"></span><span class="visual-dot green"></span></div>
+                    <div class="visual-content">
+                        <div class="contact-header">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face" alt="Sarah Kim" class="contact-avatar-img">
+                            <div class="contact-info"><h4>Sarah Kim</h4><span>TechCorp Inc • Contact</span></div>
+                        </div>
+                        <div class="properties-section">
+                            <div class="properties-title">WhatsApp Properties</div>
+                            <div class="property-row">
+                                <span class="property-label">Last Message Sent</span>
+                                <span class="property-value">Jan 15, 2025 • 2:34 PM</span>
+                            </div>
+                            <div class="property-row">
+                                <span class="property-label">Last Reply Received</span>
+                                <span class="property-value">Jan 15, 2025 • 3:12 PM</span>
+                            </div>
+                            <div class="property-row">
+                                <span class="property-label">Last Activity</span>
+                                <span class="property-value">38 minutes ago</span>
+                            </div>
+                            <div class="property-row">
+                                <span class="property-label">Avg Response Time</span>
+                                <span class="property-value highlight">4m 22s</span>
+                            </div>
+                            <div class="property-row">
+                                <span class="property-label">Total Messages</span>
+                                <span class="property-value">47</span>
+                            </div>
+                            <div class="property-row summary">
+                                <span class="property-label">Conversation Summary</span>
+                                <span class="property-value summary-text">"Interested in enterprise plan. Requested pricing for 50 users. Follow-up scheduled for Thursday."</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item"><div class="stat-value">30,000+</div><div class="stat-label">Active Users</div></div>
+            <div class="stat-item"><div class="stat-value">10M+</div><div class="stat-label">Messages Synced</div></div>
+            <div class="stat-item"><div class="stat-value">40%</div><div class="stat-label">Faster Response</div></div>
+            <div class="stat-item"><div class="stat-value">5 min</div><div class="stat-label">Setup Time</div></div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-inner">
+            <div class="section-header">
+                <div class="testimonials-header-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <span>Customer Success Stories</span>
+                </div>
+                <h2 class="section-title">Why HubSpot Teams <span>Trust Eazybe</span></h2>
+                <p class="testimonials-subtitle">Join thousands of sales teams who transformed their WhatsApp workflow</p>
+            </div>
+        </div>
+        
+        <!-- Testimonial Marquee Row 1 -->
+        <div class="testimonial-marquee">
+            <div class="testimonial-marquee-track">
+                <div class="testimonial-marquee-content">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"We went from zero visibility into WhatsApp to seeing every unreplied chat in one dashboard. Response times dropped 40% in the first month."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Michael Roberts" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">Michael Roberts</span>
+                                <span class="role">VP Sales</span>
+                            </div>
+                            <span class="testimonial-company">Financial Services</span>
+                        </div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"Setup took 5 minutes. Now every WhatsApp conversation shows up in our deal timeline. No more guessing what happened with a lead."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Sarah Chen" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">Sarah Chen</span>
+                                <span class="role">Sales Manager</span>
+                            </div>
+                            <span class="testimonial-company">Real Estate</span>
+                        </div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"Finally, our managers can see which reps are responding fast and which deals need attention. Game changer for our sales ops."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="David Kim" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">David Kim</span>
+                                <span class="role">Sales Ops Lead</span>
+                            </div>
+                            <span class="testimonial-company">SaaS</span>
+                        </div>
+                    </div>
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"When a rep left, we used to lose all their WhatsApp history. Now it's all in HubSpot. Best investment we made this year."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face" alt="Emily Watson" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">Emily Watson</span>
+                                <span class="role">COO</span>
+                            </div>
+                            <span class="testimonial-company">Travel Agency</span>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"We went from zero visibility into WhatsApp to seeing every unreplied chat in one dashboard. Response times dropped 40% in the first month."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop&crop=face" alt="Michael Roberts" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">Michael Roberts</span>
+                                <span class="role">VP Sales</span>
+                            </div>
+                            <span class="testimonial-company">Financial Services</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"Setup took 5 minutes. Now every WhatsApp conversation shows up in our deal timeline. No more guessing what happened with a lead."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Sarah Chen" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">Sarah Chen</span>
+                                <span class="role">Sales Manager</span>
+                            </div>
+                            <span class="testimonial-company">Real Estate</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"Finally, our managers can see which reps are responding fast and which deals need attention. Game changer for our sales ops."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="David Kim" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">David Kim</span>
+                                <span class="role">Sales Ops Lead</span>
+                            </div>
+                            <span class="testimonial-company">SaaS</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <div class="testimonial-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+                            <span class="testimonial-rating-text">5.0</span>
+                        </div>
+                        <p class="testimonial-text">"When a rep left, we used to lose all their WhatsApp history. Now it's all in HubSpot. Best investment we made this year."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face" alt="Emily Watson" class="testimonial-avatar-img">
+                            <div class="testimonial-info">
+                                <span class="name">Emily Watson</span>
+                                <span class="role">COO</span>
+                            </div>
+                            <span class="testimonial-company">Travel Agency</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="trust-badges">
+            <div class="trust-badge hubspot-badge">⭐ 4.7 on HubSpot Marketplace</div>
+            <div class="trust-badge">🔒 SOC 2 Type II Certified</div>
+            <div class="trust-badge">🇪🇺 GDPR Compliant</div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="faq-inner">
+            <div class="section-header">
+                <div class="faq-header-badge">
+                    <svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm-1-7v2h2v-2h-2zm2-1.645A3.502 3.502 0 0 0 12 6.5a3.501 3.501 0 0 0-3.433 2.813l1.962.393A1.5 1.5 0 1 1 12 11.5a1 1 0 0 0-1 1V14h2v-.645z"/></svg>
+                    <span>Common Questions</span>
+                </div>
+                <h2 class="section-title">Got <span>Questions?</span></h2>
+                <p class="faq-subtitle">Everything you need to know about Eazybe's HubSpot integration</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="faq-question-number">1</span>
+                            Does this work with WhatsApp Business API?
+                        </span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">Yes! Eazybe works with all three: WhatsApp Personal (via Chrome extension), WhatsApp Business App, and WhatsApp Business API. Most teams use a combination depending on their needs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="faq-question-number">2</span>
+                            How long does setup take?
+                        </span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">About 5 minutes. Install the Chrome extension, connect HubSpot with one click, and you're syncing. No IT department or technical expertise needed.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="faq-question-number">3</span>
+                            What happens when a rep leaves the company?
+                        </span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">All synced conversations stay in HubSpot permanently. No lost context, no handoff gaps. Your customer history is always preserved in your CRM.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="faq-question-number">4</span>
+                            Is my data secure?
+                        </span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">Absolutely. We're SOC 2 Type II certified and GDPR compliant. Trusted by financial services, healthcare, insurance, and other regulated industries.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="faq-question-number">5</span>
+                            Can I try Eazybe before committing?
+                        </span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">Yes! We offer a free 7-day trial with full access to all features. No credit card required. Cancel anytime if it's not the right fit.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span class="faq-question-text">
+                            <span class="faq-question-number">6</span>
+                            Does Eazybe work with HubSpot Free?
+                        </span>
+                        <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></span>
+                    </button>
+                    <div class="faq-answer">
+                        <p class="faq-answer-content">Yes, Eazybe works with all HubSpot plans including Free, Starter, Professional, and Enterprise. Some advanced features may require higher HubSpot tiers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA WITH CALENDLY -->
+    <section class="final-cta">
+        <div class="final-cta-inner">
+            <div class="final-cta-content">
+                <h2>Stop Losing Deals In WhatsApp</h2>
+                <p>See every conversation, track every response — all inside HubSpot.</p>
+                <p class="trust-line">✓ Free 7-day trial &nbsp;•&nbsp; ✓ Setup in 5 minutes &nbsp;•&nbsp; ✓ Cancel anytime</p>
+            </div>
+            <div class="final-calendly">
+                <div class="final-calendly-header">
+                    <h3>🚀 Start Free Trial</h3>
+                </div>
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/grow-with-eazybe" style="min-width:280px;"></div>
+                <!-- Calendly inline widget end -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="footer-logo">
+            <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+            <span class="footer-copyright">© 2026 Eazybe</span>
+        </div>
+    </footer>
+
+    <!-- Calendly Script -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
