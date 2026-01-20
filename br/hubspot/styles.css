@@ -1,3 +1,8 @@
+/* ===================================================
+   EAZYBE - HubSpot WhatsApp Integration Landing Page
+   styles.css - Complete Stylesheet
+   =================================================== */
+
 /* ===== RESET & BASE (MOBILE FIRST) ===== */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -245,6 +250,32 @@ nav.scrolled {
     border-radius: 0 0 20px 20px;
     overflow: hidden;
     background: #fff;
+    min-height: 580px;
+    height: auto;
+    position: relative;
+}
+.cta-box .calendly-inline-widget::before {
+    content: '📅 Carregando calendário...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #888;
+    font-size: 14px;
+    z-index: 0;
+    text-align: center;
+}
+.cta-box .calendly-inline-widget iframe {
+    border-radius: 0 0 20px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Final CTA specific styling */
+.final-cta .cta-box > p {
+    color: #aaa;
+    font-size: 12px;
+    margin-bottom: 12px;
 }
 
 /* ===== SECTION COMMON ===== */
@@ -775,7 +806,11 @@ footer .footer-logo:hover { opacity: 1; }
     .cta-box { padding: 28px 24px 20px; border-radius: 24px; }
     .cta-box h3 { font-size: 19px; }
     .cta-box > p { font-size: 14px; }
-    .cta-box .calendly-inline-widget { margin: 0 -24px -20px; border-radius: 0 0 24px 24px; }
+    .cta-box .calendly-inline-widget { 
+        margin: 0 -24px -20px; 
+        border-radius: 0 0 24px 24px;
+        min-height: 620px;
+    }
 
     .section-label { font-size: 11px; letter-spacing: 1.3px; }
     .section-title { font-size: 28px; }
@@ -856,7 +891,10 @@ footer .footer-logo:hover { opacity: 1; }
     .cta-box { padding: 32px 28px 22px; }
     .cta-box h3 { font-size: 21px; }
     .cta-box > p { font-size: 14px; }
-    .cta-box .calendly-inline-widget { margin: 0 -28px -22px; }
+    .cta-box .calendly-inline-widget { 
+        margin: 0 -28px -22px;
+        min-height: 650px;
+    }
 
     .section-label { font-size: 12px; letter-spacing: 1.5px; }
     .section-title { font-size: 36px; }
@@ -962,7 +1000,10 @@ footer .footer-logo:hover { opacity: 1; }
     .cta-box { padding: 36px 32px 26px; }
     .cta-box h3 { font-size: 23px; }
     .cta-box > p { font-size: 15px; }
-    .cta-box .calendly-inline-widget { margin: 0 -32px -26px; }
+    .cta-box .calendly-inline-widget { 
+        margin: 0 -32px -26px;
+        min-height: 680px;
+    }
 
     .section-title { font-size: 40px; }
     .section-subtitle { font-size: 18px; }
