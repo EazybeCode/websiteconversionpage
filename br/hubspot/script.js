@@ -1,3 +1,8 @@
+/* ===================================================
+   EAZYBE - HubSpot WhatsApp Integration Landing Page
+   script.js - Complete JavaScript
+   =================================================== */
+
 // Navbar scroll with smooth transition
 const navbar = document.getElementById('navbar');
 let lastScroll = 0;
