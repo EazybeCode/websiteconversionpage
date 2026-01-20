@@ -1,8 +1,0 @@
-{
-  "name": "Eazybe - Integración WhatsApp CRM",
-  "description": "Página de conversión de alto rendimiento para la integración de WhatsApp con HubSpot, Salesforce y Zoho CRM en español.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
-}
