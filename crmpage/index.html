@@ -1,195 +1,177 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eazybe | WhatsApp CRM #1 en LatAm para HubSpot, Zoho y Salesforce</title>
-    <meta name="description" content="Escala tus ingresos con la integración WhatsApp CRM #1. Sincroniza chats automáticamente con HubSpot, Salesforce y Zoho. Setup en 5 minutos.">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Eazybe - The #1 WhatsApp CRM Integration For Sales Teams</title>
+    <meta name="description" content="Sync every WhatsApp conversation to your CRM automatically. Works with HubSpot, Salesforce, Zoho. Setup in 5 minutes. Try free for 7 days.">
+    
+    <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Facebook Pixel Code -->
-    <script defer>if (window.location.pathname !== "/su") {
-    !function (f, b, e, v, n, t, s) {
-      if (f.fbq) return; n = f.fbq = function () {
-        n.callMethod ?
-          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      };
-      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-      n.queue = []; t = b.createElement(e); t.async = !0;
-      t.src = v; s = b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '577091703261048');
-    fbq('track', 'PageView');
-    }</script>
-    <!-- End Facebook Pixel Code -->
-    <!-- LinkedIn Insight Tag -->
-    <script>
-      _linkedin_partner_id = "3942177";
-      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
-      window._linkedin_data_partner_ids.push(_linkedin_partner_id);
-    </script>
-    <script defer>
-      (function(l) {
-        if (!l) {
-          window.lintrk = function(a, b) { window.lintrk.q.push([a, b]); };
-          window.lintrk.q = [];
-        }
-        var s = document.getElementsByTagName("script")[0];
-        var b = document.createElement("script");
-        b.type = "text/javascript"; b.async = true;
-        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
-        s.parentNode.insertBefore(b, s);
-      })(window.lintrk);
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none;" alt=""
-        src="https://px.ads.linkedin.com/collect/?pid=3942177&fmt=gif" />
-    </noscript>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H5LHG23HEL"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-H5LHG23HEL');
-    </script>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-K4C7HNNN');</script>
-    <!-- End Google Tag Manager -->
+    <link rel="dns-prefetch" href="https://cdn-icons-png.flaticon.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" as="image" type="image/svg+xml">
+    
+    <!-- Google Fonts with display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- External Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K4C7HNNN"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <!-- Navbar -->
-    <nav class="navbar" id="navbar">
-        <div class="navbar-container">
-            <a href="/" class="logo">
-                <svg width="121" height="34" viewBox="0 0 242 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.5029 55.0781H30.1826C31.8313 55.0781 33.3702 54.5022 34.5205 53.4697L47.375 41.9365C48.9994 40.4801 49.0867 38.1401 47.5303 36.5977L47.375 36.4512C46.8077 35.942 46.1091 35.586 45.3408 35.4102L44.7939 35.2852L44.9395 34.7432C45.2779 33.486 44.9068 32.0919 43.79 31.0898C43.2128 30.5718 42.5089 30.2255 41.7578 30.0537L41.21 29.9287L41.3564 29.3857C41.656 28.2739 41.4196 26.9647 40.416 25.9326L40.2051 25.7295C39.8072 25.3721 39.3483 25.097 38.8545 24.9033L38.0381 24.583L38.6904 23.9971L43.791 19.4219V19.4229C45.4869 17.8992 45.4885 15.4605 43.79 13.9365C42.059 12.3838 39.2352 12.381 37.502 13.9365L23.918 26.124L23.126 26.835L23.0195 25.7764C22.942 25.0045 22.6452 24.2532 22.1279 23.5879C21.3446 22.5808 20.1667 21.8971 18.7988 21.6787C17.4304 21.4601 16.0512 21.7354 14.9141 22.4473V22.4482C13.7775 23.1596 13.0383 24.2067 12.8037 25.3887V25.3896L9.98145 39.4551L9.9502 39.6084L9.8418 39.7217L9.24707 40.3447L9.23242 40.3604L9.2168 40.374L4.61035 44.5078C4.23355 44.8462 4.23353 45.367 4.61035 45.7051L14.749 54.8018H14.75C14.9407 54.9732 15.2108 55.078 15.5029 55.0781ZM15.7959 53.1904L13.6953 51.3047L7.23535 45.5088L6.78906 45.1084L7.2334 44.7061L11.3682 40.9609C11.3766 40.8477 11.3904 40.7332 11.4131 40.6182V40.6162L14.4258 25.6055C14.5855 24.802 15.0649 24.1087 15.7578 23.6289L15.8984 23.5361C16.6182 23.0853 17.4734 22.8971 18.3223 22.9941L18.4922 23.0176C19.3963 23.1624 20.202 23.6209 20.748 24.3232L20.7471 24.3242C21.2949 25.0287 21.515 25.8939 21.3447 26.7529V26.7549L20.9688 28.627L19.9785 33.5625L19.5742 35.5742H21.2393L22.3047 30.2676L22.3398 30.0918L22.4736 29.9717L39.0107 15.1338C39.9436 14.297 41.3955 14.3406 42.2803 15.1348C43.2235 15.9806 43.2237 17.3782 42.2812 18.2246V18.2256L29.1377 30.0186C27.4444 31.5378 27.4433 33.9853 29.1367 35.5049C29.9559 36.2392 31.03 36.6289 32.1279 36.6631L32.6318 36.6787L32.6514 37.1826C32.6872 38.1207 33.1013 39.0602 33.917 39.793L33.916 39.7939C34.7347 40.5278 35.8081 40.917 36.9053 40.9512L37.4102 40.9668L37.4287 41.4717C37.465 42.4466 37.9026 43.3688 38.6953 44.0801H38.6963C39.0893 44.4331 39.5462 44.712 40.0469 44.9092L40.8613 45.2295L40.21 45.8145L33.0117 52.2725C32.2571 52.9497 31.2264 53.3281 30.1826 53.3281H15.9502L15.7959 53.1904ZM33.917 34.3066C33.0087 35.1216 31.5544 35.1204 30.6465 34.3066C29.7046 33.4614 29.7043 32.0608 30.6465 31.2158L35.4258 26.9268C36.278 26.1623 37.6097 26.1158 38.5205 26.7842L38.6963 26.9268C39.5821 27.7207 39.6357 28.9995 38.8623 29.8535L38.6963 30.0186L33.917 34.3066ZM38.6953 38.5957C37.7835 39.4132 36.3326 39.4095 35.4258 38.5957C34.5431 37.803 34.4879 36.5222 35.2607 35.6689L35.4258 35.5039L39.0107 32.2871V32.2861C39.9212 31.4704 41.3721 31.4728 42.2803 32.2871H42.2812C43.2231 33.1325 43.2229 34.5333 42.2812 35.3789L38.6963 38.5957H38.6953ZM43.4746 42.8838C42.6335 43.6387 41.3029 43.7032 40.3828 43.0273L40.2051 42.8828C39.254 42.0298 39.2713 40.6305 40.2061 39.792L42.5947 37.6484C43.5113 36.8261 44.9619 36.8398 45.8643 37.6484L45.8652 37.6475C46.8237 38.5056 46.7936 39.907 45.8662 40.7383L45.8477 40.7549H45.8486L43.4746 42.8838Z" fill="#0D1113" stroke="#0D1113" stroke-width="1.08106"/>
-                    <path d="M28.5205 7.38672C28.6232 7.39415 28.7584 7.41258 28.9268 7.44434C28.9328 7.44831 28.9436 7.45461 28.957 7.4668C29 7.50588 29.0545 7.57477 29.1016 7.6709C29.1483 7.76653 29.1757 7.86521 29.1836 7.94824C29.1855 7.96822 29.1837 7.98576 29.1836 8.00098C29.1356 8.05544 29.074 8.12611 28.9951 8.21094C28.7753 8.44717 28.4628 8.77007 28.082 9.15527C27.3221 9.92411 26.3114 10.9193 25.2773 11.9219C24.2436 12.9242 23.1908 13.9296 22.3447 14.7178C21.9212 15.1123 21.5534 15.4495 21.2676 15.7031C21.1247 15.8299 21.0062 15.9319 20.9141 16.0088C20.8682 16.047 20.8314 16.0771 20.8037 16.0986C20.7742 16.1216 20.7636 16.1287 20.7676 16.126C20.5321 16.2828 20.2463 16.2575 20.0166 16.0693C19.9051 15.978 19.8475 15.8749 19.8271 15.7959C19.8109 15.7325 19.8084 15.6533 19.8701 15.54C19.8907 15.5024 19.9045 15.4384 20.5234 14.8213C21.1299 14.2166 22.2343 13.1584 24.3359 11.1494C25.0377 10.4785 25.7407 9.8049 26.3066 9.26074L27.457 8.14844C27.7417 7.86733 27.9913 7.6567 28.1865 7.51855C28.283 7.45029 28.3535 7.40699 28.3994 7.38379C28.4231 7.38325 28.4625 7.38253 28.5205 7.38672ZM1.89062 7.41699C1.92017 7.42234 1.93885 7.42758 1.94824 7.43066C1.96394 7.44286 1.98701 7.46379 2.02148 7.49219C2.10533 7.56128 2.21756 7.65888 2.35742 7.7832C2.63621 8.03101 3.00246 8.3683 3.42871 8.76855C4.27996 9.56789 5.353 10.6017 6.40918 11.6367C7.46546 12.6718 8.49994 13.7033 9.27539 14.498C9.66411 14.8964 9.98201 15.229 10.2031 15.4707C10.2777 15.5522 10.3362 15.6201 10.3818 15.6729C10.4014 15.8213 10.3744 15.9074 10.3535 15.9502C10.3228 16.0131 10.2588 16.0834 10.1357 16.1328C9.88934 16.2317 9.4009 16.2247 8.93457 15.749L8.93359 15.748C8.79723 15.6092 7.00034 13.8801 4.95996 11.9238C2.79606 9.84888 1.7918 8.88819 1.3125 8.34473C1.17127 8.18458 1.10779 8.09557 1.08203 8.05566C1.08154 8.03074 1.08105 7.99019 1.08105 7.92871C1.08107 7.81558 1.08891 7.75108 1.0957 7.71582C1.09879 7.69988 1.10132 7.6911 1.10254 7.6875C1.10297 7.68624 1.10331 7.68508 1.10352 7.68457L1.10449 7.68359C1.10463 7.68335 1.10481 7.68267 1.10547 7.68164C1.10627 7.68039 1.10793 7.67805 1.11035 7.6748C1.11517 7.66837 1.12414 7.65657 1.14062 7.63965C1.17579 7.60359 1.23644 7.55014 1.3418 7.47363C1.33002 7.48216 1.35075 7.46576 1.41895 7.44531C1.48352 7.42597 1.56648 7.41054 1.65723 7.40527C1.74811 7.40002 1.82932 7.40591 1.89062 7.41699ZM14.833 1.1416C15.0595 1.03406 15.361 1.06304 15.6045 1.28516C15.6285 1.30711 15.6477 1.32557 15.6631 1.33984C15.6736 1.39538 15.6909 1.50187 15.7051 1.6875C15.7626 2.44058 15.7598 3.91861 15.7598 7.12207V12.6777L15.6602 12.8662C15.596 12.9876 15.4326 13.116 15.1699 13.1377C14.9077 13.1593 14.7185 13.06 14.6289 12.9443C14.5647 12.8614 14.5731 12.8657 14.5693 12.8535C14.5507 12.7938 14.517 12.6385 14.4912 12.2354C14.4396 11.4296 14.4355 9.96701 14.4355 7.04785C14.4355 3.73627 14.435 2.25558 14.5449 1.51074C14.5641 1.381 14.5835 1.30204 14.5967 1.25781C14.635 1.23818 14.7065 1.20169 14.833 1.1416Z" fill="#5856E8" stroke="#5856E8" stroke-width="2.16213"/>
-                    <path d="M73.6596 24.2289V31.7174H85.0053V38.6786H73.6596V46.8H86.4916V54.0249H65.1875V17.004H86.4916V24.2289H73.6596Z" fill="#0D1113"/>
-                    <path d="M90.3073 39.2587C90.3073 36.2352 90.8358 33.5808 91.8927 31.2955C92.9827 29.0103 94.4525 27.2524 96.3022 26.0219C98.1518 24.7914 100.216 24.1761 102.495 24.1761C104.444 24.1761 106.145 24.598 107.598 25.4418C109.085 26.2856 110.224 27.393 111.017 28.7642V24.598H119.489V54.0249H111.017V49.8587C110.191 51.2298 109.035 52.3373 107.549 53.1811C106.095 54.0249 104.394 54.4468 102.446 54.4468C100.2 54.4468 98.1518 53.8315 96.3022 52.601C94.4525 51.3353 92.9827 49.5599 91.8927 47.2746C90.8358 44.9542 90.3073 42.2823 90.3073 39.2587ZM111.017 39.3114C111.017 37.0614 110.422 35.2859 109.233 33.9851C108.077 32.6842 106.657 32.0338 104.972 32.0338C103.288 32.0338 101.851 32.6842 100.662 33.9851C99.506 35.2507 98.928 37.0086 98.928 39.2587C98.928 41.5088 99.506 43.3018 100.662 44.6378C101.851 45.9386 103.288 46.5891 104.972 46.5891C106.657 46.5891 108.077 45.9386 109.233 44.6378C110.422 43.337 111.017 41.5615 111.017 39.3114Z" fill="#0D1113"/>
-                    <path d="M133.545 46.5891H145.535V54.0249H124.082V46.8527L135.577 32.0338H124.181V24.598H145.287V31.7701L133.545 46.5891Z" fill="#0D1113"/>
-                    <path d="M178.437 24.598L161.097 68H151.98L158.322 53.0229L147.076 24.598H156.539L162.93 43.003L169.271 24.598H178.437Z" fill="#0D1113"/>
-                    <path d="M189.973 28.7642C190.766 27.393 191.905 26.2856 193.391 25.4418C194.878 24.598 196.579 24.1761 198.495 24.1761C200.774 24.1761 202.838 24.7914 204.688 26.0219C206.537 27.2524 207.991 29.0103 209.047 31.2955C210.137 33.5808 210.682 36.2352 210.682 39.2587C210.682 42.2823 210.137 44.9542 209.047 47.2746C207.991 49.5599 206.537 51.3353 204.688 52.601C202.838 53.8315 200.774 54.4468 198.495 54.4468C196.546 54.4468 194.845 54.0425 193.391 53.2338C191.938 52.39 190.799 51.2826 189.973 49.9114V54.0249H181.501V15H189.973V28.7642ZM202.062 39.2587C202.062 37.0086 201.467 35.2507 200.278 33.9851C199.122 32.6842 197.685 32.0338 195.968 32.0338C194.283 32.0338 192.846 32.6842 191.657 33.9851C190.501 35.2859 189.923 37.0614 189.923 39.3114C189.923 41.5615 190.501 43.337 191.657 44.6378C192.846 45.9386 194.283 46.5891 195.968 46.5891C197.652 46.5891 199.089 45.9386 200.278 44.6378C201.467 43.3018 202.062 41.5088 202.062 39.2587Z" fill="#0D1113"/>
-                    <path d="M241.187 38.8368C241.187 39.6806 241.138 40.5595 241.039 41.4736H221.865C221.997 43.3018 222.542 44.7081 223.5 45.6925C224.491 46.6418 225.697 47.1164 227.117 47.1164C229.231 47.1164 230.701 46.1672 231.526 44.2687H240.543C240.081 46.2023 239.239 47.9426 238.017 49.4896C236.828 51.0365 235.325 52.2494 233.508 53.1284C231.691 54.0073 229.66 54.4468 227.414 54.4468C224.706 54.4468 222.295 53.8315 220.181 52.601C218.067 51.3705 216.415 49.6126 215.226 47.3274C214.037 45.0421 213.443 42.3701 213.443 39.3114C213.443 36.2527 214.021 33.5808 215.177 31.2955C216.366 29.0103 218.017 27.2524 220.131 26.0219C222.245 24.7914 224.673 24.1761 227.414 24.1761C230.09 24.1761 232.468 24.7738 234.549 25.9692C236.629 27.1645 238.248 28.8697 239.404 31.0846C240.593 33.2995 241.187 35.8836 241.187 38.8368ZM232.517 36.4637C232.517 34.9167 232.022 33.6862 231.031 32.7721C230.04 31.858 228.801 31.401 227.315 31.401C225.895 31.401 224.689 31.8405 223.698 32.7194C222.74 33.5983 222.146 34.8464 221.915 36.4637H232.517Z" fill="#0D1113"/>
-                </svg>
-            </a>
-            <a href="https://eazybe.info/e4a626" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-nav">
-                Iniciar Prueba Gratuita
-                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
+    <!-- Urgency Bar -->
+    <div class="urgency-bar">
+        <span>🔥 <strong>January Special:</strong> Extended 14-day trial + Onboarding call</span>
+        <span id="countdown" style="font-weight: 700; margin-left: 0.5rem;">Ends in 11d 5h 23m</span>
+    </div>
+
+    <!-- Sticky Header -->
+    <div id="stickyBar" class="sticky-header sticky-bar">
+        <div class="container sticky-header-content">
+            <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="sticky-header-logo">
+            <div class="sticky-header-rating">
+                <span style="color: var(--yellow-500);">★★★★★</span>
+                <span>4.7 • 30,000+ Users</span>
+            </div>
+            <div class="sticky-header-cta">
+                <span class="sticky-header-setup">Setup in 5 min</span>
+                <button onclick="scrollToForm()" class="cta-button sticky-header-btn">
+                    Start Free Trial
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="nav-logo">
+            <div class="nav-stats">
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                    <span class="live-indicator"></span>
+                    <span><strong style="color: var(--gray-900);">847</strong> people viewing</span>
+                </div>
+                <span style="color: var(--gray-300);">|</span>
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                    <span>🎯</span>
+                    <span><strong style="color: var(--gray-900);">23</strong> started trial today</span>
+                </div>
+            </div>
+            <a href="#trial" class="cta-button nav-cta">
+                Start Free Trial
             </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg-blur"></div>
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Escala tus Ingresos con la Integración 
-                    <span class="text-gradient">WhatsApp CRM</span> #1
-                </h1>
-                <p class="hero-subtitle">
-                    Recupera la visibilidad total de tu pipeline, elimina el trabajo manual de tu equipo y cierra negocios un 40% más rápido con control absoluto.
-                </p>
-
-                <div class="hero-cta-wrapper">
-                    <a href="https://eazybe.info/e4a626" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-                        Iniciar Prueba Gratuita
-                        <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                        </svg>
-                    </a>
-
-                    <div class="hero-logos">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" alt="HubSpot" class="crm-logo">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg" alt="Salesforce" class="crm-logo crm-logo-lg">
-                        <div class="zoho-logo">
-                            <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="zoho-icon">
-                                <path d="M346.5 153.5C310.5 117.5 252 117.5 216 153.5L144 225.5C108 261.5 108 320 144 356C180 392 238.5 392 274.5 356L288 342.5M165.5 153.5C201.5 117.5 260 117.5 296 153.5L368 225.5C404 261.5 404 320 368 356C332 392 273.5 392 237.5 356L224 342.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M224 225.5L288 289.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                            <div class="zoho-text">
-                                <span class="zoho-label">Zoho</span>
-                                <span class="zoho-crm">CRM</span>
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-bg-blob"></div>
+        
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left: Value Proposition -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span style="color: var(--yellow-500);">⭐</span>
+                        <span>Marketplace Rating 4.7 • 30,000+ Users</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        The #1 <span class="whatsapp-green">WhatsApp</span> <span class="gradient-text">CRM Integration</span> For Sales Teams
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Sync every conversation to CRM contacts, deals, and tickets. Track response times. Never lose customer history when reps leave.
+                    </p>
+                    
+                    <!-- Works With Section -->
+                    <div class="works-with">
+                        <p class="works-with-label">Works seamlessly with:</p>
+                        <div class="works-with-logos">
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                                <span>HubSpot</span>
+                            </div>
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                                <span>Salesforce</span>
+                            </div>
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho CRM">
+                                <span>Zoho</span>
+                            </div>
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                                <span>Webhooks</span>
                             </div>
                         </div>
                     </div>
-
-                    <div class="hero-social-proof">
-                        <div class="avatar-stack">
-                            <img src="https://i.pravatar.cc/100?img=49" alt="Manager" class="avatar">
-                            <img src="https://i.pravatar.cc/100?img=50" alt="Manager" class="avatar">
-                            <img src="https://i.pravatar.cc/100?img=51" alt="Manager" class="avatar">
+                    
+                    <!-- Key Benefits -->
+                    <div class="key-benefits">
+                        <div class="key-benefit">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Setup in 5 minutes</strong> — No coding required</span>
                         </div>
-                        <p class="social-proof-text">
-                            <strong>30,000+</strong> líderes en LatAm confían en Eazybe
-                        </p>
+                        <div class="key-benefit">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Free 7-day trial</strong> — Cancel anytime</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">30K+</div>
+                            <div class="hero-stat-label">Active Users</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">10M+</div>
+                            <div class="hero-stat-label">Messages Synced</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">40%</div>
+                            <div class="hero-stat-label">Faster Response</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">5 min</div>
+                            <div class="hero-stat-label">Setup Time</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Hero Mockup -->
-            <div class="hero-mockup">
-                <div class="mockup-window">
-                    <div class="mockup-header">
-                        <div class="mockup-dots">
-                            <span class="dot dot-red"></span>
-                            <span class="dot dot-yellow"></span>
-                            <span class="dot dot-green"></span>
-                        </div>
-                        <div class="mockup-badge">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon-sm">
-                            <span>CRM Sincronizado</span>
-                        </div>
-                    </div>
-                    <div class="mockup-body">
-                        <div class="chat-bubble chat-incoming">
-                            "¡Me encanta la propuesta! Estamos listos para avanzar ahora."
-                        </div>
-                        <div class="chat-bubble chat-outgoing">
-                            <div class="chat-crm-badge">
-                                <div class="zoho-logo zoho-logo-sm">
-                                    <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="zoho-icon">
-                                        <path d="M346.5 153.5C310.5 117.5 252 117.5 216 153.5L144 225.5C108 261.5 108 320 144 356C180 392 238.5 392 274.5 356L288 342.5M165.5 153.5C201.5 117.5 260 117.5 296 153.5L368 225.5C404 261.5 404 320 368 356C332 392 273.5 392 237.5 356L224 342.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                        <path d="M224 225.5L288 289.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                    <div class="zoho-text">
-                                        <span class="zoho-label">Zoho</span>
-                                        <span class="zoho-crm">CRM</span>
-                                    </div>
-                                </div>
-                                <span class="badge-text">Sincronizado</span>
+                
+                <!-- Right: Lead Capture Form -->
+                <div id="signup-form" class="hero-form-wrapper">
+                    <div class="hero-form-card form-card">
+                        <div style="text-align: center;">
+                            <div class="hero-form-badge">
+                                <span>🚀</span>
+                                <span>Start Your Free Trial</span>
                             </div>
-                            <p class="chat-status">Etapa: Negocio Ganado</p>
                         </div>
-                        <div class="deal-card">
-                            <div class="deal-info">
-                                <div class="deal-avatar">AM</div>
-                                <div class="deal-details">
-                                    <h4>Arturo Mendoza</h4>
-                                    <p>Tech Corp • $25,000 USD</p>
-                                </div>
-                            </div>
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="wa-icon">
-                            <div class="deal-progress">
-                                <div class="progress-bar"></div>
-                            </div>
+                        
+                        <!-- Calendly inline widget -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/d/cw67-pt3-y2m"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        
+                        <!-- Trust Elements -->
+                        <div class="hero-form-trust">
+                            <span>🔒 SOC 2 Type II</span>
+                            <span>🇪🇺 GDPR</span>
+                            <span>⭐ 4.7 Rating</span>
                         </div>
                     </div>
                 </div>
@@ -197,195 +179,153 @@
         </div>
     </section>
 
-    <!-- Pain Points Section -->
-    <section class="pain-points">
+    <!-- Integration Logos Bar -->
+    <section class="integration-bar">
+        <div class="container">
+            <p class="integration-bar-title">Seamlessly Integrates With Your Tech Stack</p>
+            <div class="integration-bar-grid">
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                    <span>HubSpot</span>
+                </div>
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                    <span>Salesforce</span>
+                </div>
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho CRM">
+                    <span>Zoho</span>
+                </div>
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                    <span>Webhooks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">La Realidad</span>
-                <h2 class="section-title">
-                    Si no está en el CRM, <span class="text-gradient">no ocurrió</span>
-                </h2>
-                <p class="section-subtitle">
-                    WhatsApp es donde ocurren las ventas, pero el CRM es donde vive tu negocio. El puente entre ambos está roto.
-                </p>
+                <p class="section-label red">The Problem</p>
+                <h2 class="section-title">Your CRM Is Blind To Real Conversations</h2>
+                <p class="section-subtitle">90% of customer conversations happen in chat. Your CRM sees none of it.</p>
             </div>
-
-            <div class="pain-grid">
-                <div class="pain-card">
-                    <div class="pain-icon">📉</div>
-                    <h3>Fuga de Ingresos</h3>
-                    <p>Los deals se mueren en chats individuales que nadie más puede ver.</p>
+            
+            <div class="problem-grid">
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">👁️‍🗨️</div>
+                    <h3 class="problem-card-title">Zero Visibility</h3>
+                    <p class="problem-card-text">Deals move in chat. CRM shows stale data.</p>
                 </div>
-                <div class="pain-card">
-                    <div class="pain-icon">⏳</div>
-                    <h3>Vendedores Agotados</h3>
-                    <p>Tu equipo pierde el 30% del tiempo copiando datos de WhatsApp al CRM manualmente.</p>
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">🔥</div>
+                    <h3 class="problem-card-title">Deals Slip Away</h3>
+                    <p class="problem-card-text">No reply for 6 hours. Deal lost.</p>
                 </div>
-                <div class="pain-card">
-                    <div class="pain-icon">🕵️</div>
-                    <h3>Supervisión Imposible</h3>
-                    <p>Como manager, no sabes qué se dijo ni por qué no se cerró el trato.</p>
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">👻</div>
+                    <h3 class="problem-card-title">Ghosted Clients</h3>
+                    <p class="problem-card-text">Stalled deals buried in chat threads.</p>
                 </div>
-                <div class="pain-card">
-                    <div class="pain-icon">🚫</div>
-                    <h3>Propiedad de Datos</h3>
-                    <p>Si un vendedor borra un chat o deja la empresa, pierdes años de relación con el cliente.</p>
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">🚪</div>
+                    <h3 class="problem-card-title">Data Loss</h3>
+                    <p class="problem-card-text">Rep leaves, conversations leave too.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mid CTA -->
-    <section class="mid-cta">
+    <!-- Feature 1: Conversation Capture -->
+    <section class="feature-section gray">
         <div class="container">
-            <a href="https://eazybe.info/e4a626" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-                Iniciar Prueba Gratuita
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
-            </a>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <!-- Feature 1 -->
-            <div class="feature-row">
+            <div class="feature-grid">
                 <div class="feature-content">
-                    <span class="feature-tag">Sincronización Nativa</span>
-                    <h2 class="feature-title">Historial de Ventas Protegido</h2>
-                    <p class="feature-desc">Elimina la dependencia del celular del vendedor. Sincroniza cada chat automáticamente para que los datos y los clientes siempre pertenezcan a tu empresa.</p>
-                    <ul class="feature-list">
-                        <li>
-                            <span class="check-icon">✓</span>
-                            <span><strong>Cero Trabajo Manual</strong>: Tu equipo vende mientras Eazybe registra todo en el CRM.</span>
-                        </li>
-                        <li>
-                            <span class="check-icon">✓</span>
-                            <span><strong>Continuidad del Negocio</strong>: Si un vendedor sale, el historial de chats permanece intacto.</span>
-                        </li>
-                        <li>
-                            <span class="check-icon">✓</span>
-                            <span><strong>Visibilidad de Manager</strong>: Revisa qué tácticas funcionan sin pedir reportes manuales.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="feature-card">
-                        <div class="feature-card-header">
-                            <div class="feature-card-user">
-                                <div class="user-avatar-gradient">AM</div>
-                                <div class="user-info">
-                                    <h4>Arturo Mendoza</h4>
-                                    <span class="user-status">Sincronización CRM</span>
-                                </div>
-                            </div>
-                            <div class="zoho-logo zoho-logo-sm">
-                                <svg viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" class="zoho-icon">
-                                    <path d="M346.5 153.5C310.5 117.5 252 117.5 216 153.5L144 225.5C108 261.5 108 320 144 356C180 392 238.5 392 274.5 356L288 342.5M165.5 153.5C201.5 117.5 260 117.5 296 153.5L368 225.5C404 261.5 404 320 368 356C332 392 273.5 392 237.5 356L224 342.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M224 225.5L288 289.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
+                    <p class="section-label primary">Conversation Capture</p>
+                    <h2 class="feature-title">Every Message → CRM Contacts, Deals & Tickets</h2>
+                    <p class="feature-text">Eazybe captures every message and syncs it to your CRM automatically, in real-time.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                                 </svg>
-                                <div class="zoho-text">
-                                    <span class="zoho-label">Zoho</span>
-                                    <span class="zoho-crm">CRM</span>
-                                </div>
                             </div>
+                            <span><strong>Real-time sync</strong> — Messages appear in seconds</span>
                         </div>
-                        <div class="feature-card-body">
-                            <div class="chat-row">
-                                <div class="chat-icon-wrapper">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                                </div>
-                                <div class="chat-message chat-green">
-                                    "Confirmo la compra, ¿puedes enviar el link?"
-                                </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
                             </div>
-                            <div class="chat-row chat-row-right">
-                                <div class="chat-message chat-blue">
-                                    <div class="crm-sync-badge">
-                                        <div class="zoho-logo zoho-logo-xs">
-                                            <svg viewBox="0 0 512 512" fill="none" class="zoho-icon">
-                                                <path d="M346.5 153.5C310.5 117.5 252 117.5 216 153.5L144 225.5C108 261.5 108 320 144 356C180 392 238.5 392 274.5 356L288 342.5M165.5 153.5C201.5 117.5 260 117.5 296 153.5L368 225.5C404 261.5 404 320 368 356C332 392 273.5 392 237.5 356L224 342.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M224 225.5L288 289.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-                                            <div class="zoho-text">
-                                                <span class="zoho-label">Zoho</span>
-                                                <span class="zoho-crm">CRM</span>
-                                            </div>
-                                        </div>
-                                        <span>Registrado</span>
-                                    </div>
-                                    <p>Sincronizado al Pipeline</p>
-                                </div>
-                                <div class="crm-icon">CRM</div>
+                            <span><strong>Full context</strong> — Attachments, voice notes included</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
                             </div>
+                            <span><strong>Cloud backup</strong> — Never lose data when reps leave</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Auto-association</strong> — Link to deals and tickets</span>
                         </div>
                     </div>
+                    
+                    <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
                 </div>
-            </div>
-
-            <!-- Feature 2 -->
-            <div class="feature-row feature-row-reverse">
-                <div class="feature-content">
-                    <span class="feature-tag">Aceleración de Ingresos</span>
-                    <h2 class="feature-title">Responde Primero a los Grandes Deals</h2>
-                    <p class="feature-desc">No todos los prospectos valen lo mismo. Prioriza a tus clientes VIP y cierra negocios un 40% más rápido respondiendo en segundos.</p>
-                    <ul class="feature-list">
-                        <li>
-                            <span class="check-icon">✓</span>
-                            <span><strong>Filtro de ROI</strong>: Visualiza primero los chats asociados a tus negocios de mayor valor.</span>
-                        </li>
-                        <li>
-                            <span class="check-icon">✓</span>
-                            <span><strong>Alertas Críticas</strong>: Recibe avisos si un cliente caliente lleva minutos sin respuesta.</span>
-                        </li>
-                        <li>
-                            <span class="check-icon">✓</span>
-                            <span><strong>Pipeline en el Chat</strong>: Cambia etapas del negocio sin salir de la interfaz de WhatsApp.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="inbox-card">
-                        <div class="inbox-header">
-                            <div class="inbox-title">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-                                <h4>Revenue Inbox</h4>
-                            </div>
-                            <span class="inbox-badge">MAX ROI</span>
+                
+                <!-- Demo Card -->
+                <div class="demo-card animate-float">
+                    <div class="demo-card-header">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" class="demo-card-avatar" alt="">
+                        <div>
+                            <h4 class="demo-card-name">John Davidson</h4>
+                            <p class="demo-card-subtitle">CEO at TechCorp • $45K Deal</p>
                         </div>
-                        <div class="inbox-body">
-                            <div class="inbox-item inbox-item-urgent">
-                                <div class="inbox-user">
-                                    <div class="inbox-avatar">ST</div>
-                                    <div class="inbox-info">
-                                        <h5>Sofía Torres</h5>
-                                        <span class="inbox-value">VALOR: $85k <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" alt="HubSpot"></span>
-                                    </div>
+                    </div>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item green">
+                            <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp" class="activity-icon">
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <span class="activity-title">WhatsApp Message</span>
+                                    <span class="activity-time">2m ago</span>
                                 </div>
-                                <span class="inbox-time">WAIT: 1m</span>
+                                <p class="activity-text">"Can we schedule a call?"</p>
                             </div>
-                            <div class="inbox-item">
-                                <div class="inbox-user">
-                                    <div class="inbox-avatar">JP</div>
-                                    <div class="inbox-info">
-                                        <h5>Juan Pérez</h5>
-                                        <span class="inbox-value">VALOR: $12k 
-                                            <div class="zoho-logo zoho-logo-xs">
-                                                <svg viewBox="0 0 512 512" fill="none" class="zoho-icon">
-                                                    <path d="M346.5 153.5C310.5 117.5 252 117.5 216 153.5L144 225.5C108 261.5 108 320 144 356C180 392 238.5 392 274.5 356L288 342.5M165.5 153.5C201.5 117.5 260 117.5 296 153.5L368 225.5C404 261.5 404 320 368 356C332 392 273.5 392 237.5 356L224 342.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    <path d="M224 225.5L288 289.5" stroke="#0071C1" stroke-width="48" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                                <div class="zoho-text">
-                                                    <span class="zoho-label">Zoho</span>
-                                                    <span class="zoho-crm">CRM</span>
-                                                </div>
-                                            </div>
-                                        </span>
-                                    </div>
+                        </div>
+                        
+                        <div class="activity-item blue">
+                            <span class="activity-icon" style="display: flex; align-items: center; justify-content: center; color: #2563eb; font-size: 1rem;">📋</span>
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <span class="activity-title">Ticket Created</span>
+                                    <span class="activity-time">15m ago</span>
                                 </div>
-                                <span class="inbox-time">WAIT: 12m</span>
+                                <p class="activity-text">Support #4521 created</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item orange">
+                            <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot" class="activity-icon">
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <span class="activity-title">Deal Stage Updated</span>
+                                    <span class="activity-time">1h ago</span>
+                                </div>
+                                <p class="activity-text">→ Contract Sent</p>
                             </div>
                         </div>
                     </div>
@@ -394,245 +334,850 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-pattern"></div>
+    <!-- Feature: CRM Contact Properties -->
+    <section class="feature-section white">
+        <div class="container">
+            <div class="feature-grid">
+                <!-- Demo Card: Contact Analytics -->
+                <div class="demo-card order-1">
+                    <!-- Contact Header -->
+                    <div class="contact-profile-header">
+                        <div class="contact-profile-info">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=face" alt="Sarah Kim" class="contact-profile-avatar">
+                            <div>
+                                <h4 class="contact-profile-name">Sarah Kim</h4>
+                                <p class="contact-profile-company">TechCorp Inc • Contact</p>
+                            </div>
+                        </div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot" class="contact-crm-icon">
+                    </div>
+                    
+                    <!-- Chat Analytics -->
+                    <div class="chat-analytics">
+                        <p class="chat-analytics-label">CHAT ANALYTICS</p>
+                        <div class="chat-analytics-grid">
+                            <div class="chat-analytics-item">
+                                <span class="chat-analytics-title">Last Message</span>
+                                <span class="chat-analytics-value">Jan 15 • 2:34 PM</span>
+                            </div>
+                            <div class="chat-analytics-item">
+                                <span class="chat-analytics-title">Last Reply</span>
+                                <span class="chat-analytics-value">Jan 15 • 3:12 PM</span>
+                            </div>
+                            <div class="chat-analytics-item">
+                                <span class="chat-analytics-title">Last Activity</span>
+                                <span class="chat-analytics-value">38 min ago</span>
+                            </div>
+                            <div class="chat-analytics-item">
+                                <span class="chat-analytics-title">Avg Response</span>
+                                <span class="chat-analytics-value green">4m 22s</span>
+                            </div>
+                            <div class="chat-analytics-item">
+                                <span class="chat-analytics-title">Messages</span>
+                                <span class="chat-analytics-value">47</span>
+                            </div>
+                            <div class="chat-analytics-item">
+                                <span class="chat-analytics-title">Sentiment</span>
+                                <span class="chat-analytics-value green">Positive 😊</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Summary -->
+                    <div class="ai-summary-box">
+                        <p class="ai-summary-label">AI Conversation Summary</p>
+                        <p class="ai-summary-text">"Interested in enterprise plan. Requested pricing for 50 users. Follow-up scheduled."</p>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="feature-content order-2">
+                    <p class="section-label primary">CRM Contact Properties</p>
+                    <h2 class="feature-title">Chat Analytics Pushed Directly To CRM Contacts</h2>
+                    <p class="feature-text">We automatically populate custom properties on every CRM contact so you can filter, segment, and build reports on chat activity.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Last Message Sent</strong> — When rep messaged</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Last Reply Received</strong> — When they responded</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Response Time</strong> — Average reply speed</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Conversation Summary</strong> — AI-generated summary of chat</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature: Chatbots & Workflows -->
+    <section class="feature-section white">
+        <div class="container">
+            <div class="feature-grid">
+                <!-- Content -->
+                <div class="feature-content">
+                    <p class="section-label primary">Chatbots & Workflows</p>
+                    <h2 class="feature-title">Automate Responses Based On CRM Data</h2>
+                    <p class="feature-text">Build chatbots that trigger based on contact properties, deal stages, or ticket status.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Trigger by deal stage</strong> — Auto-send follow-ups</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Lead qualification</strong> — Ask budget, timeline</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Meeting booking</strong> — Chatbot schedules demos</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Smart handoff</strong> — Route to rep on intent</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>24/7 FAQ handling</strong> — No rep needed</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+                </div>
+                
+                <!-- Demo Card: Workflow Builder -->
+                <div class="demo-card">
+                    <h4 class="workflow-builder-title">Workflow Builder</h4>
+                    
+                    <div class="workflow-steps">
+                        <!-- Step 1: Trigger -->
+                        <div class="workflow-step">
+                            <div class="workflow-icon whatsapp">
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                            </div>
+                            <div class="workflow-step-content green">
+                                <span class="workflow-step-label">TRIGGER</span>
+                                <span class="workflow-step-text">New WhatsApp message</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Chatbot -->
+                        <div class="workflow-step">
+                            <div class="workflow-icon robot">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A1.5 1.5 0 0 0 6 14.5A1.5 1.5 0 0 0 7.5 16A1.5 1.5 0 0 0 9 14.5A1.5 1.5 0 0 0 7.5 13m9 0a1.5 1.5 0 0 0-1.5 1.5a1.5 1.5 0 0 0 1.5 1.5a1.5 1.5 0 0 0 1.5-1.5a1.5 1.5 0 0 0-1.5-1.5M12 9a5 5 0 0 0-5 5v1h10v-1a5 5 0 0 0-5-5z"/>
+                                </svg>
+                            </div>
+                            <div class="workflow-step-content white">
+                                <span class="workflow-step-label gray">CHATBOT</span>
+                                <span class="workflow-step-text">"What's your budget?"</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Condition -->
+                        <div class="workflow-step">
+                            <div class="workflow-icon hubspot">
+                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                            </div>
+                            <div class="workflow-step-content yellow">
+                                <span class="workflow-step-label orange">IF BUDGET > $10K</span>
+                                <span class="workflow-step-text">Check HubSpot Contact</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4: Action -->
+                        <div class="workflow-step">
+                            <div class="workflow-icon calendar">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm-8 4H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/>
+                                </svg>
+                            </div>
+                            <div class="workflow-step-content blue">
+                                <span class="workflow-step-label primary">ACTION</span>
+                                <span class="workflow-step-text">Book Meeting</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 5: Handoff -->
+                        <div class="workflow-step">
+                            <div class="workflow-icon person">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                            <div class="workflow-step-content white">
+                                <span class="workflow-step-label gray">HANDOFF</span>
+                                <span class="workflow-step-text">Assign to Sales Rep</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Revenue Inbox -->
+    <section class="feature-section white">
+        <div class="container">
+            <div class="feature-grid">
+                <!-- Demo Card -->
+                <div class="demo-card order-1">
+                    <div class="revenue-inbox-header">
+                        <h4 class="revenue-inbox-title">Revenue Inbox</h4>
+                        <div class="revenue-inbox-badges">
+                            <span class="inbox-badge red">Unreplied 7</span>
+                            <span class="inbox-badge orange">Hot 4</span>
+                            <span class="inbox-badge yellow">Escalation 2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="inbox-item red">
+                        <div class="inbox-avatar">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=face" alt="Sarah Kim" class="inbox-avatar-img">
+                            <span class="inbox-avatar-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                            </span>
+                        </div>
+                        <div class="inbox-content">
+                            <div class="inbox-content-header">
+                                <span class="inbox-name">Sarah Kim</span>
+                                <span class="inbox-value">$24,500</span>
+                            </div>
+                            <p class="inbox-status">Asked for pricing 2h ago • 🔥 Hot</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inbox-item yellow">
+                        <div class="inbox-avatar">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=face" alt="Mike Chen" class="inbox-avatar-img">
+                            <span class="inbox-avatar-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                            </span>
+                        </div>
+                        <div class="inbox-content">
+                            <div class="inbox-content-header">
+                                <span class="inbox-name">Mike Chen</span>
+                                <span class="inbox-value">$18,000</span>
+                            </div>
+                            <p class="inbox-status">No reply in 5 days • ⚠️ Stalled</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inbox-item orange">
+                        <div class="inbox-avatar">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=96&h=96&fit=crop&crop=face" alt="Lisa Park" class="inbox-avatar-img">
+                            <span class="inbox-avatar-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                            </span>
+                        </div>
+                        <div class="inbox-content">
+                            <div class="inbox-content-header">
+                                <span class="inbox-name">Lisa Park</span>
+                                <span class="inbox-value">$32,000</span>
+                            </div>
+                            <p class="inbox-status">Mentioned competitor • 🚨 Escalation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-content order-2">
+                    <p class="section-label primary">Revenue Inbox</p>
+                    <h2 class="feature-title">See Unreplied Chats, Hot Deals & Escalations In One View</h2>
+                    <p class="feature-text">Revenue Inbox surfaces conversations that need attention—sorted by urgency and deal value.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Unreplied chats</strong> — Never miss a waiting customer</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Hot deals</strong> — High-value opportunities first</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Escalations</strong> — Urgent issues flagged</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Stalled deals</strong> — Clients going cold</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature: HubSpot Mini CRM -->
+    <section class="feature-section gray">
+        <div class="container">
+            <div class="feature-grid">
+                <!-- Demo Card: Mini CRM -->
+                <div class="demo-card order-1">
+                    <!-- CRM Header -->
+                    <div class="mini-crm-header">
+                        <div class="mini-crm-contact">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face" alt="Alex Johnson" class="mini-crm-avatar">
+                            <div>
+                                <h4 class="mini-crm-name">Alex Johnson</h4>
+                                <p class="mini-crm-company">Acme Corp • Sales Lead</p>
+                            </div>
+                        </div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot" class="mini-crm-logo">
+                    </div>
+                    
+                    <!-- CRM Properties -->
+                    <div class="mini-crm-properties">
+                        <div class="mini-crm-property">
+                            <span class="mini-crm-property-label">Lead Score</span>
+                            <span class="mini-crm-property-value">
+                                <span class="lead-score-badge">85</span>
+                            </span>
+                        </div>
+                        <div class="mini-crm-property">
+                            <span class="mini-crm-property-label">Lifecycle Stage</span>
+                            <span class="mini-crm-property-value">
+                                <span class="lifecycle-badge opportunity">Opportunity</span>
+                            </span>
+                        </div>
+                        <div class="mini-crm-property">
+                            <span class="mini-crm-property-label">Owner</span>
+                            <span class="mini-crm-property-value owner">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=24&h=24&fit=crop&crop=face" alt="" class="owner-avatar">
+                                John Smith
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Deal Card -->
+                    <div class="mini-crm-deal">
+                        <div class="mini-crm-deal-header">
+                            <span class="mini-crm-deal-label">ACTIVE DEAL</span>
+                            <span class="mini-crm-deal-value">$45,000</span>
+                        </div>
+                        <p class="mini-crm-deal-name">Enterprise License - Acme Corp</p>
+                        
+                        <!-- Deal Stage Selector -->
+                        <div class="deal-stage-selector">
+                            <div class="deal-stage completed">
+                                <div class="deal-stage-dot"></div>
+                                <span>Qualified</span>
+                            </div>
+                            <div class="deal-stage completed">
+                                <div class="deal-stage-dot"></div>
+                                <span>Meeting</span>
+                            </div>
+                            <div class="deal-stage active">
+                                <div class="deal-stage-dot"></div>
+                                <span>Proposal</span>
+                            </div>
+                            <div class="deal-stage">
+                                <div class="deal-stage-dot"></div>
+                                <span>Negotiation</span>
+                            </div>
+                            <div class="deal-stage">
+                                <div class="deal-stage-dot"></div>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="mini-crm-actions">
+                        <button class="mini-crm-action-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                            </svg>
+                            Add Note
+                        </button>
+                        <button class="mini-crm-action-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Schedule
+                        </button>
+                        <button class="mini-crm-action-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                            Task
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="feature-content order-2">
+                    <p class="section-label primary">WhatsApp Sidebar</p>
+                    <h2 class="feature-title">HubSpot Mini CRM in WhatsApp Web</h2>
+                    <p class="feature-text">Context is king. Access your entire HubSpot database directly inside WhatsApp. No tab switching, no guessing, no friction.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>View Lead Score, Lifecycle Stage, and Owner</strong> — instantly</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Move Deals through stages</strong> — directly while you chat</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Add notes, tasks & follow-ups</strong> — without leaving WhatsApp</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>See full conversation history</strong> — across all channels</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Flow Section -->
+    <section class="feature-section gradient">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label primary">How It Works</p>
+                <h2 class="section-title">Connect Your Tools In Minutes</h2>
+                <p class="section-subtitle">Eazybe acts as the bridge between your messaging channels and CRM</p>
+            </div>
+            
+            <div class="integration-flow">
+                <!-- WhatsApp -->
+                <div class="flow-item">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp" class="flow-item-logo">
+                    <p class="flow-item-title">WhatsApp</p>
+                    <p class="flow-item-subtitle">Conversations</p>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="flow-arrow">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </div>
+                
+                <!-- Eazybe -->
+                <div class="flow-item center">
+                    <div class="flow-item-logo">
+                        <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p class="flow-item-title">Eazybe</p>
+                    <p class="flow-item-subtitle">Sync Engine</p>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="flow-arrow">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </div>
+                
+                <!-- Your CRM -->
+                <div class="flow-item">
+                    <div class="flow-item-logo" style="display: flex; align-items: center; justify-content: center; font-size: 2rem;">📊</div>
+                    <p class="flow-item-title">Your CRM</p>
+                    <p class="flow-item-subtitle">Contacts & Deals</p>
+                </div>
+            </div>
+            
+            <!-- CRM Options -->
+            <div class="flow-crm-grid">
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                    <span>HubSpot</span>
+                </div>
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                    <span>Salesforce</span>
+                </div>
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho">
+                    <span>Zoho</span>
+                </div>
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                    <span>Webhooks</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
         <div class="container">
             <div class="stats-grid">
-                <div class="stat-item">
+                <div>
                     <div class="stat-value">30,000+</div>
-                    <div class="stat-label">Líderes de Ventas</div>
+                    <div class="stat-label">Active Users</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">2.4h</div>
-                    <div class="stat-label">Ahorro Semanal x Persona</div>
+                <div>
+                    <div class="stat-value">10M+</div>
+                    <div class="stat-label">Messages Synced</div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-value">65%</div>
-                    <div class="stat-label">Más Visibilidad</div>
+                <div>
+                    <div class="stat-value">40%</div>
+                    <div class="stat-label">Faster Response</div>
                 </div>
-                <div class="stat-item">
+                <div>
                     <div class="stat-value">5 min</div>
-                    <div class="stat-label">Setup sin Código</div>
+                    <div class="stat-label">Setup Time</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag section-tag-amber">
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                    Casos de Éxito
-                </span>
-                <h2 class="section-title">
-                    Por qué los equipos de ventas <span class="text-gradient">confían en Eazybe</span>
-                </h2>
+                <p class="section-label primary">Customer Success Stories</p>
+                <h2 class="section-title">Why Sales Teams Trust Eazybe</h2>
+                <p class="section-subtitle">Join thousands of sales teams who transformed their workflow</p>
             </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot" class="testimonial-logo">
                     </div>
-                    <p class="testimonial-text">"Pasamos de tener cero visibilidad en WhatsApp a ver cada chat sin responder en un panel. Los tiempos de respuesta bajaron un 40% en el primer mes."</p>
+                    <p class="testimonial-text">"We went from zero visibility into WhatsApp to seeing every unreplied chat. Response times dropped 40%."</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&h=100&fit=crop" alt="Miguel Rivera">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
                         <div>
-                            <h5>Miguel Rivera</h5>
-                            <p>VP de Ventas • Finanzas Global</p>
+                            <p class="testimonial-name">Michael Roberts</p>
+                            <p class="testimonial-role">VP Sales • Financial Services</p>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce" class="testimonial-logo">
                     </div>
-                    <p class="testimonial-text">"La configuración tomó 5 minutos. Ahora cada conversación de WhatsApp aparece en el historial del negocio. Se acabó el adivinar qué pasó con un lead."</p>
+                    <p class="testimonial-text">"Setup took 5 minutes. Now every conversation shows up in our deal timeline. No more guessing."</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop" alt="Sara Martínez">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
                         <div>
-                            <h5>Sara Martínez</h5>
-                            <p>Gerente de Ventas • Inmobiliaria Plus</p>
+                            <p class="testimonial-name">Sarah Chen</p>
+                            <p class="testimonial-role">Sales Manager • Real Estate</p>
                         </div>
                     </div>
                 </div>
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg width="16" height="16" fill="#F59E0B" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho" class="testimonial-logo">
                     </div>
-                    <p class="testimonial-text">"Finalmente los managers podemos ver quién responde rápido y qué negocios necesitan atención. Ha cambiado por completo nuestras operaciones de venta."</p>
+                    <p class="testimonial-text">"Finally, managers can see which reps are responding fast. Game changer for our sales ops."</p>
                     <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop" alt="David Soto">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
                         <div>
-                            <h5>David Soto</h5>
-                            <p>Ops de Ventas • SaaS Tech</p>
+                            <p class="testimonial-name">David Kim</p>
+                            <p class="testimonial-role">Sales Ops Lead • SaaS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks" class="testimonial-logo">
+                    </div>
+                    <p class="testimonial-text">"When a rep left, we lost all chat history. Now it's all in the CRM. Best investment this year."</p>
+                    <div class="testimonial-author">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
+                        <div>
+                            <p class="testimonial-name">Emily Watson</p>
+                            <p class="testimonial-role">COO • Travel Agency</p>
                         </div>
                     </div>
                 </div>
             </div>
-
+            
+            <!-- Trust Badges -->
             <div class="trust-badges">
-                <div class="trust-badge trust-badge-blue">⭐ 4.7 en HubSpot Marketplace</div>
-                <div class="trust-badge">🔒 Certificado SOC 2 Type II</div>
-                <div class="trust-badge">🇪🇺 Cumple GDPR</div>
+                <div class="trust-badge">
+                    <span style="color: var(--yellow-500);">⭐</span>
+                    <span>4.7 on Marketplace</span>
+                </div>
+                <div class="trust-badge">
+                    <span style="color: var(--green-500);">🔒</span>
+                    <span>SOC 2 Type II</span>
+                </div>
+                <div class="trust-badge">
+                    <span style="color: #2563eb;">🇪🇺</span>
+                    <span>GDPR Compliant</span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
+    <section class="faq-section">
+        <div class="container faq-container">
             <div class="section-header">
-                <h2 class="section-title">
-                    ¿Tienes <span class="text-gradient">Preguntas?</span>
-                </h2>
-                <p class="section-subtitle">Todo lo que necesitas saber sobre la integración de WhatsApp con tu CRM.</p>
+                <p class="section-label primary">Common Questions</p>
+                <h2 class="section-title">Got Questions?</h2>
+                <p class="section-subtitle">Everything you need to know about Eazybe</p>
             </div>
-
+            
             <div class="faq-list">
-                <div class="faq-item active" data-faq="0">
-                    <button class="faq-question">
-                        <div class="faq-q-content">
-                            <span class="faq-number">1</span>
-                            <span class="faq-text">¿Funciona con WhatsApp Business API?</span>
-                        </div>
-                        <svg class="faq-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                <div class="faq-item active">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Does this work with WhatsApp Business API?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>¡Sí! Eazybe funciona con los tres: WhatsApp Personal (vía extensión), WhatsApp Business App y WhatsApp Business API.</p>
+                    <div class="faq-content">
+                        <p class="faq-answer">Yes! Eazybe works with all three: WhatsApp Personal (via Chrome extension), WhatsApp Business App, and WhatsApp Business API. Most teams use a combination depending on their needs.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-faq="1">
-                    <button class="faq-question">
-                        <div class="faq-q-content">
-                            <span class="faq-number">2</span>
-                            <span class="faq-text">¿Cuánto tiempo toma la configuración?</span>
-                        </div>
-                        <svg class="faq-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Which CRMs do you support?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Aproximadamente 5 minutos. Instalas la extensión de Chrome, conectas tu CRM con un clic y empiezas a sincronizar.</p>
+                    <div class="faq-content">
+                        <p class="faq-answer">We support HubSpot, Salesforce, Zoho CRM, and custom Webhooks for any CRM. More integrations are coming soon. Our native integrations work with all plan tiers including free plans.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-faq="2">
-                    <button class="faq-question">
-                        <div class="faq-q-content">
-                            <span class="faq-number">3</span>
-                            <span class="faq-text">¿Qué sucede cuando un vendedor deja la empresa?</span>
-                        </div>
-                        <svg class="faq-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">How long does setup take?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Todas las conversaciones sincronizadas permanecen en tu CRM permanentemente. No se pierde historial ni contexto.</p>
+                    <div class="faq-content">
+                        <p class="faq-answer">About 5 minutes. Install the extension, connect your CRM with one click, and you're syncing. No IT department or technical expertise needed.</p>
                     </div>
                 </div>
-                <div class="faq-item" data-faq="3">
-                    <button class="faq-question">
-                        <div class="faq-q-content">
-                            <span class="faq-number">4</span>
-                            <span class="faq-text">¿Mis datos están seguros?</span>
-                        </div>
-                        <svg class="faq-arrow" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">What happens when a rep leaves the company?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
-                    <div class="faq-answer">
-                        <p>Totalmente. Contamos con certificación SOC 2 Type II y cumplimos con la normativa GDPR.</p>
+                    <div class="faq-content">
+                        <p class="faq-answer">All synced conversations stay in your CRM permanently. No lost context, no handoff gaps. Your customer history is always preserved.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Is my data secure?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">Absolutely. We're SOC 2 Type II certified and GDPR compliant. Trusted by financial services, healthcare, insurance, and other regulated industries.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Can I try Eazybe before committing?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">Yes! We offer a free 7-day trial with full access to all features. No credit card required. Cancel anytime if it's not the right fit.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
+    <!-- Final CTA -->
     <section class="final-cta">
-        <div class="final-cta-blur final-cta-blur-1"></div>
-        <div class="final-cta-blur final-cta-blur-2"></div>
-        <div class="container">
-            <h2 class="final-cta-title">
-                Deja de perder ventas en el <span class="text-blue">caos de WhatsApp</span>
-            </h2>
-            <p class="final-cta-subtitle">
-                Toma el control total de tu pipeline. Agenda hoy una sesión estratégica para sincronizar tu WhatsApp con tu CRM.
-            </p>
-            <a href="https://eazybe.info/e4a626" target="_blank" rel="noopener noreferrer" class="btn btn-white btn-xl">
-                Iniciar Prueba Gratuita
-                <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-                </svg>
-            </a>
-            <div class="final-cta-features">
-                <div class="final-cta-feature">
-                    <span class="feature-check">✓</span>
-                    Demos de 15 Minutos
+        <div class="final-cta-bg">
+            <div class="final-cta-blob-1"></div>
+            <div class="final-cta-blob-2"></div>
+        </div>
+        
+        <div class="container final-cta-content">
+            <h2 class="final-cta-title">Stop Losing Deals In Chat</h2>
+            <p class="final-cta-subtitle">See every conversation, track every response — all inside your CRM.</p>
+            
+            <div class="final-cta-logos">
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
                 </div>
-                <div class="final-cta-feature">
-                    <span class="feature-check">✓</span>
-                    Setup en Vivo
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
                 </div>
-                <div class="final-cta-feature">
-                    <span class="feature-check">✓</span>
-                    Consultoría Gratuita
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho">
+                </div>
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
                 </div>
             </div>
+            
+            <button onclick="scrollToForm()" class="final-cta-btn">Start Free Trial →</button>
+            
+            <p class="final-cta-trust">✓ Free 7-day trial  •  ✓ Setup in 5 min  •  ✓ Cancel anytime</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container footer-container">
-            <a href="/" class="footer-logo">
-                <svg width="121" height="34" viewBox="0 0 242 68" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.5029 55.0781H30.1826C31.8313 55.0781 33.3702 54.5022 34.5205 53.4697L47.375 41.9365C48.9994 40.4801 49.0867 38.1401 47.5303 36.5977L47.375 36.4512C46.8077 35.942 46.1091 35.586 45.3408 35.4102L44.7939 35.2852L44.9395 34.7432C45.2779 33.486 44.9068 32.0919 43.79 31.0898C43.2128 30.5718 42.5089 30.2255 41.7578 30.0537L41.21 29.9287L41.3564 29.3857C41.656 28.2739 41.4196 26.9647 40.416 25.9326L40.2051 25.7295C39.8072 25.3721 39.3483 25.097 38.8545 24.9033L38.0381 24.583L38.6904 23.9971L43.791 19.4219V19.4229C45.4869 17.8992 45.4885 15.4605 43.79 13.9365C42.059 12.3838 39.2352 12.381 37.502 13.9365L23.918 26.124L23.126 26.835L23.0195 25.7764C22.942 25.0045 22.6452 24.2532 22.1279 23.5879C21.3446 22.5808 20.1667 21.8971 18.7988 21.6787C17.4304 21.4601 16.0512 21.7354 14.9141 22.4473V22.4482C13.7775 23.1596 13.0383 24.2067 12.8037 25.3887V25.3896L9.98145 39.4551L9.9502 39.6084L9.8418 39.7217L9.24707 40.3447L9.23242 40.3604L9.2168 40.374L4.61035 44.5078C4.23355 44.8462 4.23353 45.367 4.61035 45.7051L14.749 54.8018H14.75C14.9407 54.9732 15.2108 55.078 15.5029 55.0781ZM15.7959 53.1904L13.6953 51.3047L7.23535 45.5088L6.78906 45.1084L7.2334 44.7061L11.3682 40.9609C11.3766 40.8477 11.3904 40.7332 11.4131 40.6182V40.6162L14.4258 25.6055C14.5855 24.802 15.0649 24.1087 15.7578 23.6289L15.8984 23.5361C16.6182 23.0853 17.4734 22.8971 18.3223 22.9941L18.4922 23.0176C19.3963 23.1624 20.202 23.6209 20.748 24.3232L20.7471 24.3242C21.2949 25.0287 21.515 25.8939 21.3447 26.7529V26.7549L20.9688 28.627L19.9785 33.5625L19.5742 35.5742H21.2393L22.3047 30.2676L22.3398 30.0918L22.4736 29.9717L39.0107 15.1338C39.9436 14.297 41.3955 14.3406 42.2803 15.1348C43.2235 15.9806 43.2237 17.3782 42.2812 18.2246V18.2256L29.1377 30.0186C27.4444 31.5378 27.4433 33.9853 29.1367 35.5049C29.9559 36.2392 31.03 36.6289 32.1279 36.6631L32.6318 36.6787L32.6514 37.1826C32.6872 38.1207 33.1013 39.0602 33.917 39.793L33.916 39.7939C34.7347 40.5278 35.8081 40.917 36.9053 40.9512L37.4102 40.9668L37.4287 41.4717C37.465 42.4466 37.9026 43.3688 38.6953 44.0801H38.6963C39.0893 44.4331 39.5462 44.712 40.0469 44.9092L40.8613 45.2295L40.21 45.8145L33.0117 52.2725C32.2571 52.9497 31.2264 53.3281 30.1826 53.3281H15.9502L15.7959 53.1904ZM33.917 34.3066C33.0087 35.1216 31.5544 35.1204 30.6465 34.3066C29.7046 33.4614 29.7043 32.0608 30.6465 31.2158L35.4258 26.9268C36.278 26.1623 37.6097 26.1158 38.5205 26.7842L38.6963 26.9268C39.5821 27.7207 39.6357 28.9995 38.8623 29.8535L38.6963 30.0186L33.917 34.3066ZM38.6953 38.5957C37.7835 39.4132 36.3326 39.4095 35.4258 38.5957C34.5431 37.803 34.4879 36.5222 35.2607 35.6689L35.4258 35.5039L39.0107 32.2871V32.2861C39.9212 31.4704 41.3721 31.4728 42.2803 32.2871H42.2812C43.2231 33.1325 43.2229 34.5333 42.2812 35.3789L38.6963 38.5957H38.6953ZM43.4746 42.8838C42.6335 43.6387 41.3029 43.7032 40.3828 43.0273L40.2051 42.8828C39.254 42.0298 39.2713 40.6305 40.2061 39.792L42.5947 37.6484C43.5113 36.8261 44.9619 36.8398 45.8643 37.6484L45.8652 37.6475C46.8237 38.5056 46.7936 39.907 45.8662 40.7383L45.8477 40.7549H45.8486L43.4746 42.8838Z" fill="#FFFFFF" stroke="#FFFFFF" stroke-width="1.08106"/>
-                    <path d="M28.5205 7.38672C28.6232 7.39415 28.7584 7.41258 28.9268 7.44434C28.9328 7.44831 28.9436 7.45461 28.957 7.4668C29 7.50588 29.0545 7.57477 29.1016 7.6709C29.1483 7.76653 29.1757 7.86521 29.1836 7.94824C29.1855 7.96822 29.1837 7.98576 29.1836 8.00098C29.1356 8.05544 29.074 8.12611 28.9951 8.21094C28.7753 8.44717 28.4628 8.77007 28.082 9.15527C27.3221 9.92411 26.3114 10.9193 25.2773 11.9219C24.2436 12.9242 23.1908 13.9296 22.3447 14.7178C21.9212 15.1123 21.5534 15.4495 21.2676 15.7031C21.1247 15.8299 21.0062 15.9319 20.9141 16.0088C20.8682 16.047 20.8314 16.0771 20.8037 16.0986C20.7742 16.1216 20.7636 16.1287 20.7676 16.126C20.5321 16.2828 20.2463 16.2575 20.0166 16.0693C19.9051 15.978 19.8475 15.8749 19.8271 15.7959C19.8109 15.7325 19.8084 15.6533 19.8701 15.54C19.8907 15.5024 19.9045 15.4384 20.5234 14.8213C21.1299 14.2166 22.2343 13.1584 24.3359 11.1494C25.0377 10.4785 25.7407 9.8049 26.3066 9.26074L27.457 8.14844C27.7417 7.86733 27.9913 7.6567 28.1865 7.51855C28.283 7.45029 28.3535 7.40699 28.3994 7.38379C28.4231 7.38325 28.4625 7.38253 28.5205 7.38672ZM1.89062 7.41699C1.92017 7.42234 1.93885 7.42758 1.94824 7.43066C1.96394 7.44286 1.98701 7.46379 2.02148 7.49219C2.10533 7.56128 2.21756 7.65888 2.35742 7.7832C2.63621 8.03101 3.00246 8.3683 3.42871 8.76855C4.27996 9.56789 5.353 10.6017 6.40918 11.6367C7.46546 12.6718 8.49994 13.7033 9.27539 14.498C9.66411 14.8964 9.98201 15.229 10.2031 15.4707C10.2777 15.5522 10.3362 15.6201 10.3818 15.6729C10.4014 15.8213 10.3744 15.9074 10.3535 15.9502C10.3228 16.0131 10.2588 16.0834 10.1357 16.1328C9.88934 16.2317 9.4009 16.2247 8.93457 15.749L8.93359 15.748C8.79723 15.6092 7.00034 13.8801 4.95996 11.9238C2.79606 9.84888 1.7918 8.88819 1.3125 8.34473C1.17127 8.18458 1.10779 8.09557 1.08203 8.05566C1.08154 8.03074 1.08105 7.99019 1.08105 7.92871C1.08107 7.81558 1.08891 7.75108 1.0957 7.71582C1.09879 7.69988 1.10132 7.6911 1.10254 7.6875C1.10297 7.68624 1.10331 7.68508 1.10352 7.68457L1.10449 7.68359C1.10463 7.68335 1.10481 7.68267 1.10547 7.68164C1.10627 7.68039 1.10793 7.67805 1.11035 7.6748C1.11517 7.66837 1.12414 7.65657 1.14062 7.63965C1.17579 7.60359 1.23644 7.55014 1.3418 7.47363C1.33002 7.48216 1.35075 7.46576 1.41895 7.44531C1.48352 7.42597 1.56648 7.41054 1.65723 7.40527C1.74811 7.40002 1.82932 7.40591 1.89062 7.41699ZM14.833 1.1416C15.0595 1.03406 15.361 1.06304 15.6045 1.28516C15.6285 1.30711 15.6477 1.32557 15.6631 1.33984C15.6736 1.39538 15.6909 1.50187 15.7051 1.6875C15.7626 2.44058 15.7598 3.91861 15.7598 7.12207V12.6777L15.6602 12.8662C15.596 12.9876 15.4326 13.116 15.1699 13.1377C14.9077 13.1593 14.7185 13.06 14.6289 12.9443C14.5647 12.8614 14.5731 12.8657 14.5693 12.8535C14.5507 12.7938 14.517 12.6385 14.4912 12.2354C14.4396 11.4296 14.4355 9.96701 14.4355 7.04785C14.4355 3.73627 14.435 2.25558 14.5449 1.51074C14.5641 1.381 14.5835 1.30204 14.5967 1.25781C14.635 1.23818 14.7065 1.20169 14.833 1.1416Z" fill="#5856E8" stroke="#5856E8" stroke-width="2.16213"/>
-                    <path d="M73.6596 24.2289V31.7174H85.0053V38.6786H73.6596V46.8H86.4916V54.0249H65.1875V17.004H86.4916V24.2289H73.6596Z" fill="#FFFFFF"/>
-                    <path d="M90.3073 39.2587C90.3073 36.2352 90.8358 33.5808 91.8927 31.2955C92.9827 29.0103 94.4525 27.2524 96.3022 26.0219C98.1518 24.7914 100.216 24.1761 102.495 24.1761C104.444 24.1761 106.145 24.598 107.598 25.4418C109.085 26.2856 110.224 27.393 111.017 28.7642V24.598H119.489V54.0249H111.017V49.8587C110.191 51.2298 109.035 52.3373 107.549 53.1811C106.095 54.0249 104.394 54.4468 102.446 54.4468C100.2 54.4468 98.1518 53.8315 96.3022 52.601C94.4525 51.3353 92.9827 49.5599 91.8927 47.2746C90.8358 44.9542 90.3073 42.2823 90.3073 39.2587ZM111.017 39.3114C111.017 37.0614 110.422 35.2859 109.233 33.9851C108.077 32.6842 106.657 32.0338 104.972 32.0338C103.288 32.0338 101.851 32.6842 100.662 33.9851C99.506 35.2507 98.928 37.0086 98.928 39.2587C98.928 41.5088 99.506 43.3018 100.662 44.6378C101.851 45.9386 103.288 46.5891 104.972 46.5891C106.657 46.5891 108.077 45.9386 109.233 44.6378C110.422 43.337 111.017 41.5615 111.017 39.3114Z" fill="#FFFFFF"/>
-                    <path d="M133.545 46.5891H145.535V54.0249H124.082V46.8527L135.577 32.0338H124.181V24.598H145.287V31.7701L133.545 46.5891Z" fill="#FFFFFF"/>
-                    <path d="M178.437 24.598L161.097 68H151.98L158.322 53.0229L147.076 24.598H156.539L162.93 43.003L169.271 24.598H178.437Z" fill="#FFFFFF"/>
-                    <path d="M189.973 28.7642C190.766 27.393 191.905 26.2856 193.391 25.4418C194.878 24.598 196.579 24.1761 198.495 24.1761C200.774 24.1761 202.838 24.7914 204.688 26.0219C206.537 27.2524 207.991 29.0103 209.047 31.2955C210.137 33.5808 210.682 36.2352 210.682 39.2587C210.682 42.2823 210.137 44.9542 209.047 47.2746C207.991 49.5599 206.537 51.3353 204.688 52.601C202.838 53.8315 200.774 54.4468 198.495 54.4468C196.546 54.4468 194.845 54.0425 193.391 53.2338C191.938 52.39 190.799 51.2826 189.973 49.9114V54.0249H181.501V15H189.973V28.7642ZM202.062 39.2587C202.062 37.0086 201.467 35.2507 200.278 33.9851C199.122 32.6842 197.685 32.0338 195.968 32.0338C194.283 32.0338 192.846 32.6842 191.657 33.9851C190.501 35.2859 189.923 37.0614 189.923 39.3114C189.923 41.5615 190.501 43.337 191.657 44.6378C192.846 45.9386 194.283 46.5891 195.968 46.5891C197.652 46.5891 199.089 45.9386 200.278 44.6378C201.467 43.3018 202.062 41.5088 202.062 39.2587Z" fill="#FFFFFF"/>
-                    <path d="M241.187 38.8368C241.187 39.6806 241.138 40.5595 241.039 41.4736H221.865C221.997 43.3018 222.542 44.7081 223.5 45.6925C224.491 46.6418 225.697 47.1164 227.117 47.1164C229.231 47.1164 230.701 46.1672 231.526 44.2687H240.543C240.081 46.2023 239.239 47.9426 238.017 49.4896C236.828 51.0365 235.325 52.2494 233.508 53.1284C231.691 54.0073 229.66 54.4468 227.414 54.4468C224.706 54.4468 222.295 53.8315 220.181 52.601C218.067 51.3705 216.415 49.6126 215.226 47.3274C214.037 45.0421 213.443 42.3701 213.443 39.3114C213.443 36.2527 214.021 33.5808 215.177 31.2955C216.366 29.0103 218.017 27.2524 220.131 26.0219C222.245 24.7914 224.673 24.1761 227.414 24.1761C230.09 24.1761 232.468 24.7738 234.549 25.9692C236.629 27.1645 238.248 28.8697 239.404 31.0846C240.593 33.2995 241.187 35.8836 241.187 38.8368ZM232.517 36.4637C232.517 34.9167 232.022 33.6862 231.031 32.7721C230.04 31.858 228.801 31.401 227.315 31.401C225.895 31.401 224.689 31.8405 223.698 32.7194C222.74 33.5983 222.146 34.8464 221.915 36.4637H232.517Z" fill="#FFFFFF"/>
-                </svg>
-            </a>
-            <div class="footer-links">
-                <a href="#">Privacidad</a>
-                <a href="#">Términos</a>
-                <a href="#">Contacto</a>
+        <div class="container">
+            <div class="footer-content">
+                <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="footer-logo">
+                <div class="footer-logos">
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                    </div>
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                    </div>
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho">
+                    </div>
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
             </div>
-            <p class="footer-copyright">© 2025 Eazybe. Todos los derechos reservados.</p>
+            <div class="footer-copyright">
+                © 2026 Eazybe, Inc. All rights reserved. Built for revenue teams.
+            </div>
         </div>
     </footer>
 
-    <!-- Mobile CTA -->
-    <div class="mobile-cta">
-        <a href="https://eazybe.info/e4a626" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-mobile">
-            Iniciar Prueba Gratuita
-            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
-            </svg>
-        </a>
+    <!-- Floating CTA (Mobile) -->
+    <div id="floatingCta" class="floating-cta">
+        <button onclick="scrollToForm()" class="cta-button floating-cta-btn">
+            Start Free Trial →
+        </button>
     </div>
 
+    <!-- Social Proof Popup -->
+    <div id="socialProof" class="social-proof">
+        <div class="social-proof-content">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" class="social-proof-avatar" alt="">
+            <div>
+                <p class="social-proof-name">Sarah from London</p>
+                <p class="social-proof-action">Just started a free trial</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
