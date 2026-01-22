@@ -2203,6 +2203,286 @@
         }
         
         /* ============================================
+           MINI CRM DEMO
+           ============================================ */
+        .mini-crm-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .mini-crm-contact {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .mini-crm-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        @media (min-width: 640px) {
+            .mini-crm-avatar {
+                width: 52px;
+                height: 52px;
+            }
+        }
+        
+        .mini-crm-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.125rem;
+        }
+        
+        @media (min-width: 640px) {
+            .mini-crm-name {
+                font-size: 1.125rem;
+            }
+        }
+        
+        .mini-crm-company {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+        
+        .mini-crm-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            opacity: 0.8;
+        }
+        
+        .mini-crm-properties {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+        
+        .mini-crm-property {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .mini-crm-property-label {
+            font-size: 0.8125rem;
+            color: var(--gray-500);
+        }
+        
+        .mini-crm-property-value {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+        
+        .mini-crm-property-value.owner {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .owner-avatar {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .lead-score-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 24px;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #fff;
+            font-size: 0.75rem;
+            font-weight: 700;
+            border-radius: 4px;
+        }
+        
+        .lifecycle-badge {
+            display: inline-block;
+            padding: 0.25rem 0.625rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .lifecycle-badge.opportunity {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+        
+        .mini-crm-deal {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mini-crm-deal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+        
+        .mini-crm-deal-label {
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: var(--gray-400);
+        }
+        
+        .mini-crm-deal-value {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--green-600);
+        }
+        
+        .mini-crm-deal-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+        }
+        
+        .deal-stage-selector {
+            display: flex;
+            gap: 0.25rem;
+            overflow-x: auto;
+        }
+        
+        .deal-stage {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.375rem;
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .deal-stage-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--gray-200);
+            border: 2px solid var(--gray-200);
+            position: relative;
+        }
+        
+        .deal-stage-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            width: calc(100% + 0.25rem);
+            height: 2px;
+            background: var(--gray-200);
+            transform: translateY(-50%);
+        }
+        
+        .deal-stage:last-child .deal-stage-dot::after {
+            display: none;
+        }
+        
+        .deal-stage.completed .deal-stage-dot {
+            background: var(--green-500);
+            border-color: var(--green-500);
+        }
+        
+        .deal-stage.completed .deal-stage-dot::after {
+            background: var(--green-500);
+        }
+        
+        .deal-stage.active .deal-stage-dot {
+            background: #fff;
+            border-color: var(--primary-500);
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+        }
+        
+        .deal-stage span {
+            font-size: 0.5625rem;
+            font-weight: 500;
+            color: var(--gray-400);
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+        
+        @media (min-width: 640px) {
+            .deal-stage span {
+                font-size: 0.625rem;
+            }
+        }
+        
+        .deal-stage.completed span,
+        .deal-stage.active span {
+            color: var(--gray-700);
+            font-weight: 600;
+        }
+        
+        .mini-crm-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .mini-crm-action-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+            padding: 0.625rem 0.5rem;
+            background: #fff;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+        
+        @media (min-width: 640px) {
+            .mini-crm-action-btn {
+                font-size: 0.75rem;
+                padding: 0.75rem 0.75rem;
+            }
+        }
+        
+        .mini-crm-action-btn:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-300);
+            color: var(--gray-900);
+        }
+        
+        .mini-crm-action-btn svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+        
+        @media (min-width: 640px) {
+            .mini-crm-action-btn svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+        
+        /* ============================================
            STATS BAR
            ============================================ */
         .stats-bar {
