@@ -22,19 +22,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Exit intent popup
-let exitShown = false;
-document.addEventListener('mouseleave', (e) => {
-    if (e.clientY < 0 && !exitShown) {
-        document.getElementById('exitPopup').classList.add('visible');
-        exitShown = true;
-    }
-});
-
-function closeExitPopup() {
-    document.getElementById('exitPopup').classList.remove('visible');
-}
-
 // FAQ toggle
 function toggleFaq(button) {
     const faqItem = button.parentElement;
