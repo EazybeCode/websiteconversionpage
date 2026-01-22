@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Eazybe - The #1 WhatsApp CRM Integration For Sales Teams</title>
     <meta name="description" content="Sync every WhatsApp conversation to your CRM automatically. Works with HubSpot, Salesforce, Zoho. Setup in 5 minutes. Try free for 7 days.">
-    <meta name="robots" content="noindex, nofollow">
+    
     <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
 <body>
     <!-- Urgency Bar -->
     <div class="urgency-bar">
-        <span>🔥 <strong>Special Offer:</strong> Extended 7-day trial + Onboarding call</span>
+        <span>🔥 <strong>January Special:</strong> Extended 14-day trial + Onboarding call</span>
         <span id="countdown" style="font-weight: 700; margin-left: 0.5rem;">Ends in 11d 5h 23m</span>
     </div>
 
@@ -34,8 +34,8 @@
         <div class="container sticky-header-content">
             <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="sticky-header-logo">
             <div class="sticky-header-rating">
-                <span style="color: var(--yellow-500);"></span>
-                <span></span>
+                <span style="color: var(--yellow-500);">★★★★★</span>
+                <span>4.7 • 30,000+ Users</span>
             </div>
             <div class="sticky-header-cta">
                 <span class="sticky-header-setup">Setup in 5 min</span>
@@ -444,8 +444,8 @@
                 <!-- Content -->
                 <div class="feature-content">
                     <p class="section-label primary">Chatbots & Workflows</p>
-                    <h2 class="feature-title">Native Chatbots & HubSpot Workflows</h2>
-                    <p class="feature-text">Add "Send WhatsApp Message" as a native action in your HubSpot Workflows. Scale your outreach without losing the personal touch.</p>
+                    <h2 class="feature-title">Automate Responses Based On CRM Data</h2>
+                    <p class="feature-text">Build chatbots that trigger based on contact properties, deal stages, or ticket status.</p>
                     
                     <div class="feature-list">
                         <div class="feature-list-item">
@@ -454,7 +454,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                                 </svg>
                             </div>
-                            <span><strong>Property triggers</strong> — Activate chatbots on HubSpot changes</span>
+                            <span><strong>Trigger by deal stage</strong> — Auto-send follow-ups</span>
                         </div>
                         <div class="feature-list-item">
                             <div class="checkmark">
@@ -462,7 +462,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                                 </svg>
                             </div>
-                            <span><strong>Cart recovery</strong> — Auto-follow up on abandoned forms</span>
+                            <span><strong>Lead qualification</strong> — Ask budget, timeline</span>
                         </div>
                         <div class="feature-list-item">
                             <div class="checkmark">
@@ -470,7 +470,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
                                 </svg>
                             </div>
-                            <span><strong>Smart sequencing</strong> — Stop delays on customer reply</span>
+                            <span><strong>Meeting booking</strong> — Chatbot schedules demos</span>
                         </div>
                         <div class="feature-list-item">
                             <div class="checkmark">
@@ -721,6 +721,107 @@
                     
                     <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
                 </div>
+                
+                <!-- Demo Card: Mini CRM -->
+                <div class="demo-card">
+                    <!-- CRM Header -->
+                    <div class="mini-crm-header">
+                        <div class="mini-crm-contact">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face" alt="Alex Johnson" class="mini-crm-avatar">
+                            <div>
+                                <h4 class="mini-crm-name">Alex Johnson</h4>
+                                <p class="mini-crm-company">Acme Corp • Sales Lead</p>
+                            </div>
+                        </div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot" class="mini-crm-logo">
+                    </div>
+                    
+                    <!-- CRM Properties -->
+                    <div class="mini-crm-properties">
+                        <div class="mini-crm-property">
+                            <span class="mini-crm-property-label">Lead Score</span>
+                            <span class="mini-crm-property-value">
+                                <span class="lead-score-badge">85</span>
+                            </span>
+                        </div>
+                        <div class="mini-crm-property">
+                            <span class="mini-crm-property-label">Lifecycle Stage</span>
+                            <span class="mini-crm-property-value">
+                                <span class="lifecycle-badge opportunity">Opportunity</span>
+                            </span>
+                        </div>
+                        <div class="mini-crm-property">
+                            <span class="mini-crm-property-label">Owner</span>
+                            <span class="mini-crm-property-value owner">
+                                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=24&h=24&fit=crop&crop=face" alt="" class="owner-avatar">
+                                John Smith
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!-- Deal Card -->
+                    <div class="mini-crm-deal">
+                        <div class="mini-crm-deal-header">
+                            <span class="mini-crm-deal-label">ACTIVE DEAL</span>
+                            <span class="mini-crm-deal-value">$45,000</span>
+                        </div>
+                        <p class="mini-crm-deal-name">Enterprise License - Acme Corp</p>
+                        
+                        <!-- Deal Stage Selector -->
+                        <div class="deal-stage-selector">
+                            <div class="deal-stage completed">
+                                <div class="deal-stage-dot"></div>
+                                <span>Qualified</span>
+                            </div>
+                            <div class="deal-stage completed">
+                                <div class="deal-stage-dot"></div>
+                                <span>Meeting</span>
+                            </div>
+                            <div class="deal-stage active">
+                                <div class="deal-stage-dot"></div>
+                                <span>Proposal</span>
+                            </div>
+                            <div class="deal-stage">
+                                <div class="deal-stage-dot"></div>
+                                <span>Negotiation</span>
+                            </div>
+                            <div class="deal-stage">
+                                <div class="deal-stage-dot"></div>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="mini-crm-actions">
+                        <button class="mini-crm-action-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                            </svg>
+                            Add Note
+                        </button>
+                        <button class="mini-crm-action-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Schedule
+                        </button>
+                        <button class="mini-crm-action-btn">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 11 12 14 22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                            Task
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Integration Flow Section -->
     <section class="feature-section gradient">
