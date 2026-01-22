@@ -248,18 +248,6 @@
             transform: translateY(0);
         }
         
-        /* Exit Popup */
-        .exit-popup {
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .exit-popup.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
         /* Social Proof Popup */
         @keyframes slideIn {
             from { transform: translateX(-100%); opacity: 0; }
@@ -2548,107 +2536,6 @@
             width: 100%;
             padding: 0.75rem;
             font-size: 1rem;
-        }
-        
-        /* ============================================
-           EXIT POPUP
-           ============================================ */
-        .exit-popup {
-            position: fixed;
-            inset: 0;
-            z-index: 50;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-        }
-        
-        .exit-popup-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-        }
-        
-        .exit-popup-content {
-            background: #fff;
-            border-radius: 1rem;
-            max-width: 28rem;
-            width: 100%;
-            padding: 2rem;
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .exit-popup-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: var(--gray-400);
-        }
-        
-        .exit-popup-close:hover {
-            color: var(--gray-600);
-        }
-        
-        .exit-popup-close svg {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
-        
-        .exit-popup-logos {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .exit-popup-logos img {
-            width: 2rem;
-            height: 2rem;
-            object-fit: contain;
-        }
-        
-        .exit-popup-title {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--gray-900);
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .exit-popup-text {
-            font-size: 1rem;
-            color: var(--gray-600);
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .exit-popup-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .exit-popup-input {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--gray-200);
-            border-radius: 0.5rem;
-            font-size: 1rem;
-        }
-        
-        .exit-popup-btn {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-        }
-        
-        .exit-popup-disclaimer {
-            font-size: 0.75rem;
-            color: var(--gray-400);
-            text-align: center;
-            margin-top: 1rem;
         }
         
         /* ============================================
