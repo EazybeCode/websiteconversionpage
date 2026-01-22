@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Eazybe - The #1 WhatsApp CRM Integration For Sales Teams</title>
+    <meta name="description" content="Sync every WhatsApp conversation to your CRM automatically. Works with HubSpot, Salesforce, Zoho. Setup in 5 minutes. Try free for 7 days.">
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Preconnect to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn-icons-png.flaticon.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" as="image" type="image/svg+xml">
+    
+    <!-- Google Fonts with display swap -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Urgency Bar -->
+    <div class="urgency-bar">
+        <span>🔥 <strong>January Special:</strong> Extended 14-day trial + Onboarding call</span>
+        <span id="countdown" style="font-weight: 700; margin-left: 0.5rem;">Ends in 11d 5h 23m</span>
+    </div>
+
+    <!-- Sticky Header -->
+    <div id="stickyBar" class="sticky-header sticky-bar">
+        <div class="container sticky-header-content">
+            <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="sticky-header-logo">
+            <div class="sticky-header-rating">
+                <span style="color: var(--yellow-500);">★★★★★</span>
+                <span>4.7 • 30,000+ Users</span>
+            </div>
+            <div class="sticky-header-cta">
+                <span class="sticky-header-setup">Setup in 5 min</span>
+                <button onclick="scrollToForm()" class="cta-button sticky-header-btn">
+                    Start Free Trial
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="nav-logo">
+            <div class="nav-stats">
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                    <span class="live-indicator"></span>
+                    <span><strong style="color: var(--gray-900);">847</strong> people viewing</span>
+                </div>
+                <span style="color: var(--gray-300);">|</span>
+                <div style="display: flex; align-items: center; gap: 0.25rem;">
+                    <span>🎯</span>
+                    <span><strong style="color: var(--gray-900);">23</strong> started trial today</span>
+                </div>
+            </div>
+            <a href="#trial" class="cta-button nav-cta">
+                Start Free Trial
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-bg-blob"></div>
+        
+        <div class="container">
+            <div class="hero-grid">
+                <!-- Left: Value Proposition -->
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span style="color: var(--yellow-500);">⭐</span>
+                        <span>Marketplace Rating 4.7 • 30,000+ Users</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        The #1 <span class="whatsapp-green">WhatsApp</span> <span class="gradient-text">CRM Integration</span> For Sales Teams
+                    </h1>
+                    
+                    <p class="hero-subtitle">
+                        Sync every conversation to CRM contacts, deals, and tickets. Track response times. Never lose customer history when reps leave.
+                    </p>
+                    
+                    <!-- Works With Section -->
+                    <div class="works-with">
+                        <p class="works-with-label">Works seamlessly with:</p>
+                        <div class="works-with-logos">
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                                <span>HubSpot</span>
+                            </div>
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                                <span>Salesforce</span>
+                            </div>
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho CRM">
+                                <span>Zoho</span>
+                            </div>
+                            <div class="works-with-item integration-card">
+                                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                                <span>Webhooks</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Key Benefits -->
+                    <div class="key-benefits">
+                        <div class="key-benefit">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Setup in 5 minutes</strong> — No coding required</span>
+                        </div>
+                        <div class="key-benefit">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Free 7-day trial</strong> — Cancel anytime</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">30K+</div>
+                            <div class="hero-stat-label">Active Users</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">10M+</div>
+                            <div class="hero-stat-label">Messages Synced</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">40%</div>
+                            <div class="hero-stat-label">Faster Response</div>
+                        </div>
+                        <div class="hero-stat">
+                            <div class="hero-stat-value">5 min</div>
+                            <div class="hero-stat-label">Setup Time</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Lead Capture Form -->
+                <div id="signup-form" class="hero-form-wrapper">
+                    <div class="hero-form-card form-card">
+                        <div style="text-align: center;">
+                            <div class="hero-form-badge">
+                                <span>🚀</span>
+                                <span>Start Your Free Trial</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Calendly inline widget -->
+                        <div class="calendly-inline-widget" data-url="https://calendly.com/d/cw67-pt3-y2m"></div>
+                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        
+                        <!-- Trust Elements -->
+                        <div class="hero-form-trust">
+                            <span>🔒 SOC 2 Type II</span>
+                            <span>🇪🇺 GDPR</span>
+                            <span>⭐ 4.7 Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Logos Bar -->
+    <section class="integration-bar">
+        <div class="container">
+            <p class="integration-bar-title">Seamlessly Integrates With Your Tech Stack</p>
+            <div class="integration-bar-grid">
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                    <span>HubSpot</span>
+                </div>
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                    <span>Salesforce</span>
+                </div>
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho CRM">
+                    <span>Zoho</span>
+                </div>
+                <div class="integration-bar-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                    <span>Webhooks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label red">The Problem</p>
+                <h2 class="section-title">Your CRM Is Blind To Real Conversations</h2>
+                <p class="section-subtitle">90% of customer conversations happen in chat. Your CRM sees none of it.</p>
+            </div>
+            
+            <div class="problem-grid">
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">👁️‍🗨️</div>
+                    <h3 class="problem-card-title">Zero Visibility</h3>
+                    <p class="problem-card-text">Deals move in chat. CRM shows stale data.</p>
+                </div>
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">🔥</div>
+                    <h3 class="problem-card-title">Deals Slip Away</h3>
+                    <p class="problem-card-text">No reply for 6 hours. Deal lost.</p>
+                </div>
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">👻</div>
+                    <h3 class="problem-card-title">Ghosted Clients</h3>
+                    <p class="problem-card-text">Stalled deals buried in chat threads.</p>
+                </div>
+                <div class="problem-card feature-card">
+                    <div class="problem-card-icon">🚪</div>
+                    <h3 class="problem-card-title">Data Loss</h3>
+                    <p class="problem-card-text">Rep leaves, conversations leave too.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 1: Conversation Capture -->
+    <section class="feature-section gray">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-content">
+                    <p class="section-label primary">Conversation Capture</p>
+                    <h2 class="feature-title">Every Message → CRM Contacts, Deals & Tickets</h2>
+                    <p class="feature-text">Eazybe captures every message and syncs it to your CRM automatically, in real-time.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Real-time sync</strong> — Messages appear in seconds</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Full context</strong> — Attachments, voice notes included</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Cloud backup</strong> — Never lose data when reps leave</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Auto-association</strong> — Link to deals and tickets</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+                </div>
+                
+                <!-- Demo Card -->
+                <div class="demo-card animate-float">
+                    <div class="demo-card-header">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=60&h=60&fit=crop&crop=face" class="demo-card-avatar" alt="">
+                        <div>
+                            <h4 class="demo-card-name">John Davidson</h4>
+                            <p class="demo-card-subtitle">CEO at TechCorp • $45K Deal</p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-list">
+                        <div class="activity-item green">
+                            <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp" class="activity-icon">
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <span class="activity-title">WhatsApp Message</span>
+                                    <span class="activity-time">2m ago</span>
+                                </div>
+                                <p class="activity-text">"Can we schedule a call?"</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item blue">
+                            <span class="activity-icon" style="display: flex; align-items: center; justify-content: center; color: #2563eb; font-size: 1rem;">📋</span>
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <span class="activity-title">Ticket Created</span>
+                                    <span class="activity-time">15m ago</span>
+                                </div>
+                                <p class="activity-text">Support #4521 created</p>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item orange">
+                            <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot" class="activity-icon">
+                            <div class="activity-content">
+                                <div class="activity-header">
+                                    <span class="activity-title">Deal Stage Updated</span>
+                                    <span class="activity-time">1h ago</span>
+                                </div>
+                                <p class="activity-text">→ Contract Sent</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature 2: Revenue Inbox -->
+    <section class="feature-section white">
+        <div class="container">
+            <div class="feature-grid">
+                <!-- Demo Card -->
+                <div class="demo-card order-1">
+                    <div class="revenue-inbox-header">
+                        <h4 class="revenue-inbox-title">Revenue Inbox</h4>
+                        <div class="revenue-inbox-badges">
+                            <span class="inbox-badge red">Unreplied 7</span>
+                            <span class="inbox-badge orange">Hot 4</span>
+                            <span class="inbox-badge yellow">Escalation 2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="inbox-item red">
+                        <div class="inbox-avatar">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop&crop=face" alt="Sarah Kim" class="inbox-avatar-img">
+                            <span class="inbox-avatar-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                            </span>
+                        </div>
+                        <div class="inbox-content">
+                            <div class="inbox-content-header">
+                                <span class="inbox-name">Sarah Kim</span>
+                                <span class="inbox-value">$24,500</span>
+                            </div>
+                            <p class="inbox-status">Asked for pricing 2h ago • 🔥 Hot</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inbox-item yellow">
+                        <div class="inbox-avatar">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop&crop=face" alt="Mike Chen" class="inbox-avatar-img">
+                            <span class="inbox-avatar-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                            </span>
+                        </div>
+                        <div class="inbox-content">
+                            <div class="inbox-content-header">
+                                <span class="inbox-name">Mike Chen</span>
+                                <span class="inbox-value">$18,000</span>
+                            </div>
+                            <p class="inbox-status">No reply in 5 days • ⚠️ Stalled</p>
+                        </div>
+                    </div>
+                    
+                    <div class="inbox-item orange">
+                        <div class="inbox-avatar">
+                            <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=96&h=96&fit=crop&crop=face" alt="Lisa Park" class="inbox-avatar-img">
+                            <span class="inbox-avatar-badge">
+                                <img src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                            </span>
+                        </div>
+                        <div class="inbox-content">
+                            <div class="inbox-content-header">
+                                <span class="inbox-name">Lisa Park</span>
+                                <span class="inbox-value">$32,000</span>
+                            </div>
+                            <p class="inbox-status">Mentioned competitor • 🚨 Escalation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feature-content order-2">
+                    <p class="section-label primary">Revenue Inbox</p>
+                    <h2 class="feature-title">See Unreplied Chats, Hot Deals & Escalations In One View</h2>
+                    <p class="feature-text">Revenue Inbox surfaces conversations that need attention—sorted by urgency and deal value.</p>
+                    
+                    <div class="feature-list">
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Unreplied chats</strong> — Never miss a waiting customer</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Hot deals</strong> — High-value opportunities first</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Escalations</strong> — Urgent issues flagged</span>
+                        </div>
+                        <div class="feature-list-item">
+                            <div class="checkmark">
+                                <svg style="width: 0.75rem; height: 0.75rem; color: #fff;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                                </svg>
+                            </div>
+                            <span><strong>Stalled deals</strong> — Clients going cold</span>
+                        </div>
+                    </div>
+                    
+                    <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Flow Section -->
+    <section class="feature-section gradient">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label primary">How It Works</p>
+                <h2 class="section-title">Connect Your Tools In Minutes</h2>
+                <p class="section-subtitle">Eazybe acts as the bridge between your messaging channels and CRM</p>
+            </div>
+            
+            <div class="integration-flow">
+                <!-- WhatsApp -->
+                <div class="flow-item">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp" class="flow-item-logo">
+                    <p class="flow-item-title">WhatsApp</p>
+                    <p class="flow-item-subtitle">Conversations</p>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="flow-arrow">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </div>
+                
+                <!-- Eazybe -->
+                <div class="flow-item center">
+                    <div class="flow-item-logo">
+                        <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" style="width: 100%; height: 100%; object-fit: contain;">
+                    </div>
+                    <p class="flow-item-title">Eazybe</p>
+                    <p class="flow-item-subtitle">Sync Engine</p>
+                </div>
+                
+                <!-- Arrow -->
+                <div class="flow-arrow">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                </div>
+                
+                <!-- Your CRM -->
+                <div class="flow-item">
+                    <div class="flow-item-logo" style="display: flex; align-items: center; justify-content: center; font-size: 2rem;">📊</div>
+                    <p class="flow-item-title">Your CRM</p>
+                    <p class="flow-item-subtitle">Contacts & Deals</p>
+                </div>
+            </div>
+            
+            <!-- CRM Options -->
+            <div class="flow-crm-grid">
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                    <span>HubSpot</span>
+                </div>
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                    <span>Salesforce</span>
+                </div>
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho">
+                    <span>Zoho</span>
+                </div>
+                <div class="flow-crm-item integration-card">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                    <span>Webhooks</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="scrollToForm()" class="cta-button feature-cta">Start Free Trial →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-value">30,000+</div>
+                    <div class="stat-label">Active Users</div>
+                </div>
+                <div>
+                    <div class="stat-value">10M+</div>
+                    <div class="stat-label">Messages Synced</div>
+                </div>
+                <div>
+                    <div class="stat-value">40%</div>
+                    <div class="stat-label">Faster Response</div>
+                </div>
+                <div>
+                    <div class="stat-value">5 min</div>
+                    <div class="stat-label">Setup Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label primary">Customer Success Stories</p>
+                <h2 class="section-title">Why Sales Teams Trust Eazybe</h2>
+                <p class="section-subtitle">Join thousands of sales teams who transformed their workflow</p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot" class="testimonial-logo">
+                    </div>
+                    <p class="testimonial-text">"We went from zero visibility into WhatsApp to seeing every unreplied chat. Response times dropped 40%."</p>
+                    <div class="testimonial-author">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
+                        <div>
+                            <p class="testimonial-name">Michael Roberts</p>
+                            <p class="testimonial-role">VP Sales • Financial Services</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce" class="testimonial-logo">
+                    </div>
+                    <p class="testimonial-text">"Setup took 5 minutes. Now every conversation shows up in our deal timeline. No more guessing."</p>
+                    <div class="testimonial-author">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
+                        <div>
+                            <p class="testimonial-name">Sarah Chen</p>
+                            <p class="testimonial-role">Sales Manager • Real Estate</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho" class="testimonial-logo">
+                    </div>
+                    <p class="testimonial-text">"Finally, managers can see which reps are responding fast. Game changer for our sales ops."</p>
+                    <div class="testimonial-author">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
+                        <div>
+                            <p class="testimonial-name">David Kim</p>
+                            <p class="testimonial-role">Sales Ops Lead • SaaS</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card feature-card">
+                    <div class="testimonial-header">
+                        <span class="testimonial-stars">★★★★★</span>
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks" class="testimonial-logo">
+                    </div>
+                    <p class="testimonial-text">"When a rep left, we lost all chat history. Now it's all in the CRM. Best investment this year."</p>
+                    <div class="testimonial-author">
+                        <img loading="lazy" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=48&h=48&fit=crop&crop=face" class="testimonial-avatar" alt="">
+                        <div>
+                            <p class="testimonial-name">Emily Watson</p>
+                            <p class="testimonial-role">COO • Travel Agency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Trust Badges -->
+            <div class="trust-badges">
+                <div class="trust-badge">
+                    <span style="color: var(--yellow-500);">⭐</span>
+                    <span>4.7 on Marketplace</span>
+                </div>
+                <div class="trust-badge">
+                    <span style="color: var(--green-500);">🔒</span>
+                    <span>SOC 2 Type II</span>
+                </div>
+                <div class="trust-badge">
+                    <span style="color: #2563eb;">🇪🇺</span>
+                    <span>GDPR Compliant</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container faq-container">
+            <div class="section-header">
+                <p class="section-label primary">Common Questions</p>
+                <h2 class="section-title">Got Questions?</h2>
+                <p class="section-subtitle">Everything you need to know about Eazybe</p>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Does this work with WhatsApp Business API?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">Yes! Eazybe works with all three: WhatsApp Personal (via Chrome extension), WhatsApp Business App, and WhatsApp Business API. Most teams use a combination depending on their needs.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Which CRMs do you support?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">We support HubSpot, Salesforce, Zoho CRM, and custom Webhooks for any CRM. More integrations are coming soon. Our native integrations work with all plan tiers including free plans.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">How long does setup take?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">About 5 minutes. Install the extension, connect your CRM with one click, and you're syncing. No IT department or technical expertise needed.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">What happens when a rep leaves the company?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">All synced conversations stay in your CRM permanently. No lost context, no handoff gaps. Your customer history is always preserved.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Is my data secure?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">Absolutely. We're SOC 2 Type II certified and GDPR compliant. Trusted by financial services, healthcare, insurance, and other regulated industries.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-button" onclick="toggleFaq(this)">
+                        <span class="faq-question">Can I try Eazybe before committing?</span>
+                        <svg class="faq-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-content">
+                        <p class="faq-answer">Yes! We offer a free 7-day trial with full access to all features. No credit card required. Cancel anytime if it's not the right fit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="final-cta-bg">
+            <div class="final-cta-blob-1"></div>
+            <div class="final-cta-blob-2"></div>
+        </div>
+        
+        <div class="container final-cta-content">
+            <h2 class="final-cta-title">Stop Losing Deals In Chat</h2>
+            <p class="final-cta-subtitle">See every conversation, track every response — all inside your CRM.</p>
+            
+            <div class="final-cta-logos">
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                </div>
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                </div>
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho">
+                </div>
+                <div class="final-cta-logo">
+                    <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                </div>
+            </div>
+            
+            <button onclick="scrollToForm()" class="final-cta-btn">Start Free Trial →</button>
+            
+            <p class="final-cta-trust">✓ Free 7-day trial  •  ✓ Setup in 5 min  •  ✓ Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="footer-logo">
+                <div class="footer-logos">
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                    </div>
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                    </div>
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho">
+                    </div>
+                    <div class="footer-logo-item">
+                        <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                © 2026 Eazybe, Inc. All rights reserved. Built for revenue teams.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA (Mobile) -->
+    <div id="floatingCta" class="floating-cta">
+        <button onclick="scrollToForm()" class="cta-button floating-cta-btn">
+            Start Free Trial →
+        </button>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div id="exitPopup" class="exit-popup">
+        <div class="exit-popup-overlay" onclick="closeExitPopup()"></div>
+        <div class="exit-popup-content">
+            <button onclick="closeExitPopup()" class="exit-popup-close">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            
+            <div class="exit-popup-logos">
+                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/174/174879.png" alt="WhatsApp">
+                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968872.png" alt="HubSpot">
+                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/5968/5968914.png" alt="Salesforce">
+                <img loading="lazy" src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho">
+                <img loading="lazy" src="https://cdn-icons-png.flaticon.com/512/919/919829.png" alt="Webhooks">
+            </div>
+            <h3 class="exit-popup-title">Wait! Don't Leave Empty-Handed</h3>
+            <p class="exit-popup-text">Get our free guide: <strong>"10 CRM Mistakes Costing You Deals"</strong> — plus an extended 14-day trial.</p>
+            
+            <form class="exit-popup-form">
+                <input type="email" placeholder="Enter your email" class="exit-popup-input">
+                <button type="submit" class="cta-button exit-popup-btn">
+                    Get Free Guide + 14-Day Trial →
+                </button>
+            </form>
+            
+            <p class="exit-popup-disclaimer">No spam. Unsubscribe anytime.</p>
+        </div>
+    </div>
+
+    <!-- Social Proof Popup -->
+    <div id="socialProof" class="social-proof">
+        <div class="social-proof-content">
+            <img loading="lazy" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" class="social-proof-avatar" alt="">
+            <div>
+                <p class="social-proof-name">Sarah from London</p>
+                <p class="social-proof-action">Just started a free trial</p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Main JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
