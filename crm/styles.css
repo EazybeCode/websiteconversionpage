@@ -1666,6 +1666,186 @@
         }
         
         /* ============================================
+           CONTACT ANALYTICS DEMO
+           ============================================ */
+        .contact-profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-profile-info {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .contact-profile-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        @media (min-width: 640px) {
+            .contact-profile-avatar {
+                width: 56px;
+                height: 56px;
+            }
+        }
+        
+        .contact-profile-name {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.125rem;
+        }
+        
+        @media (min-width: 640px) {
+            .contact-profile-name {
+                font-size: 1.125rem;
+            }
+        }
+        
+        .contact-profile-company {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+        
+        @media (min-width: 640px) {
+            .contact-profile-company {
+                font-size: 0.875rem;
+            }
+        }
+        
+        .contact-crm-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            opacity: 0.7;
+        }
+        
+        @media (min-width: 640px) {
+            .contact-crm-icon {
+                width: 32px;
+                height: 32px;
+            }
+        }
+        
+        .chat-analytics {
+            margin-bottom: 1rem;
+        }
+        
+        .chat-analytics-label {
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--gray-400);
+            margin-bottom: 0.75rem;
+        }
+        
+        @media (min-width: 640px) {
+            .chat-analytics-label {
+                font-size: 0.6875rem;
+            }
+        }
+        
+        .chat-analytics-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .chat-analytics-grid {
+                gap: 0.75rem;
+            }
+        }
+        
+        .chat-analytics-item {
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+        }
+        
+        @media (min-width: 640px) {
+            .chat-analytics-item {
+                padding: 1rem;
+            }
+        }
+        
+        .chat-analytics-title {
+            display: block;
+            font-size: 0.625rem;
+            font-weight: 500;
+            color: var(--gray-400);
+            margin-bottom: 0.25rem;
+        }
+        
+        @media (min-width: 640px) {
+            .chat-analytics-title {
+                font-size: 0.75rem;
+            }
+        }
+        
+        .chat-analytics-value {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        
+        @media (min-width: 640px) {
+            .chat-analytics-value {
+                font-size: 0.9375rem;
+            }
+        }
+        
+        .chat-analytics-value.green {
+            color: var(--primary-600);
+        }
+        
+        .ai-summary-box {
+            background: linear-gradient(135deg, #ecfdf5 0%, #f0f9ff 100%);
+            border: 1px solid #d1fae5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .ai-summary-box {
+                padding: 1.25rem;
+            }
+        }
+        
+        .ai-summary-label {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            color: var(--primary-600);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .ai-summary-label {
+                font-size: 0.75rem;
+            }
+        }
+        
+        .ai-summary-text {
+            font-size: 0.8125rem;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+        
+        @media (min-width: 640px) {
+            .ai-summary-text {
+                font-size: 0.875rem;
+            }
+        }
+        
+        /* ============================================
            WORKFLOW BUILDER DEMO
            ============================================ */
         .workflow-builder-title {
