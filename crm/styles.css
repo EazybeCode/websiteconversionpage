@@ -1666,6 +1666,169 @@
         }
         
         /* ============================================
+           WORKFLOW BUILDER DEMO
+           ============================================ */
+        .workflow-builder-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-builder-title {
+                font-size: 1.125rem;
+            }
+        }
+        
+        .workflow-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .workflow-step {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-step {
+                gap: 1rem;
+            }
+        }
+        
+        .workflow-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-icon {
+                width: 48px;
+                height: 48px;
+            }
+        }
+        
+        .workflow-icon img,
+        .workflow-icon svg {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-icon img,
+            .workflow-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
+        .workflow-icon.whatsapp {
+            background: #dcfce7;
+        }
+        
+        .workflow-icon.robot {
+            background: var(--gray-100);
+            color: var(--gray-600);
+        }
+        
+        .workflow-icon.hubspot {
+            background: #fff7ed;
+        }
+        
+        .workflow-icon.calendar {
+            background: #dbeafe;
+            color: #2563eb;
+        }
+        
+        .workflow-icon.person {
+            background: #f3e8ff;
+            color: #7c3aed;
+        }
+        
+        .workflow-step-content {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--gray-100);
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-step-content {
+                padding: 1rem 1.25rem;
+            }
+        }
+        
+        .workflow-step-content.green {
+            background: #dcfce7;
+            border-color: #bbf7d0;
+        }
+        
+        .workflow-step-content.white {
+            background: #fff;
+            border-color: var(--gray-200);
+        }
+        
+        .workflow-step-content.yellow {
+            background: #fef9c3;
+            border-color: #fef08a;
+        }
+        
+        .workflow-step-content.blue {
+            background: #dbeafe;
+            border-color: #bfdbfe;
+        }
+        
+        .workflow-step-label {
+            display: block;
+            font-size: 0.625rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 0.125rem;
+            color: var(--green-600);
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-step-label {
+                font-size: 0.6875rem;
+            }
+        }
+        
+        .workflow-step-label.gray {
+            color: var(--gray-500);
+        }
+        
+        .workflow-step-label.orange {
+            color: var(--orange-700);
+        }
+        
+        .workflow-step-label.primary {
+            color: var(--primary-600);
+        }
+        
+        .workflow-step-text {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--gray-900);
+        }
+        
+        @media (min-width: 640px) {
+            .workflow-step-text {
+                font-size: 1rem;
+            }
+        }
+        
+        /* ============================================
            REVENUE INBOX DEMO
            ============================================ */
         .revenue-inbox-header {
