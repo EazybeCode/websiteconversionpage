@@ -143,126 +143,83 @@
                 </div>
                 <!-- Calendly inline widget begin -->
                 <div id="hubspotFormContainer"></div>
+ 
 <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
 <script>
-
   hbspt.forms.create({
-
     region: "na1",
-
     portalId: "40009480",
-
     formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
-
     target: "#hubspotFormContainer",
-
+ 
+    // --- A. THE HARD BLOCK LOGIC ---
     onFormReady: function($form) {
-
-        // Field Names
-
+        // CONFIGURATION
         var crmField = 'what_crm_do_you_use'; 
-
         var sizeField = 'what_is_the_size_of_your_sales_team';
-
-        // Blocked Values
-
+ 
+        // BLOCKED LISTS (Corrected logic)
         var blockedCrms = ['No CRM', 'Other CRM']; 
-
         var blockedSizes = ['1-10'];
-
+ 
         // Error Message
-
         var errorText = "Based on your selection, Eazybe is not the best fit for your current stage. Please double-check your details.";
-
+ 
         // Create Error Box
-
         var errorDiv = document.createElement('div');
-
         errorDiv.style.color = '#ff0000';
-
-        errorDiv.style.fontSize = '14px';
-
         errorDiv.style.fontWeight = 'bold';
-
         errorDiv.style.marginTop = '15px';
-
-        errorDiv.style.marginBottom = '10px';
-
         errorDiv.style.display = 'none';
-
         errorDiv.innerText = errorText;
-
-        // Find Elements
-
-        var crmSelect = $form.find('select[name="' + crmField + '"]');
-
-        var sizeSelect = $form.find('select[name="' + sizeField + '"]');
-
         var submitBtn = $form.find('input[type="submit"], button[type="submit"]');
-
-        // Insert Error Box
-
         submitBtn.parent().before(errorDiv);
-
-        // Qualification Checker
-
+ 
+        // Checker Function
         function checkQualification() {
-
-            var crmValue = crmSelect.val() || '';
-
-            var sizeValue = sizeSelect.val() || '';
-
+            var crmValue = $form.find('select[name="' + crmField + '"]').val();
+            var sizeValue = $form.find('select[name="' + sizeField + '"]').val();
+ 
             var isCrmBad = blockedCrms.indexOf(crmValue) !== -1;
-
             var isSizeBad = blockedSizes.indexOf(sizeValue) !== -1;
-
+ 
             if (isCrmBad || isSizeBad) {
-
+                // BLOCK
                 submitBtn.prop('disabled', true);
-
                 submitBtn.css('opacity', '0.4');
-
                 submitBtn.css('cursor', 'not-allowed');
-
                 errorDiv.style.display = 'block';
-
             } else {
-
+                // ALLOW
                 submitBtn.prop('disabled', false);
-
                 submitBtn.css('opacity', '1');
-
                 submitBtn.css('cursor', 'pointer');
-
                 errorDiv.style.display = 'none';
-
             }
-
         }
-
-        // Event Listeners
-
-        crmSelect.on('change', checkQualification);
-
-        sizeSelect.on('change', checkQualification);
-
-        // Initial Check
-
+ 
+        $form.find('select[name="' + crmField + '"]').on('change', checkQualification);
+        $form.find('select[name="' + sizeField + '"]').on('change', checkQualification);
         setTimeout(checkQualification, 500);
-
     },
-
+ 
+    // --- B. THE REDIRECT + TRACKING ---
     onFormSubmitted: function($form, data) {
-
-        var userEmail = data.submissionValues['email'] || '';
-
-        window.location.href = "https://calendly.com/eazybe/integrate-your-crm-whatsapp-with-eazybe?email=" + encodeURIComponent(userEmail);
-
+         var userEmail = data.submissionValues['email'];
+         // 1. TRACKING: Tell Meta this is a Lead!
+         // (Only runs if you have the Meta Pixel installed on this page)
+         if (typeof fbq === 'function') { 
+             fbq('track', 'Lead'); 
+         }
+ 
+         // 2. REDIRECT: Send to Calendly
+         // Use a tiny delay (250ms) to ensure the Pixel has time to fire
+         setTimeout(function() {
+             window.location.href = "https://calendly.com/eazybe/integrate-your-crm-whatsapp-with-eazybe?email=" + encodeURIComponent(userEmail);
+         }, 250);
     }
-
   });
 </script>
-Integrate Your CRM & WhatsApp With Eazybe
  
                 <!-- Calendly inline widget end -->
             </div>
