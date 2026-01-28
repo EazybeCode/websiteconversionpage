@@ -204,14 +204,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                           var config = {
                               formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
                               redirectUrl: "https://eazybe.info/2672da",
+                              errorMsg: "Based on your selection, Eazybe is not the best fit for your current stage.",
                               locale: "en"
                           };
 
                           if (currentUrl.indexOf('/es') > -1) {
                               config.redirectUrl = "https://eazybe.info/ddq";
+                              config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
                               config.locale = "es";
                           } else if (currentUrl.indexOf('/br') > -1) {
                               config.redirectUrl = "https://eazybe.info/6e8fe3";
+                              config.errorMsg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
                               config.locale = "pt-br";
                           }
 
@@ -226,49 +229,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             onFormReady: function(form) {
                                 console.log('Form ready');
 
-                                // Wait a bit for form to fully render, then set up listeners
+                                // Create error message box
+                                var errorBox = document.createElement('div');
+                                errorBox.id = 'disqualifyError';
+                                errorBox.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin:15px 0; text-align:center; font-weight:600; border-radius:8px; display:none;';
+                                errorBox.innerText = config.errorMsg;
+
+                                // Wait for form to fully render
                                 setTimeout(function() {
-                                    // Query from document level to catch all selects
                                     var container = document.getElementById('hubspotFormContainer');
                                     var selects = container.querySelectorAll('select');
-                                    console.log('Found selects after delay:', selects.length);
+                                    var submitBtn = container.querySelector('input[type="submit"], button[type="submit"], .hs-button');
 
-                                    if (selects.length === 0) {
-                                        // Try broader search
-                                        selects = document.querySelectorAll('.hs-form select, .hbspt-form select');
-                                        console.log('Broader search found:', selects.length);
+                                    // Insert error box before submit button
+                                    if (submitBtn && submitBtn.parentNode) {
+                                        submitBtn.parentNode.insertBefore(errorBox, submitBtn);
                                     }
 
-                                    selects.forEach(function(select, index) {
-                                        console.log('Attaching listener to select', index);
-                                        select.addEventListener('change', function() {
-                                            var text = this.options[this.selectedIndex].text.toLowerCase();
-                                            console.log('SELECT CHANGED:', text);
-
+                                    function checkSelections() {
+                                        var shouldBlock = false;
+                                        selects.forEach(function(select) {
+                                            var text = (select.options[select.selectedIndex] || {}).text || '';
+                                            text = text.toLowerCase();
                                             if (text.indexOf('no crm') > -1 ||
                                                 text.indexOf('other') > -1 ||
                                                 text.indexOf('1-10') > -1) {
-                                                console.log('BLOCKED! Redirecting...');
-                                                window.location.href = 'https://eazybe.com';
+                                                shouldBlock = true;
                                             }
                                         });
-                                    });
-                                }, 1000);
 
-                                // Also set up interval as backup
-                                setInterval(function() {
-                                    var selects = document.querySelectorAll('#hubspotFormContainer select');
-                                    selects.forEach(function(select) {
-                                        var text = (select.options[select.selectedIndex] || {}).text || '';
-                                        text = text.toLowerCase();
-                                        if (text.indexOf('no crm') > -1 ||
-                                            text.indexOf('other') > -1 ||
-                                            text.indexOf('1-10') > -1) {
-                                            console.log('INTERVAL CAUGHT:', text);
-                                            window.location.href = 'https://eazybe.com';
+                                        if (shouldBlock) {
+                                            if (submitBtn) submitBtn.style.display = 'none';
+                                            errorBox.style.display = 'block';
+                                        } else {
+                                            if (submitBtn) submitBtn.style.display = '';
+                                            errorBox.style.display = 'none';
                                         }
+                                    }
+
+                                    // Attach change listeners
+                                    selects.forEach(function(select) {
+                                        select.addEventListener('change', checkSelections);
                                     });
-                                }, 500);
+
+                                    // Backup interval
+                                    setInterval(checkSelections, 500);
+                                }, 1000);
                             },
 
                             onFormSubmitted: function(form, data) {
