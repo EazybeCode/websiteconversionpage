@@ -199,7 +199,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
-                          // --- CONFIGURATION ---
+                          // CONFIGURATION
                           var currentUrl = window.location.href.toLowerCase();
                           var config = {
                               formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
@@ -208,7 +208,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               locale: "en"
                           };
 
-                          // Language Switching
                           if (currentUrl.indexOf('/es') > -1) {
                               config.redirectUrl = "https://eazybe.info/ddq";
                               config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
@@ -219,7 +218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               config.locale = "pt-br";
                           }
 
-                          // Render the Form
+                          // RENDER FORM
                           hbspt.forms.create({
                             region: "na1",
                             portalId: "40009480",
@@ -227,7 +226,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             target: "#hubspotFormContainer",
                             locale: config.locale,
 
-                            // REDIRECT LOGIC
                             onFormSubmitted: function($form, data) {
                                  if (typeof fbq === 'function') { fbq('track', 'Lead'); }
                                  setTimeout(function() {
@@ -238,59 +236,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </script>
 
                         <script>
-                        setInterval(function() {
-                            // 1. Find the Form (HubSpot uses jQuery, so we use it too)
-                            var $form = jQuery('.hs-form');
-                            if ($form.length === 0) return; // Form not loaded yet
-
-                            // 2. FORCE BLUE BUTTON (Visual Proof the code is running)
-                            var $btn = $form.find('input[type="submit"], .hs-button');
-                            $btn.css({
-                                'background-color': '#2563eb', // Blue
-                                'border': 'none',
-                                'color': 'white'
-                            });
-
-                            // 3. CHECK FOR BAD WORDS
+                        (function() {
                             var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
-                            var isBad = false;
 
-                            // Scan every dropdown text and value
-                            $form.find('select').each(function() {
-                                var text = (jQuery(this).find('option:selected').text() || "").toLowerCase();
-                                var val = (jQuery(this).val() || "").toLowerCase();
+                            setInterval(function() {
+                                // 1. Find the Form & Button (Standard JS)
+                                var form = document.querySelector('.hs-form');
+                                if (!form) return;
 
-                                for (var i = 0; i < blockedValues.length; i++) {
-                                    if (text.includes(blockedValues[i]) || val.includes(blockedValues[i])) {
-                                        isBad = true;
+                                var btn = form.querySelector('input[type="submit"], .hs-button');
+                                if (!btn) return;
+
+                                // 2. FORCE BLUE BUTTON (Visual Check)
+                                btn.style.backgroundColor = "#2563eb";
+                                btn.style.color = "white";
+                                btn.style.border = "none";
+
+                                // 3. SCAN DROPDOWNS
+                                var isBad = false;
+                                var selects = form.querySelectorAll('select');
+
+                                selects.forEach(function(select) {
+                                    var val = (select.value || "").toLowerCase();
+                                    var text = "";
+
+                                    // Get visible text safely
+                                    if (select.options && select.selectedIndex >= 0) {
+                                        text = (select.options[select.selectedIndex].text || "").toLowerCase();
                                     }
+
+                                    // Check against blacklist
+                                    for (var i = 0; i < blockedValues.length; i++) {
+                                        if (val.indexOf(blockedValues[i]) !== -1 || text.indexOf(blockedValues[i]) !== -1) {
+                                            isBad = true;
+                                        }
+                                    }
+                                });
+
+                                // 4. FIND OR CREATE ERROR BOX
+                                var errorBox = document.getElementById('customErrorBox');
+                                if (!errorBox) {
+                                    errorBox = document.createElement('div');
+                                    errorBox.id = 'customErrorBox';
+                                    errorBox.style.cssText = "background:#fee2e2; color:#991b1b; padding:15px; text-align:center; margin-top:10px; border-radius:8px; display:none; font-weight:500;";
+                                    errorBox.innerText = config.errorMsg;
+                                    btn.parentNode.insertBefore(errorBox, btn);
                                 }
-                            });
 
-                            // 4. THE KILL SWITCH
-                            // We create or find the error message box
-                            var $errorBox = jQuery('#customErrorBox');
-                            if ($errorBox.length === 0) {
-                                // Create it if it doesn't exist
-                                $errorBox = jQuery('<div id="customErrorBox" style="background:#fee2e2; color:#991b1b; padding:15px; text-align:center; margin-top:10px; border-radius:8px; display:none;"></div>');
-                                // Inject the correct language message
-                                var msg = "Based on your selection, Eazybe is not the best fit for your current stage.";
-                                if (window.location.href.indexOf('/es') > -1) msg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
-                                if (window.location.href.indexOf('/br') > -1) msg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
+                                // 5. KILL SWITCH ACTION
+                                if (isBad) {
+                                    btn.style.display = 'none';
+                                    errorBox.style.display = 'block';
+                                } else {
+                                    btn.style.display = 'block';
+                                    errorBox.style.display = 'none';
+                                }
 
-                                $errorBox.text(msg);
-                                $btn.parent().before($errorBox);
-                            }
-
-                            if (isBad) {
-                                $btn.hide(); // Hide Orange Button
-                                $errorBox.show(); // Show Error
-                            } else {
-                                $btn.show(); // Show Blue Button
-                                $errorBox.hide(); // Hide Error
-                            }
-
-                        }, 500); // Runs every 0.5 seconds
+                            }, 200); // Check every 0.2 seconds
+                        })();
                         </script>
                         
                         <!-- Trust Elements -->
