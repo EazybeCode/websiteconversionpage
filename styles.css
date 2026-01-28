@@ -381,22 +381,24 @@ img {
 #hubspotFormContainer .actions {
     margin-top: 8px;
     padding: 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 #hubspotFormContainer input[type="submit"],
 #hubspotFormContainer .hs-button {
-    width: 100%;
-    background: linear-gradient(135deg, #FF7A59 0%, #FF5C35 100%);
-    color: white;
-    border: none;
-    padding: 16px;
-    font-weight: 700;
-    border-radius: 10px;
-    font-size: 16px;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: linear-gradient(135deg, #FF7A59 0%, #FF5C35 100%) !important;
+    color: white !important;
+    border: none !important;
+    padding: 16px !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    font-size: 16px !important;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255,122,89,0.35);
+    box-shadow: 0 4px 15px rgba(255,122,89,0.35) !important;
     font-family: inherit;
 }
 
