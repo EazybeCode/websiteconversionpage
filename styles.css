@@ -381,6 +381,7 @@ img {
 #hubspotFormContainer .actions {
     margin-top: 8px;
     padding: 0;
+    text-align: center;
 }
 
 #hubspotFormContainer input[type="submit"],
