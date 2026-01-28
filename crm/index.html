@@ -226,55 +226,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             target: "#hubspotFormContainer",
                             locale: config.locale,
 
-                            onFormReady: function(form) {
-                                console.log('Form ready');
+                            // --- THE KILL SWITCH ---
+                            onFormReady: function($form) {
 
-                                // Create error message box
-                                var errorBox = document.createElement('div');
-                                errorBox.id = 'disqualifyError';
-                                errorBox.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin:15px 0; text-align:center; font-weight:600; border-radius:8px; display:none;';
-                                errorBox.innerText = config.errorMsg;
+                                // 1. GET THE RAW FORM ELEMENT (Handle jQuery or Vanilla)
+                                var formEl = (typeof $form.get === 'function') ? $form.get(0) : $form;
 
-                                // Wait for form to fully render
-                                setTimeout(function() {
-                                    var container = document.getElementById('hubspotFormContainer');
-                                    var selects = container.querySelectorAll('select');
-                                    var submitBtn = container.querySelector('input[type="submit"], button[type="submit"], .hs-button');
+                                // 2. FORCE BLUE BUTTON
+                                var btn = formEl.querySelector('input[type="submit"], .hs-button');
+                                if (btn) {
+                                    btn.style.setProperty('background-color', '#2563eb', 'important');
+                                    btn.style.setProperty('color', '#ffffff', 'important');
+                                    btn.style.setProperty('border', 'none', 'important');
+                                    btn.style.setProperty('background-image', 'none', 'important');
+                                }
 
-                                    // Insert error box before submit button
-                                    if (submitBtn && submitBtn.parentNode) {
-                                        submitBtn.parentNode.insertBefore(errorBox, submitBtn);
-                                    }
+                                // 3. CREATE ERROR BOX
+                                var errorDiv = document.createElement('div');
+                                errorDiv.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin-top:20px; text-align:center; display:none; font-weight:600; border-radius:8px;';
+                                errorDiv.innerText = config.errorMsg;
+                                if (btn) btn.parentNode.insertBefore(errorDiv, btn);
 
-                                    function checkSelections() {
-                                        var shouldBlock = false;
-                                        selects.forEach(function(select) {
-                                            var text = (select.options[select.selectedIndex] || {}).text || '';
-                                            text = text.toLowerCase();
-                                            if (text.indexOf('no crm') > -1 ||
-                                                text.indexOf('other') > -1 ||
-                                                text.indexOf('1-10') > -1) {
-                                                shouldBlock = true;
+                                // 4. KILL SWITCH LOGIC (Scanning Text & Value)
+                                var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
+
+                                function runCheck() {
+                                    var isBad = false;
+                                    var selects = formEl.querySelectorAll('select');
+
+                                    for (var i = 0; i < selects.length; i++) {
+                                        var select = selects[i];
+                                        var val = (select.value || "").toLowerCase();
+                                        var text = "";
+                                        if (select.options && select.selectedIndex >= 0) {
+                                            text = (select.options[select.selectedIndex].text || "").toLowerCase();
+                                        }
+
+                                        for (var j = 0; j < blockedValues.length; j++) {
+                                            if (val.indexOf(blockedValues[j]) > -1 || text.indexOf(blockedValues[j]) > -1) {
+                                                isBad = true;
                                             }
-                                        });
-
-                                        if (shouldBlock) {
-                                            if (submitBtn) submitBtn.style.display = 'none';
-                                            errorBox.style.display = 'block';
-                                        } else {
-                                            if (submitBtn) submitBtn.style.display = '';
-                                            errorBox.style.display = 'none';
                                         }
                                     }
 
-                                    // Attach change listeners
-                                    selects.forEach(function(select) {
-                                        select.addEventListener('change', checkSelections);
-                                    });
+                                    if (isBad) {
+                                        if(btn) btn.style.display = 'none';
+                                        errorDiv.style.display = 'block';
+                                    } else {
+                                        if(btn) btn.style.display = 'block';
+                                        errorDiv.style.display = 'none';
+                                    }
+                                }
 
-                                    // Backup interval
-                                    setInterval(checkSelections, 500);
-                                }, 1000);
+                                // 5. LISTENERS
+                                formEl.addEventListener('change', runCheck);
+                                formEl.addEventListener('input', runCheck);
+                                runCheck();
                             },
 
                             onFormSubmitted: function(form, data) {
