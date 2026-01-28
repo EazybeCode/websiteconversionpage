@@ -232,53 +232,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                             // THIS IS THE KEY - runs when form is actually ready
                             onFormReady: function($form) {
-                                console.log('=== HUBSPOT FORM READY ===');
-                                console.log('$form type:', typeof $form);
+                                alert('Form Ready! Check console.');
+                                console.log('=== FORM READY ===');
 
-                                // Get the actual form element
-                                var formElement = $form[0] || $form;
-                                console.log('Form element:', formElement);
+                                // Use jQuery since HubSpot provides $form as jQuery object
+                                $form.on('change', 'select', function() {
+                                    var selectedText = jQuery(this).find('option:selected').text().toLowerCase();
+                                    var selectedVal = jQuery(this).val().toLowerCase();
 
-                                // Find all selects
-                                var selects = formElement.querySelectorAll('select');
-                                console.log('Found ' + selects.length + ' selects inside form');
+                                    console.log('Changed! Text: ' + selectedText + ' | Val: ' + selectedVal);
+                                    alert('Selected: ' + selectedText);
 
-                                // Function to check and redirect
-                                function checkDropdowns() {
-                                    console.log('--- Checking dropdowns ---');
+                                    if (selectedText.indexOf('no crm') > -1 ||
+                                        selectedText.indexOf('other') > -1 ||
+                                        selectedText.indexOf('1-10') > -1 ||
+                                        selectedVal.indexOf('no crm') > -1 ||
+                                        selectedVal.indexOf('other') > -1 ||
+                                        selectedVal.indexOf('1-10') > -1) {
 
-                                    for (var i = 0; i < selects.length; i++) {
-                                        var select = selects[i];
-                                        var val = (select.value || '').toLowerCase().trim();
-                                        var txt = '';
-
-                                        if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
-                                            txt = (select.options[select.selectedIndex].text || '').toLowerCase().trim();
-                                        }
-
-                                        console.log('Dropdown ' + i + ': val="' + val + '" txt="' + txt + '"');
-
-                                        // Check for blocked values
-                                        for (var j = 0; j < blockedValues.length; j++) {
-                                            if (txt.indexOf(blockedValues[j]) !== -1 || val.indexOf(blockedValues[j]) !== -1) {
-                                                console.log('BLOCKED! Redirecting...');
-                                                window.location.href = disqualifyRedirect;
-                                                return;
-                                            }
-                                        }
+                                        alert('BLOCKED - Redirecting!');
+                                        window.location.href = disqualifyRedirect;
                                     }
-                                }
-
-                                // Add change listeners to each select
-                                for (var i = 0; i < selects.length; i++) {
-                                    selects[i].addEventListener('change', function() {
-                                        console.log('Select changed!');
-                                        checkDropdowns();
-                                    });
-                                }
-
-                                // Also run on interval as backup
-                                setInterval(checkDropdowns, 1000);
+                                });
                             },
 
                             onFormSubmitted: function($form, data) {
