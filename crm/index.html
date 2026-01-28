@@ -197,8 +197,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </style>
                         <div id="hubspotFormContainer" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
 
+                        <script>
+                        alert('Script 1: Before HubSpot loads');
+                        </script>
+
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
+                        alert('Script 2: After HubSpot script tag');
+                        console.log('hbspt defined?', typeof hbspt);
                           // CONFIGURATION
                           var currentUrl = window.location.href.toLowerCase();
                           var config = {
