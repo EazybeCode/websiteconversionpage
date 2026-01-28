@@ -177,6 +177,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         
                         <!-- HubSpot Form -->
+                        <style>
+                            #hubspotFormContainer .hs-form { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+                            #hubspotFormContainer .hs-form-field { margin-bottom: 16px; }
+                            #hubspotFormContainer .hs-form label { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 6px; display: block; }
+                            #hubspotFormContainer .hs-input,
+                            #hubspotFormContainer select.hs-input { width: 100% !important; padding: 12px 14px !important; border-radius: 8px !important; border: 1.5px solid #d1d5db !important; font-size: 14px; color: #1f2937; background: #fff; transition: border-color 0.2s, box-shadow 0.2s; box-sizing: border-box; }
+                            #hubspotFormContainer .hs-input:focus,
+                            #hubspotFormContainer select.hs-input:focus { border-color: #2563eb !important; outline: none; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1); }
+                            #hubspotFormContainer .hs-submit { margin-top: 20px; }
+                            #hubspotFormContainer input[type="submit"],
+                            #hubspotFormContainer .hs-button { width: 100% !important; background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important; color: white !important; border: none !important; padding: 14px 20px !important; font-weight: 600 !important; font-size: 15px !important; border-radius: 8px !important; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25); }
+                            #hubspotFormContainer input[type="submit"]:hover,
+                            #hubspotFormContainer .hs-button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35); }
+                            #hubspotFormContainer .hs-error-msgs label { color: #dc2626 !important; font-size: 12px; font-weight: 500; }
+                            #hubspotFormContainer .hs-form-required { color: #dc2626; }
+                            #hubspotFormContainer .hs-fieldtype-select .input { position: relative; }
+                            #hubspotFormContainer .hs-fieldtype-select .input::after { content: ''; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #6b7280; pointer-events: none; }
+                        </style>
                         <div id="hubspotFormContainer" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
 
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
@@ -209,14 +227,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             locale: config.locale,
 
                             onFormReady: function($form) {
-                                var customCss = `
-                                    .hs-form { font-family: -apple-system, sans-serif !important; }
-                                    .hs-input, .hs-input select { width: 100% !important; padding: 12px !important; border-radius: 8px !important; border: 1px solid #d1d5db !important; }
-                                    input[type="submit"], .hs-button { width: 100% !important; background-color: #2563eb !important; color: white !important; border: none !important; padding: 14px !important; font-weight: 600 !important; border-radius: 8px !important; cursor: pointer !important; }
-                                    .hs-error-msgs label { color: #dc2626 !important; }
-                                `;
-                                $form.prepend('<style>' + customCss + '</style>');
-
                                 var crmField = 'what_crm_do_you_use';
                                 var sizeField = 'what_is_the_size_of_your_sales_team';
                                 var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
