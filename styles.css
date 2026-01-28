@@ -288,18 +288,20 @@ img {
 /* ============================================
    CALENDLY EMBED (Mobile First)
 ============================================ */
-.calendly-container { 
-    background: white; 
-    border-radius: 16px; 
-    box-shadow: 0 15px 50px rgba(255,122,89,0.15), 0 8px 25px rgba(45,62,80,0.08); 
-    overflow: hidden; 
+.calendly-container,
+.form-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 15px 50px rgba(255,122,89,0.15), 0 8px 25px rgba(45,62,80,0.08);
+    overflow: hidden;
     border: 2px solid rgba(255,122,89,0.12);
     position: relative;
     width: 100%;
     max-width: 100%;
 }
 
-.calendly-container::before {
+.calendly-container::before,
+.form-container::before {
     content: '';
     position: absolute;
     top: -2px;
@@ -313,15 +315,23 @@ img {
     filter: blur(6px);
 }
 
-.calendly-header { 
-    background: var(--gradient-hubspot); 
-    padding: 1rem 1.25rem; 
+.calendly-header,
+.form-header {
+    background: var(--gradient-hubspot);
+    padding: 1rem 1.25rem;
     text-align: center;
     position: relative;
     overflow: hidden;
 }
 
-.calendly-header::before {
+/* HubSpot Form Container */
+#hubspotFormContainer {
+    padding: 1.5rem;
+    background: white;
+}
+
+.calendly-header::before,
+.form-header::before {
     content: '';
     position: absolute;
     top: 0;
@@ -332,17 +342,19 @@ img {
     opacity: 0.5;
 }
 
-.calendly-header h3 { 
-    color: white; 
-    font-size: 1.1rem; 
-    font-weight: 800; 
+.calendly-header h3,
+.form-header h3 {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 800;
     margin-bottom: 0.25rem;
     position: relative;
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.calendly-header p { 
-    color: rgba(255,255,255,0.95); 
+.calendly-header p,
+.form-header p {
+    color: rgba(255,255,255,0.95);
     font-size: 0.8rem;
     position: relative;
 }
@@ -1660,8 +1672,28 @@ img {
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.final-calendly .calendly-inline-widget { 
-    height: 520px; 
+.final-calendly .calendly-inline-widget {
+    height: 520px;
+}
+
+/* Final CTA Button */
+.final-cta-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.final-cta-button .btn-large {
+    padding: 1.25rem 3rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+}
+
+.final-cta-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
 }
 
 /* ============================================
@@ -2005,20 +2037,27 @@ img {
         font-size: 1.75rem;
     }
     
-    .calendly-container {
+    .calendly-container,
+    .form-container {
         max-width: 480px;
     }
-    
-    .calendly-header {
+
+    .calendly-header,
+    .form-header {
         padding: 1.5rem 2rem;
     }
-    
-    .calendly-header h3 {
+
+    .calendly-header h3,
+    .form-header h3 {
         font-size: 1.35rem;
     }
-    
+
     .calendly-inline-widget {
         height: 700px;
+    }
+
+    #hubspotFormContainer {
+        padding: 2rem;
     }
     
     .trusted-by {
@@ -2181,18 +2220,19 @@ img {
         font-size: 2.75rem;
     }
     
-    .calendly-container {
+    .calendly-container,
+    .form-container {
         max-width: 520px;
     }
-    
+
     .feature-content h2 {
         font-size: 2rem;
     }
-    
+
     .feature-visual {
         max-width: 540px;
     }
-    
+
     .testimonial-card {
         width: 400px;
     }
