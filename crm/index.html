@@ -224,30 +224,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             locale: config.locale,
 
                             onFormReady: function(form) {
-                                console.log('Form ready, type:', typeof form, form);
+                                console.log('Form ready');
 
-                                // form is a DOM element in v2, not jQuery
-                                var formEl = form;
+                                // Wait a bit for form to fully render, then set up listeners
+                                setTimeout(function() {
+                                    // Query from document level to catch all selects
+                                    var container = document.getElementById('hubspotFormContainer');
+                                    var selects = container.querySelectorAll('select');
+                                    console.log('Found selects after delay:', selects.length);
 
-                                // Find all selects and attach listeners
-                                var selects = formEl.querySelectorAll('select');
-                                console.log('Found selects:', selects.length);
+                                    if (selects.length === 0) {
+                                        // Try broader search
+                                        selects = document.querySelectorAll('.hs-form select, .hbspt-form select');
+                                        console.log('Broader search found:', selects.length);
+                                    }
 
-                                selects.forEach(function(select) {
-                                    select.addEventListener('change', function() {
-                                        var text = this.options[this.selectedIndex].text.toLowerCase();
-                                        var val = this.value.toLowerCase();
+                                    selects.forEach(function(select, index) {
+                                        console.log('Attaching listener to select', index);
+                                        select.addEventListener('change', function() {
+                                            var text = this.options[this.selectedIndex].text.toLowerCase();
+                                            console.log('SELECT CHANGED:', text);
 
-                                        console.log('SELECT CHANGED - text:', text, 'val:', val);
+                                            if (text.indexOf('no crm') > -1 ||
+                                                text.indexOf('other') > -1 ||
+                                                text.indexOf('1-10') > -1) {
+                                                console.log('BLOCKED! Redirecting...');
+                                                window.location.href = 'https://eazybe.com';
+                                            }
+                                        });
+                                    });
+                                }, 1000);
 
+                                // Also set up interval as backup
+                                setInterval(function() {
+                                    var selects = document.querySelectorAll('#hubspotFormContainer select');
+                                    selects.forEach(function(select) {
+                                        var text = (select.options[select.selectedIndex] || {}).text || '';
+                                        text = text.toLowerCase();
                                         if (text.indexOf('no crm') > -1 ||
                                             text.indexOf('other') > -1 ||
                                             text.indexOf('1-10') > -1) {
-                                            console.log('BLOCKED! Redirecting...');
+                                            console.log('INTERVAL CAUGHT:', text);
                                             window.location.href = 'https://eazybe.com';
                                         }
                                     });
-                                });
+                                }, 500);
                             },
 
                             onFormSubmitted: function(form, data) {
