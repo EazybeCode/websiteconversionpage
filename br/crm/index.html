@@ -199,8 +199,7 @@
                               config.redirectUrl = "https://eazybe.info/ddq";
                               config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
                               config.locale = "es";
-                          }
-                          else if (currentUrl.indexOf('/br') > -1) {
+                          } else if (currentUrl.indexOf('/br') > -1) {
                               config.redirectUrl = "https://eazybe.info/6e8fe3";
                               config.errorMsg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
                               config.locale = "pt-br";
@@ -214,8 +213,6 @@
                             locale: config.locale,
 
                             onFormReady: function($form) {
-                                var crmField = 'what_crm_do_you_use';
-                                var sizeField = 'what_is_the_size_of_your_sales_team';
                                 var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
 
                                 var errorDiv = document.createElement('div');
@@ -228,19 +225,20 @@
                                 errorDiv.style.display = 'none';
                                 errorDiv.innerText = config.errorMsg;
 
-                                var submitBtn = $form.find('input[type="submit"], button[type="submit"]');
+                                var submitBtn = $form.find('input[type="submit"], button[type="submit"], .hs-button');
                                 submitBtn.parent().before(errorDiv);
 
                                 function checkQualification() {
-                                    var crmVal = ($form.find('select[name="' + crmField + '"]').val() || "").toLowerCase();
-                                    var sizeVal = ($form.find('select[name="' + sizeField + '"]').val() || "").toLowerCase();
-
                                     var isBad = false;
-                                    for (var i = 0; i < blockedValues.length; i++) {
-                                        if (crmVal.includes(blockedValues[i]) || sizeVal.includes(blockedValues[i])) {
-                                            isBad = true;
+
+                                    $form.find('select').each(function() {
+                                        var val = ($(this).val() || "").toLowerCase();
+                                        for (var i = 0; i < blockedValues.length; i++) {
+                                            if (val.includes(blockedValues[i])) {
+                                                isBad = true;
+                                            }
                                         }
-                                    }
+                                    });
 
                                     if (isBad) {
                                         submitBtn.hide();
