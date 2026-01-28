@@ -658,30 +658,70 @@
     <!-- HubSpot Form Script -->
     <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
     <script>
+    // Auto-detect language settings based on URL
+    var currentUrl = window.location.href.toLowerCase();
+    var config = {
+        formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
+        redirectUrl: "https://eazybe.info/2672da",
+        errorMsg: "Based on your selection, Eazybe is not the best fit for your current stage.",
+        locale: "en"
+    };
+
+    // Spanish detection (/es)
+    if (currentUrl.indexOf('/es') > -1) {
+        config.redirectUrl = "https://eazybe.info/ddq";
+        config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
+        config.locale = "es";
+    }
+    // Portuguese detection (/br)
+    else if (currentUrl.indexOf('/br') > -1) {
+        config.redirectUrl = "https://eazybe.info/6e8fe3";
+        config.errorMsg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
+        config.locale = "pt-br";
+    }
+
     hbspt.forms.create({
         region: "na1",
         portalId: "40009480",
-        formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
+        formId: config.formId,
         target: "#hubspotFormContainer",
+        locale: config.locale,
+
         onFormReady: function($form) {
-            // Qualification logic
+            // Universal blocking logic
             var crmField = 'what_crm_do_you_use';
             var sizeField = 'what_is_the_size_of_your_sales_team';
-            var blockedCrms = ['No CRM', 'Other CRM'];
-            var blockedSizes = ['1-10'];
 
-            // Create styled error box
+            // Universal blacklist (lowercase)
+            var blockedValues = [
+                'no crm', 'no_crm', 'other crm', 'other_crm', 'other',
+                'sin crm', 'otro crm', 'otro',
+                'sem crm', 'outro crm', 'outro',
+                '1-10', '1 - 10'
+            ];
+
+            // Create error box
             var errorDiv = document.createElement('div');
+            errorDiv.className = 'hs-qualification-error';
             errorDiv.style.cssText = 'background:#FEE2E2;border:1px solid #FECACA;color:#991b1b;font-size:13px;font-weight:500;padding:14px;border-radius:10px;margin:16px 0;text-align:center;display:none;';
-            errorDiv.innerText = "Based on your selection, Eazybe is not the best fit for your current stage.";
+            errorDiv.innerText = config.errorMsg;
             var submitBtn = $form.find('input[type="submit"], button[type="submit"]');
             submitBtn.parent().before(errorDiv);
 
             function checkQualification() {
-                var crmValue = $form.find('select[name="' + crmField + '"]').val();
-                var sizeValue = $form.find('select[name="' + sizeField + '"]').val();
-                var isCrmBad = blockedCrms.indexOf(crmValue) !== -1;
-                var isSizeBad = blockedSizes.indexOf(sizeValue) !== -1;
+                var crmRaw = $form.find('select[name="' + crmField + '"]').val() || "";
+                var sizeRaw = $form.find('select[name="' + sizeField + '"]').val() || "";
+
+                var crmClean = crmRaw.toLowerCase().replace(/_/g, " ").trim();
+                var sizeClean = sizeRaw.toLowerCase().trim();
+
+                var isCrmBad = false;
+                var isSizeBad = false;
+
+                for (var i = 0; i < blockedValues.length; i++) {
+                    if (crmClean.includes(blockedValues[i])) isCrmBad = true;
+                    if (sizeClean === blockedValues[i]) isSizeBad = true;
+                }
 
                 if (isCrmBad || isSizeBad) {
                     submitBtn.prop('disabled', true).css({'opacity':'0.5','cursor':'not-allowed'});
@@ -696,12 +736,13 @@
             $form.find('select[name="' + sizeField + '"]').on('change', checkQualification);
             setTimeout(checkQualification, 500);
         },
+
         onFormSubmitted: function($form, data) {
             var userEmail = data.submissionValues['email'];
             if (typeof fbq === 'function') { fbq('track', 'Lead'); }
             if (typeof gtag === 'function') { gtag('event', 'generate_lead', { 'event_category': 'form', 'event_label': 'hubspot_form' }); }
             setTimeout(function() {
-                window.location.href = "https://calendly.com/eazybe/integrate-your-crm-whatsapp-with-eazybe?email=" + encodeURIComponent(userEmail);
+                window.location.href = config.redirectUrl + "?email=" + encodeURIComponent(userEmail);
             }, 250);
         }
     });
