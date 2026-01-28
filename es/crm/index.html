@@ -199,24 +199,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
-                          // CONFIGURATION
-                          var currentUrl = window.location.href.toLowerCase();
+                          // CONFIGURATION - SPANISH
                           var config = {
                               formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
-                              redirectUrl: "https://eazybe.info/2672da",
-                              errorMsg: "Based on your selection, Eazybe is not the best fit for your current stage.",
-                              locale: "en"
+                              redirectUrl: "https://eazybe.info/ddq",
+                              errorMsg: "Según su selección, Eazybe no es la mejor opción para su etapa actual.",
+                              locale: "es"
                           };
-
-                          if (currentUrl.indexOf('/es') > -1) {
-                              config.redirectUrl = "https://eazybe.info/ddq";
-                              config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
-                              config.locale = "es";
-                          } else if (currentUrl.indexOf('/br') > -1) {
-                              config.redirectUrl = "https://eazybe.info/6e8fe3";
-                              config.errorMsg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
-                              config.locale = "pt-br";
-                          }
 
                           // RENDER FORM
                           hbspt.forms.create({
