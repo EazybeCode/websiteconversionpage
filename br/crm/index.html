@@ -233,8 +233,10 @@
 
                                     $form.find('select').each(function() {
                                         var val = ($(this).val() || "").toLowerCase();
+                                        var text = ($(this).find('option:selected').text() || "").toLowerCase();
+
                                         for (var i = 0; i < blockedValues.length; i++) {
-                                            if (val.includes(blockedValues[i])) {
+                                            if (val.includes(blockedValues[i]) || text.includes(blockedValues[i])) {
                                                 isBad = true;
                                             }
                                         }
@@ -250,7 +252,7 @@
                                 }
 
                                 $form.find('select').on('change', checkQualification);
-                                setTimeout(checkQualification, 500);
+                                setInterval(checkQualification, 500);
                             },
 
                             onFormSubmitted: function($form, data) {
