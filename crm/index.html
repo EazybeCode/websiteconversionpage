@@ -226,67 +226,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             target: "#hubspotFormContainer",
                             locale: config.locale,
 
-                            // --- THE TROJAN HORSE ---
-                            // This runs INSIDE the form context
-                            onFormReady: function($form) {
-
-                                // 1. GET THE RAW FORM ELEMENT (Handle jQuery or Vanilla)
-                                var formEl = (typeof $form.get === 'function') ? $form.get(0) : $form;
-
-                                // 2. FORCE BLUE BUTTON (Using !important to crush HubSpot styles)
-                                var btn = formEl.querySelector('input[type="submit"], .hs-button');
-                                if (btn) {
-                                    btn.style.setProperty('background-color', '#2563eb', 'important');
-                                    btn.style.setProperty('color', '#ffffff', 'important');
-                                    btn.style.setProperty('border', 'none', 'important');
-                                    btn.style.setProperty('background-image', 'none', 'important');
-                                    btn.style.setProperty('box-shadow', 'none', 'important');
-                                }
-
-                                // 3. CREATE ERROR BOX
-                                var errorDiv = document.createElement('div');
-                                errorDiv.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin-top:20px; text-align:center; display:none; font-weight:600; border-radius:8px;';
-                                errorDiv.innerText = config.errorMsg;
-                                if (btn) btn.parentNode.insertBefore(errorDiv, btn);
-
-                                // 4. KILL SWITCH LOGIC (Scanning Text & Value)
-                                var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
-
-                                function runCheck() {
-                                    var isBad = false;
-                                    var selects = formEl.querySelectorAll('select');
-
-                                    for (var i = 0; i < selects.length; i++) {
-                                        var select = selects[i];
-                                        var val = (select.value || "").toLowerCase();
-                                        var text = "";
-                                        if (select.options && select.selectedIndex >= 0) {
-                                            text = (select.options[select.selectedIndex].text || "").toLowerCase();
-                                        }
-
-                                        for (var j = 0; j < blockedValues.length; j++) {
-                                            if (val.indexOf(blockedValues[j]) > -1 || text.indexOf(blockedValues[j]) > -1) {
-                                                isBad = true;
-                                            }
-                                        }
-                                    }
-
-                                    if (isBad) {
-                                        if(btn) btn.style.display = 'none';
-                                        errorDiv.style.display = 'block';
-                                    } else {
-                                        if(btn) btn.style.display = 'block';
-                                        errorDiv.style.display = 'none';
-                                    }
-                                }
-
-                                // 5. LISTENERS
-                                formEl.addEventListener('change', runCheck);
-                                formEl.addEventListener('input', runCheck);
-                                runCheck();
-                            },
-
-                            // REDIRECT LOGIC
                             onFormSubmitted: function($form, data) {
                                  if (typeof fbq === 'function') { fbq('track', 'Lead'); }
                                  setTimeout(function() {
@@ -294,6 +233,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                  }, 250);
                             }
                           });
+                        </script>
+
+                        <!-- KILL SWITCH - Runs independently via setInterval -->
+                        <script>
+                        (function() {
+                            var blockedValues = ['no crm', 'other', '1-10'];
+                            var errorBoxCreated = false;
+
+                            function killSwitchCheck() {
+                                // Find the form container
+                                var container = document.getElementById('hubspotFormContainer');
+                                if (!container) return;
+
+                                // Find all select elements
+                                var selects = container.querySelectorAll('select');
+                                if (selects.length === 0) return;
+
+                                // Find the submit button
+                                var btn = container.querySelector('input[type="submit"], button[type="submit"], .hs-button');
+                                if (!btn) return;
+
+                                // Create error box if not exists
+                                var errorBox = document.getElementById('killSwitchError');
+                                if (!errorBox) {
+                                    errorBox = document.createElement('div');
+                                    errorBox.id = 'killSwitchError';
+                                    errorBox.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin:15px 0; text-align:center; font-weight:600; border-radius:8px; display:none;';
+                                    errorBox.innerText = config.errorMsg;
+                                    btn.parentNode.insertBefore(errorBox, btn);
+                                    console.log('Kill switch error box created');
+                                }
+
+                                // Check all dropdowns for blocked values
+                                var shouldBlock = false;
+
+                                for (var i = 0; i < selects.length; i++) {
+                                    var select = selects[i];
+                                    var selectedText = '';
+                                    var selectedValue = (select.value || '').toLowerCase().trim();
+
+                                    if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
+                                        selectedText = (select.options[select.selectedIndex].text || '').toLowerCase().trim();
+                                    }
+
+                                    console.log('Dropdown ' + i + ': value="' + selectedValue + '", text="' + selectedText + '"');
+
+                                    for (var j = 0; j < blockedValues.length; j++) {
+                                        var blocked = blockedValues[j];
+                                        if (selectedText.indexOf(blocked) !== -1 || selectedValue.indexOf(blocked) !== -1) {
+                                            console.log('BLOCKED VALUE FOUND: ' + blocked);
+                                            shouldBlock = true;
+                                        }
+                                    }
+                                }
+
+                                // Apply kill switch
+                                if (shouldBlock) {
+                                    btn.style.display = 'none';
+                                    errorBox.style.display = 'block';
+                                    console.log('KILL SWITCH ACTIVATED - Button hidden');
+                                } else {
+                                    btn.style.display = '';
+                                    errorBox.style.display = 'none';
+                                }
+                            }
+
+                            // Run every 300ms
+                            setInterval(killSwitchCheck, 300);
+                            console.log('Kill switch interval started');
+                        })();
                         </script>
                         
                         <!-- Trust Elements -->
