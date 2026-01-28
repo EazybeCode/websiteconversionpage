@@ -330,6 +330,122 @@ img {
     background: white;
 }
 
+/* HubSpot Form Styling */
+#hubspotFormContainer .hs-form {
+    font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+#hubspotFormContainer .hs-form-field {
+    margin-bottom: 18px;
+}
+
+#hubspotFormContainer .hs-form label:not(.hs-error-msg) {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2D3E50;
+    margin-bottom: 6px;
+    display: block;
+}
+
+#hubspotFormContainer .hs-input,
+#hubspotFormContainer .hs-input select,
+#hubspotFormContainer select.hs-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1.5px solid #DFE3EB;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #2D3E50;
+    background-color: #fff;
+    box-sizing: border-box;
+    height: auto;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#hubspotFormContainer .hs-input::placeholder {
+    color: #7C98B6;
+}
+
+#hubspotFormContainer .hs-input:focus,
+#hubspotFormContainer .hs-input select:focus,
+#hubspotFormContainer select.hs-input:focus {
+    border-color: #FF7A59;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,122,89,0.15);
+}
+
+#hubspotFormContainer .actions {
+    margin-top: 8px;
+    padding: 0;
+}
+
+#hubspotFormContainer input[type="submit"],
+#hubspotFormContainer .hs-button {
+    width: 100%;
+    background: linear-gradient(135deg, #FF7A59 0%, #FF5C35 100%);
+    color: white;
+    border: none;
+    padding: 16px;
+    font-weight: 700;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255,122,89,0.35);
+    font-family: inherit;
+}
+
+#hubspotFormContainer input[type="submit"]:hover,
+#hubspotFormContainer .hs-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,122,89,0.45);
+}
+
+#hubspotFormContainer .hs-error-msgs label,
+#hubspotFormContainer .hs-error-msg {
+    color: #dc2626;
+    font-weight: 400;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+#hubspotFormContainer .hs-form-required {
+    color: #FF7A59;
+}
+
+#hubspotFormContainer .legal-consent-container {
+    margin-top: 16px;
+    font-size: 12px;
+    color: #516F90;
+}
+
+#hubspotFormContainer .legal-consent-container .hs-form-booleancheckbox label {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+#hubspotFormContainer .hs-fieldtype-select .input {
+    position: relative;
+}
+
+#hubspotFormContainer .hs-fieldtype-select .input::after {
+    content: '';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #7C98B6;
+    pointer-events: none;
+}
+
 .calendly-header::before,
 .form-header::before {
     content: '';
