@@ -163,9 +163,96 @@
                             </div>
                         </div>
                         
-                        <!-- Calendly inline widget -->
-                        <div class="calendly-inline-widget" data-url="https://calendly.com/d/cw67-pt3-y2m"></div>
-                        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                        <!-- HubSpot Form -->
+                        <div id="hubspotFormContainer" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
+
+                        <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+                        <script>
+                          var currentUrl = window.location.href.toLowerCase();
+
+                          var config = {
+                              formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
+                              redirectUrl: "https://eazybe.info/2672da",
+                              errorMsg: "Based on your selection, Eazybe is not the best fit for your current stage.",
+                              locale: "en"
+                          };
+
+                          if (currentUrl.indexOf('/es') > -1) {
+                              config.redirectUrl = "https://eazybe.info/ddq";
+                              config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
+                              config.locale = "es";
+                          }
+                          else if (currentUrl.indexOf('/br') > -1) {
+                              config.redirectUrl = "https://eazybe.info/6e8fe3";
+                              config.errorMsg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
+                              config.locale = "pt-br";
+                          }
+
+                          hbspt.forms.create({
+                            region: "na1",
+                            portalId: "40009480",
+                            formId: config.formId,
+                            target: "#hubspotFormContainer",
+                            locale: config.locale,
+
+                            onFormReady: function($form) {
+                                var customCss = `
+                                    .hs-form { font-family: -apple-system, sans-serif !important; }
+                                    .hs-input, .hs-input select { width: 100% !important; padding: 12px !important; border-radius: 8px !important; border: 1px solid #d1d5db !important; }
+                                    input[type="submit"], .hs-button { width: 100% !important; background-color: #2563eb !important; color: white !important; border: none !important; padding: 14px !important; font-weight: 600 !important; border-radius: 8px !important; cursor: pointer !important; }
+                                    .hs-error-msgs label { color: #dc2626 !important; }
+                                `;
+                                $form.prepend('<style>' + customCss + '</style>');
+
+                                var crmField = 'what_crm_do_you_use';
+                                var sizeField = 'what_is_the_size_of_your_sales_team';
+                                var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
+
+                                var errorDiv = document.createElement('div');
+                                errorDiv.style.backgroundColor = '#fee2e2';
+                                errorDiv.style.color = '#991b1b';
+                                errorDiv.style.padding = '15px';
+                                errorDiv.style.marginTop = '20px';
+                                errorDiv.style.textAlign = 'center';
+                                errorDiv.style.borderRadius = '8px';
+                                errorDiv.style.display = 'none';
+                                errorDiv.innerText = config.errorMsg;
+
+                                var submitBtn = $form.find('input[type="submit"], button[type="submit"]');
+                                submitBtn.parent().before(errorDiv);
+
+                                function checkQualification() {
+                                    var crmVal = ($form.find('select[name="' + crmField + '"]').val() || "").toLowerCase();
+                                    var sizeVal = ($form.find('select[name="' + sizeField + '"]').val() || "").toLowerCase();
+
+                                    var isBad = false;
+                                    for (var i = 0; i < blockedValues.length; i++) {
+                                        if (crmVal.includes(blockedValues[i]) || sizeVal.includes(blockedValues[i])) {
+                                            isBad = true;
+                                        }
+                                    }
+
+                                    if (isBad) {
+                                        submitBtn.hide();
+                                        errorDiv.style.display = 'block';
+                                    } else {
+                                        submitBtn.show();
+                                        errorDiv.style.display = 'none';
+                                    }
+                                }
+
+                                $form.find('select').on('change', checkQualification);
+                                setTimeout(checkQualification, 500);
+                            },
+
+                            onFormSubmitted: function($form, data) {
+                                 if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+                                 setTimeout(function() {
+                                     window.location.href = config.redirectUrl + "?email=" + encodeURIComponent(data.submissionValues['email']);
+                                 }, 250);
+                            }
+                          });
+                        </script>
                         
                         <!-- Trust Elements -->
                         <div class="hero-form-trust">
