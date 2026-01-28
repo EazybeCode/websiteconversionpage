@@ -218,6 +218,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               config.locale = "pt-br";
                           }
 
+                          // BLOCKED VALUES - redirect to eazybe.com if selected
+                          var blockedValues = ['no crm', 'other', '1-10'];
+                          var disqualifyRedirect = 'https://eazybe.com';
+
                           // RENDER FORM
                           hbspt.forms.create({
                             region: "na1",
@@ -226,6 +230,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             target: "#hubspotFormContainer",
                             locale: config.locale,
 
+                            // THIS IS THE KEY - runs when form is actually ready
+                            onFormReady: function($form) {
+                                console.log('=== HUBSPOT FORM READY ===');
+                                console.log('$form type:', typeof $form);
+
+                                // Get the actual form element
+                                var formElement = $form[0] || $form;
+                                console.log('Form element:', formElement);
+
+                                // Find all selects
+                                var selects = formElement.querySelectorAll('select');
+                                console.log('Found ' + selects.length + ' selects inside form');
+
+                                // Function to check and redirect
+                                function checkDropdowns() {
+                                    console.log('--- Checking dropdowns ---');
+
+                                    for (var i = 0; i < selects.length; i++) {
+                                        var select = selects[i];
+                                        var val = (select.value || '').toLowerCase().trim();
+                                        var txt = '';
+
+                                        if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
+                                            txt = (select.options[select.selectedIndex].text || '').toLowerCase().trim();
+                                        }
+
+                                        console.log('Dropdown ' + i + ': val="' + val + '" txt="' + txt + '"');
+
+                                        // Check for blocked values
+                                        for (var j = 0; j < blockedValues.length; j++) {
+                                            if (txt.indexOf(blockedValues[j]) !== -1 || val.indexOf(blockedValues[j]) !== -1) {
+                                                console.log('BLOCKED! Redirecting...');
+                                                window.location.href = disqualifyRedirect;
+                                                return;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                // Add change listeners to each select
+                                for (var i = 0; i < selects.length; i++) {
+                                    selects[i].addEventListener('change', function() {
+                                        console.log('Select changed!');
+                                        checkDropdowns();
+                                    });
+                                }
+
+                                // Also run on interval as backup
+                                setInterval(checkDropdowns, 1000);
+                            },
+
                             onFormSubmitted: function($form, data) {
                                  if (typeof fbq === 'function') { fbq('track', 'Lead'); }
                                  setTimeout(function() {
@@ -233,73 +288,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                  }, 250);
                             }
                           });
-                        </script>
-
-                        <!-- KILL SWITCH - Redirects disqualified users -->
-                        <script>
-                        console.log('=== KILL SWITCH SCRIPT LOADED ===');
-
-                        var killSwitchConfig = {
-                            blockedValues: ['no crm', 'other', '1-10'],
-                            redirectUrl: 'https://eazybe.com'
-                        };
-
-                        function checkAndRedirect() {
-                            console.log('--- Running check ---');
-
-                            // Try multiple selectors to find dropdowns
-                            var selects = document.querySelectorAll('#hubspotFormContainer select');
-                            console.log('Found ' + selects.length + ' dropdowns');
-
-                            if (selects.length === 0) {
-                                // Try broader selector
-                                selects = document.querySelectorAll('.hs-form select');
-                                console.log('Fallback: Found ' + selects.length + ' dropdowns with .hs-form');
-                            }
-
-                            for (var i = 0; i < selects.length; i++) {
-                                var select = selects[i];
-                                var val = (select.value || '').toLowerCase().trim();
-                                var txt = '';
-
-                                if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
-                                    txt = (select.options[select.selectedIndex].text || '').toLowerCase().trim();
-                                }
-
-                                console.log('SELECT ' + i + ': value="' + val + '" | text="' + txt + '"');
-
-                                // Skip empty
-                                if (!val && !txt) continue;
-
-                                // Check against blocked values
-                                for (var j = 0; j < killSwitchConfig.blockedValues.length; j++) {
-                                    var blocked = killSwitchConfig.blockedValues[j];
-                                    if (txt.indexOf(blocked) !== -1 || val.indexOf(blocked) !== -1) {
-                                        console.log('!!! MATCH FOUND: "' + blocked + '" in "' + txt + '" or "' + val + '"');
-                                        console.log('!!! REDIRECTING TO: ' + killSwitchConfig.redirectUrl);
-                                        alert('Redirecting to eazybe.com'); // Debug alert
-                                        window.location.href = killSwitchConfig.redirectUrl;
-                                        return true;
-                                    }
-                                }
-                            }
-                            return false;
-                        }
-
-                        // Method 1: setInterval
-                        setInterval(function() {
-                            checkAndRedirect();
-                        }, 1000);
-
-                        // Method 2: Listen for changes on document
-                        document.addEventListener('change', function(e) {
-                            if (e.target.tagName === 'SELECT') {
-                                console.log('SELECT CHANGED via document listener');
-                                checkAndRedirect();
-                            }
-                        }, true);
-
-                        console.log('=== KILL SWITCH READY ===');
                         </script>
                         
                         <!-- Trust Elements -->
