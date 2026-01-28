@@ -235,11 +235,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                           });
                         </script>
 
-                        <!-- KILL SWITCH - Runs independently via setInterval -->
+                        <!-- KILL SWITCH - Redirects disqualified users -->
                         <script>
                         (function() {
                             var blockedValues = ['no crm', 'other', '1-10'];
-                            var errorBoxCreated = false;
+                            var redirectUrl = 'https://eazybe.com';
 
                             function killSwitchCheck() {
                                 // Find the form container
@@ -250,24 +250,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 var selects = container.querySelectorAll('select');
                                 if (selects.length === 0) return;
 
-                                // Find the submit button
-                                var btn = container.querySelector('input[type="submit"], button[type="submit"], .hs-button');
-                                if (!btn) return;
-
-                                // Create error box if not exists
-                                var errorBox = document.getElementById('killSwitchError');
-                                if (!errorBox) {
-                                    errorBox = document.createElement('div');
-                                    errorBox.id = 'killSwitchError';
-                                    errorBox.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin:15px 0; text-align:center; font-weight:600; border-radius:8px; display:none;';
-                                    errorBox.innerText = config.errorMsg;
-                                    btn.parentNode.insertBefore(errorBox, btn);
-                                    console.log('Kill switch error box created');
-                                }
-
                                 // Check all dropdowns for blocked values
-                                var shouldBlock = false;
-
                                 for (var i = 0; i < selects.length; i++) {
                                     var select = selects[i];
                                     var selectedText = '';
@@ -277,31 +260,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         selectedText = (select.options[select.selectedIndex].text || '').toLowerCase().trim();
                                     }
 
-                                    console.log('Dropdown ' + i + ': value="' + selectedValue + '", text="' + selectedText + '"');
+                                    // Skip empty/placeholder values
+                                    if (!selectedValue || selectedValue === '' || selectedText === 'please select') continue;
 
                                     for (var j = 0; j < blockedValues.length; j++) {
                                         var blocked = blockedValues[j];
                                         if (selectedText.indexOf(blocked) !== -1 || selectedValue.indexOf(blocked) !== -1) {
-                                            console.log('BLOCKED VALUE FOUND: ' + blocked);
-                                            shouldBlock = true;
+                                            console.log('BLOCKED VALUE FOUND: ' + blocked + ' - Redirecting to ' + redirectUrl);
+                                            window.location.href = redirectUrl;
+                                            return;
                                         }
                                     }
                                 }
-
-                                // Apply kill switch
-                                if (shouldBlock) {
-                                    btn.style.display = 'none';
-                                    errorBox.style.display = 'block';
-                                    console.log('KILL SWITCH ACTIVATED - Button hidden');
-                                } else {
-                                    btn.style.display = '';
-                                    errorBox.style.display = 'none';
-                                }
                             }
 
-                            // Run every 300ms
-                            setInterval(killSwitchCheck, 300);
-                            console.log('Kill switch interval started');
+                            // Run every 500ms
+                            setInterval(killSwitchCheck, 500);
+                            console.log('Kill switch redirect active');
                         })();
                         </script>
                         
