@@ -378,31 +378,36 @@ img {
     box-shadow: 0 0 0 3px rgba(255,122,89,0.15);
 }
 
-#hubspotFormContainer .hs-submit {
+#hubspotFormContainer .hs-submit,
+#hubspotFormContainer .hs_submit {
     margin-top: 8px;
     padding: 0;
+    width: 100% !important;
 }
 
-#hubspotFormContainer .hs-submit .actions {
-    display: flex !important;
-    justify-content: center !important;
+#hubspotFormContainer .hs-submit .actions,
+#hubspotFormContainer .hs_submit .actions,
+#hubspotFormContainer .actions {
+    display: block !important;
     width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
-}
-
-#hubspotFormContainer .actions {
-    display: flex !important;
-    justify-content: center !important;
-    width: 100% !important;
+    text-align: center !important;
 }
 
 #hubspotFormContainer input[type="submit"],
+#hubspotFormContainer button[type="submit"],
 #hubspotFormContainer .hs-button,
-#hubspotFormContainer .hs-submit input[type="submit"] {
+#hubspotFormContainer .hs-button.primary,
+#hubspotFormContainer .hs-button.primary.large,
+#hubspotFormContainer .hs-submit input[type="submit"],
+#hubspotFormContainer .hs-submit button[type="submit"],
+#hubspotFormContainer .actions input,
+#hubspotFormContainer .actions button {
+    display: block !important;
     width: 100% !important;
     max-width: 100% !important;
-    flex: 1 !important;
+    margin: 0 auto !important;
     background: linear-gradient(135deg, #FF7A59 0%, #FF5C35 100%) !important;
     color: white !important;
     border: none !important;
@@ -414,6 +419,8 @@ img {
     transition: all 0.3s ease;
     box-shadow: 0 4px 15px rgba(255,122,89,0.35) !important;
     font-family: inherit;
+    -webkit-appearance: none !important;
+    appearance: none !important;
 }
 
 #hubspotFormContainer input[type="submit"]:hover,
