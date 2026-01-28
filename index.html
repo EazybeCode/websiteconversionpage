@@ -688,6 +688,23 @@
         locale: config.locale,
 
         onFormReady: function($form) {
+            // Force submit button to be full width
+            var submitBtn = $form.find('input[type="submit"], button[type="submit"]');
+            submitBtn.css({
+                'width': '100%',
+                'display': 'block',
+                'margin': '0 auto',
+                'background': 'linear-gradient(135deg, #FF7A59 0%, #FF5C35 100%)',
+                'color': 'white',
+                'border': 'none',
+                'padding': '16px',
+                'font-weight': '700',
+                'border-radius': '10px',
+                'font-size': '16px',
+                'box-shadow': '0 4px 15px rgba(255,122,89,0.35)'
+            });
+            submitBtn.parent().css({'width': '100%', 'display': 'block'});
+
             // Universal blocking logic
             var crmField = 'what_crm_do_you_use';
             var sizeField = 'what_is_the_size_of_your_sales_team';
@@ -705,7 +722,6 @@
             errorDiv.className = 'hs-qualification-error';
             errorDiv.style.cssText = 'background:#FEE2E2;border:1px solid #FECACA;color:#991b1b;font-size:13px;font-weight:500;padding:14px;border-radius:10px;margin:16px 0;text-align:center;display:none;';
             errorDiv.innerText = config.errorMsg;
-            var submitBtn = $form.find('input[type="submit"], button[type="submit"]');
             submitBtn.parent().before(errorDiv);
 
             function checkQualification() {
