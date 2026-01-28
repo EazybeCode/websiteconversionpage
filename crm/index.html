@@ -199,8 +199,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
+                          // --- CONFIGURATION ---
                           var currentUrl = window.location.href.toLowerCase();
-
                           var config = {
                               formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
                               redirectUrl: "https://eazybe.info/2672da",
@@ -208,6 +208,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               locale: "en"
                           };
 
+                          // Language Switching
                           if (currentUrl.indexOf('/es') > -1) {
                               config.redirectUrl = "https://eazybe.info/ddq";
                               config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
@@ -218,6 +219,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               config.locale = "pt-br";
                           }
 
+                          // Render the Form
                           hbspt.forms.create({
                             region: "na1",
                             portalId: "40009480",
@@ -225,49 +227,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             target: "#hubspotFormContainer",
                             locale: config.locale,
 
-                            onFormReady: function($form) {
-                                var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
-
-                                var errorDiv = document.createElement('div');
-                                errorDiv.style.backgroundColor = '#fee2e2';
-                                errorDiv.style.color = '#991b1b';
-                                errorDiv.style.padding = '15px';
-                                errorDiv.style.marginTop = '20px';
-                                errorDiv.style.textAlign = 'center';
-                                errorDiv.style.borderRadius = '8px';
-                                errorDiv.style.display = 'none';
-                                errorDiv.innerText = config.errorMsg;
-
-                                var submitBtn = $form.find('input[type="submit"], button[type="submit"], .hs-button');
-                                submitBtn.parent().before(errorDiv);
-
-                                function checkQualification() {
-                                    var isBad = false;
-
-                                    $form.find('select').each(function() {
-                                        var val = ($(this).val() || "").toLowerCase();
-                                        var text = ($(this).find('option:selected').text() || "").toLowerCase();
-
-                                        for (var i = 0; i < blockedValues.length; i++) {
-                                            if (val.includes(blockedValues[i]) || text.includes(blockedValues[i])) {
-                                                isBad = true;
-                                            }
-                                        }
-                                    });
-
-                                    if (isBad) {
-                                        submitBtn.hide();
-                                        errorDiv.style.display = 'block';
-                                    } else {
-                                        submitBtn.show();
-                                        errorDiv.style.display = 'none';
-                                    }
-                                }
-
-                                $form.find('select').on('change', checkQualification);
-                                setInterval(checkQualification, 500);
-                            },
-
+                            // REDIRECT LOGIC
                             onFormSubmitted: function($form, data) {
                                  if (typeof fbq === 'function') { fbq('track', 'Lead'); }
                                  setTimeout(function() {
@@ -275,6 +235,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                  }, 250);
                             }
                           });
+                        </script>
+
+                        <script>
+                        setInterval(function() {
+                            // 1. Find the Form (HubSpot uses jQuery, so we use it too)
+                            var $form = jQuery('.hs-form');
+                            if ($form.length === 0) return; // Form not loaded yet
+
+                            // 2. FORCE BLUE BUTTON (Visual Proof the code is running)
+                            var $btn = $form.find('input[type="submit"], .hs-button');
+                            $btn.css({
+                                'background-color': '#2563eb', // Blue
+                                'border': 'none',
+                                'color': 'white'
+                            });
+
+                            // 3. CHECK FOR BAD WORDS
+                            var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
+                            var isBad = false;
+
+                            // Scan every dropdown text and value
+                            $form.find('select').each(function() {
+                                var text = (jQuery(this).find('option:selected').text() || "").toLowerCase();
+                                var val = (jQuery(this).val() || "").toLowerCase();
+
+                                for (var i = 0; i < blockedValues.length; i++) {
+                                    if (text.includes(blockedValues[i]) || val.includes(blockedValues[i])) {
+                                        isBad = true;
+                                    }
+                                }
+                            });
+
+                            // 4. THE KILL SWITCH
+                            // We create or find the error message box
+                            var $errorBox = jQuery('#customErrorBox');
+                            if ($errorBox.length === 0) {
+                                // Create it if it doesn't exist
+                                $errorBox = jQuery('<div id="customErrorBox" style="background:#fee2e2; color:#991b1b; padding:15px; text-align:center; margin-top:10px; border-radius:8px; display:none;"></div>');
+                                // Inject the correct language message
+                                var msg = "Based on your selection, Eazybe is not the best fit for your current stage.";
+                                if (window.location.href.indexOf('/es') > -1) msg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
+                                if (window.location.href.indexOf('/br') > -1) msg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
+
+                                $errorBox.text(msg);
+                                $btn.parent().before($errorBox);
+                            }
+
+                            if (isBad) {
+                                $btn.hide(); // Hide Orange Button
+                                $errorBox.show(); // Show Error
+                            } else {
+                                $btn.show(); // Show Blue Button
+                                $errorBox.hide(); // Hide Error
+                            }
+
+                        }, 500); // Runs every 0.5 seconds
                         </script>
                         
                         <!-- Trust Elements -->
