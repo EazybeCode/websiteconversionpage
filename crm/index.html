@@ -197,36 +197,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </style>
                         <div id="hubspotFormContainer" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
 
-                        <script>
-                        alert('Script 1: Before HubSpot loads');
-                        </script>
-
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
-                        alert('Script 2: After HubSpot script tag');
-                        console.log('hbspt defined?', typeof hbspt);
                           // CONFIGURATION
                           var currentUrl = window.location.href.toLowerCase();
                           var config = {
                               formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
                               redirectUrl: "https://eazybe.info/2672da",
-                              errorMsg: "Based on your selection, Eazybe is not the best fit for your current stage.",
                               locale: "en"
                           };
 
                           if (currentUrl.indexOf('/es') > -1) {
                               config.redirectUrl = "https://eazybe.info/ddq";
-                              config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
                               config.locale = "es";
                           } else if (currentUrl.indexOf('/br') > -1) {
                               config.redirectUrl = "https://eazybe.info/6e8fe3";
-                              config.errorMsg = "Com base na sua seleção, a Eazybe não é a melhor opção para o seu estágio atual.";
                               config.locale = "pt-br";
                           }
-
-                          // BLOCKED VALUES - redirect to eazybe.com if selected
-                          var blockedValues = ['no crm', 'other', '1-10'];
-                          var disqualifyRedirect = 'https://eazybe.com';
 
                           // RENDER FORM
                           hbspt.forms.create({
@@ -236,33 +223,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             target: "#hubspotFormContainer",
                             locale: config.locale,
 
-                            // THIS IS THE KEY - runs when form is actually ready
-                            onFormReady: function($form) {
-                                alert('Form Ready! Check console.');
-                                console.log('=== FORM READY ===');
+                            onFormReady: function(form) {
+                                console.log('Form ready, type:', typeof form, form);
 
-                                // Use jQuery since HubSpot provides $form as jQuery object
-                                $form.on('change', 'select', function() {
-                                    var selectedText = jQuery(this).find('option:selected').text().toLowerCase();
-                                    var selectedVal = jQuery(this).val().toLowerCase();
+                                // form is a DOM element in v2, not jQuery
+                                var formEl = form;
 
-                                    console.log('Changed! Text: ' + selectedText + ' | Val: ' + selectedVal);
-                                    alert('Selected: ' + selectedText);
+                                // Find all selects and attach listeners
+                                var selects = formEl.querySelectorAll('select');
+                                console.log('Found selects:', selects.length);
 
-                                    if (selectedText.indexOf('no crm') > -1 ||
-                                        selectedText.indexOf('other') > -1 ||
-                                        selectedText.indexOf('1-10') > -1 ||
-                                        selectedVal.indexOf('no crm') > -1 ||
-                                        selectedVal.indexOf('other') > -1 ||
-                                        selectedVal.indexOf('1-10') > -1) {
+                                selects.forEach(function(select) {
+                                    select.addEventListener('change', function() {
+                                        var text = this.options[this.selectedIndex].text.toLowerCase();
+                                        var val = this.value.toLowerCase();
 
-                                        alert('BLOCKED - Redirecting!');
-                                        window.location.href = disqualifyRedirect;
-                                    }
+                                        console.log('SELECT CHANGED - text:', text, 'val:', val);
+
+                                        if (text.indexOf('no crm') > -1 ||
+                                            text.indexOf('other') > -1 ||
+                                            text.indexOf('1-10') > -1) {
+                                            console.log('BLOCKED! Redirecting...');
+                                            window.location.href = 'https://eazybe.com';
+                                        }
+                                    });
                                 });
                             },
 
-                            onFormSubmitted: function($form, data) {
+                            onFormSubmitted: function(form, data) {
                                  if (typeof fbq === 'function') { fbq('track', 'Lead'); }
                                  setTimeout(function() {
                                      window.location.href = config.redirectUrl + "?email=" + encodeURIComponent(data.submissionValues['email']);
