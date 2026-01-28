@@ -199,11 +199,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
                         <script>
-                          // ============================================================
-                          //  1. CONFIGURATION
-                          // ============================================================
+                          // CONFIGURATION
                           var currentUrl = window.location.href.toLowerCase();
-
                           var config = {
                               formId: "6f14e74e-6ffa-4467-8418-a4e7d6f68a53",
                               redirectUrl: "https://eazybe.info/2672da",
@@ -211,7 +208,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               locale: "en"
                           };
 
-                          // Language Detection
                           if (currentUrl.indexOf('/es') > -1) {
                               config.redirectUrl = "https://eazybe.info/ddq";
                               config.errorMsg = "Según su selección, Eazybe no es la mejor opción para su etapa actual.";
@@ -222,9 +218,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               config.locale = "pt-br";
                           }
 
-                          // ============================================================
-                          //  2. RENDER FORM & ACTIVATE KILL SWITCH
-                          // ============================================================
+                          // RENDER FORM
                           hbspt.forms.create({
                             region: "na1",
                             portalId: "40009480",
@@ -232,70 +226,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             target: "#hubspotFormContainer",
                             locale: config.locale,
 
-                            // This runs ONLY when the form is truly loaded
+                            // --- THE TROJAN HORSE ---
+                            // This runs INSIDE the form context
                             onFormReady: function($form) {
 
-                                // A. FORCE BUTTON BLUE (Visual Confirmation)
-                                var btn = $form.find('input[type="submit"], .hs-button');
-                                btn.css({
-                                    'background-color': '#2563eb',
-                                    'border': 'none',
-                                    'color': 'white',
-                                    'width': '100%',
-                                    'padding': '12px',
-                                    'border-radius': '8px'
-                                });
+                                // 1. GET THE RAW FORM ELEMENT (Handle jQuery or Vanilla)
+                                var formEl = (typeof $form.get === 'function') ? $form.get(0) : $form;
 
-                                // B. CREATE ERROR MESSAGE BOX
-                                var errorDiv = jQuery('<div id="customErrorBox"></div>');
-                                errorDiv.css({
-                                    'background-color': '#fee2e2',
-                                    'color': '#991b1b',
-                                    'padding': '15px',
-                                    'margin-top': '20px',
-                                    'text-align': 'center',
-                                    'border-radius': '8px',
-                                    'font-weight': '600',
-                                    'display': 'none'
-                                });
-                                errorDiv.text(config.errorMsg);
-                                btn.parent().before(errorDiv);
+                                // 2. FORCE BLUE BUTTON (Using !important to crush HubSpot styles)
+                                var btn = formEl.querySelector('input[type="submit"], .hs-button');
+                                if (btn) {
+                                    btn.style.setProperty('background-color', '#2563eb', 'important');
+                                    btn.style.setProperty('color', '#ffffff', 'important');
+                                    btn.style.setProperty('border', 'none', 'important');
+                                    btn.style.setProperty('background-image', 'none', 'important');
+                                    btn.style.setProperty('box-shadow', 'none', 'important');
+                                }
 
-                                // C. THE KILL SWITCH LOGIC (Text Scanner)
+                                // 3. CREATE ERROR BOX
+                                var errorDiv = document.createElement('div');
+                                errorDiv.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin-top:20px; text-align:center; display:none; font-weight:600; border-radius:8px;';
+                                errorDiv.innerText = config.errorMsg;
+                                if (btn) btn.parentNode.insertBefore(errorDiv, btn);
+
+                                // 4. KILL SWITCH LOGIC (Scanning Text & Value)
                                 var blockedValues = ['no crm', 'no_crm', 'other', 'otro', 'outro', '1-10', '1 - 10'];
 
                                 function runCheck() {
                                     var isBad = false;
+                                    var selects = formEl.querySelectorAll('select');
 
-                                    // Scan ALL dropdowns for blocked words (in Text OR Value)
-                                    $form.find('select').each(function() {
-                                        var text = (jQuery(this).find('option:selected').text() || "").toLowerCase();
-                                        var val = (jQuery(this).val() || "").toLowerCase();
+                                    for (var i = 0; i < selects.length; i++) {
+                                        var select = selects[i];
+                                        var val = (select.value || "").toLowerCase();
+                                        var text = "";
+                                        if (select.options && select.selectedIndex >= 0) {
+                                            text = (select.options[select.selectedIndex].text || "").toLowerCase();
+                                        }
 
-                                        for (var i = 0; i < blockedValues.length; i++) {
-                                            if (text.indexOf(blockedValues[i]) > -1 || val.indexOf(blockedValues[i]) > -1) {
+                                        for (var j = 0; j < blockedValues.length; j++) {
+                                            if (val.indexOf(blockedValues[j]) > -1 || text.indexOf(blockedValues[j]) > -1) {
                                                 isBad = true;
                                             }
                                         }
-                                    });
+                                    }
 
                                     if (isBad) {
-                                        btn.hide();
-                                        errorDiv.show();
+                                        if(btn) btn.style.display = 'none';
+                                        errorDiv.style.display = 'block';
                                     } else {
-                                        btn.show();
-                                        errorDiv.hide();
+                                        if(btn) btn.style.display = 'block';
+                                        errorDiv.style.display = 'none';
                                     }
                                 }
 
-                                // D. ACTIVATE TRIGGERS
-                                $form.on('change', 'select', runCheck);
-                                setInterval(runCheck, 500);
+                                // 5. LISTENERS
+                                formEl.addEventListener('change', runCheck);
+                                formEl.addEventListener('input', runCheck);
+                                runCheck();
                             },
 
-                            // ============================================================
-                            //  3. REDIRECT LOGIC
-                            // ============================================================
+                            // REDIRECT LOGIC
                             onFormSubmitted: function($form, data) {
                                  if (typeof fbq === 'function') { fbq('track', 'Lead'); }
                                  setTimeout(function() {
