@@ -237,47 +237,69 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                         <!-- KILL SWITCH - Redirects disqualified users -->
                         <script>
-                        (function() {
-                            var blockedValues = ['no crm', 'other', '1-10'];
-                            var redirectUrl = 'https://eazybe.com';
+                        console.log('=== KILL SWITCH SCRIPT LOADED ===');
 
-                            function killSwitchCheck() {
-                                // Find the form container
-                                var container = document.getElementById('hubspotFormContainer');
-                                if (!container) return;
+                        var killSwitchConfig = {
+                            blockedValues: ['no crm', 'other', '1-10'],
+                            redirectUrl: 'https://eazybe.com'
+                        };
 
-                                // Find all select elements
-                                var selects = container.querySelectorAll('select');
-                                if (selects.length === 0) return;
+                        function checkAndRedirect() {
+                            console.log('--- Running check ---');
 
-                                // Check all dropdowns for blocked values
-                                for (var i = 0; i < selects.length; i++) {
-                                    var select = selects[i];
-                                    var selectedText = '';
-                                    var selectedValue = (select.value || '').toLowerCase().trim();
+                            // Try multiple selectors to find dropdowns
+                            var selects = document.querySelectorAll('#hubspotFormContainer select');
+                            console.log('Found ' + selects.length + ' dropdowns');
 
-                                    if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
-                                        selectedText = (select.options[select.selectedIndex].text || '').toLowerCase().trim();
-                                    }
+                            if (selects.length === 0) {
+                                // Try broader selector
+                                selects = document.querySelectorAll('.hs-form select');
+                                console.log('Fallback: Found ' + selects.length + ' dropdowns with .hs-form');
+                            }
 
-                                    // Skip empty/placeholder values
-                                    if (!selectedValue || selectedValue === '' || selectedText === 'please select') continue;
+                            for (var i = 0; i < selects.length; i++) {
+                                var select = selects[i];
+                                var val = (select.value || '').toLowerCase().trim();
+                                var txt = '';
 
-                                    for (var j = 0; j < blockedValues.length; j++) {
-                                        var blocked = blockedValues[j];
-                                        if (selectedText.indexOf(blocked) !== -1 || selectedValue.indexOf(blocked) !== -1) {
-                                            console.log('BLOCKED VALUE FOUND: ' + blocked + ' - Redirecting to ' + redirectUrl);
-                                            window.location.href = redirectUrl;
-                                            return;
-                                        }
+                                if (select.selectedIndex >= 0 && select.options[select.selectedIndex]) {
+                                    txt = (select.options[select.selectedIndex].text || '').toLowerCase().trim();
+                                }
+
+                                console.log('SELECT ' + i + ': value="' + val + '" | text="' + txt + '"');
+
+                                // Skip empty
+                                if (!val && !txt) continue;
+
+                                // Check against blocked values
+                                for (var j = 0; j < killSwitchConfig.blockedValues.length; j++) {
+                                    var blocked = killSwitchConfig.blockedValues[j];
+                                    if (txt.indexOf(blocked) !== -1 || val.indexOf(blocked) !== -1) {
+                                        console.log('!!! MATCH FOUND: "' + blocked + '" in "' + txt + '" or "' + val + '"');
+                                        console.log('!!! REDIRECTING TO: ' + killSwitchConfig.redirectUrl);
+                                        alert('Redirecting to eazybe.com'); // Debug alert
+                                        window.location.href = killSwitchConfig.redirectUrl;
+                                        return true;
                                     }
                                 }
                             }
+                            return false;
+                        }
 
-                            // Run every 500ms
-                            setInterval(killSwitchCheck, 500);
-                            console.log('Kill switch redirect active');
-                        })();
+                        // Method 1: setInterval
+                        setInterval(function() {
+                            checkAndRedirect();
+                        }, 1000);
+
+                        // Method 2: Listen for changes on document
+                        document.addEventListener('change', function(e) {
+                            if (e.target.tagName === 'SELECT') {
+                                console.log('SELECT CHANGED via document listener');
+                                checkAndRedirect();
+                            }
+                        }, true);
+
+                        console.log('=== KILL SWITCH READY ===');
                         </script>
                         
                         <!-- Trust Elements -->
