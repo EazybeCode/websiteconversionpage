@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="description" content="Sincroniza conversaciones de WhatsApp con Zoho CRM. Rastrea tiempos de respuesta, nunca pierdas el historial de clientes. Más de 30.000 usuarios. Configura en 5 minutos.">
+    <meta name="theme-color" content="#226DB4">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Integración Zoho CRM WhatsApp | Eazybe</title>
+    <meta name="robots" content="noindex, nofollow">
+    <!-- Critical Resource Hints - Establish connections early -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.prod.website-files.com">
+    <link rel="preconnect" href="https://www.zohowebstatic.com">
+    <link rel="dns-prefetch" href="https://assets.calendly.com">
+    <link rel="dns-prefetch" href="https://images.unsplash.com">
+    
+    <!-- Optimized Fonts - Only 2 weights each, swap display -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Open+Sans:wght@400;600&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"></noscript>
+    
+    <style>
+        /* CRITICAL CSS - Minified, Mobile-First */
+        :root{--zb:#226DB4;--zbl:#E8F1F9;--zg:#089949;--zgl:#E6F5ED;--zy:#F9B21D;--zt:#159588;--zo:#F2994A;--w:#FFF;--g50:#FAFBFC;--g100:#F5F7FA;--g200:#E4E7EB;--g300:#CBD2D9;--g400:#9AA5B1;--g500:#7B8794;--g600:#616E7C;--g700:#3E4C59;--g800:#323F4B;--g900:#1F2933;--grad:linear-gradient(135deg,#226DB4 0%,#4A90D9 100%);--sh-sm:0 1px 3px rgba(0,0,0,.1);--sh-md:0 4px 6px -1px rgba(0,0,0,.1);--sh-lg:0 10px 15px -3px rgba(0,0,0,.1);--r-sm:6px;--r-md:8px;--r-lg:12px;--r-xl:16px;--r-full:9999px}
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+        body{font-family:'Open Sans',system-ui,-apple-system,sans-serif;background:var(--w);color:var(--g800);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+        h1,h2,h3,h4{font-family:'Lato',system-ui,sans-serif;font-weight:700}
+        img{max-width:100%;height:auto;display:block}
+        
+        /* NAV - Mobile First */
+        .nav{display:flex;justify-content:space-between;align-items:center;padding:.75rem 4%;background:var(--w);position:fixed;top:0;left:0;right:0;z-index:1000;border-bottom:1px solid var(--g200);will-change:transform}
+        .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none}
+        .nav-brand img{height:24px;width:auto}
+        .nav-divider{width:1px;height:20px;background:var(--g300)}
+        .nav-toggle{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;-webkit-tap-highlight-color:transparent}
+        .nav-toggle span{width:24px;height:2px;background:var(--g700);border-radius:2px;transition:transform .2s ease-out}
+        .nav-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+        .nav-toggle.active span:nth-child(2){opacity:0}
+        .nav-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+        .nav-links{display:none;position:fixed;top:56px;left:0;right:0;background:var(--w);flex-direction:column;padding:1.5rem;border-bottom:1px solid var(--g200);box-shadow:var(--sh-lg)}
+        .nav-links.active{display:flex}
+        .nav-link{color:var(--g600);text-decoration:none;font-size:1rem;font-weight:600;padding:1rem 0;border-bottom:1px solid var(--g100)}
+        .nav-link:last-of-type{border-bottom:none}
+        .nav-cta{background:var(--grad);color:var(--w);padding:.875rem 1.5rem;border-radius:var(--r-md);text-decoration:none;font-weight:600;text-align:center;margin-top:1rem;display:block}
+        
+        /* HERO - Mobile First */
+        .hero{padding:5rem 4% 3rem;display:flex;flex-direction:column;gap:2rem;max-width:1400px;margin:0 auto;background:linear-gradient(180deg,#FFF 0%,var(--g50) 100%)}
+        .hero-content{text-align:center}
+        .hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--w);border:1px solid var(--g200);padding:6px 12px;border-radius:var(--r-full);font-size:.75rem;color:var(--g600);margin-bottom:1rem;box-shadow:var(--sh-sm);flex-wrap:wrap;justify-content:center}
+        .hero-badge img{height:18px;width:auto}
+        .hero-badge .rating{color:var(--zy)}
+        .hero-badge .users{color:var(--g700);font-weight:600}
+        .hero h1{font-size:1.75rem;font-weight:900;line-height:1.2;margin-bottom:1rem;color:var(--g900)}
+        .hero h1 .hl{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-desc{font-size:.9375rem;color:var(--g600);margin-bottom:1.25rem;line-height:1.7}
+        .hero-meta{display:flex;flex-direction:column;gap:.625rem;margin-bottom:1.5rem}
+        .hero-meta-item{display:flex;align-items:center;gap:10px;font-size:.875rem;color:var(--g600);justify-content:center;text-align:left;line-height:1.4}
+        .hero-meta-item .icon{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--zgl);color:var(--zg);display:inline-flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700}
+        .hero-meta-item span:last-child{flex:1}
+        .hero-meta-item strong{color:var(--g800)}
+        .hero-stats{display:flex;gap:1.5rem;padding-top:1.5rem;border-top:1px solid var(--g200);justify-content:center;flex-wrap:wrap}
+        .hero-stat{text-align:center}
+        .hero-stat-num{font-size:1.5rem;font-weight:900;font-family:'Lato',sans-serif;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-stat-label{font-size:.75rem;color:var(--g500)}
+        
+        /* HERO FORM */
+        .hero-form{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-xl);box-shadow:var(--sh-lg);overflow:hidden;position:relative}
+        .hero-form::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+        .form-header{text-align:center;padding:1.25rem 1rem 0;background:linear-gradient(180deg,var(--g50) 0%,var(--w) 100%)}
+        .form-title{font-size:1.125rem;font-weight:700;color:var(--g900);margin-bottom:.25rem}
+        .form-subtitle{color:var(--g500);font-size:.8125rem}
+        .calendly-inline-widget{min-height:480px;background:var(--g50);border-radius:0 0 var(--r-xl) var(--r-xl)}
+        .form-trust{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;padding:.75rem 1rem;background:var(--g50);border-top:1px solid var(--g200)}
+        .form-trust-item{display:flex;align-items:center;gap:4px;font-size:.6875rem;color:var(--g500);font-weight:600}
+        
+        /* SECTIONS BASE */
+        .section-header{text-align:center;margin-bottom:2rem;padding:0 1rem}
+        .section-label{display:inline-block;font-size:.6875rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--zb);font-weight:700;margin-bottom:.5rem}
+        .section-title{font-size:1.375rem;color:var(--g900);margin-bottom:.5rem;line-height:1.3}
+        .section-desc{font-size:.875rem;color:var(--g500);max-width:600px;margin:0 auto}
+        
+        /* TRUSTED */
+        .trusted{padding:3rem 4%;background:linear-gradient(180deg,var(--w) 0%,var(--g50) 100%);border-top:1px solid var(--g200);border-bottom:1px solid var(--g200);overflow:hidden;content-visibility:auto;contain-intrinsic-size:0 400px}
+        .trusted-inner{max-width:1200px;margin:0 auto;text-align:center}
+        .trusted-header{margin-bottom:1.5rem}
+        .trusted-label{display:inline-flex;align-items:center;gap:6px;font-size:.6875rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--zb);font-weight:700;margin-bottom:.5rem;background:var(--zbl);padding:6px 10px;border-radius:var(--r-full)}
+        .trusted h2{font-size:1.375rem;color:var(--g900);margin-bottom:.5rem;font-weight:800}
+        .trusted h2 span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .trusted-desc{color:var(--g500);font-size:.875rem}
+        
+        /* LOGO MARQUEE - GPU Accelerated */
+        .logo-wrap{position:relative;margin-top:1.5rem}
+        .logo-wrap::before,.logo-wrap::after{content:'';position:absolute;top:0;bottom:0;width:40px;z-index:2;pointer-events:none}
+        .logo-wrap::before{left:0;background:linear-gradient(90deg,var(--g50) 0%,transparent 100%)}
+        .logo-wrap::after{right:0;background:linear-gradient(270deg,var(--g50) 0%,transparent 100%)}
+        .logo-marquee{display:flex;overflow:hidden;padding:1rem 0}
+        .logo-track{display:flex;align-items:center;gap:1.5rem;animation:marquee 25s linear infinite;will-change:transform;transform:translateZ(0)}
+        @media(prefers-reduced-motion:reduce){.logo-track{animation:none}}
+        @keyframes marquee{0%{transform:translate3d(0,0,0)}100%{transform:translate3d(-50%,0,0)}}
+        .logo-item{display:flex;align-items:center;justify-content:center;min-width:100px;height:36px;padding:0 .75rem;background:var(--w);border-radius:var(--r-md);border:1px solid var(--g200);flex-shrink:0}
+        .logo-item img{height:18px;width:auto;filter:grayscale(100%);opacity:.7}
+        
+        /* CERT BADGES */
+        .cert-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.5rem}
+        .cert-badge{display:flex;align-items:center;gap:6px;background:var(--w);border:1px solid var(--g200);padding:5px 8px;border-radius:var(--r-full);font-size:.625rem;color:var(--g600);font-weight:600}
+        
+        /* PROBLEMS */
+        .problems{padding:3rem 4%;background:var(--w);content-visibility:auto;contain-intrinsic-size:0 500px}
+        .problems-inner{max-width:1200px;margin:0 auto}
+        .problem-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+        .problem-card{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-lg);padding:1.25rem;position:relative;overflow:hidden}
+        .problem-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:0;transition:opacity .2s}
+        .problem-card:hover::before{opacity:1}
+        .problem-icon{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:1.25rem;margin-bottom:1rem;background:linear-gradient(135deg,var(--zbl) 0%,#E0EFFF 100%)}
+        .problem-card h3{font-size:1rem;color:var(--g900);margin-bottom:.5rem;font-weight:700}
+        .problem-card p{font-size:.8125rem;color:var(--g500);line-height:1.6}
+        
+        /* FEATURES */
+        .features{padding:3rem 4%;background:var(--g50);content-visibility:auto;contain-intrinsic-size:0 800px}
+        .features-inner{max-width:1300px;margin:0 auto}
+        .feature-block{margin-bottom:3rem}
+        .feature-block:last-child{margin-bottom:0}
+        .feature-grid{display:flex;flex-direction:column;gap:2rem}
+        .feature-content{text-align:center}
+        .feature-content .section-label{text-align:center}
+        .feature-content h2{font-size:1.375rem;color:var(--g900);margin-bottom:1rem;line-height:1.3}
+        .feature-desc{color:var(--g600);margin-bottom:1.5rem;font-size:.875rem;line-height:1.7}
+        .feature-list{list-style:none;text-align:left}
+        .feature-list li{display:flex;align-items:flex-start;gap:12px;margin-bottom:.875rem;font-size:.875rem;color:var(--g600);line-height:1.5}
+        .feature-list .icon{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--zbl);color:var(--zb);display:inline-flex;align-items:center;justify-content:center;font-size:.6875rem;font-weight:700;margin-top:1px}
+        .feature-list li strong{color:var(--g800);font-weight:700}
+        
+        /* VISUAL CARDS */
+        .feature-visual{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg)}
+        .card-header{padding:.875rem 1rem;display:flex;align-items:center;justify-content:space-between}
+        .card-header.blue{background:linear-gradient(135deg,var(--zb) 0%,#4A90D9 100%)}
+        .card-header.orange{background:linear-gradient(135deg,var(--zo) 0%,#FFAB40 100%)}
+        .card-header.teal{background:linear-gradient(135deg,var(--zt) 0%,#20B2AA 100%)}
+        .card-header.purple{background:linear-gradient(135deg,#7C3AED 0%,#A855F7 100%)}
+        .card-title{display:flex;align-items:center;gap:8px;color:var(--w);font-weight:600;font-size:.75rem}
+        .card-title .icon{width:20px;height:20px;background:rgba(255,255,255,.2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.625rem}
+        .card-badge{background:rgba(255,255,255,.25);color:var(--w);font-size:.5625rem;padding:3px 8px;border-radius:var(--r-full);font-weight:600}
+        
+        /* CRM TIMELINE */
+        .contact-header{display:flex;align-items:center;gap:10px;padding:1rem;background:var(--g50);border-bottom:1px solid var(--g200);flex-wrap:wrap}
+        .contact-avatar{width:40px;height:40px;border-radius:50%;background:var(--grad);color:var(--w);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;flex-shrink:0;overflow:hidden}
+        .contact-avatar img{width:100%;height:100%;object-fit:cover}
+        .contact-info{flex:1;min-width:0}
+        .contact-name{font-weight:700;color:var(--g800);font-size:.875rem}
+        .contact-meta{color:var(--g500);font-size:.6875rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .contact-badge{padding:4px 8px;background:var(--zo);color:var(--w);border-radius:var(--r-full);font-size:.5625rem;font-weight:600;white-space:nowrap}
+        .timeline{padding:1rem}
+        .timeline-item{display:flex;gap:10px;padding:.75rem;background:var(--g50);border-radius:var(--r-md);margin-bottom:.5rem;border-left:3px solid var(--zg)}
+        .timeline-item:last-child{margin-bottom:0}
+        .timeline-icon{width:28px;height:28px;border-radius:var(--r-sm);display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0;color:var(--w)}
+        .timeline-icon.wa{background:#25D366}
+        .timeline-icon.contact{background:var(--zt)}
+        .timeline-icon.deal{background:var(--zy)}
+        .timeline-icon.ticket{background:var(--zb)}
+        .timeline-content{flex:1;min-width:0}
+        .timeline-title{font-size:.75rem;font-weight:600;color:var(--g800);margin-bottom:2px}
+        .timeline-text{font-size:.6875rem;color:var(--g500);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+        .timeline-time{font-size:.5625rem;color:var(--g400);white-space:nowrap}
+        .sync-badge{display:flex;align-items:center;justify-content:center;gap:6px;padding:.625rem;background:linear-gradient(135deg,var(--zgl) 0%,#D4F5E9 100%);border-top:1px solid var(--g200);font-size:.6875rem;color:var(--zg);font-weight:600}
+        .pulse{width:6px;height:6px;background:currentColor;border-radius:50%;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}
+        @media(prefers-reduced-motion:reduce){.pulse{animation:none}}
+        
+        /* INBOX CARD */
+        .inbox-body{padding:1rem}
+        .tabs{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap}
+        .tab{padding:6px 10px;background:var(--g100);border:1px solid var(--g200);border-radius:var(--r-full);font-size:.6875rem;font-weight:600;color:var(--g600);cursor:pointer;display:flex;align-items:center;gap:4px}
+        .tab.active{background:var(--zo);border-color:var(--zo);color:var(--w)}
+        .tab .count{background:rgba(0,0,0,.1);padding:1px 5px;border-radius:var(--r-full);font-size:.5625rem}
+        .tab.active .count{background:rgba(255,255,255,.3)}
+        .inbox-item{display:flex;align-items:center;gap:10px;padding:.75rem;background:var(--g50);border-radius:var(--r-md);margin-bottom:.5rem;border-left:3px solid var(--zo)}
+        .inbox-item:last-child{margin-bottom:0}
+        .inbox-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.625rem;font-weight:700;color:var(--w);flex-shrink:0;overflow:hidden}
+        .inbox-avatar img{width:100%;height:100%;object-fit:cover}
+        .inbox-avatar.hot{background:linear-gradient(135deg,var(--zo) 0%,#FFAB40 100%)}
+        .inbox-avatar.warn{background:linear-gradient(135deg,var(--zy) 0%,#FFD54F 100%)}
+        .inbox-avatar.crit{background:linear-gradient(135deg,#E42527 0%,#FF5252 100%)}
+        .inbox-info{flex:1;min-width:0}
+        .inbox-name{font-size:.75rem;font-weight:600;color:var(--g800)}
+        .inbox-val{font-size:.625rem;color:var(--zg);font-weight:600}
+        .inbox-meta{display:flex;align-items:center;gap:6px;margin-top:2px}
+        .inbox-tag{font-size:.5625rem;padding:2px 6px;border-radius:var(--r-full);font-weight:600}
+        .inbox-tag.hot{background:#FFF3E0;color:#E65100}
+        .inbox-tag.warn{background:#FFF8E1;color:#F57F17}
+        .inbox-tag.crit{background:#FFEBEE;color:#C62828}
+        .inbox-time{font-size:.5625rem;color:var(--g400)}
+        .inbox-summary{display:flex;justify-content:space-around;padding:.75rem;background:var(--g50);border-top:1px solid var(--g200)}
+        .inbox-summary-item{text-align:center}
+        .inbox-summary-num{font-size:1rem;font-weight:700;color:var(--g800)}
+        .inbox-summary-label{font-size:.5625rem;color:var(--g500)}
+        
+        /* PROPERTIES CARD */
+        .props-section{padding:1rem}
+        .props-title{font-size:.5625rem;text-transform:uppercase;letter-spacing:1px;color:var(--g400);font-weight:600;margin-bottom:.75rem;display:flex;align-items:center;gap:8px}
+        .props-title::after{content:'';flex:1;height:1px;background:var(--g200)}
+        .prop-item{display:flex;flex-direction:column;gap:4px;padding:.75rem;background:var(--g50);border-radius:var(--r-md);margin-bottom:.5rem}
+        .prop-item:last-child{margin-bottom:0}
+        .prop-label{display:flex;align-items:center;gap:8px;font-size:.6875rem;color:var(--g600);font-weight:500}
+        .prop-label .icon{width:20px;height:20px;border-radius:4px;background:var(--w);display:flex;align-items:center;justify-content:center;font-size:.625rem;border:1px solid var(--g200)}
+        .prop-val{font-size:.75rem;color:var(--g800);font-weight:600;padding-left:28px}
+        .prop-val.hl{color:var(--zt)}
+        .prop-val.ok{color:var(--zg)}
+        .props-footer{display:flex;align-items:center;justify-content:center;gap:6px;padding:.625rem;background:linear-gradient(135deg,#E6F5F3 0%,#D4F5F0 100%);border-top:1px solid var(--g200);font-size:.6875rem;color:var(--zt);font-weight:600}
+        
+        /* WORKFLOW CARD */
+        .workflow-body{padding:1rem}
+        .wf-step{display:flex;align-items:flex-start;gap:12px;padding-bottom:1.25rem;position:relative}
+        .wf-step:last-child{padding-bottom:0}
+        .wf-step::before{content:'';position:absolute;left:19px;top:40px;width:2px;height:calc(100% - 40px);background:linear-gradient(180deg,#7C3AED 0%,#E9D5FF 100%)}
+        .wf-step:last-child::before{display:none}
+        .wf-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;color:var(--w)}
+        .wf-num.trigger{background:linear-gradient(135deg,#7C3AED 0%,#A855F7 100%)}
+        .wf-num.bot{background:linear-gradient(135deg,var(--zb) 0%,#4A90D9 100%)}
+        .wf-num.cond{background:linear-gradient(135deg,var(--zo) 0%,#FFAB40 100%)}
+        .wf-num.action{background:linear-gradient(135deg,var(--zg) 0%,#34D399 100%)}
+        .wf-content{flex:1;min-width:0}
+        .wf-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;flex-wrap:wrap;gap:4px}
+        .wf-type{font-size:.5625rem;text-transform:uppercase;letter-spacing:.5px;font-weight:700;padding:2px 6px;border-radius:var(--r-full)}
+        .wf-type.trigger{background:#F3E8FF;color:#7C3AED}
+        .wf-type.bot{background:var(--zbl);color:var(--zb)}
+        .wf-type.cond{background:#FFF3E0;color:#E65100}
+        .wf-type.action{background:var(--zgl);color:var(--zg)}
+        .wf-time{font-size:.5625rem;color:var(--g400);font-weight:500}
+        .wf-title{font-size:.8125rem;font-weight:700;color:var(--g800);margin-bottom:2px}
+        .wf-desc{font-size:.6875rem;color:var(--g500)}
+        .wf-card{background:var(--g50);border:1px solid var(--g200);border-radius:var(--r-md);padding:.5rem .75rem;margin-top:.5rem}
+        .wf-card-row{display:flex;align-items:center;gap:6px;font-size:.6875rem;flex-wrap:wrap}
+        .wf-card-row .val{color:var(--g800);font-weight:600}
+        .wf-branches{display:flex;gap:.5rem;margin-top:.5rem}
+        .wf-branch{flex:1;background:var(--g50);border:1px solid var(--g200);border-radius:var(--r-md);padding:.5rem;text-align:center}
+        .wf-branch.yes{border-color:var(--zg);background:linear-gradient(180deg,var(--zgl) 0%,var(--w) 100%)}
+        .wf-branch-label{font-size:.5625rem;text-transform:uppercase;letter-spacing:.5px;font-weight:700;margin-bottom:2px}
+        .wf-branch.yes .wf-branch-label{color:var(--zg)}
+        .wf-branch.no .wf-branch-label{color:var(--g500)}
+        .wf-branch-text{font-size:.625rem;color:var(--g600)}
+        .wf-footer{display:flex;align-items:center;justify-content:center;gap:6px;padding:.625rem;background:linear-gradient(135deg,#F3E8FF 0%,#EDE9FE 100%);border-top:1px solid var(--g200);font-size:.6875rem;color:#7C3AED;font-weight:600}
+        
+        /* STATS */
+        .stats{padding:3rem 4%;background:linear-gradient(135deg,var(--zbl) 0%,#F0F7FF 50%,var(--zbl) 100%);content-visibility:auto;contain-intrinsic-size:0 300px}
+        .stats-inner{max-width:1100px;margin:0 auto}
+        .stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+        .stat-card{background:var(--w);padding:1.25rem;border-radius:var(--r-lg);text-align:center;box-shadow:var(--sh-md)}
+        .stat-num{font-size:1.75rem;font-weight:900;font-family:'Lato',sans-serif;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .stat-label{font-size:.75rem;color:var(--g500)}
+        
+        /* TESTIMONIALS */
+        .testimonials{padding:3rem 4%;background:var(--w);overflow:hidden}
+        .testimonials-inner{max-width:1200px;margin:0 auto}
+        .testimonial-columns{display:flex;justify-content:center;gap:1rem;height:500px;overflow:hidden;position:relative;margin-top:2rem;-webkit-mask-image:linear-gradient(to bottom,transparent,black 10%,black 90%,transparent);mask-image:linear-gradient(to bottom,transparent,black 10%,black 90%,transparent)}
+        .testimonial-col{display:flex;flex-direction:column;gap:1rem;animation:scrollUp 20s linear infinite;will-change:transform;padding-bottom:1rem}
+        .testimonial-col:nth-child(2),.testimonial-col:nth-child(3){display:none}
+        @keyframes scrollUp{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+        @media(prefers-reduced-motion:reduce){.testimonial-col{animation:none}}
+        .testimonial-card{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-xl);padding:1.25rem;box-shadow:0 4px 20px rgba(34,109,180,.08);flex-shrink:0;max-width:300px;width:100%}
+        .testimonial-card:hover{box-shadow:0 8px 30px rgba(34,109,180,.12)}
+        .stars{display:flex;gap:2px;margin-bottom:.75rem}
+        .stars span{color:var(--zy);font-size:.875rem}
+        .testimonial-text{font-size:.875rem;color:var(--g700);line-height:1.7;margin-bottom:1rem}
+        .testimonial-author{display:flex;align-items:center;gap:12px}
+        .testimonial-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:2px solid var(--g200)}
+        .testimonial-avatar img{width:100%;height:100%;object-fit:cover}
+        .testimonial-info{flex:1}
+        .testimonial-name{font-weight:700;color:var(--g800);font-size:.875rem;line-height:1.3}
+        .testimonial-role{color:var(--g500);font-size:.75rem;line-height:1.3}
+        
+        /* TRUST BADGES */
+        .trust-badges{display:flex;justify-content:center;gap:.75rem;margin-top:2rem;flex-wrap:wrap}
+        .trust-badge{display:flex;align-items:center;gap:6px;background:var(--w);border:1px solid var(--g200);padding:8px 12px;border-radius:var(--r-full);font-size:.6875rem;font-weight:600;color:var(--g600)}
+        
+        /* FAQ */
+        .faq{padding:3rem 4%;background:var(--g50);content-visibility:auto;contain-intrinsic-size:0 500px}
+        .faq-inner{max-width:800px;margin:0 auto}
+        .faq-list{margin-top:2rem}
+        .faq-item{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-md);margin-bottom:.75rem;overflow:hidden}
+        .faq-q{display:flex;align-items:flex-start;gap:.75rem;padding:1rem;cursor:pointer}
+        .faq-q:hover{background:var(--g50)}
+        .faq-num{width:28px;height:28px;border-radius:var(--r-sm);background:var(--grad);color:var(--w);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.75rem;flex-shrink:0}
+        .faq-q h3{flex:1;font-size:.875rem;font-weight:600;color:var(--g800);line-height:1.4}
+        .faq-a{padding:0 1rem 1rem 3rem;color:var(--g600);line-height:1.7;font-size:.8125rem}
+        
+        /* CTA */
+        .cta{padding:3rem 4%;text-align:center;background:linear-gradient(180deg,var(--g50) 0%,var(--zbl) 100%);content-visibility:auto;contain-intrinsic-size:0 500px}
+        .cta-inner{max-width:500px;margin:0 auto}
+        .cta h2{font-size:1.5rem;color:var(--g900);margin-bottom:.75rem;line-height:1.3}
+        .cta-desc{color:var(--g600);margin-bottom:1.25rem;font-size:.875rem}
+        .cta-benefits{display:flex;flex-direction:column;align-items:center;gap:.75rem;margin-bottom:1.5rem}
+        .cta-benefit{display:flex;align-items:center;gap:6px;font-size:.8125rem;color:var(--g600)}
+        .cta-benefit .icon{color:var(--zg)}
+        .cta-form{background:var(--w);border:1px solid var(--g200);border-radius:var(--r-xl);box-shadow:var(--sh-lg);overflow:hidden}
+        .cta-form-title{font-size:1rem;font-weight:700;color:var(--g900);padding:1rem;text-align:center;background:linear-gradient(180deg,var(--g50) 0%,var(--w) 100%)}
+        
+        /* FOOTER */
+        .footer{padding:1.25rem 4%;display:flex;flex-direction:column;align-items:center;gap:1rem;background:var(--w);border-top:1px solid var(--g200);text-align:center}
+        .footer-brand{display:flex;align-items:center;gap:10px}
+        .footer-brand img{height:22px;width:auto}
+        .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center}
+        .footer-links a{color:var(--g500);text-decoration:none;font-size:.8125rem}
+        .footer-links a:hover{color:var(--zb)}
+        .footer-copyright{color:var(--g400);font-size:.75rem}
+        
+        /* RESPONSIVE - Tablet 480px */
+        @media(min-width:480px){
+            .hero h1{font-size:2rem}
+            .hero-stats{gap:2rem}
+            .trusted h2{font-size:1.5rem}
+            .problem-grid{grid-template-columns:repeat(2,1fr)}
+            .cta-benefits{flex-direction:row;gap:1.5rem}
+        }
+        
+        /* RESPONSIVE - Tablet 768px */
+        @media(min-width:768px){
+            .nav{padding:.875rem 5%}
+            .nav-brand img{height:28px}
+            .nav-toggle{display:none}
+            .nav-links{display:flex;position:static;flex-direction:row;padding:0;gap:24px;border-bottom:none;box-shadow:none;background:transparent;align-items:center}
+            .nav-link{padding:0;border-bottom:none;font-size:.875rem}
+            .nav-cta{margin-top:0;display:inline-block;padding:.625rem 1.25rem;font-size:.875rem}
+            .hero{padding:6rem 5% 4rem;gap:2.5rem}
+            .hero-badge{padding:8px 14px;font-size:.8125rem}
+            .hero h1{font-size:2.25rem}
+            .hero-desc{font-size:1rem}
+            .hero-form{max-width:480px;margin:0 auto}
+            .trusted,.problems,.features,.stats,.testimonials,.faq,.cta{padding:3.5rem 5%}
+            .section-title{font-size:1.75rem}
+            .trusted h2{font-size:1.75rem}
+            .problem-grid{gap:1.25rem}
+            .feature-grid{gap:2.5rem}
+            .feature-content h2{font-size:1.5rem}
+            .stats-grid{grid-template-columns:repeat(4,1fr)}
+            .stat-num{font-size:2rem}
+            .testimonial-columns{height:520px;gap:1.25rem}
+            .testimonial-col{gap:1.25rem}
+            .testimonial-col:nth-child(2){display:flex;animation-duration:25s}
+            .testimonial-card{max-width:320px;padding:1.5rem}
+            .faq-q{padding:1.25rem}
+            .faq-q h3{font-size:1rem}
+            .faq-a{font-size:.875rem}
+            .cta h2{font-size:1.75rem}
+            .footer{flex-direction:row;justify-content:space-between;text-align:left}
+        }
+        
+        /* RESPONSIVE - Desktop 992px */
+        @media(min-width:992px){
+            .nav-links{gap:32px}
+            .nav-cta{padding:.75rem 1.5rem;font-size:.9375rem}
+            .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;padding:7rem 5% 5rem;min-height:100vh;align-items:center}
+            .hero-content{text-align:left;padding-right:2rem}
+            .hero-badge{justify-content:flex-start}
+            .hero h1{font-size:2.75rem;margin-bottom:1.5rem}
+            .hero-desc{font-size:1.0625rem}
+            .hero-meta-item{justify-content:flex-start}
+            .hero-stats{justify-content:flex-start;gap:2.5rem}
+            .hero-stat{text-align:left}
+            .hero-stat-num{font-size:2rem}
+            .hero-form{max-width:440px;margin:0}
+            .calendly-inline-widget{min-height:580px}
+            .trusted,.problems,.features,.stats,.testimonials,.faq,.cta{padding:5rem 5%}
+            .section-header{margin-bottom:3.5rem}
+            .section-title{font-size:2rem}
+            .trusted h2{font-size:2rem}
+            .problem-grid{grid-template-columns:repeat(4,1fr);gap:1.5rem}
+            .problem-card{padding:1.75rem}
+            .feature-block{margin-bottom:5rem}
+            .feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+            .feature-grid.reverse{direction:rtl}
+            .feature-grid.reverse>*{direction:ltr}
+            .feature-content{text-align:left}
+            .feature-content .section-label{text-align:left}
+            .feature-content h2{font-size:1.875rem}
+            .feature-desc{font-size:1rem;margin-bottom:2rem}
+            .feature-list li{font-size:.9375rem;gap:12px;margin-bottom:.875rem}
+            .prop-item{flex-direction:row;align-items:center;justify-content:space-between}
+            .prop-val{padding-left:0;text-align:right}
+            .testimonial-columns{height:550px;gap:1.5rem}
+            .testimonial-col{gap:1.5rem;animation-duration:22s}
+            .testimonial-col:nth-child(2){animation-duration:28s}
+            .testimonial-col:nth-child(3){display:flex;animation-duration:18s}
+            .testimonial-card{padding:1.75rem;max-width:340px}
+            .cta h2{font-size:2.25rem}
+            .cta-inner{max-width:700px}
+        }
+        
+        /* RESPONSIVE - Large Desktop 1200px */
+        @media(min-width:1200px){
+            .hero h1{font-size:3.25rem}
+            .trusted h2{font-size:2.25rem}
+            .section-title{font-size:2.25rem}
+            .feature-content h2{font-size:2rem}
+        }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P3F4DCP7');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P3F4DCP7"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <!-- NAV -->
+    <nav class="nav">
+        <a href="#" class="nav-brand">
+            <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" width="96" height="24">
+            <span class="nav-divider"></span>
+            <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho CRM" width="80" height="20">
+        </a>
+        <button class="nav-toggle" onclick="this.classList.toggle('active');document.querySelector('.nav-links').classList.toggle('active')" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="#features" class="nav-link">Características</a>
+            <a href="#testimonials" class="nav-link">Testimonios</a>
+            <a href="#faq" class="nav-link">Preguntas Frecuentes</a>
+            <a href="#trial" class="nav-cta">Prueba Gratis</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho CRM" width="72" height="18">
+                <span>Zoho CRM Marketplace</span>
+                <span class="rating">★ 4.7</span>
+                <span class="users">+30.000 Usuarios</span>
+            </div>
+            <h1>La Integración #1 de <span class="hl">Zoho CRM</span> con WhatsApp Para Equipos de Ventas</h1>
+            <p class="hero-desc">Sincroniza cada conversación de WhatsApp con contactos, negocios y tickets de Zoho CRM. Rastrea tiempos de respuesta. Nunca pierdas el historial de clientes cuando los vendedores se vayan.</p>
+            <div class="hero-meta">
+                <div class="hero-meta-item"><span class="icon">✓</span><span>Funciona con WhatsApp Personal, Business y API</span></div>
+                <div class="hero-meta-item"><span class="icon">✓</span><span><strong>Configura en 5 minutos</strong> — Sin código necesario</span></div>
+                <div class="hero-meta-item"><span class="icon">✓</span><span>Prueba gratis de 7 días • Cancela cuando quieras</span></div>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat"><div class="hero-stat-num">+30K</div><div class="hero-stat-label">Usuarios Activos</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">+10M</div><div class="hero-stat-label">Mensajes Sincronizados</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">40%</div><div class="hero-stat-label">Respuesta Más Rápida</div></div>
+            </div>
+        </div>
+        <div class="hero-form" id="trial">
+            <div class="form-header">
+                <h3 class="form-title">🚀 Comienza Tu Prueba Gratis</h3>
+                <p class="form-subtitle">Elige un horario para una llamada rápida de configuración</p>
+            </div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/d/ctjy-xrr-yrn?hide_gdpr_banner=1&background_color=fafbfc&primary_color=226db4" style="min-width:280px;height:520px;"></div>
+            <div class="form-trust">
+                <span class="form-trust-item"><span class="icon">🔒</span>Certificado SOC 2</span>
+                <span class="form-trust-item"><span class="icon">🇪🇺</span>Cumple con RGPD</span>
+                <span class="form-trust-item"><span class="icon">✓</span>Sin tarjeta de crédito</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED -->
+    <section class="trusted">
+        <div class="trusted-inner">
+            <div class="trusted-header">
+                <span class="trusted-label">✦ Confianza Mundial</span>
+                <h2>Usado Por <span>+30.000</span> Equipos de Ventas</h2>
+                <p class="trusted-desc">Desde startups ambiciosas hasta empresas globales, los equipos de ventas confían en Eazybe para capturar cada conversación de WhatsApp</p>
+            </div>
+            <div class="logo-wrap">
+                <div class="logo-marquee">
+                    <div class="logo-track">
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a1f16e978af267356_travclan%20logo.svg" alt="Travclan" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a3d0a9398961d72d1_kreedo%20logo.svg" alt="Kreedo" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/676859615a3ec360e3bc5d4c_university%20living.svg" alt="University Living" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/6768596177cb968e98f60728_wanderon.svg" alt="WanderOn" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685961ca70cc2713405aac_pw.svg" alt="PW" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685ab1ca70cc27134152fa_studyin.svg" alt="StudyIn" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685bae06432a9005e774af_satrack.svg" alt="Satrack" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a15f02d0e1fc5306a4d_orbidi.svg" alt="Orbidi" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a1f16e978af267356_travclan%20logo.svg" alt="Travclan" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/686e2d4a3d0a9398961d72d1_kreedo%20logo.svg" alt="Kreedo" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/676859615a3ec360e3bc5d4c_university%20living.svg" alt="University Living" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/6768596177cb968e98f60728_wanderon.svg" alt="WanderOn" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685961ca70cc2713405aac_pw.svg" alt="PW" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685ab1ca70cc27134152fa_studyin.svg" alt="StudyIn" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/67685bae06432a9005e774af_satrack.svg" alt="Satrack" width="72" height="18" loading="lazy"></div>
+                        <div class="logo-item"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68d25a15f02d0e1fc5306a4d_orbidi.svg" alt="Orbidi" width="72" height="18" loading="lazy"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="cert-badges">
+                <div class="cert-badge"><span>✓</span>Socio del Zoho Marketplace</div>
+                <div class="cert-badge"><span>🔒</span>Cumple con RGPD</div>
+                <div class="cert-badge"><span>🛡️</span>Seguridad Empresarial</div>
+                <div class="cert-badge"><span>⚡</span>99.9% Uptime</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="problems">
+        <div class="problems-inner">
+            <div class="section-header">
+                <span class="section-label">El Problema</span>
+                <h2 class="section-title">¿Te Suena Familiar?</h2>
+                <p class="section-desc">Estos desafíos comunes cuestan millones en ingresos perdidos a los equipos de ventas cada año</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">😤</div>
+                    <h3>Conversaciones Perdidas</h3>
+                    <p>Cuando los vendedores se van, sus chats de WhatsApp se van con ellos — junto con valiosas relaciones con clientes.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">🔄</div>
+                    <h3>Entrada Manual de Datos</h3>
+                    <p>Los vendedores pierden horas copiando conversaciones a Zoho CRM en lugar de cerrar negocios.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📊</div>
+                    <h3>Sin Visibilidad</h3>
+                    <p>Los gerentes no pueden ver tiempos de respuesta, volumen de conversaciones o métricas de rendimiento del equipo.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⏰</div>
+                    <h3>Respuestas Lentas</h3>
+                    <p>Sin priorización, los leads calientes se enfrían mientras los vendedores manejan múltiples apps de chat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="features-inner">
+            <!-- Feature 1: Conversation Capture -->
+            <div class="feature-block">
+                <div class="feature-grid">
+                    <div class="feature-content">
+                        <span class="section-label">Captura de Conversaciones</span>
+                        <h2>Cada Mensaje. Cada Contacto. Sincronizado Automáticamente.</h2>
+                        <p class="feature-desc">Deja de perder conversaciones con clientes. Eazybe captura automáticamente cada mensaje de WhatsApp y lo sincroniza con el registro correcto de Zoho CRM en tiempo real.</p>
+                        <ul class="feature-list">
+                            <li><span class="icon">✓</span><span><strong>Coincidencia automática</strong> — Los mensajes se sincronizan con registros existentes del CRM</span></li>
+                            <li><span class="icon">✓</span><span><strong>Crear nuevos leads</strong> — Los números desconocidos se convierten en leads automáticamente</span></li>
+                            <li><span class="icon">✓</span><span><strong>Sincronizar adjuntos</strong> — Fotos, documentos y notas de voz incluidos</span></li>
+                            <li><span class="icon">✓</span><span><strong>Vista de línea de tiempo</strong> — Ve el historial completo de conversaciones en Zoho CRM</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="card-header blue">
+                            <div class="card-title"><span class="icon">💬</span>Línea de Tiempo del Contacto</div>
+                            <span class="card-badge">Sinc. en Vivo</span>
+                        </div>
+                        <div class="contact-header">
+                            <div class="contact-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face" alt="Miguel García" loading="lazy"></div>
+                            <div class="contact-info">
+                                <div class="contact-name">Miguel García</div>
+                                <div class="contact-meta">CEO de TechStart • Negocio de €45.000</div>
+                            </div>
+                            <span class="contact-badge">Lead Caliente</span>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon wa">💬</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Mensaje de WhatsApp Recibido</div>
+                                    <div class="timeline-text">"Hola, me gustaría programar una demo para nuestro equipo de 50..."</div>
+                                </div>
+                                <div class="timeline-time">hace 2 min</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon contact">👤</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Contacto Actualizado</div>
+                                    <div class="timeline-text">Tamaño de empresa: 50 empleados</div>
+                                </div>
+                                <div class="timeline-time">hace 2 min</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon deal">💰</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Negocio Creado</div>
+                                    <div class="timeline-text">Plan Enterprise - €45.000/año</div>
+                                </div>
+                                <div class="timeline-time">hace 1 min</div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-icon ticket">🎫</div>
+                                <div class="timeline-content">
+                                    <div class="timeline-title">Tarea Asignada</div>
+                                    <div class="timeline-text">Programar llamada de demo con Miguel</div>
+                                </div>
+                                <div class="timeline-time">Ahora</div>
+                            </div>
+                        </div>
+                        <div class="sync-badge"><span class="pulse"></span>Sincronización en tiempo real con Zoho CRM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Revenue Inbox -->
+            <div class="feature-block">
+                <div class="feature-grid reverse">
+                    <div class="feature-content">
+                        <span class="section-label">Bandeja de Ingresos</span>
+                        <h2>Prioriza Conversaciones de Alto Valor</h2>
+                        <p class="feature-desc">Ve todas tus conversaciones de WhatsApp clasificadas por valor del negocio, urgencia de respuesta y puntuación del lead. Enfócate en lo que realmente importa.</p>
+                        <ul class="feature-list">
+                            <li><span class="icon">✓</span><span><strong>Ordenar por valor</strong> — Las mayores oportunidades arriba</span></li>
+                            <li><span class="icon">✓</span><span><strong>Alertas de tiempo de respuesta</strong> — Nunca pierdas un SLA</span></li>
+                            <li><span class="icon">✓</span><span><strong>Puntuación de leads</strong> — Ranking de prioridad con IA</span></li>
+                            <li><span class="icon">✓</span><span><strong>Asignación de equipo</strong> — Dirige al vendedor correcto</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="card-header orange">
+                            <div class="card-title"><span class="icon">📥</span>Bandeja de Ingresos</div>
+                            <span class="card-badge">3 Urgentes</span>
+                        </div>
+                        <div class="inbox-body">
+                            <div class="tabs">
+                                <div class="tab active">Todos <span class="count">24</span></div>
+                                <div class="tab">Urgentes <span class="count">3</span></div>
+                                <div class="tab">Alto Valor <span class="count">8</span></div>
+                            </div>
+                            <div class="inbox-item">
+                                <div class="inbox-avatar crit"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=64&h=64&fit=crop&crop=face" alt="Sara Martínez" loading="lazy"></div>
+                                <div class="inbox-info">
+                                    <div class="inbox-name">Sarah Kim <span class="inbox-val">€125.000</span></div>
+                                    <div class="inbox-meta"><span class="inbox-tag crit">SLA Incumplido</span><span class="inbox-time">45 min de retraso</span></div>
+                                </div>
+                            </div>
+                            <div class="inbox-item">
+                                <div class="inbox-avatar warn"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face" alt="Javier López" loading="lazy"></div>
+                                <div class="inbox-info">
+                                    <div class="inbox-name">James Davis <span class="inbox-val">€89.000</span></div>
+                                    <div class="inbox-meta"><span class="inbox-tag warn">Respuesta necesaria</span><span class="inbox-time">hace 12 min</span></div>
+                                </div>
+                            </div>
+                            <div class="inbox-item">
+                                <div class="inbox-avatar hot"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=64&h=64&fit=crop&crop=face" alt="Ana Rodríguez" loading="lazy"></div>
+                                <div class="inbox-info">
+                                    <div class="inbox-name">Amanda Lee <span class="inbox-val">€67.500</span></div>
+                                    <div class="inbox-meta"><span class="inbox-tag hot">Lead caliente</span><span class="inbox-time">Ahora</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inbox-summary">
+                            <div class="inbox-summary-item"><div class="inbox-summary-num">€281.5K</div><div class="inbox-summary-label">Valor del Pipeline</div></div>
+                            <div class="inbox-summary-item"><div class="inbox-summary-num">4.2 min</div><div class="inbox-summary-label">Resp. Promedio</div></div>
+                            <div class="inbox-summary-item"><div class="inbox-summary-num">94%</div><div class="inbox-summary-label">SLA Cumplido</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Contact Properties -->
+            <div class="feature-block">
+                <div class="feature-grid">
+                    <div class="feature-content">
+                        <span class="section-label">Propiedades del Contacto</span>
+                        <h2>Datos de Actividad de WhatsApp en Zoho CRM</h2>
+                        <p class="feature-desc">Enriquece automáticamente tus contactos de Zoho CRM con datos de engagement de WhatsApp. Sabe exactamente cuándo y cómo interactúa cada contacto.</p>
+                        <ul class="feature-list">
+                            <li><span class="icon">✓</span><span><strong>Timestamps de último mensaje</strong> — Enviados y recibidos</span></li>
+                            <li><span class="icon">✓</span><span><strong>Seguimiento de tiempo de respuesta</strong> — Velocidad promedio de respuesta</span></li>
+                            <li><span class="icon">✓</span><span><strong>Conteo de mensajes</strong> — Volumen total de conversaciones</span></li>
+                            <li><span class="icon">✓</span><span><strong>Línea de tiempo de actividad</strong> — Historial completo de engagement</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="card-header teal">
+                            <div class="card-title"><span class="icon">📋</span>Propiedades WhatsApp</div>
+                            <span class="card-badge">Auto-Sincronizado</span>
+                        </div>
+                        <div class="contact-header">
+                            <div class="contact-avatar" style="background:linear-gradient(135deg,var(--zt) 0%,#20B2AA 100%)"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face" alt="Sara Martínez" loading="lazy"></div>
+                            <div class="contact-info">
+                                <div class="contact-name">Sara Martínez</div>
+                                <div class="contact-meta">CEO de TechVentures • Negocio de €24.500</div>
+                            </div>
+                            <span class="contact-badge" style="background:var(--zg)">Activo</span>
+                        </div>
+                        <div class="props-section">
+                            <div class="props-title">Actividad WhatsApp</div>
+                            <div class="prop-item"><div class="prop-label"><span class="icon">📤</span>Último Mensaje Enviado</div><div class="prop-val">27 Ene, 2026 • 14:34</div></div>
+                            <div class="prop-item"><div class="prop-label"><span class="icon">📥</span>Última Respuesta Recibida</div><div class="prop-val">27 Ene, 2026 • 15:12</div></div>
+                            <div class="prop-item"><div class="prop-label"><span class="icon">🕐</span>Última Actividad</div><div class="prop-val hl">hace 38 minutos</div></div>
+                            <div class="prop-item"><div class="prop-label"><span class="icon">⚡</span>Tiempo Promedio de Respuesta</div><div class="prop-val ok">4m 22s</div></div>
+                            <div class="prop-item"><div class="prop-label"><span class="icon">💬</span>Total de Mensajes</div><div class="prop-val">47</div></div>
+                            <div class="prop-item"><div class="prop-label"><span class="icon">📝</span>Resumen de la Conversación</div><div class="prop-val hl">Ver →</div></div>
+                        </div>
+                        <div class="props-footer"><span class="pulse"></span>Sincronizando automáticamente con Zoho CRM</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 4: Chatbots & Workflows -->
+            <div class="feature-block">
+                <div class="feature-grid reverse">
+                    <div class="feature-content">
+                        <span class="section-label">Chatbots y Automatizaciones</span>
+                        <h2>Automatiza la Calificación de Leads 24/7</h2>
+                        <p class="feature-desc">Crea chatbots sin código que califican leads, agendan reuniones y actualizan Zoho CRM — todo mientras duermes.</p>
+                        <ul class="feature-list">
+                            <li><span class="icon">✓</span><span><strong>Constructor sin código</strong> — Simplicidad de arrastrar y soltar</span></li>
+                            <li><span class="icon">✓</span><span><strong>Lógica condicional</strong> — Conversaciones con ramificaciones inteligentes</span></li>
+                            <li><span class="icon">✓</span><span><strong>Acciones en CRM</strong> — Actualizar campos, crear registros</span></li>
+                            <li><span class="icon">✓</span><span><strong>Reserva de calendario</strong> — Programación automática de reuniones</span></li>
+                        </ul>
+                    </div>
+                    <div class="feature-visual">
+                        <div class="card-header purple">
+                            <div class="card-title"><span class="icon">🤖</span>Bot de Calificación de Leads</div>
+                            <span class="card-badge">Activo</span>
+                        </div>
+                        <div class="workflow-body">
+                            <div class="wf-step">
+                                <div class="wf-num trigger">💬</div>
+                                <div class="wf-content">
+                                    <div class="wf-header"><span class="wf-type trigger">Disparador</span><span class="wf-time">Paso 1</span></div>
+                                    <div class="wf-title">Nuevo Mensaje de WhatsApp</div>
+                                    <div class="wf-desc">Cuando el contacto envía mensaje vía WhatsApp</div>
+                                    <div class="wf-card"><div class="wf-card-row">Canal: <span class="val">WhatsApp Personal + Business</span></div></div>
+                                </div>
+                            </div>
+                            <div class="wf-step">
+                                <div class="wf-num bot">🤖</div>
+                                <div class="wf-content">
+                                    <div class="wf-header"><span class="wf-type bot">Chatbot</span><span class="wf-time">Paso 2</span></div>
+                                    <div class="wf-title">Hacer Preguntas de Calificación</div>
+                                    <div class="wf-desc">El bot recopila presupuesto, plazo, requisitos</div>
+                                    <div class="wf-card"><div class="wf-card-row">"¿Cuál es tu presupuesto para este proyecto?"</div></div>
+                                </div>
+                            </div>
+                            <div class="wf-step">
+                                <div class="wf-num cond">🔀</div>
+                                <div class="wf-content">
+                                    <div class="wf-header"><span class="wf-type cond">Condición</span><span class="wf-time">Paso 3</span></div>
+                                    <div class="wf-title">Evaluar Puntuación del Lead</div>
+                                    <div class="wf-desc">Si Presupuesto > €10K Y Plazo < 30 días</div>
+                                    <div class="wf-branches">
+                                        <div class="wf-branch yes"><div class="wf-branch-label">Sí</div><div class="wf-branch-text">Lead de alto valor</div></div>
+                                        <div class="wf-branch no"><div class="wf-branch-label">No</div><div class="wf-branch-text">Secuencia de nutrición</div></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wf-step">
+                                <div class="wf-num action">📅</div>
+                                <div class="wf-content">
+                                    <div class="wf-header"><span class="wf-type action">Acción</span><span class="wf-time">Paso 4</span></div>
+                                    <div class="wf-title">Agendar Demo y Asignar Vendedor</div>
+                                    <div class="wf-desc">Programar reunión y pasar a ventas</div>
+                                    <div class="wf-card"><div class="wf-card-row">Actualizar Zoho CRM → <span class="val">Demo Agendada</span></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wf-footer"><span class="pulse"></span>Calificación Automatizada de Leads 24/7</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-inner">
+            <div class="section-header">
+                <span class="section-label">Resultados</span>
+                <h2 class="section-title">Impacto Real, Números Reales</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card"><div class="stat-num">40%</div><div class="stat-label">Respuestas Más Rápidas</div></div>
+                <div class="stat-card"><div class="stat-num">+10M</div><div class="stat-label">Mensajes Sincronizados</div></div>
+                <div class="stat-card"><div class="stat-num">+30K</div><div class="stat-label">Usuarios Activos</div></div>
+                <div class="stat-card"><div class="stat-num">99.9%</div><div class="stat-label">SLA de Uptime</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials">
+        <div class="testimonials-inner">
+            <div class="section-header">
+                <span class="section-label">Testimonios</span>
+                <h2 class="section-title">Amado por Equipos de Ventas en Todo el Mundo</h2>
+            </div>
+            <div class="testimonial-columns">
+                <!-- Column 1 -->
+                <div class="testimonial-col">
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Finalmente, una integración WhatsApp-CRM que realmente funciona. Hemos reducido el tiempo de respuesta en un 60% y a nuestro equipo le encanta lo fluida que es."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=88&h=88&fit=crop&crop=face" alt="Roberto Sánchez" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Roberto Sánchez</div><div class="testimonial-role">Director de Ventas, TechCorp España</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"El constructor de chatbot es increíble. Automatizamos el 70% de la calificación de leads y nuestro equipo de ventas puede enfocarse en cerrar negocios."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=88&h=88&fit=crop&crop=face" alt="Lucía Castro" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Lucía Castro</div><div class="testimonial-role">Head de Crecimiento, ScaleUp España</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"El equipo de soporte es fenomenal. Tuve un problema a las 2am y se resolvió en una hora. Ese es el tipo de servicio que necesitas."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=88&h=88&fit=crop&crop=face" alt="Manuel Torres" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Manuel Torres</div><div class="testimonial-role">Líder de Operaciones, FastTrack</div></div>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Finalmente, una integración WhatsApp-CRM que realmente funciona. Hemos reducido el tiempo de respuesta en un 60% y a nuestro equipo le encanta lo fluida que es."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=88&h=88&fit=crop&crop=face" alt="Roberto Sánchez" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Roberto Sánchez</div><div class="testimonial-role">Director de Ventas, TechCorp España</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"El constructor de chatbot es increíble. Automatizamos el 70% de la calificación de leads y nuestro equipo de ventas puede enfocarse en cerrar negocios."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=88&h=88&fit=crop&crop=face" alt="Lucía Castro" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Lucía Castro</div><div class="testimonial-role">Head de Crecimiento, ScaleUp España</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"El equipo de soporte es fenomenal. Tuve un problema a las 2am y se resolvió en una hora. Ese es el tipo de servicio que necesitas."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=88&h=88&fit=crop&crop=face" alt="Manuel Torres" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Manuel Torres</div><div class="testimonial-role">Líder de Operaciones, FastTrack</div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 2 -->
+                <div class="testimonial-col">
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"La configuración tomó 5 minutos, en serio. Ahora cada conversación de WhatsApp se registra automáticamente en Zoho CRM. Un cambio de juego para nuestro equipo."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=88&h=88&fit=crop&crop=face" alt="María Pérez" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">María Pérez</div><div class="testimonial-role">Head de Ventas, GlobalTrade EU</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Probamos 3 integraciones más antes de encontrar Eazybe. Es la única que sincroniza WhatsApp personal y funciona de manera confiable."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&h=88&fit=crop&crop=face" alt="Alejandro Ruiz" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Alejandro Ruiz</div><div class="testimonial-role">CEO, RapidGrowth LATAM</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Nuestro ciclo de ventas se acortó 2 semanas. Poder ver todo el historial de WhatsApp en la línea de tiempo del CRM es un gran impulso de productividad."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=88&h=88&fit=crop&crop=face" alt="Patricia Navarro" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Patricia Navarro</div><div class="testimonial-role">Gerente de Ventas, CloudFirst</div></div>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"La configuración tomó 5 minutos, en serio. Ahora cada conversación de WhatsApp se registra automáticamente en Zoho CRM. Un cambio de juego para nuestro equipo."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=88&h=88&fit=crop&crop=face" alt="María Pérez" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">María Pérez</div><div class="testimonial-role">Head de Ventas, GlobalTrade EU</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Probamos 3 integraciones más antes de encontrar Eazybe. Es la única que sincroniza WhatsApp personal y funciona de manera confiable."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=88&h=88&fit=crop&crop=face" alt="Alejandro Ruiz" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Alejandro Ruiz</div><div class="testimonial-role">CEO, RapidGrowth LATAM</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Nuestro ciclo de ventas se acortó 2 semanas. Poder ver todo el historial de WhatsApp en la línea de tiempo del CRM es un gran impulso de productividad."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=88&h=88&fit=crop&crop=face" alt="Patricia Navarro" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Patricia Navarro</div><div class="testimonial-role">Gerente de Ventas, CloudFirst</div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column 3 -->
+                <div class="testimonial-col">
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Solo la función de bandeja de ingresos vale el precio. Ahora podemos priorizar negocios de alto valor y nuestra tasa de cierre mejoró un 35%."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=88&h=88&fit=crop&crop=face" alt="Jaime Luna" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Jaime Luna</div><div class="testimonial-role">VP de Ventas, StartupXYZ</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Se acabaron las preguntas '¿quién habló con este cliente por última vez?'. Todo está ahí en Zoho CRM. Salvavidas absoluto para nuestro equipo."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=88&h=88&fit=crop&crop=face" alt="Sandra Moreno" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Sandra Moreno</div><div class="testimonial-role">Customer Success, TechFlow</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"El ROI fue visible en el primer mes. Ahorramos 15 horas por semana solo en entrada manual de datos. La mejor inversión que hicimos este año."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=88&h=88&fit=crop&crop=face" alt="Daniel Pardo" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Daniel Pardo</div><div class="testimonial-role">Fundador, GrowthLabs</div></div>
+                        </div>
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Solo la función de bandeja de ingresos vale el precio. Ahora podemos priorizar negocios de alto valor y nuestra tasa de cierre mejoró un 35%."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=88&h=88&fit=crop&crop=face" alt="Jaime Luna" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Jaime Luna</div><div class="testimonial-role">VP de Ventas, StartupXYZ</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"Se acabaron las preguntas '¿quién habló con este cliente por última vez?'. Todo está ahí en Zoho CRM. Salvavidas absoluto para nuestro equipo."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=88&h=88&fit=crop&crop=face" alt="Sandra Moreno" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Sandra Moreno</div><div class="testimonial-role">Customer Success, TechFlow</div></div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                        <p class="testimonial-text">"El ROI fue visible en el primer mes. Ahorramos 15 horas por semana solo en entrada manual de datos. La mejor inversión que hicimos este año."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar"><img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=88&h=88&fit=crop&crop=face" alt="Daniel Pardo" loading="lazy"></div>
+                            <div class="testimonial-info"><div class="testimonial-name">Daniel Pardo</div><div class="testimonial-role">Fundador, GrowthLabs</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="trust-badges">
+                <div class="trust-badge"><span>⭐</span>4.7/5 en Zoho Marketplace</div>
+                <div class="trust-badge"><span>🏆</span>Mejor Integración 2024</div>
+                <div class="trust-badge"><span>✓</span>+500 Reseñas de 5 Estrellas</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="faq-inner">
+            <div class="section-header">
+                <span class="section-label">Preguntas Frecuentes</span>
+                <h2 class="section-title">Common Questions</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-q"><span class="faq-num">1</span><h3>Does it work with WhatsApp Personal or just Business?</h3></div>
+                    <div class="faq-a">Both! Eazybe works with WhatsApp Personal, WhatsApp Business, and the WhatsApp Business API. Your team can use whatever version they prefer.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q"><span class="faq-num">2</span><h3>¿Cuánto tiempo toma la configuración?</h3></div>
+                    <div class="faq-a">Most teams are up and running in under 5 minutes. Just install our Chrome extension, connect to Zoho CRM, and you're syncing messages immediately.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q"><span class="faq-num">3</span><h3>¿Mis datos están seguros?</h3></div>
+                    <div class="faq-a">Absolutely. We're SOC 2 Type II certified, GDPR compliant, and all data is encrypted in transit and at rest. We never store message content on our servers.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q"><span class="faq-num">4</span><h3>What Zoho CRM editions are supported?</h3></div>
+                    <div class="faq-a">Eazybe works with all Zoho CRM editions including Free, Standard, Professional, Enterprise, and Ultimate. Some advanced features require Professional or higher.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q"><span class="faq-num">5</span><h3>¿Puedo probarlo gratis?</h3></div>
+                    <div class="faq-a">¡Sí! Ofrecemos una prueba gratis de 7 días con acceso completo a todas las funciones. Sin tarjeta de crédito requerida. Cancela cuando quieras.if it's not right for you.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-inner">
+            <h2>Ready to Never Lose Another WhatsApp Conversation?</h2>
+            <p class="cta-desc">Join 30,000+ sales professionals who sync WhatsApp to Zoho CRM automatically.</p>
+            <div class="cta-benefits">
+                <span class="cta-benefit"><span class="icon">✓</span>7-day free trial</span>
+                <span class="cta-benefit"><span class="icon">✓</span>No credit card required</span>
+                <span class="cta-benefit"><span class="icon">✓</span>5-minute setup</span>
+            </div>
+            <div class="cta-form">
+                <div class="cta-form-title">🎯 Book Your Demo Call</div>
+                <div class="calendly-inline-widget" data-url="https://calendly.com/d/ctjy-xrr-yrn?hide_gdpr_banner=1&background_color=fafbfc&primary_color=226db4" style="min-width:280px;height:480px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-brand">
+            <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" width="88" height="22">
+            <span class="nav-divider"></span>
+            <img src="https://www.zohowebstatic.com/sites/zweb/images/productlogos/crm.svg" alt="Zoho CRM" width="72" height="18">
+        </div>
+        <div class="footer-links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Servicio</a>
+            <a href="#">Contacto</a>
+            <a href="#">Support</a>
+        </div>
+        <div class="footer-copyright">© 2026 Eazybe. Zoho CRM is a trademark of Zoho Corporation.</div>
+    </footer>
+
+    <!-- Calendly Script - Deferred Loading -->
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
