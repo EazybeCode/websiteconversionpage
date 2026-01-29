@@ -1126,10 +1126,9 @@
                         var formEl = (typeof $form.get === 'function') ? $form.get(0) : $form;
                         var btn = formEl.querySelector('input[type="submit"], .hs-button');
                         if (btn) {
-                            btn.style.setProperty('background-color', '#226DB4', 'important');
+                            btn.style.setProperty('background', 'linear-gradient(135deg, #226DB4 0%, #4A90D9 100%)', 'important');
                             btn.style.setProperty('color', '#ffffff', 'important');
                             btn.style.setProperty('border', 'none', 'important');
-                            btn.style.setProperty('background-image', 'none', 'important');
                         }
 
                         var errorDiv = document.createElement('div');
