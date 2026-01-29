@@ -13,7 +13,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.prod.website-files.com">
     <link rel="preconnect" href="https://www.zohowebstatic.com">
-    <link rel="dns-prefetch" href="https://assets.calendly.com">
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     
     <!-- Optimized Fonts - Only 2 weights each, swap display -->
@@ -1106,11 +1105,98 @@
         </div>
     </section>
 
-    <!-- CTA -->
-    <section class="cta">
-        <div class="cta-inner">
-            <h2>Ready to Never Lose Another WhatsApp Conversation?</h2>
-            <p class="cta-desc">Join 30,000+ sales professionals who sync WhatsApp to Zoho CRM automatically.</p>
+    <!-- FINAL CTA WITH FORM -->
+    <section class="final-cta" style="padding: 4rem 4%; background: linear-gradient(135deg, #1a365d 0%, #2b4c7e 50%, #1a365d 100%); position: relative; overflow: hidden;">
+        <div class="final-cta-inner" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+            <div class="final-cta-content" style="color: #fff;">
+                <h2 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2;">Stop Losing Deals In WhatsApp</h2>
+                <p style="font-size: 1.125rem; opacity: 0.9; margin-bottom: 1.5rem;">See every conversation, track every response — all inside Zoho CRM.</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;">✓ Free 7-day trial &nbsp;•&nbsp; ✓ Setup in 5 minutes &nbsp;•&nbsp; ✓ Cancel anytime</p>
+            </div>
+            <div class="final-calendly" style="background: linear-gradient(135deg, #226DB4 0%, #1a5a9e 100%); border-radius: 16px; padding: 1.5rem; box-shadow: 0 25px 50px rgba(0,0,0,0.25);">
+                <div class="final-calendly-header" style="text-align: center; padding-bottom: 12px;">
+                    <h3 style="font-size: 26px; font-weight: 800; color: #ffffff; margin: 0 0 8px 0; letter-spacing: -0.5px;">START A FREE TRIAL</h3>
+                    <div style="margin-bottom: 12px;">
+                        <span style="font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 500;">⭐ 4.7 on Zoho Marketplace</span>
+                    </div>
+                    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                        <span style="font-size: 13px; color: #ffffff;"><span style="color: #ffffff; font-weight: 600;">✓</span> No credit card</span>
+                        <span style="font-size: 13px; color: #ffffff;"><span style="color: #ffffff; font-weight: 600;">✓</span> 5 min setup</span>
+                        <span style="font-size: 13px; color: #ffffff;"><span style="color: #ffffff; font-weight: 600;">✓</span> Cancel anytime</span>
+                    </div>
+                </div>
+                <!-- HubSpot Form 2 -->
+                <div id="hubspotFormContainer2" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
+                <div style="text-align: center; padding: 10px 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4px;">
+                    <span style="font-size: 12px; color: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; gap: 6px;">
+                        <span>🔒</span> Your data is secure (SOC2 + GDPR)
+                    </span>
+                </div>
+                <script>
+                  // RENDER SECOND FORM (Final CTA)
+                  hbspt.forms.create({
+                    region: "na1",
+                    portalId: "40009480",
+                    formId: config.formId,
+                    target: "#hubspotFormContainer2",
+                    locale: config.locale,
+
+                    onFormReady: function($form) {
+                        var formEl = (typeof $form.get === 'function') ? $form.get(0) : $form;
+                        var btn = formEl.querySelector('input[type="submit"], .hs-button');
+                        if (btn) {
+                            btn.style.setProperty('background-color', '#226DB4', 'important');
+                            btn.style.setProperty('color', '#ffffff', 'important');
+                            btn.style.setProperty('border', 'none', 'important');
+                            btn.style.setProperty('background-image', 'none', 'important');
+                        }
+
+                        var errorDiv = document.createElement('div');
+                        errorDiv.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin-top:20px; text-align:center; display:none; font-weight:600; border-radius:8px;';
+                        errorDiv.innerText = config.errorMsg;
+                        if (btn) btn.parentNode.insertBefore(errorDiv, btn);
+
+                        var blockedValues = ['1-10', '1 - 10'];
+
+                        function runCheck() {
+                            var isBad = false;
+                            var selects = formEl.querySelectorAll('select');
+                            for (var i = 0; i < selects.length; i++) {
+                                var select = selects[i];
+                                var val = (select.value || "").toLowerCase();
+                                var text = "";
+                                if (select.options && select.selectedIndex >= 0) {
+                                    text = (select.options[select.selectedIndex].text || "").toLowerCase();
+                                }
+                                for (var j = 0; j < blockedValues.length; j++) {
+                                    if (val.indexOf(blockedValues[j]) > -1 || text.indexOf(blockedValues[j]) > -1) {
+                                        isBad = true;
+                                    }
+                                }
+                            }
+                            if (isBad) {
+                                if(btn) btn.style.display = 'none';
+                                errorDiv.style.display = 'block';
+                            } else {
+                                if(btn) btn.style.display = 'block';
+                                errorDiv.style.display = 'none';
+                            }
+                        }
+
+                        formEl.addEventListener('change', runCheck);
+                        formEl.addEventListener('input', runCheck);
+                        runCheck();
+                    },
+
+                    onFormSubmitted: function(form, data) {
+                         if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+                         setTimeout(function() {
+                             window.location.href = config.redirectUrl + "?email=" + encodeURIComponent(data.submissionValues['email']);
+                         }, 250);
+                    }
+                  });
+                </script>
+            </div>
         </div>
     </section>
 
@@ -1130,7 +1216,5 @@
         <div class="footer-copyright">© 2026 Eazybe. Zoho CRM is a trademark of Zoho Corporation.</div>
     </footer>
 
-    <!-- Calendly Script - Deferred Loading -->
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </body>
 </html>
