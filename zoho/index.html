@@ -72,7 +72,39 @@
         .form-header{text-align:center;padding:1.25rem 1rem 0;background:linear-gradient(180deg,var(--g50) 0%,var(--w) 100%)}
         .form-title{font-size:1.125rem;font-weight:700;color:var(--g900);margin-bottom:.25rem}
         .form-subtitle{color:var(--g500);font-size:.8125rem}
-        .calendly-inline-widget{min-height:480px;background:var(--g50);border-radius:0 0 var(--r-xl) var(--r-xl)}
+        /* HubSpot Form Styles */
+        #hubspotFormContainer .hs-form { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        #hubspotFormContainer .hs-form-field { margin-bottom: 16px; }
+        #hubspotFormContainer .hs-form label { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 6px; display: block; }
+        #hubspotFormContainer .hs-input,
+        #hubspotFormContainer select.hs-input { width: 100% !important; padding: 12px 14px !important; border-radius: 8px !important; border: 1.5px solid #d1d5db !important; font-size: 14px; color: #1f2937; background: #fff; transition: border-color 0.2s, box-shadow 0.2s; box-sizing: border-box; }
+        #hubspotFormContainer .hs-input:focus,
+        #hubspotFormContainer select.hs-input:focus { border-color: #226DB4 !important; outline: none; box-shadow: 0 0 0 3px rgba(34, 109, 180, 0.1); }
+        #hubspotFormContainer .hs-submit { margin-top: 20px; }
+        #hubspotFormContainer input[type="submit"],
+        #hubspotFormContainer .hs-button { width: 100% !important; background: linear-gradient(135deg, #226DB4 0%, #4A90D9 100%) !important; color: white !important; border: none !important; padding: 14px 20px !important; font-weight: 600 !important; font-size: 15px !important; border-radius: 8px !important; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px rgba(34, 109, 180, 0.25); }
+        #hubspotFormContainer input[type="submit"]:hover,
+        #hubspotFormContainer .hs-button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(34, 109, 180, 0.35); }
+        #hubspotFormContainer .hs-error-msgs label { color: #dc2626 !important; font-size: 12px; font-weight: 500; }
+        #hubspotFormContainer .hs-form-required { color: #dc2626; }
+        #hubspotFormContainer .hs-fieldtype-select .input { position: relative; }
+        #hubspotFormContainer .hs-fieldtype-select .input::after { content: ''; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #6b7280; pointer-events: none; }
+        #hubspotFormContainer2 .hs-form { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+        #hubspotFormContainer2 .hs-form-field { margin-bottom: 16px; }
+        #hubspotFormContainer2 .hs-form label { font-size: 14px; font-weight: 600; color: #374151; margin-bottom: 6px; display: block; }
+        #hubspotFormContainer2 .hs-input,
+        #hubspotFormContainer2 select.hs-input { width: 100% !important; padding: 12px 14px !important; border-radius: 8px !important; border: 1.5px solid #d1d5db !important; font-size: 14px; color: #1f2937; background: #fff; transition: border-color 0.2s, box-shadow 0.2s; box-sizing: border-box; }
+        #hubspotFormContainer2 .hs-input:focus,
+        #hubspotFormContainer2 select.hs-input:focus { border-color: #226DB4 !important; outline: none; box-shadow: 0 0 0 3px rgba(34, 109, 180, 0.1); }
+        #hubspotFormContainer2 .hs-submit { margin-top: 20px; }
+        #hubspotFormContainer2 input[type="submit"],
+        #hubspotFormContainer2 .hs-button { width: 100% !important; background: linear-gradient(135deg, #226DB4 0%, #4A90D9 100%) !important; color: white !important; border: none !important; padding: 14px 20px !important; font-weight: 600 !important; font-size: 15px !important; border-radius: 8px !important; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 4px 12px rgba(34, 109, 180, 0.25); }
+        #hubspotFormContainer2 input[type="submit"]:hover,
+        #hubspotFormContainer2 .hs-button:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(34, 109, 180, 0.35); }
+        #hubspotFormContainer2 .hs-error-msgs label { color: #dc2626 !important; font-size: 12px; font-weight: 500; }
+        #hubspotFormContainer2 .hs-form-required { color: #dc2626; }
+        #hubspotFormContainer2 .hs-fieldtype-select .input { position: relative; }
+        #hubspotFormContainer2 .hs-fieldtype-select .input::after { content: ''; position: absolute; right: 14px; top: 50%; transform: translateY(-50%); border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 6px solid #6b7280; pointer-events: none; }
         .form-trust{display:flex;justify-content:center;gap:.75rem;flex-wrap:wrap;padding:.75rem 1rem;background:var(--g50);border-top:1px solid var(--g200)}
         .form-trust-item{display:flex;align-items:center;gap:4px;font-size:.6875rem;color:var(--g500);font-weight:600}
         
@@ -452,14 +484,98 @@
         <div class="hero-form" id="trial">
             <div class="form-header">
                 <h3 class="form-title">🚀 Start Your Free Trial</h3>
-                <p class="form-subtitle">Pick a time for a quick setup call</p>
+                <p class="form-subtitle">No credit card required • Setup in 5 minutes</p>
             </div>
-            <div class="calendly-inline-widget" data-url="https://calendly.com/d/ctjy-xrr-yrn?hide_gdpr_banner=1&background_color=fafbfc&primary_color=226db4" style="min-width:280px;height:520px;"></div>
+            <div id="hubspotFormContainer" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
             <div class="form-trust">
                 <span class="form-trust-item"><span class="icon">🔒</span>SOC 2 Certified</span>
                 <span class="form-trust-item"><span class="icon">🇪🇺</span>GDPR Compliant</span>
                 <span class="form-trust-item"><span class="icon">✓</span>No credit card</span>
             </div>
+
+            <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+            <script>
+              // CONFIGURATION - ENGLISH ZOHO PAGE
+              var config = {
+                  formId: "7717a3af-efce-4ff6-a5e5-08f0f3fab314",
+                  redirectUrl: "https://eazybe.info/77b230",
+                  errorMsg: "Based on your selection, Eazybe is not the best fit for your current stage.",
+                  locale: "en"
+              };
+
+              // RENDER FORM
+              hbspt.forms.create({
+                region: "na1",
+                portalId: "40009480",
+                formId: config.formId,
+                target: "#hubspotFormContainer",
+                locale: config.locale,
+
+                // --- THE KILL SWITCH ---
+                onFormReady: function($form) {
+                    // 1. GET THE RAW FORM ELEMENT (Handle jQuery or Vanilla)
+                    var formEl = (typeof $form.get === 'function') ? $form.get(0) : $form;
+
+                    // 2. FORCE ZOHO BLUE BUTTON
+                    var btn = formEl.querySelector('input[type="submit"], .hs-button');
+                    if (btn) {
+                        btn.style.setProperty('background', 'linear-gradient(135deg, #226DB4 0%, #4A90D9 100%)', 'important');
+                        btn.style.setProperty('color', '#ffffff', 'important');
+                        btn.style.setProperty('border', 'none', 'important');
+                        btn.style.setProperty('background-image', 'none', 'important');
+                    }
+
+                    // 3. CREATE ERROR BOX
+                    var errorDiv = document.createElement('div');
+                    errorDiv.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin-top:20px; text-align:center; display:none; font-weight:600; border-radius:8px;';
+                    errorDiv.innerText = config.errorMsg;
+                    if (btn) btn.parentNode.insertBefore(errorDiv, btn);
+
+                    // 4. KILL SWITCH LOGIC - Only team size check (no CRM question)
+                    var blockedValues = ['1-10', '1 - 10'];
+
+                    function runCheck() {
+                        var isBad = false;
+                        var selects = formEl.querySelectorAll('select');
+
+                        for (var i = 0; i < selects.length; i++) {
+                            var select = selects[i];
+                            var val = (select.value || "").toLowerCase();
+                            var text = "";
+                            if (select.options && select.selectedIndex >= 0) {
+                                text = (select.options[select.selectedIndex].text || "").toLowerCase();
+                            }
+
+                            for (var j = 0; j < blockedValues.length; j++) {
+                                if (val.indexOf(blockedValues[j]) > -1 || text.indexOf(blockedValues[j]) > -1) {
+                                    isBad = true;
+                                }
+                            }
+                        }
+
+                        if (isBad) {
+                            if(btn) btn.style.display = 'none';
+                            errorDiv.style.display = 'block';
+                        } else {
+                            if(btn) btn.style.display = 'block';
+                            errorDiv.style.display = 'none';
+                        }
+                    }
+
+                    // 5. LISTENERS
+                    formEl.addEventListener('change', runCheck);
+                    formEl.addEventListener('input', runCheck);
+                    runCheck();
+                },
+
+                onFormSubmitted: function(form, data) {
+                     if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+                     setTimeout(function() {
+                         window.location.href = config.redirectUrl + "?email=" + encodeURIComponent(data.submissionValues['email']);
+                     }, 250);
+                }
+              });
+            </script>
         </div>
     </section>
 
