@@ -492,7 +492,11 @@
                 <p class="form-subtitle">Configure em 5 minutos • Sem cartão de crédito</p>
             </div>
             <div id="hubspotFormContainer" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
-            <div class="form-trust">
+            <!-- Calendly inline widget (hidden until form submission) -->
+            <div id="calendlyContainer" style="display: none; max-width: 500px; margin: 0 auto;">
+                <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/integre-o-zoho-crm-com-o-whatsapp-da-eazybe" style="min-width:320px;height:700px;"></div>
+            </div>
+            <div id="formFooter" class="form-trust">
                 <span class="form-trust-item"><span class="icon">🔒</span>Certificado SOC 2</span>
                 <span class="form-trust-item"><span class="icon">🇪🇺</span>Compatível com LGPD</span>
                 <span class="form-trust-item"><span class="icon">✓</span>Sem cartão de crédito</span>
@@ -502,7 +506,7 @@
               // CONFIGURATION - BRAZILIAN ZOHO PAGE
               var config = {
                   formId: "bfc7ce84-4742-4090-9236-c0a790dec50f",
-                  redirectUrl: "https://eazybe.info/2db66b",
+                  calendlyUrl: "https://calendly.com/eazybe/integre-o-zoho-crm-com-o-whatsapp-da-eazybe",
                   errorMsg: "Com base na sua seleção, o Eazybe não é a melhor opção para o seu estágio atual.",
                   locale: "pt-br"
               };
@@ -562,9 +566,17 @@
 
                 onFormSubmitted: function(form, data) {
                      if (typeof fbq === 'function') { fbq('track', 'Lead'); }
-                     setTimeout(function() {
-                         window.location.href = config.redirectUrl + "?email=" + encodeURIComponent(data.submissionValues['email']);
-                     }, 250);
+                     // Hide form and show Calendly
+                     document.getElementById('hubspotFormContainer').style.display = 'none';
+                     document.getElementById('formFooter').style.display = 'none';
+                     document.getElementById('calendlyContainer').style.display = 'block';
+                     // Load Calendly widget script if not already loaded
+                     if (!document.querySelector('script[src*="calendly.com"]')) {
+                         var script = document.createElement('script');
+                         script.src = 'https://assets.calendly.com/assets/external/widget.js';
+                         script.async = true;
+                         document.head.appendChild(script);
+                     }
                 }
               });
             </script>
@@ -1120,7 +1132,11 @@
                 </div>
                 <!-- HubSpot Form 2 -->
                 <div id="hubspotFormContainer2" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
-                <div style="text-align: center; padding: 10px 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4px;">
+                <!-- Calendly inline widget (hidden until form submission) -->
+                <div id="calendlyContainer2" style="display: none; max-width: 500px; margin: 0 auto;">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/integre-o-zoho-crm-com-o-whatsapp-da-eazybe" style="min-width:320px;height:700px;"></div>
+                </div>
+                <div id="formFooter2" style="text-align: center; padding: 10px 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4px;">
                     <span style="font-size: 12px; color: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; gap: 6px;">
                         <span>🔒</span> Seus dados estão seguros (SOC2 + LGPD)
                     </span>
@@ -1182,9 +1198,17 @@
 
                     onFormSubmitted: function(form, data) {
                          if (typeof fbq === 'function') { fbq('track', 'Lead'); }
-                         setTimeout(function() {
-                             window.location.href = config.redirectUrl + "?email=" + encodeURIComponent(data.submissionValues['email']);
-                         }, 250);
+                         // Hide form and show Calendly
+                         document.getElementById('hubspotFormContainer2').style.display = 'none';
+                         document.getElementById('formFooter2').style.display = 'none';
+                         document.getElementById('calendlyContainer2').style.display = 'block';
+                         // Load Calendly widget script if not already loaded
+                         if (!document.querySelector('script[src*="calendly.com"]')) {
+                             var script = document.createElement('script');
+                             script.src = 'https://assets.calendly.com/assets/external/widget.js';
+                             script.async = true;
+                             document.head.appendChild(script);
+                         }
                     }
                   });
                 </script>
