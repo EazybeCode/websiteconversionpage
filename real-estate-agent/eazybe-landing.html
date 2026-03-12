@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eazybe - WhatsApp AI Agent for LATAM Real Estate Teams</title>
+    <meta name="description" content="Trained on your listings, your team's WhatsApp tone, and LATAM regulatory language. CRM-connected for real estate teams.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8faff 0%, #f0f4ff 50%, #e8edff 100%);
+        }
+        .stat-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.15);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .timeline-line {
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        .logo-track {
+            display: flex;
+            animation: marquee 30s linear infinite;
+        }
+        .logo-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .logo-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 2.5rem;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        .logo-item:hover {
+            opacity: 1;
+        }
+
+        /* AI Agent Animations */
+        .ai-agent-float {
+            animation: aiFloat 4s ease-in-out infinite;
+        }
+        @keyframes aiFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .ai-agent-pulse {
+            animation: aiPulse 2s ease-in-out infinite;
+        }
+        @keyframes aiPulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .chat-bubble-appear {
+            animation: bubbleAppear 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes bubbleAppear {
+            0% { transform: scale(0.8) translateY(10px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+        .typing-indicator {
+            animation: typingBounce 1.4s ease-in-out infinite;
+        }
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-8px); }
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .data-flow {
+            animation: dataFlow 3s ease-in-out infinite;
+        }
+        @keyframes dataFlow {
+            0%, 100% { transform: translateX(0); opacity: 0; }
+            50% { transform: translateX(20px); opacity: 1; }
+        }
+
+        .glow-effect {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(102, 126, 234, 0.4); }
+            to { box-shadow: 0 0 30px rgba(102, 126, 234, 0.8), 0 0 40px rgba(118, 75, 162, 0.6); }
+        }
+
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .rotate-slow {
+            animation: rotateSlow 20s linear infinite;
+        }
+        @keyframes rotateSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .bounce-subtle {
+            animation: bounceSubtle 3s ease-in-out infinite;
+        }
+        @keyframes bounceSubtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .wave-hand {
+            animation: waveHand 1s ease-in-out infinite;
+            transform-origin: 70% 70%;
+        }
+        @keyframes waveHand {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        .connection-line {
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+            background-size: 200% 100%;
+            animation: connectionPulse 2s linear infinite;
+        }
+        @keyframes connectionPulse {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scale-in {
+            animation: scaleIn 0.5s ease-out forwards;
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .robot-head {
+            animation: robotHead 4s ease-in-out infinite;
+        }
+        @keyframes robotHead {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(3deg); }
+            75% { transform: translateY(-5px) rotate(-3deg); }
+        }
+
+        .sparkle {
+            animation: sparkle 1.5s ease-in-out infinite;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        .float-delay-1 { animation-delay: 0.5s; }
+        .float-delay-2 { animation-delay: 1s; }
+        .float-delay-3 { animation-delay: 1.5s; }
+        .float-delay-4 { animation-delay: 2s; }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Announcement Bar -->
+    <div class="gradient-bg text-white py-2.5 text-center text-sm font-medium">
+        <span>🚀 Now Available for LATAM Real Estate Teams</span>
+        <a href="#demo" class="ml-2 underline font-semibold">Test the Agent Live →</a>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center space-x-2">
+                        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">Eazybe</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#what-it-does" class="text-gray-600 hover:text-gray-900 font-medium">What it Does</a>
+                    <a href="#capabilities" class="text-gray-600 hover:text-gray-900 font-medium">Capabilities</a>
+                    <a href="#deployment" class="text-gray-600 hover:text-gray-900 font-medium">Deployment</a>
+                    <a href="#proof" class="text-gray-600 hover:text-gray-900 font-medium">How it Works</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center">
+                    <a href="#demo" class="gradient-bg text-white px-5 py-2.5 rounded-full font-semibold hover:opacity-90 transition-opacity">
+                        Test the Agent Live on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-gradient py-16 sm:py-20 lg:py-28 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Hero Content -->
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-white rounded-full shadow-sm mb-6">
+                        <span class="text-sm text-gray-700">WhatsApp AI Agent for LATAM Real Estate</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                        WhatsApp AI Agent for <span class="gradient-text">LATAM Real Estate Teams</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                        Trained on your listings, your team's WhatsApp tone, and the exact regulatory language your operation already works with—all while keeping your CRM 100% updated in real-time.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10 justify-center">
+                        <a href="#demo" class="gradient-bg text-white px-8 py-4 rounded-full font-semibold text-lg hover:opacity-90 transition-opacity text-center shadow-lg shadow-purple-200">
+                            Test the Agent Live on WhatsApp
+                        </a>
+                        <a href="#what-it-does" class="bg-white text-gray-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-50 transition-colors border border-gray-200 text-center">
+                            See How It Works
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-500">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Live in 4 weeks</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>100% CRM synced</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-green-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Regulatory compliant</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED WORLDWIDE SECTION -->
+    <section class="py-16 bg-white border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center text-sm font-semibold gradient-text uppercase tracking-wide mb-4">
+                    <span class="mr-2">✦</span> Trusted Worldwide
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+                    Trusted By <span class="gradient-text">30,000+</span> Sales Teams
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    From ambitious startups to global enterprises, revenue teams rely on Eazybe to capture every WhatsApp conversation
+                </p>
+            </div>
+
+            <!-- Logo Marquee -->
+            <div class="overflow-hidden mb-12">
+                <div class="logo-track">
+                    <!-- First set of logos -->
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Travclan</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Kreedo</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">University Living</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">WanderOn</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">PW</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">StudyIn</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Satrack</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Orbidi</div>
+                    </div>
+                    <!-- Duplicate set for seamless loop -->
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Travclan</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Kreedo</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">University Living</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">WanderOn</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">PW</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">StudyIn</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Satrack</div>
+                    </div>
+                    <div class="logo-item">
+                        <div class="text-xl font-bold text-gray-400 hover:text-gray-600 transition-colors">Orbidi</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certification Badges -->
+            <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
+                <div class="flex items-center bg-gradient-to-r from-green-50 to-emerald-50 px-5 py-3 rounded-full border border-green-100 hover:shadow-md transition-shadow">
+                    <span class="w-6 h-6 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-white text-xs">🔒</span>
+                    <span class="text-sm font-semibold text-gray-700">GDPR Compliant</span>
+                </div>
+                <div class="flex items-center bg-gradient-to-r from-blue-50 to-cyan-50 px-5 py-3 rounded-full border border-blue-100 hover:shadow-md transition-shadow">
+                    <span class="w-6 h-6 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-white text-xs">🛡️</span>
+                    <span class="text-sm font-semibold text-gray-700">Enterprise Security</span>
+                </div>
+                <div class="flex items-center bg-gradient-to-r from-orange-50 to-amber-50 px-5 py-3 rounded-full border border-orange-100 hover:shadow-md transition-shadow">
+                    <span class="w-6 h-6 bg-gradient-to-br from-orange-500 to-amber-600 rounded-full flex items-center justify-center mr-3 flex-shrink-0 text-white text-xs">⚡</span>
+                    <span class="text-sm font-semibold text-gray-700">99.9% Uptime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: WHAT THIS AGENT DOES -->
+    <section class="py-20 bg-gray-50 relative overflow-hidden" id="what-it-does">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-20 right-20 w-32 h-32 bg-purple-200 rounded-full opacity-10 animate-pulse"></div>
+            <div class="absolute bottom-20 left-20 w-40 h-40 bg-indigo-200 rounded-full opacity-10 animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <!-- Animated Section Header -->
+                <div class="flex items-center justify-center mb-6">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full flex items-center justify-center ai-agent-pulse">
+                        <svg class="w-7 h-7 text-white robot-head" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                        </svg>
+                    </div>
+                </div>
+                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">SECTION 1</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-6">
+                    What This Agent Does
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    A WhatsApp-first AI agent that manages lead intake, qualification, and follow-ups using your CRM data, company knowledge, and real LATAM real-estate terminology such as <em>intermediación para la compraventa de inmueble</em>, <em>contrato de adhesión</em>, <em>copropiedad inmobiliaria</em>, and <em>canon de arrendamiento</em>.
+                </p>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 text-center mb-10">What the Agent Connects To</h3>
+
+                <!-- Feature Block 1: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl relative overflow-hidden">
+                        <!-- Animated AI Icon Corner -->
+                        <div class="absolute top-4 right-4 w-10 h-10 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full flex items-center justify-center opacity-20 ai-agent-float">
+                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                            </svg>
+                        </div>
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0 ai-agent-pulse">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Instant Lead Qualification on WhatsApp</h4>
+                                <p class="text-gray-600">Responds instantly to property inquiries and captures lead information automatically. Qualifies leads 24/7 without human intervention.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100">
+                            <div class="flex items-center text-sm text-green-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Average response time: &lt;30 seconds</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-100 to-indigo-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="text-4xl mb-3">⚡</div>
+                                <div class="text-sm text-gray-600 mb-2">Incoming lead</div>
+                                <div class="text-xs text-green-600 font-semibold">Qualified in 30s</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Block 2: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="order-2 lg:order-1 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="flex items-center justify-center space-x-2 mb-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-gray-500">CRM + WhatsApp</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">CRM-Connected Deal Context</h4>
+                                <p class="text-gray-600">References your CRM data for live deal context and history in every conversation. Knows the deal stage, property interest, and next steps automatically.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4 border border-blue-100">
+                            <div class="flex items-center text-sm text-blue-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">100% CRM sync • Real-time updates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Block 3: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Answers Project & Inventory Questions</h4>
+                                <p class="text-gray-600">Accesses your property database to answer questions about listings accurately. Pricing, availability, specs, photos—everything synced in real-time.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-4 border border-purple-100">
+                            <div class="flex items-center text-sm text-purple-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Zero hallucinations • Only accurate data</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="grid grid-cols-3 gap-2 mb-4">
+                                    <div class="h-12 bg-gray-200 rounded-lg"></div>
+                                    <div class="h-12 bg-gray-200 rounded-lg"></div>
+                                    <div class="h-12 bg-gray-200 rounded-lg"></div>
+                                </div>
+                                <div class="text-xs text-gray-500">Property inventory</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Block 4: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="order-2 lg:order-1 bg-gradient-to-br from-orange-100 to-yellow-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="space-y-3">
+                                    <div class="flex items-center text-sm">
+                                        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-2">
+                                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-gray-700">Day 1: Property sent</span>
+                                    </div>
+                                    <div class="flex items-center text-sm">
+                                        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-2">
+                                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-gray-700">Day 3: Price drop</span>
+                                    </div>
+                                    <div class="flex items-center text-sm">
+                                        <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center mr-2">
+                                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-gray-700">Day 7: Follow-up</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Automated Follow-Ups with Leads</h4>
+                                <p class="text-gray-600">Nurtures leads automatically with personalized messages based on their behavior. Drip campaigns, property alerts, and timely check-ins—on autopilot.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl p-4 border border-orange-100">
+                            <div class="flex items-center text-sm text-orange-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">3x higher engagement • Never ghost a lead</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Block 5: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Uses Real LATAM Real-Estate Terminology</h4>
+                                <p class="text-gray-600">Communicates using country-specific regulatory and transaction language. NOM-247, Ley 21.442, SAGRILAFT—built into every response automatically.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100">
+                            <div class="flex items-center text-sm text-green-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">100% regulatory compliant • Builds trust instantly</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="flex items-center justify-center space-x-3 mb-4">
+                                    <span class="text-3xl">🇲🇽</span>
+                                    <span class="text-3xl">🇨🇱</span>
+                                    <span class="text-3xl">🇨🇴</span>
+                                    <span class="text-3xl">🇦🇷</span>
+                                </div>
+                                <div class="text-xs text-gray-500">Local terminology</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WHY USERS WILL TRUST IT -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">SECTION 2</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-6">
+                    Why Users Will Trust It
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Grounded in <strong>official terminology</strong>, not vague AI wording.
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mt-4">
+                    Your prospects do not trust generic "AI assistant" language. They trust language that sounds like the real market they work in. That is why the agent is built to use <strong>country-specific regulatory and transaction wording</strong> such as:
+                </p>
+            </div>
+
+            <!-- Enhanced Country Cards -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Mexico - Enhanced -->
+                <div class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow text-white relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-12 -mb-12"></div>
+                    <!-- Animated AI Agent -->
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center ai-agent-pulse">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                        </svg>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-6">
+                            <span class="text-6xl mr-4 drop-shadow-lg">🇲🇽</span>
+                            <div>
+                                <h3 class="text-2xl font-bold">Mexico</h3>
+                                <p class="text-green-100 text-sm">NOM-247 Compliant</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-4">
+                            <p class="text-green-50 leading-relaxed text-sm">
+                                <strong class="text-white">NOM-247-SE-2021</strong> • Registro Público de Contratos de Adhesión • Actividades Vulnerables • Avisos
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">desarrollo inmobiliario</span>
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">intermediación en la transmisión</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chile - Enhanced -->
+                <div class="bg-gradient-to-br from-red-500 to-rose-600 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-12 -mb-12"></div>
+                    <!-- Animated AI Agent -->
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center ai-agent-pulse float-delay-1">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                        </svg>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-6">
+                            <span class="text-6xl mr-4 drop-shadow-lg">🇨🇱</span>
+                            <div>
+                                <h3 class="text-2xl font-bold">Chile</h3>
+                                <p class="text-red-100 text-sm">Ley 21.442 Aligned</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-4">
+                            <p class="text-red-50 leading-relaxed text-sm">
+                                <strong class="text-white">Ley N° 21.442</strong> • Copropiedad inmobiliaria • Condominios • Bienes raíces
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">venta de inmuebles</span>
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">arriendo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Colombia - Enhanced -->
+                <div class="bg-gradient-to-br from-yellow-500 to-amber-600 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-12 -mb-12"></div>
+                    <!-- Animated AI Agent -->
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center ai-agent-pulse float-delay-2">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                        </svg>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-6">
+                            <span class="text-6xl mr-4 drop-shadow-lg">🇨🇴</span>
+                            <div>
+                                <h3 class="text-2xl font-bold">Colombia</h3>
+                                <p class="text-yellow-100 text-sm">SAGRILAFT Ready</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-4">
+                            <p class="text-yellow-50 leading-relaxed text-sm">
+                                <strong class="text-white">Subsidio Familiar de Vivienda</strong> • Canon de arrendamiento • Arrendamiento con opción de compra
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">consumidor inmobiliario</span>
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">SAGRILAFT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Argentina - Enhanced -->
+                <div class="bg-gradient-to-br from-blue-500 to-sky-600 rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-shadow text-white relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white opacity-10 rounded-full -ml-12 -mb-12"></div>
+                    <!-- Animated AI Agent -->
+                    <div class="absolute top-4 right-4 w-12 h-12 bg-white/20 rounded-full flex items-center justify-center ai-agent-pulse float-delay-3">
+                        <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                        </svg>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex items-center mb-6">
+                            <span class="text-6xl mr-4 drop-shadow-lg">🇦🇷</span>
+                            <div>
+                                <h3 class="text-2xl font-bold">Argentina</h3>
+                                <p class="text-blue-100 text-sm">RELI Compliant</p>
+                            </div>
+                        </div>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-4">
+                            <p class="text-blue-50 leading-relaxed text-sm">
+                                <strong class="text-white">RELI</strong> • Locación de inmuebles • Boletos de compraventa • Official government channels
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">contratos de adhesión</span>
+                            <span class="px-3 py-1 bg-white/20 rounded-full text-xs backdrop-blur-sm">housing contracts</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Result Box -->
+            <div class="bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 rounded-3xl p-10 text-white text-center shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full">
+                    <div class="absolute top-0 left-1/4 w-32 h-32 bg-white opacity-5 rounded-full blur-3xl"></div>
+                    <div class="absolute bottom-0 right-1/4 w-40 h-40 bg-white opacity-5 rounded-full blur-3xl"></div>
+                </div>
+                <div class="relative z-10">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 backdrop-blur-sm">
+                        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                    <p class="text-xl leading-relaxed font-medium">
+                        <strong>The result:</strong> users see replies that feel like they come from a <strong class="text-yellow-300">real operator inside the market</strong> — not from an offshore script or a generic support bot.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: WHAT THE AGENT CAN HANDLE -->
+    <section class="py-20 bg-gray-50 relative overflow-hidden" id="capabilities">
+        <!-- Animated Background -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-10 w-24 h-24 bg-purple-200 rounded-full opacity-10 ai-agent-float"></div>
+            <div class="absolute bottom-1/4 right-10 w-32 h-32 bg-indigo-200 rounded-full opacity-10 ai-agent-float float-delay-2"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <!-- Animated AI Icon -->
+                <div class="flex justify-center mb-6">
+                    <div class="relative">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-2xl flex items-center justify-center ai-agent-pulse glow-effect">
+                            <svg class="w-10 h-10 text-white robot-head" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                            </svg>
+                        </div>
+                        <!-- Orbiting elements -->
+                        <div class="absolute -inset-2 border-2 border-purple-300 rounded-xl rotate-slow opacity-30"></div>
+                    </div>
+                </div>
+                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">SECTION 3</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-6">
+                    What the Agent Can Handle
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Handles real estate lead conversations on WhatsApp from the <strong>first inquiry to scheduling visits</strong>, while staying aligned with your CRM pipeline and sales workflow.
+                </p>
+            </div>
+
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-900 text-center mb-10">Agent Capabilities</h3>
+
+                <!-- Capability Block 1: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Inbound Lead Handling</h4>
+                                <p class="text-gray-600">Responds instantly to property inquiries on WhatsApp. No lead waits—every message gets an immediate, intelligent response.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl p-4 border border-green-100">
+                            <div class="flex items-center text-sm text-green-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Instant response • Zero wait time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-100 to-emerald-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="flex items-center justify-center mb-4">
+                                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-600 mb-1">Lead arrives</div>
+                                <div class="text-xs text-green-600 font-semibold">Responded in &lt;30s</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capability Block 2: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="order-2 lg:order-1 bg-gradient-to-br from-blue-100 to-cyan-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-600">💰 Budget:</span>
+                                        <span class="font-semibold text-gray-900">$500K-$750K</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-600">📍 Location:</span>
+                                        <span class="font-semibold text-gray-900">Polanco</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-600">🏠 Type:</span>
+                                        <span class="font-semibold text-gray-900">3BR Apt</span>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm">
+                                        <span class="text-gray-600">📅 Timeline:</span>
+                                        <span class="font-semibold text-gray-900">&lt;6 months</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Buyer & Tenant Qualification</h4>
+                                <p class="text-gray-600">Captures budget, location preference, property type, and timeline through natural conversation. Builds complete lead profiles automatically.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl p-4 border border-blue-100">
+                            <div class="flex items-center text-sm text-blue-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Complete profile • Ready to close</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capability Block 3: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Conversation Routing</h4>
+                                <p class="text-gray-600">Sends leads to the correct broker, project team, or office based on location, property type, or language preference. Smart routing every time.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-xl p-4 border border-purple-100">
+                            <div class="flex items-center text-sm text-purple-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Auto-assign • Right agent, every time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-100 to-indigo-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="flex items-center justify-center space-x-4 mb-4">
+                                    <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold">A</div>
+                                    <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                                    </svg>
+                                    <div class="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white text-sm font-bold">B</div>
+                                </div>
+                                <div class="text-xs text-gray-500">Smart routing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capability Block 4: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="order-2 lg:order-1 bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="text-center mb-4">
+                                    <div class="inline-flex items-center px-4 py-2 bg-green-100 rounded-full">
+                                        <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span class="text-green-700 font-semibold text-sm">Confirmed</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Date:</span>
+                                        <span class="font-semibold text-gray-900">Sat, Mar 15</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Time:</span>
+                                        <span class="font-semibold text-gray-900">2:00 PM</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-500">Property:</span>
+                                        <span class="font-semibold text-gray-900">Polanco Unit 5B</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Visit Scheduling</h4>
+                                <p class="text-gray-600">Books property tours, calls, and follow-ups automatically. Syncs with your calendar and sends reminders to reduce no-shows.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-4 border border-orange-100">
+                            <div class="flex items-center text-sm text-orange-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Auto-booked • 60% fewer no-shows</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capability Block 5: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Lead Reactivation</h4>
+                                <p class="text-gray-600">Reconnects with older prospects stored in your CRM. Identifies stalled deals and restarts conversations with personalized messaging.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-rose-50 to-pink-50 rounded-xl p-4 border border-rose-100">
+                            <div class="flex items-center text-sm text-rose-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Revive stale leads • 40% re-engagement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="flex items-center justify-center mb-4">
+                                    <div class="w-12 h-12 bg-rose-500 rounded-full flex items-center justify-center">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-sm text-gray-600 mb-1">Cold lead for 6 months</div>
+                                <div class="text-xs text-rose-600 font-semibold">Re-engaged!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capability Block 6: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center mb-12">
+                    <div class="order-2 lg:order-1 bg-gradient-to-br from-teal-100 to-cyan-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="space-y-2 text-sm">
+                                    <div class="flex items-center text-green-600">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>NOM-247 compliant</span>
+                                    </div>
+                                    <div class="flex items-center text-green-600">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>Ley 21.442 aligned</span>
+                                    </div>
+                                    <div class="flex items-center text-green-600">
+                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span>SAGRILAFT ready</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Compliance-Aligned Messaging</h4>
+                                <p class="text-gray-600">Communicates using real regulatory and transaction terminology. Every response includes mandatory disclosures and follows local laws.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-teal-50 to-cyan-50 rounded-xl p-4 border border-teal-100">
+                            <div class="flex items-center text-sm text-teal-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">100% compliant • Zero legal risk</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Capability Block 7: Large with Image -->
+                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                    <div class="feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 mb-2">Contextual Conversations</h4>
+                                <p class="text-gray-600">References projects, listings, and deal progress from your data. Every conversation feels personalized because the AI knows the full context.</p>
+                            </div>
+                        </div>
+                        <!-- Visual Indicator -->
+                        <div class="mt-6 bg-gradient-to-r from-violet-50 to-purple-50 rounded-xl p-4 border border-violet-100">
+                            <div class="flex items-center text-sm text-violet-700">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="font-medium">Full context • Like a human agent</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-violet-100 to-purple-100 rounded-2xl p-8 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="bg-white rounded-xl p-6 shadow-lg max-w-xs mx-auto">
+                                <div class="flex items-center justify-between mb-4">
+                                    <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center text-white">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center text-white">
+                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="text-xs text-gray-500">CRM + Property data connected</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: THE 4-WEEK DEPLOYMENT SPRINT -->
+    <section class="py-20 bg-white" id="deployment">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">SECTION 4</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-6">
+                    The 4-Week Deployment Sprint
+                </h2>
+                <p class="text-xl text-gray-600 leading-relaxed font-medium">
+                    We don't just "onboard" you. We engineer a custom sales brain for your brokerage.
+                </p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-8 top-0 bottom-0 w-1 timeline-line rounded-full hidden md:block"></div>
+
+                    <!-- Week 1 -->
+                    <div class="relative flex items-start mb-12 md:pl-20">
+                        <div class="absolute left-0 md:left-6 w-16 h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 z-10">
+                            <span class="text-white font-bold text-xl">1</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100 flex-1">
+                            <div class="flex items-center mb-4">
+                                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">Week 1</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Brain Mapping & CRM Deep-Link</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                API integration with your CRM. We ingest <strong>5,000+ WhatsApp chats</strong> to clone your brand voice and pipeline stages.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Week 2 -->
+                    <div class="relative flex items-start mb-12 md:pl-20">
+                        <div class="absolute left-0 md:left-6 w-16 h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 z-10">
+                            <span class="text-white font-bold text-xl">2</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100 flex-1">
+                            <div class="flex items-center mb-4">
+                                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">Week 2</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Regional Law & Inventory Sync</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Hard-coding local regulations (<strong>NOM-247/Ley 1581</strong>) and live property databases. Your AI now knows every listing's specific details.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Week 3 -->
+                    <div class="relative flex items-start mb-12 md:pl-20">
+                        <div class="absolute left-0 md:left-6 w-16 h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 z-10">
+                            <span class="text-white font-bold text-xl">3</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100 flex-1">
+                            <div class="flex items-center mb-4">
+                                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">Week 3</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Zero-Hallucination Stress Test</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Live staging environment. Your team tests the agent's accuracy against <strong>complex legal and property queries</strong> to ensure 100% precision.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Week 4 -->
+                    <div class="relative flex items-start md:pl-20">
+                        <div class="absolute left-0 md:left-6 w-16 h-16 gradient-bg rounded-full flex items-center justify-center flex-shrink-0 z-10">
+                            <span class="text-white font-bold text-xl">4</span>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-8 border border-purple-100 flex-1">
+                            <div class="flex items-center mb-4">
+                                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">Week 4</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Full-Scale Launch & Automation</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Go-live on WhatsApp. The AI handles <strong>100% of qualification and CRM entry</strong>. Your agents focus solely on closing deals.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: LANDING PAGE PROOF BLOCK -->
+    <section class="py-20 bg-gray-50" id="proof">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-sm font-semibold text-purple-600 tracking-wide uppercase">SECTION 5</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-6">
+                    Powered by Real Regulatory Sources and Your Real Operating Data
+                </h2>
+                <p class="text-lg text-gray-600">
+                    The agent combines:
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Data Sources -->
+                <div class="space-y-6 mb-12">
+                    <!-- Source 1 -->
+                    <div class="flex items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">Official public regulatory sources from Spanish-speaking LATAM markets</h4>
+                            <p class="text-gray-600">Government databases, official registries, and legal publications</p>
+                        </div>
+                    </div>
+
+                    <!-- Source 2 -->
+                    <div class="flex items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">Your CRM data for live deal context</h4>
+                            <p class="text-gray-600">Real-time pipeline stages, deal history, and customer information</p>
+                        </div>
+                    </div>
+
+                    <!-- Source 3 -->
+                    <div class="flex items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">Your company knowledge base for projects, policies, and inventory</h4>
+                            <p class="text-gray-600">Property listings, project details, and internal documentation</p>
+                        </div>
+                    </div>
+
+                    <!-- Source 4 -->
+                    <div class="flex items-start bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                        <div class="w-12 h-12 gradient-bg rounded-xl flex items-center justify-center mr-6 flex-shrink-0">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold text-gray-900 mb-1">Your WhatsApp communication patterns for natural client-facing responses</h4>
+                            <p class="text-gray-600">5,000+ analyzed conversations to match your team's tone and style</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Result Box -->
+                <div class="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-2xl p-8 text-white">
+                    <p class="text-lg leading-relaxed text-center">
+                        So instead of answering like a chatbot, it answers like a <strong>trained real-estate commercial team</strong> that already knows the deal, the project, the next step, and the correct market language.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: CTA STRIP -->
+    <section class="py-20 bg-gradient-to-br from-purple-600 via-indigo-600 to-purple-700 relative overflow-hidden" id="demo">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <!-- Large floating AI Agents -->
+            <div class="absolute top-10 left-10 ai-agent-float opacity-10">
+                <div class="w-40 h-40 bg-white rounded-full flex items-center justify-center">
+                    <svg class="w-24 h-24 text-purple-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="absolute bottom-10 right-10 ai-agent-float float-delay-2 opacity-10">
+                <div class="w-32 h-32 bg-white rounded-full flex items-center justify-center">
+                    <svg class="w-20 h-20 text-purple-300" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                    </svg>
+                </div>
+            </div>
+            <!-- Animated circles -->
+            <div class="absolute top-1/2 left-1/4 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-48 h-48 bg-white opacity-5 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Animated AI Agent Mascot -->
+            <div class="mb-8 flex justify-center">
+                <div class="relative">
+                    <!-- Glow effect -->
+                    <div class="absolute inset-0 bg-white opacity-20 rounded-full blur-2xl ai-agent-pulse"></div>
+                    <!-- Main AI Agent -->
+                    <div class="relative w-24 h-24 bg-white rounded-full flex items-center justify-center ai-agent-pulse glow-effect">
+                        <svg class="w-16 h-16 text-purple-600 robot-head" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2z"/>
+                        </svg>
+                        <!-- Sparkles -->
+                        <div class="absolute -top-2 -right-2">
+                            <svg class="w-6 h-6 text-yellow-300 sparkle" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                        <div class="absolute -bottom-1 -left-1">
+                            <svg class="w-5 h-5 text-yellow-300 sparkle float-delay-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Orbiting ring -->
+                    <div class="absolute inset-0 border-2 border-white opacity-30 rounded-full rotate-slow"></div>
+                    <div class="absolute inset-2 border border-white opacity-20 rounded-full rotate-slow" style="animation-direction: reverse;"></div>
+                </div>
+            </div>
+
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+                See How Your Leads Would Be Handled on WhatsApp Before You Buy
+            </h2>
+            <p class="text-lg sm:text-xl text-purple-100 mb-10 leading-relaxed">
+                Click <strong>"Test the Agent Live on WhatsApp"</strong> to run a real conversation with the agent using real-estate qualification logic, project context, and country-specific terminology.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#" class="bg-white text-purple-600 px-10 py-5 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-xl">
+                    Test the Agent Live on WhatsApp
+                </a>
+            </div>
+            <p class="text-purple-200 text-sm mt-6">No credit card required • See it in action • Real conversations</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-12">
+                <!-- Brand Column -->
+                <div class="col-span-2 md:col-span-1">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-white">Eazybe</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">WhatsApp AI Agent for LATAM Real Estate Teams.</p>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#what-it-does" class="text-gray-400 hover:text-white text-sm">What it Does</a></li>
+                        <li><a href="#capabilities" class="text-gray-400 hover:text-white text-sm">Capabilities</a></li>
+                        <li><a href="#deployment" class="text-gray-400 hover:text-white text-sm">Deployment</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Help Center</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Partners</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">GDPR</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">&copy; 2026 Eazybe. All rights reserved.</p>
+                <div class="flex items-center space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+    <!-- Floating AI Agent Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <div class="relative">
+            <!-- Pulse rings -->
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full animate-ping opacity-30"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full animate-pulse opacity-20" style="animation-delay: 0.5s;"></div>
+            <!-- Main button -->
+            <a href="#demo" class="relative w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 glow-effect group">
+                <svg class="w-9 h-9 text-white robot-head group-hover:animate-bounce" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2M7.5 13A1.5 1.5 0 006 14.5 1.5 1.5 0 007.5 16 1.5 1.5 0 009 14.5 1.5 1.5 0 007.5 13m9 0a1.5 1.5 0 00-1.5 1.5 1.5 1.5 0 001.5 1.5 1.5 1.5 0 001.5-1.5 1.5 1.5 0 00-1.5-1.5M12 9a5 5 0 00-5 5v1h10v-1a5 5 0 00-5-5z"/>
+                </svg>
+                <!-- WhatsApp badge -->
+                <div class="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center border-2 border-white">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                </div>
+            </a>
+            <!-- Tooltip -->
+            <div class="absolute bottom-full right-0 mb-2 w-48 bg-gray-900 text-white text-xs text-center py-2 px-3 rounded-lg opacity-0 hover:opacity-100 transition-opacity pointer-events-none group-hover:opacity-100">
+                Test the AI Agent on WhatsApp
+                <div class="absolute top-full right-4 -mt-1 border-4 border-transparent border-t-gray-900"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
