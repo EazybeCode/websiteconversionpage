@@ -56,7 +56,8 @@
       border-bottom-color: var(--border);
     }
     .nl { display: flex; align-items: center; gap: 36px; }
-    .nav-logo { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; }
+    .nav-logo { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; }
+    .nav-logo .logo-img { height: 40px; width: auto; display: block; min-width: 100px; background: white; padding: 5px 10px; border-radius: 8px; }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
@@ -539,6 +540,7 @@
       padding: 48px 0; border-top: 1px solid var(--border-l);
     }
     .fb-l { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .fb-l .footer-logo { height: 35px; width: auto; display: block; min-width: 90px; background: white; padding: 4px 8px; border-radius: 6px; }
     .fb-p { font-size: 12px; line-height: 1.6; color: var(--tt); max-width: 260px; }
     .fcol h4 {
       font-family: var(--mono); font-size: 10px; font-weight: 600;
@@ -605,7 +607,7 @@
 <!-- NAV -->
 <nav id="n">
   <div class="nl">
-    <a href="#" class="nav-logo">Wapa.ai</a>
+    <a href="#" class="nav-logo"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Wapa.ai" class="logo-img"></a>
   </div>
   <div class="nr">
     <a href="#cta" class="pill">Talk to us</a>
@@ -952,7 +954,7 @@
 <footer>
   <div class="fg">
     <div>
-      <div class="fb-l">Wapa.ai</div>
+      <div class="fb-l"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Wapa.ai" class="footer-logo"></div>
       <p class="fb-p">WhatsApp AI agents for real estate sales teams across Latin America.</p>
     </div>
     <div class="fcol">
