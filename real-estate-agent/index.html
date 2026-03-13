@@ -261,7 +261,10 @@
       overflow: hidden; font-size: 13px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.6);
       z-index: 2;
+      opacity: 0; transition: opacity 0.6s ease;
+      pointer-events: none;
     }
+    .float-chat.active { opacity: 1; pointer-events: auto; }
     .fc-head {
       display: flex; align-items: center; gap: 10px;
       padding: 14px 16px;
@@ -296,7 +299,10 @@
       box-shadow: 0 16px 60px rgba(0,0,0,0.5);
       z-index: 3;
       font-size: 12px;
+      opacity: 0; transition: opacity 0.6s ease;
+      pointer-events: none;
     }
+    .float-panel.active { opacity: 1; pointer-events: auto; }
     .fp-title {
       font-family: var(--mono); font-size: 10px; font-weight: 600;
       letter-spacing: 0.8px; text-transform: uppercase;
@@ -399,7 +405,10 @@
       padding: 22px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.6);
       z-index: 2;
+      opacity: 0; transition: opacity 0.6s ease;
+      pointer-events: none;
     }
+    .insight-card.active { opacity: 1; pointer-events: auto; }
     .ic-head {
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 16px;
@@ -657,43 +666,95 @@
         <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80')"></div>
         <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=1200&q=80')"></div>
 
-        <!-- Floating WhatsApp chat -->
-        <div class="float-chat">
+        <!-- Step 0: Lead Qualification -->
+        <div class="float-chat cv-panel active">
           <div class="fc-head">
-            <div class="fc-dot">&#127968;</div>
-            <div>
-              <div class="fc-name">AI Sales Agent</div>
-              <div class="fc-online">Online</div>
-            </div>
+            <div class="fc-dot">&#128269;</div>
+            <div><div class="fc-name">Lead Qualification</div><div class="fc-online">Online</div></div>
           </div>
           <div class="fc-msgs">
-            <div class="fc-b fc-bi">Is the apartment in Polanco available?</div>
-            <div class="fc-b fc-bo">Yes! Unit 402 is available. 2BR, 95m&sup2;, $320,000 USD. Want to schedule a tour?</div>
-            <div class="fc-b fc-bi">Can I visit Saturday?</div>
-            <div class="fc-b fc-bo">Saturday 11 AM works. Sending calendar invite now.</div>
+            <div class="fc-b fc-bi">Hi, I'm looking for a 2BR in Polanco</div>
+            <div class="fc-b fc-bo">Great! What's your budget range?</div>
+            <div class="fc-b fc-bi">Around $300K USD</div>
+            <div class="fc-b fc-bo">Perfect. I have 3 matching units. Are you pre-approved for financing?</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel active">
+          <div class="fp-title">Lead Score</div>
+          <div class="fp-list">
+            <div class="fp-item active-item"><span class="fp-icon green">&#9989;</span>Budget verified</div>
+            <div class="fp-item active-item"><span class="fp-icon green">&#9989;</span>Location match</div>
+            <div class="fp-item"><span class="fp-icon blue">&#8987;</span>Financing check</div>
+            <div class="fp-item"><span class="fp-icon purple">&#128197;</span>Tour pending</div>
           </div>
         </div>
 
-        <!-- Floating CRM config panel -->
-        <div class="float-panel">
-          <div class="fp-title">Agent Knowledge</div>
+        <!-- Step 1: Inventory Intelligence -->
+        <div class="float-chat cv-panel">
+          <div class="fc-head">
+            <div class="fc-dot">&#127968;</div>
+            <div><div class="fc-name">Property Details</div><div class="fc-online">Online</div></div>
+          </div>
+          <div class="fc-msgs">
+            <div class="fc-b fc-bi">What's available in Torre Reforma?</div>
+            <div class="fc-b fc-bo">Unit 1204: 3BR, 142m&sup2;, $485K. Unit 806: 2BR, 98m&sup2;, $310K. Both have parking.</div>
+            <div class="fc-b fc-bi">Does 1204 have a terrace?</div>
+            <div class="fc-b fc-bo">Yes, 18m&sup2; terrace facing south with city views. HOA is $4,200 MXN/mo.</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel">
+          <div class="fp-title">Live Inventory</div>
           <div class="fp-list">
-            <div class="fp-item active-item">
-              <span class="fp-icon green">&#128196;</span>
-              Property listings
-            </div>
-            <div class="fp-item">
-              <span class="fp-icon blue">&#128176;</span>
-              Price lists &amp; inventory
-            </div>
-            <div class="fp-item">
-              <span class="fp-icon purple">&#128203;</span>
-              Qualification rules
-            </div>
-            <div class="fp-item">
-              <span class="fp-icon orange">&#128172;</span>
-              Follow-up sequences
-            </div>
+            <div class="fp-item active-item"><span class="fp-icon green">&#128196;</span>24 units available</div>
+            <div class="fp-item"><span class="fp-icon blue">&#128176;</span>Prices synced today</div>
+            <div class="fp-item"><span class="fp-icon purple">&#128247;</span>Floor plans loaded</div>
+            <div class="fp-item"><span class="fp-icon orange">&#128205;</span>3 projects active</div>
+          </div>
+        </div>
+
+        <!-- Step 2: Conversation Ownership -->
+        <div class="float-chat cv-panel">
+          <div class="fc-head">
+            <div class="fc-dot">&#128274;</div>
+            <div><div class="fc-name">Chat Archive</div><div class="fc-online">Secured</div></div>
+          </div>
+          <div class="fc-msgs">
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128206; voice_note_03.ogg saved</div>
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128247; property_photo.jpg synced</div>
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128172; 847 messages captured</div>
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128100; Rep Maria left &mdash; history preserved</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel">
+          <div class="fp-title">Data Secured</div>
+          <div class="fp-list">
+            <div class="fp-item active-item"><span class="fp-icon green">&#128274;</span>All chats backed up</div>
+            <div class="fp-item active-item"><span class="fp-icon green">&#128247;</span>Media archived</div>
+            <div class="fp-item active-item"><span class="fp-icon green">&#127908;</span>Voice notes saved</div>
+            <div class="fp-item"><span class="fp-icon blue">&#128100;</span>Rep transition ready</div>
+          </div>
+        </div>
+
+        <!-- Step 3: Automated Follow-Ups -->
+        <div class="float-chat cv-panel">
+          <div class="fc-head">
+            <div class="fc-dot" style="background:#ff8c32">&#128340;</div>
+            <div><div class="fc-name">Follow-Up Sequence</div><div class="fc-online">Active</div></div>
+          </div>
+          <div class="fc-msgs">
+            <div class="fc-b fc-bo">Hi Carlos! Just checking in &mdash; still interested in Torre Reforma?</div>
+            <div class="fc-b fc-bi">Yes, but I need to check financing</div>
+            <div class="fc-b fc-bo">No problem! I can connect you with our mortgage partner. They offer 90% financing for this project.</div>
+            <div class="fc-b fc-bi">That sounds great, let's do it</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel">
+          <div class="fp-title">Follow-Up Status</div>
+          <div class="fp-list">
+            <div class="fp-item active-item"><span class="fp-icon orange">&#128340;</span>Day 3 reminder sent</div>
+            <div class="fp-item"><span class="fp-icon green">&#9989;</span>Lead re-engaged</div>
+            <div class="fp-item"><span class="fp-icon blue">&#128176;</span>Financing offered</div>
+            <div class="fp-item"><span class="fp-icon purple">&#127919;</span>Conversion likely</div>
           </div>
         </div>
 
@@ -794,29 +855,57 @@
       <div class="insights-bg-img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80')"></div>
       <div class="insights-bg-img" style="background-image:url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&q=80')"></div>
 
-      <div class="insight-card">
+      <!-- Step 0: Mass Outreach -->
+      <div class="insight-card ins-card active">
         <div class="ic-head">
-          <span class="ic-title">Messaging Insight</span>
+          <span class="ic-title">Outreach</span>
           <div class="ic-tags">
             <span class="ic-tag">100% Compliant</span>
             <span class="ic-tag blue">Ban-proof</span>
           </div>
         </div>
-        <div class="ic-metric-title">Outreach Performance</div>
-        <div class="ic-metric-desc">AI-powered broadcasts achieving 3.2x higher reply rates than manual sends, with zero ban risk.</div>
+        <div class="ic-metric-title">3.2x Higher Reply Rates</div>
+        <div class="ic-metric-desc">AI-powered broadcasts personalized to each lead, matching your top rep's tone and pacing.</div>
         <div class="ic-items">
-          <div class="ic-item">
-            <span class="ic-num">1</span>
-            Connect WhatsApp Business App or Official API
+          <div class="ic-item"><span class="ic-num">1</span>Import contacts from CRM</div>
+          <div class="ic-item"><span class="ic-num">2</span>AI writes personalized messages</div>
+          <div class="ic-item"><span class="ic-num">3</span>Sends with human-like delays</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Team Accountability -->
+      <div class="insight-card ins-card">
+        <div class="ic-head">
+          <span class="ic-title">Team Monitor</span>
+          <div class="ic-tags">
+            <span class="ic-tag">Live Dashboard</span>
+            <span class="ic-tag blue">Real-time</span>
           </div>
-          <div class="ic-item">
-            <span class="ic-num">2</span>
-            AI personalizes each message with human pacing
+        </div>
+        <div class="ic-metric-title">100% Rep Visibility</div>
+        <div class="ic-metric-desc">Track response times, follow-up rates, and chat quality for every rep in real time.</div>
+        <div class="ic-items">
+          <div class="ic-item"><span class="ic-num">1</span>Avg response: 2 min 14 sec</div>
+          <div class="ic-item"><span class="ic-num">2</span>Follow-up rate: 94%</div>
+          <div class="ic-item"><span class="ic-num">3</span>All data secured centrally</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Group Chat -->
+      <div class="insight-card ins-card">
+        <div class="ic-head">
+          <span class="ic-title">Group Chats</span>
+          <div class="ic-tags">
+            <span class="ic-tag">CRM Synced</span>
+            <span class="ic-tag blue">360&deg; View</span>
           </div>
-          <div class="ic-item">
-            <span class="ic-num">3</span>
-            All conversations auto-synced to CRM
-          </div>
+        </div>
+        <div class="ic-metric-title">Every Group, Every Deal</div>
+        <div class="ic-metric-desc">Family groups, community chats, and team threads all captured and synced to CRM records.</div>
+        <div class="ic-items">
+          <div class="ic-item"><span class="ic-num">1</span>Auto-detect deal-related groups</div>
+          <div class="ic-item"><span class="ic-num">2</span>Sync messages to contact records</div>
+          <div class="ic-item"><span class="ic-num">3</span>Flag key decisions &amp; commitments</div>
         </div>
       </div>
     </div>
@@ -909,11 +998,15 @@
   // ── Auto-advancing step carousel with click support ──
   const STEP_DURATION = 20000; // ms per step
 
-  function createStepCarousel(stepSelector, sectionSelector, bgSelector) {
+  function createStepCarousel(stepSelector, sectionSelector, bgSelector, panelSelector) {
     const steps = document.querySelectorAll(stepSelector);
     const section = document.querySelector(sectionSelector);
     const bgImgs = bgSelector ? document.querySelectorAll(bgSelector) : [];
     if (!steps.length || !section) return;
+
+    // group panels by step index (2 panels per step for canvas, 1 per step for insights)
+    const allPanels = panelSelector ? document.querySelectorAll(panelSelector) : [];
+    const panelsPerStep = allPanels.length / steps.length;
 
     let current = 0;
     let timer = null;
@@ -928,6 +1021,11 @@
       // crossfade background images
       bgImgs.forEach((bg, i) => {
         bg.classList.toggle('active', i === idx);
+      });
+      // crossfade floating panels
+      allPanels.forEach((p, i) => {
+        const panelStep = Math.floor(i / panelsPerStep);
+        p.classList.toggle('active', panelStep === idx);
       });
       // force reflow to reset the CSS transition
       void section.offsetWidth;
@@ -975,8 +1073,8 @@
   // set CSS variable for duration
   document.documentElement.style.setProperty('--step-duration', STEP_DURATION + 'ms');
 
-  createStepCarousel('.step', '.canvas-section', '.canvas-visual .canvas-bg-img');
-  createStepCarousel('.ins-step', '.insights-section', '.insights-visual .insights-bg-img');
+  createStepCarousel('.step', '.canvas-section', '.canvas-visual .canvas-bg-img', '.canvas-visual .cv-panel');
+  createStepCarousel('.ins-step', '.insights-section', '.insights-visual .insights-bg-img', '.insights-visual .ins-card');
 </script>
 
 </body>
