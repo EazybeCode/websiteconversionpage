@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eazybe AI - WhatsApp AI Agent for Real Estate | Automate Your Lead Conversion</title>
+    <meta name="description" content="AI-powered WhatsApp agent that captures, qualifies, and nurtures real estate leads 24/7. Trained on your data, compliant, and ready in 5 weeks.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ai: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        purple: {
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        .gradient-ai {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        }
+        .gradient-purple {
+            background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+        }
+        .gradient-ai-light {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+        }
+        .glow-effect {
+            box-shadow: 0 0 60px rgba(139, 92, 246, 0.3);
+        }
+        .glow-text {
+            text-shadow: 0 0 40px rgba(139, 92, 246, 0.5);
+        }
+        .card-glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ai-grid {
+            background-image:
+                linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-900 antialiased bg-white text-gray-900">
+
+    <!-- SECTION 1: Announcement Bar -->
+    <div class="bg-gradient-to-r from-purple-600 via-purple-500 to-ai-500 text-gray-900 text-center py-3 px-4 text-sm font-medium relative overflow-hidden">
+        <div class="absolute inset-0 bg-gray-50 animate-pulse"></div>
+        <span class="relative z-10">🤖 New: AI-Powered Real Estate WhatsApp Agent — Book a Demo to See It in Action</span>
+    </div>
+
+    <!-- SECTION 2: Navbar -->
+    <nav id="navbar" class="sticky top-0 z-50 bg-white/95  border-b border-gray-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center gap-2">
+                        <div class="relative">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-ai-500 flex items-center justify-center glow-effect">
+                                <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-gray-950"></div>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xl font-bold text-gray-900">Eazybe</span>
+                            <span class="text-xs text-purple-400 font-medium">AI Agent</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center gap-8">
+                    <a href="#features" class="text-gray-500 hover:text-gray-900 font-medium transition-colors">Features</a>
+                    <a href="#how-it-works" class="text-gray-500 hover:text-gray-900 font-medium transition-colors">How It Works</a>
+                    <a href="#demo" class="text-gray-500 hover:text-gray-900 font-medium transition-colors">Demo</a>
+                    <a href="https://start.eazybe.com/login" class="text-gray-500 hover:text-gray-900 font-medium transition-colors">Login</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="flex items-center">
+                    <a href="#demo" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-ai-500 hover:from-purple-500 hover:to-ai-400 text-gray-900 font-semibold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/30 hover:-translate-y-0.5 glow-effect">
+                        <span class="relative z-10">Book Demo</span>
+                        <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 3: Hero Section -->
+    <section class="gradient-ai ai-grid pt-20 pb-24 lg:pt-32 lg:pb-40 relative overflow-hidden">
+        <!-- Animated Background Elements -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-96 h-96 bg-ai-500/20 rounded-full blur-3xl animate-pulse"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <!-- AI Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white backdrop-blur border border-gray-200 rounded-full mb-8">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-sm font-medium text-gray-500">AI-Powered Real Estate Automation</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-gray-900 leading-tight mb-6">
+                    WhatsApp AI Agent for LATAM Real Estate Sales Teams
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+                    Trained on your listings, your team’s WhatsApp tone, and the exact regulatory language your operation already works with—all while keeping your CRM 100% updated in real-time.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <a href="#demo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-600 to-ai-500 hover:from-purple-500 hover:to-ai-400 text-gray-900 font-bold rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-1 text-lg glow-effect relative overflow-hidden">
+                        <span class="relative z-10">See AI Demo Live</span>
+                        <svg class="w-5 h-5 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </a>
+                    <a href="https://eazybe.info/fe193a" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-gray-50 text-gray-900 font-semibold rounded-2xl border border-white/20 transition-all duration-300 text-lg backdrop-blur">
+                        Talk To Me
+                    </a>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="flex flex-col items-center gap-4">
+                    <div class="flex items-center gap-2 text-sm text-gray-600">
+                        <svg class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Trained on YOUR data only</span>
+                        <span class="text-gray-900/20">•</span>
+                        <span>Zero hallucinations</span>
+                        <span class="text-gray-900/20">•</span>
+                        <span>100% compliant</span>
+                    </div>
+                    <div class="text-sm text-gray-500">Trusted by real estate teams across Brazil, Colombia, Mexico, Argentina & Chile</div>
+                </div>
+
+                <!-- Hero AI Illustration -->
+                <div class="mt-16 relative">
+                    <div class="bg-gradient-to-br from-white/5 to-white/0 backdrop-blur rounded-3xl p-1 border border-gray-200 max-w-4xl mx-auto">
+                        <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+                            <!-- Chat Interface Mockup -->
+                            <div class="flex gap-4">
+                                <!-- AI Avatar -->
+                                <div class="flex-shrink-0">
+                                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-ai-500 flex items-center justify-center glow-effect">
+                                        <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- Chat Messages -->
+                                <div class="flex-1 space-y-4">
+                                    <div class="bg-white rounded-2xl rounded-tl-none p-4 border border-gray-200">
+                                        <p class="text-gray-500 text-sm">Hi! I'm the Eazybe AI assistant. I noticed you're interested in 3BHK apartments in São Paulo. I have 5 listings that match your criteria. Would you like to see them?</p>
+                                        <span class="text-xs text-gray-500 mt-2 block">Just now</span>
+                                    </div>
+                                    <div class="flex justify-end">
+                                        <div class="bg-purple-500/20 rounded-2xl rounded-tr-none p-4 border border-purple-500/30 max-w-xs">
+                                            <p class="text-gray-900 text-sm">Yes, show me the ones under R$ 500k</p>
+                                            <span class="text-xs text-gray-600 mt-2 block">Just now</span>
+                                        </div>
+                                    </div>
+                                    <div class="bg-white rounded-2xl rounded-tl-none p-4 border border-gray-200">
+                                        <p class="text-gray-500 text-sm">Perfect! I found 3 properties under R$ 500k. Let me send you the details and schedule a viewing...</p>
+                                        <div class="flex gap-2 mt-3">
+                                            <span class="px-3 py-1 bg-gray-50 rounded-full text-xs text-gray-600">🏠 Property 1</span>
+                                            <span class="px-3 py-1 bg-gray-50 rounded-full text-xs text-gray-600">🏠 Property 2</span>
+                                            <span class="px-3 py-1 bg-gray-50 rounded-full text-xs text-gray-600">🏠 Property 3</span>
+                                        </div>
+                                        <span class="text-xs text-gray-500 mt-2 block">Just now</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Social Proof / Metrics -->
+    <section class="py-16 bg-gray-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                <div class="text-center fade-in">
+                    <div class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-400 to-ai-400 bg-clip-text text-transparent mb-2">24/7</div>
+                    <div class="text-sm lg:text-base text-gray-600 font-medium">AI Always Online</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-400 to-ai-400 bg-clip-text text-transparent mb-2">3x</div>
+                    <div class="text-sm lg:text-base text-gray-600 font-medium">More Conversions</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-400 to-ai-400 bg-clip-text text-transparent mb-2">100%</div>
+                    <div class="text-sm lg:text-base text-gray-600 font-medium">Data Accurate</div>
+                </div>
+                <div class="text-center fade-in">
+                    <div class="text-4xl lg:text-5xl font-black bg-gradient-to-r from-purple-400 to-ai-400 bg-clip-text text-transparent mb-2">5wks</div>
+                    <div class="text-sm lg:text-base text-gray-600 font-medium">To Go Live</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: Product Overview -->
+    <section class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm font-semibold mb-4 border border-purple-500/20">AI-POWERED CRM</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Your AI Works for You — While You Sleep</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Stop losing leads to slow response times. Our AI agent captures every WhatsApp inquiry, qualifies buyers instantly, and nurtures them until they're ready to close.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-glass rounded-2xl p-6 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-ai-500/20 rounded-2xl flex items-center justify-center mb-4 border border-purple-500/20">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Instant Responses</h3>
+                    <p class="text-gray-600 text-sm">AI replies in seconds, 24/7, in Spanish, Portuguese & English</p>
+                </div>
+                <div class="card-glass rounded-2xl p-6 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-ai-500/20 rounded-2xl flex items-center justify-center mb-4 border border-purple-500/20">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">100% Compliant</h3>
+                    <p class="text-gray-600 text-sm">Trained only on your data. Knows local regulations perfectly</p>
+                </div>
+                <div class="card-glass rounded-2xl p-6 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-ai-500/20 rounded-2xl flex items-center justify-center mb-4 border border-purple-500/20">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Lead Qualification</h3>
+                    <p class="text-gray-600 text-sm">Asks the right questions. Only sends you qualified buyers</p>
+                </div>
+                <div class="card-glass rounded-2xl p-6 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500/20 to-ai-500/20 rounded-2xl flex items-center justify-center mb-4 border border-purple-500/20">
+                        <svg class="w-7 h-7 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Deal Closing</h3>
+                    <p class="text-gray-600 text-sm">Your team focuses on closing while AI handles the rest</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: Feature Blocks -->
+    <section class="py-20 lg:py-28 bg-gray-50" id="features">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm font-semibold mb-4 border border-purple-500/20">FEATURES</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why Our AI is Different</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Built for real estate. Not a generic chatbot.</p>
+            </div>
+
+            <!-- Feature 1 -->
+            <div class="mb-20 fade-in">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 rounded-full mb-4">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-sm font-semibold text-purple-400">Trained on YOUR Data</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">No Hallucinations. 100% Accurate.</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Generic AI makes things up. Our AI is trained ONLY on your company data — your listings, your regulations, your sales approach. It can't promise properties you don't have.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-500">Learns from your best agents' conversations</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-500">Knows your exact property inventory</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <svg class="w-6 h-6 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                <span class="text-gray-500">Follows your sales process perfectly</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-ai-500/20 rounded-3xl blur-3xl"></div>
+                        <div class="relative bg-gray-800 rounded-3xl p-8 border border-gray-200">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-xl border border-gray-200">
+                                    <div class="text-xs text-purple-400 font-mono mb-2">AI KNOWS: Your property database</div>
+                                    <div class="text-sm text-gray-500">Properties 1-15 of 247 matching criteria</div>
+                                </div>
+                                <div class="grid grid-cols-3 gap-2">
+                                    <div class="aspect-square bg-white rounded-lg"></div>
+                                    <div class="aspect-square bg-white rounded-lg"></div>
+                                    <div class="aspect-square bg-white rounded-lg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="mb-20 fade-in">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1 relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-ai-500/20 rounded-3xl blur-3xl"></div>
+                        <div class="relative bg-gray-800 rounded-3xl p-8 border border-gray-200">
+                            <div class="text-center mb-6">
+                                <div class="text-4xl mb-2">⚖️</div>
+                                <div class="text-xl font-bold text-gray-900">Regulatory Expert</div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="p-4 bg-white rounded-xl flex items-center gap-3">
+                                    <span class="text-2xl">🇧🇷</span>
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-900">Brazil</div>
+                                        <div class="text-xs text-gray-600">Consumer Protection Code</div>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-white rounded-xl flex items-center gap-3">
+                                    <span class="text-2xl">🇨🇴</span>
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-900">Colombia</div>
+                                        <div class="text-xs text-gray-600">Housing regulations</div>
+                                    </div>
+                                </div>
+                                <div class="p-4 bg-white rounded-xl flex items-center gap-3">
+                                    <span class="text-2xl">🇲🇽</span>
+                                    <div>
+                                        <div class="text-sm font-semibold text-gray-900">Mexico</div>
+                                        <div class="text-xs text-gray-600">Public Instrument rules</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 rounded-full mb-4">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                            <span class="text-sm font-semibold text-purple-400">Compliance Built-In</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Knows LATAM Regulations. Zero Risk.</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Your AI learns from your internal documents. It understands Brazilian property law, Colombian housing regulations, Mexican notary requirements — no legal risks, no wrong advice.
+                        </p>
+                        <div class="p-4 bg-green-500/10 rounded-xl border border-green-500/20">
+                            <div class="flex items-center gap-2 text-green-400 font-semibold">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span>Accurate answers. No compliance risks.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="mb-20 fade-in">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 bg-purple-500/10 rounded-full mb-4">
+                            <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/>
+                            </svg>
+                            <span class="text-sm font-semibold text-purple-400">Multilingual AI</span>
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">Speaks Your Customers' Language</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Seamless switching between Portuguese, Spanish, and English. Your AI detects the customer's language and responds fluently. No lost leads due to language barriers.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <div class="px-4 py-2 bg-white rounded-xl border border-gray-200 flex items-center gap-2">
+                                <span class="text-xl">🇧🇷</span>
+                                <span class="text-gray-900 font-medium">Portuguese</span>
+                            </div>
+                            <div class="px-4 py-2 bg-white rounded-xl border border-gray-200 flex items-center gap-2">
+                                <span class="text-xl">🇪🇸</span>
+                                <span class="text-gray-900 font-medium">Spanish</span>
+                            </div>
+                            <div class="px-4 py-2 bg-white rounded-xl border border-gray-200 flex items-center gap-2">
+                                <span class="text-xl">🇺🇸</span>
+                                <span class="text-gray-900 font-medium">English</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-gradient-to-r from-purple-500/20 to-ai-500/20 rounded-3xl blur-3xl"></div>
+                        <div class="relative bg-gray-800 rounded-3xl p-8 border border-gray-200">
+                            <div class="space-y-4">
+                                <div class="p-4 bg-white rounded-xl border border-gray-200">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <span class="text-xl">🇧🇷</span>
+                                        <span class="text-sm font-semibold text-gray-900">Customer (Portuguese)</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600">"Procuro apartamento 3 quartos em São Paulo"</p>
+                                </div>
+                                <div class="flex justify-center">
+                                    <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+                                    </svg>
+                                </div>
+                                <div class="p-4 bg-purple-500/10 rounded-xl border border-purple-500/20">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <div class="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-ai-500 flex items-center justify-center">
+                                            <svg class="w-3 h-3 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                            </svg>
+                                        </div>
+                                        <span class="text-sm font-semibold text-purple-400">Eazybe AI</span>
+                                    </div>
+                                    <p class="text-sm text-gray-500">"Perfeito! Tenho 12 apartamentos com 3 quartos. Qual é sua faixa de preço?"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: Business Benefits -->
+    <section class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm font-semibold mb-4 border border-purple-500/20">RESULTS</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Real Results from Real Estate Teams</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">See what happens when you deploy AI trained on your data</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">10x Faster Response</h3>
+                    <p class="text-gray-600">Leads get instant responses at 3 AM. Your AI never sleeps, never takes breaks. Speed = more deals.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="text-5xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Qualified Leads Only</h3>
+                    <p class="text-gray-600">AI asks budget, timeline, requirements. Your team only talks to buyers ready to close now.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="text-5xl mb-4">🌙</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Capture Night & Weekend Leads</h3>
+                    <p class="text-gray-600">Best leads come when your team is offline. AI captures them all, 24/7, no exceptions.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="text-5xl mb-4">💰</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">ROI in First Month</h3>
+                    <p class="text-gray-600">Most clients recover their investment with just 2-3 additional deals. Pays for itself quickly.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="text-5xl mb-4">📈</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">3x Higher Conversions</h3>
+                    <p class="text-gray-600">Automated follow-ups nurture leads until they buy. No lead goes cold ever again.</p>
+                </div>
+
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="text-5xl mb-4">🏢</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Scale Your Team</h3>
+                    <p class="text-gray-600">Onboard new agents instantly. AI handles training, scripts, and initial conversations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: How It Works -->
+    <section class="py-20 lg:py-28 bg-gray-50" id="how-it-works">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm font-semibold mb-4 border border-purple-500/20">PROCESS</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">From Your Data to Live AI in 5 Weeks</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">We train your AI using your actual conversations, not generic templates</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-6">
+                    <div class="flex gap-6 items-start fade-in">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-600 to-ai-500 rounded-2xl flex items-center justify-center text-gray-900 font-bold text-xl glow-effect">
+                            W1
+                        </div>
+                        <div class="flex-1 card-glass rounded-2xl p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Data Ingestion</h3>
+                            <p class="text-gray-600">We analyze your top-performing WhatsApp conversations, SOPs, property listings, and CRM win/loss data.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start fade-in">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-600 to-ai-500 rounded-2xl flex items-center justify-center text-gray-900 font-bold text-xl glow-effect">
+                            W2-3
+                        </div>
+                        <div class="flex-1 card-glass rounded-2xl p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">AI Training</h3>
+                            <p class="text-gray-600">We build and train your AI using only your data. No internet hallucinations — it only knows what you teach it.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start fade-in">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-purple-600 to-ai-500 rounded-2xl flex items-center justify-center text-gray-900 font-bold text-xl glow-effect">
+                            W4
+                        </div>
+                        <div class="flex-1 card-glass rounded-2xl p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Testing & Optimization</h3>
+                            <p class="text-gray-600">Internal testing with real scenarios, iterative improvements based on your feedback, integration testing.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-6 items-start fade-in">
+                        <div class="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-ai-600 to-purple-500 rounded-2xl flex items-center justify-center text-gray-900 font-bold text-xl glow-effect animate-pulse">
+                            W5
+                        </div>
+                        <div class="flex-1 card-glass rounded-2xl p-6 border-2 border-ai-500/50">
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Go Live 🚀</h3>
+                            <p class="text-gray-600">Full launch with confidence. Continuous learning from new conversations. Ongoing optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: Testimonials -->
+    <section class="py-20 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <span class="inline-block px-4 py-2 bg-purple-500/10 text-purple-400 rounded-full text-sm font-semibold mb-4 border border-purple-500/20">TESTIMONIALS</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Trusted by LATAM Real Estate Leaders</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                    </div>
+                    <p class="text-gray-500 mb-6 leading-relaxed">"We needed an AI that understands our sales approach. Now it qualifies leads exactly like our best agents — but available 24/7."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-ai-500 rounded-full flex items-center justify-center text-gray-900 font-bold">H</div>
+                        <div>
+                            <div class="font-bold text-gray-900">Habi</div>
+                            <div class="text-sm text-gray-600">Colombia/Mexico • 250 Agents</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                    </div>
+                    <p class="text-gray-500 mb-6 leading-relaxed">"300% faster lead response. 2x more qualified showings. The AI handles initial conversations while we focus on closing deals."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-ai-500 rounded-full flex items-center justify-center text-gray-900 font-bold">P</div>
+                        <div>
+                            <div class="font-bold text-gray-900">Planok</div>
+                            <div class="text-sm text-gray-600">Argentina • Custom CRM</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-glass rounded-2xl p-8 hover:bg-gray-50 transition-all duration-300 fade-in">
+                    <div class="flex items-center gap-1 mb-4">
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                        <span class="text-ai-400 text-xl">★</span>
+                    </div>
+                    <p class="text-gray-500 mb-6 leading-relaxed">"In Brazil's regulated market, we can't afford AI giving wrong legal information. This AI knows Brazilian property law because it learned from our documents."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-ai-500 rounded-full flex items-center justify-center text-gray-900 font-bold">D</div>
+                        <div>
+                            <div class="font-bold text-gray-900">Data Lawyer</div>
+                            <div class="text-sm text-gray-600">Brazil • Compliance-First</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: Final CTA -->
+    <section class="py-24 lg:py-32 relative overflow-hidden" id="demo">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900 via-gray-900 to-ai-900"></div>
+        <div class="absolute inset-0 ai-grid"></div>
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-ai-500/30 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mx-auto text-center fade-in">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 backdrop-blur rounded-full mb-8">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-sm font-medium text-gray-900">30-minute live demo</span>
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">See Your AI Agent in Action</h2>
+                <p class="text-xl text-gray-500 mb-10">
+                    We'll show you how it responds to real customer questions, qualifies leads, handles regulatory queries, and hands off to your team — all trained on YOUR data.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+                    <a href="https://start.eazybe.com/demo" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-10 py-5 bg-gradient-to-r from-purple-600 to-ai-500 hover:from-purple-500 hover:to-ai-400 text-gray-900 font-bold rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/40 hover:-translate-y-1 text-lg glow-effect">
+                        <span class="relative z-10">Schedule Your Live Demo →</span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        No commitment required
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        See with YOUR data
+                    </span>
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Ready in 5 weeks
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: Footer -->
+    <footer class="bg-white text-gray-600 py-16 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-ai-500 flex items-center justify-center">
+                            <svg class="w-6 h-6 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <span class="text-xl font-bold text-gray-900">Eazybe AI</span>
+                    </div>
+                    <p class="text-sm">WhatsApp AI Agent for Real Estate. Trained on your data. 100% compliant. Ready in 5 weeks.</p>
+                </div>
+
+                <!-- Product -->
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="hover:text-gray-900 transition-colors">Features</a></li>
+                        <li><a href="#how-it-works" class="hover:text-gray-900 transition-colors">How It Works</a></li>
+                        <li><a href="#demo" class="hover:text-gray-900 transition-colors">Book Demo</a></li>
+                    </ul>
+                </div>
+
+                <!-- Regions -->
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Serving</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-white rounded-full text-sm">🇧🇷 Brazil</span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm">🇨🇴 Colombia</span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm">🇲🇽 Mexico</span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm">🇦🇷 Argentina</span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm">🇨🇱 Chile</span>
+                        <span class="px-3 py-1 bg-white rounded-full text-sm">🇵🇪 Peru</span>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-gray-900 font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2">
+                            <span class="text-lg">📧</span>
+                            <a href="mailto:latam-realestate@eazybe.com" class="hover:text-gray-900 transition-colors">latam-realestate@eazybe.com</a>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="text-lg">💬</span>
+                            <span class="hover:text-gray-900 transition-colors">WhatsApp: +52 XX XXXX XXXX</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm">© 2024 Eazybe. All rights reserved. Built for LATAM Real Estate.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-gray-900 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" class="hover:text-gray-900 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="#" class="hover:text-gray-900 transition-colors">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg', 'shadow-purple-500/10');
+            } else {
+                navbar.classList.remove('shadow-lg', 'shadow-purple-500/10');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
