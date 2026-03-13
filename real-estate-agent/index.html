@@ -241,12 +241,13 @@
     }
     .canvas-bg-img {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80');
       background-size: cover;
       background-position: center;
-      opacity: 0.35;
+      opacity: 0;
       filter: saturate(0.5);
+      transition: opacity 0.8s ease;
     }
+    .canvas-bg-img.active { opacity: 0.35; }
     /* Floating WhatsApp chat panel */
     .float-chat {
       position: absolute;
@@ -380,12 +381,13 @@
     }
     .insights-bg-img {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80');
       background-size: cover;
       background-position: center;
-      opacity: 0.4;
+      opacity: 0;
       filter: saturate(0.5);
+      transition: opacity 0.8s ease;
     }
+    .insights-bg-img.active { opacity: 0.4; }
     /* Floating insight card on image */
     .insight-card {
       position: absolute;
@@ -649,7 +651,11 @@
 
       <!-- Right: Visual with bg image + floating panels -->
       <div class="canvas-visual">
-        <div class="canvas-bg-img"></div>
+        <!-- One bg image per step — crossfade on step change -->
+        <div class="canvas-bg-img active" style="background-image:url('https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=1200&q=80')"></div>
+        <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=80')"></div>
+        <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80')"></div>
+        <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1611606063065-ee7946f0787a?w=1200&q=80')"></div>
 
         <!-- Floating WhatsApp chat -->
         <div class="float-chat">
@@ -783,7 +789,10 @@
 
     <!-- Left: Image + floating insight card -->
     <div class="insights-visual anim">
-      <div class="insights-bg-img"></div>
+      <!-- One bg image per step — crossfade on step change -->
+      <div class="insights-bg-img active" style="background-image:url('https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1200&q=80')"></div>
+      <div class="insights-bg-img" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80')"></div>
+      <div class="insights-bg-img" style="background-image:url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=1200&q=80')"></div>
 
       <div class="insight-card">
         <div class="ic-head">
@@ -900,9 +909,10 @@
   // ── Auto-advancing step carousel with click support ──
   const STEP_DURATION = 20000; // ms per step
 
-  function createStepCarousel(stepSelector, sectionSelector) {
+  function createStepCarousel(stepSelector, sectionSelector, bgSelector) {
     const steps = document.querySelectorAll(stepSelector);
     const section = document.querySelector(sectionSelector);
+    const bgImgs = bgSelector ? document.querySelectorAll(bgSelector) : [];
     if (!steps.length || !section) return;
 
     let current = 0;
@@ -914,6 +924,10 @@
       steps.forEach(s => {
         s.classList.remove('active');
         s.style.pointerEvents = 'auto';
+      });
+      // crossfade background images
+      bgImgs.forEach((bg, i) => {
+        bg.classList.toggle('active', i === idx);
       });
       // force reflow to reset the CSS transition
       void section.offsetWidth;
@@ -961,8 +975,8 @@
   // set CSS variable for duration
   document.documentElement.style.setProperty('--step-duration', STEP_DURATION + 'ms');
 
-  createStepCarousel('.step', '.canvas-section');
-  createStepCarousel('.ins-step', '.insights-section');
+  createStepCarousel('.step', '.canvas-section', '.canvas-visual .canvas-bg-img');
+  createStepCarousel('.ins-step', '.insights-section', '.insights-visual .insights-bg-img');
 </script>
 
 </body>
