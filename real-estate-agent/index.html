@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wapa.ai</title>
+  <title>eazybe</title>
   <meta name="description" content="WhatsApp AI Agent for Sales Teams in Latam. Qualify every lead instantly, sync every conversation to your CRM, and automate follow-ups — 24/7." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -46,18 +46,16 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 20px; height: 52px;
       background: transparent;
-      transition: background 0.3s, border-color 0.3s, color 0.3s;
+      transition: background 0.3s, border-color 0.3s;
       border-bottom: 1px solid transparent;
-      color: #111;
     }
     nav.scrolled {
       background: rgba(0,0,0,0.8);
       backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
       border-bottom-color: var(--border);
-      color: var(--white);
     }
     .nl { display: flex; align-items: center; gap: 36px; }
-    .nav-logo { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; color: inherit; }
+    .nav-logo { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; }
     .nav-links { display: flex; gap: 24px; }
     .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
@@ -65,81 +63,80 @@
     .nr .ghost { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); transition: color 0.2s; }
     .nr .ghost:hover { color: var(--white); }
     .nr .pill {
-      font-size: 12px; font-weight: 600; color: var(--white); background: #111;
-      padding: 7px 18px; border-radius: 9999px; transition: all 0.3s;
+      font-size: 12px; font-weight: 600; color: var(--black); background: var(--white);
+      padding: 7px 18px; border-radius: 9999px; transition: opacity 0.2s;
     }
     .nr .pill:hover { opacity: 0.85; }
-    nav.scrolled .nr .pill { background: var(--white); color: var(--black); }
     .mob-t { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 4px; }
-    .mob-t span { display: block; width: 20px; height: 1.5px; background: currentColor; }
+    .mob-t span { display: block; width: 20px; height: 1.5px; background: #fff; }
 
-    /* HERO */
+    /* HERO — giga.ai style: dark bg, high-opacity pixelated image, white text */
     .hero {
       position: relative; min-height: 100vh;
       display: flex; align-items: center; justify-content: center;
       text-align: center; padding: 100px 20px 120px; overflow: hidden;
-      background: #f5f5f0;
+      background: var(--black);
     }
-    /* real background image */
     .hero-bg {
       position: absolute; inset: 0; z-index: 0;
-      background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80');
+      background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80');
       background-size: cover;
-      background-position: center 60%;
-      opacity: 0.18;
-      filter: saturate(0.4) contrast(1.1);
+      background-position: center center;
+      image-rendering: pixelated;
+      opacity: 0.8;
     }
-    /* color overlay on top of image */
+    /* dark multiply overlay at bottom — like giga */
     .hero-bg::after {
       content: '';
       position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 100% 80% at 30% 50%, rgba(37,211,102,0.06), transparent 60%),
-        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(0,120,255,0.05), transparent 50%);
+      background: linear-gradient(transparent 0%, #000 100%);
+      mix-blend-mode: multiply;
     }
     /* noise/grain texture overlay */
     .hero-noise {
       position: absolute; inset: 0; z-index: 1;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
       background-repeat: repeat;
       background-size: 256px 256px;
-      opacity: 0.4;
+      opacity: 0.5;
       mix-blend-mode: multiply;
+      image-rendering: pixelated;
     }
     /* bottom gradient fade to black */
     .hero::after {
       content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 350px;
-      background: linear-gradient(to bottom, transparent, var(--black));
+      height: 25%;
+      background: linear-gradient(transparent, var(--black));
+      mix-blend-mode: multiply;
       z-index: 2;
     }
-    /* top vignette */
+    /* vignette */
     .hero::before {
       content: ''; position: absolute; inset: 0; z-index: 1;
       background:
-        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(0,0,0,0.03) 100%);
+        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(0,0,0,0.6) 100%);
     }
     .hc { position: relative; z-index: 3; max-width: 820px; }
     .hc h1 {
       font-size: clamp(44px, 7vw, 84px); font-weight: 800;
       letter-spacing: -3px; line-height: 0.94; margin-bottom: 28px;
-      color: #111;
+      color: var(--white);
     }
     .hc .sub {
-      font-size: 16px; line-height: 1.7; color: #555;
+      font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.7);
       max-width: 540px; margin: 0 auto 40px;
     }
     .hcta { display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; }
     .bp {
       display: inline-flex; align-items: center; gap: 8px;
-      background: #111; color: var(--white);
+      background: var(--white); color: var(--black);
       padding: 11px 26px; border-radius: 9999px;
       font-size: 13px; font-weight: 600;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .bp:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(0,0,0,0.15); }
+    .bp:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(255,255,255,0.08); }
     .bp svg { width: 16px; height: 16px; }
-    .la { font-size: 13px; font-weight: 500; color: #0077cc; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+    .la { font-size: 13px; font-weight: 500; color: var(--link); display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
     .la:hover { gap: 9px; }
 
     /* WRAP */
@@ -605,7 +602,7 @@
 <!-- NAV -->
 <nav id="n">
   <div class="nl">
-    <a href="#" class="nav-logo">Wapa.ai</a>
+    <a href="#" class="nav-logo">eazybe</a>
   </div>
   <div class="nr">
     <a href="#cta" class="pill">Talk to us</a>
@@ -952,7 +949,7 @@
 <footer>
   <div class="fg">
     <div>
-      <div class="fb-l">Wapa.ai</div>
+      <div class="fb-l">eazybe</div>
       <p class="fb-p">WhatsApp AI agents for real estate sales teams across Latin America.</p>
     </div>
     <div class="fcol">
@@ -975,7 +972,7 @@
     </div>
   </div>
   <div class="fbot">
-    <span>&copy; 2026 Wapa.ai</span>
+    <span>&copy; 2026 eazybe</span>
     <div class="fbot-r">
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Service</a>
