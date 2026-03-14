@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eazybe - Agente de IA de WhatsApp para Equipos de Ventas Inmobiliarias en Latam</title>
+  <meta name="description" content="Agente de IA de WhatsApp para equipos de ventas en Latam. Califica cada lead al instante, sincroniza cada conversación con tu CRM y automatiza seguimientos — 24/7." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --black: #000;
+      --dark: #050505;
+      --white: #fff;
+      --light-bg: #f9f9f9;
+      --link: #09f;
+      --green: #25D366;
+      --ts: #888;
+      --tt: #666;
+      --border: rgba(255,255,255,0.08);
+      --border-l: #e5e5e5;
+      --max-w: 1600px;
+      --mono: 'IBM Plex Mono', monospace;
+      --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--white);
+      background: var(--black);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; height: 52px;
+      background: transparent;
+      transition: background 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+      border-bottom-color: var(--border);
+    }
+    .nl { display: flex; align-items: center; gap: 36px; }
+    .nav-logo { display: flex; align-items: center; }
+    .nav-logo img { height: 36px; width: auto; background: #fff; padding: 5px 10px; border-radius: 6px; }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nr { display: flex; align-items: center; gap: 16px; }
+    .nr .ghost { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+    .nr .ghost:hover { color: var(--white); }
+    .nr .pill {
+      font-size: 12px; font-weight: 600; color: var(--black); background: var(--white);
+      padding: 7px 18px; border-radius: 9999px; transition: opacity 0.2s;
+    }
+    .nr .pill:hover { opacity: 0.85; }
+    .mob-t { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 4px; }
+    .mob-t span { display: block; width: 20px; height: 1.5px; background: #fff; }
+
+    /* HERO — giga.ai style: dark bg, high-opacity pixelated image, white text */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 20px 120px; overflow: hidden;
+      background: var(--black);
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background-image: url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&q=80');
+      background-size: cover;
+      background-position: center center;
+      image-rendering: pixelated;
+      opacity: 0.8;
+    }
+    /* dark multiply overlay at bottom — like giga */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(transparent 0%, #000 100%);
+      mix-blend-mode: multiply;
+    }
+    /* noise/grain texture overlay */
+    .hero-noise {
+      position: absolute; inset: 0; z-index: 1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px 256px;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      image-rendering: pixelated;
+    }
+    /* bottom gradient fade to black */
+    .hero::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 25%;
+      background: linear-gradient(transparent, var(--black));
+      mix-blend-mode: multiply;
+      z-index: 2;
+    }
+    /* vignette */
+    .hero::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background:
+        radial-gradient(ellipse 80% 80% at 50% 50%, transparent 30%, rgba(0,0,0,0.6) 100%);
+    }
+    .hc { position: relative; z-index: 3; max-width: 820px; }
+    .hc h1 {
+      font-size: clamp(44px, 7vw, 84px); font-weight: 800;
+      letter-spacing: -3px; line-height: 0.94; margin-bottom: 28px;
+      color: var(--white);
+    }
+    .hc .sub {
+      font-size: 19px; line-height: 1.7; color: rgba(255,255,255,0.85);
+      max-width: 600px; margin: 0 auto 40px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+    }
+    .hcta { display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; }
+    .bp {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      padding: 15px 34px; border-radius: 9999px;
+      font-size: 16px; font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .bp:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(37,211,102,0.3); }
+    .bp svg { width: 16px; height: 16px; }
+    .la { font-size: 13px; font-weight: 500; color: var(--link); display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s; }
+    .la:hover { gap: 9px; }
+
+    /* WRAP */
+    .w { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+
+    /* MONO TAG */
+    .mt {
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--ts); margin-bottom: 20px;
+    }
+
+    /* ═══ SECTION 2: CANVAS-STYLE SPLIT ═══ */
+    .canvas-section {
+      padding: 100px 0 120px;
+      background: var(--black);
+    }
+    .canvas-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 20px;
+    }
+    .canvas-top {
+      margin-bottom: 56px;
+    }
+    .canvas-top h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700; letter-spacing: -1.5px; line-height: 1.08;
+      max-width: 600px;
+    }
+    .canvas-top .cta-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 24px; border-radius: 9999px;
+      font-size: 13px; font-weight: 600; color: var(--white);
+      margin-top: 28px; transition: background 0.2s, border-color 0.2s;
+    }
+    .canvas-top .cta-pill:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .canvas-grid {
+      display: grid;
+      grid-template-columns: 0.35fr 0.65fr;
+      gap: 0;
+      min-height: 600px;
+    }
+    /* Left: step list */
+    .canvas-steps {
+      display: flex; flex-direction: column;
+      padding-right: 48px;
+    }
+    .step {
+      padding: 28px 0;
+      cursor: default;
+      transition: opacity 0.4s ease;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .step:last-child { border-bottom: 1px solid var(--border); }
+    /* progress bar that fills over duration */
+    .step::before {
+      content: '';
+      position: absolute; top: -1px; left: 0;
+      width: 100%; height: 2px;
+      background: var(--white);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: none;
+    }
+    .step.active::before {
+      transform: scaleX(1);
+      transition: transform var(--step-duration, 4s) linear;
+    }
+    .step-title {
+      font-size: 16px; font-weight: 700;
+      letter-spacing: -0.3px; margin-bottom: 0;
+      color: var(--ts);
+      transition: color 0.4s ease;
+    }
+    .step.active .step-title { color: var(--white); }
+    .step-desc {
+      font-size: 13px; line-height: 1.7;
+      color: var(--ts); margin-top: 0;
+      max-width: 380px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    }
+    .step.active .step-desc {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 12px;
+    }
+    /* Right: visual with bg image + floating UI */
+    .canvas-visual {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .canvas-bg-img {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      filter: saturate(0.5);
+      transition: opacity 0.8s ease;
+    }
+    .canvas-bg-img.active { opacity: 0.35; }
+    /* Floating WhatsApp chat panel */
+    .float-chat {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-60%, -50%);
+      width: 300px;
+      background: rgba(17,17,17,0.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      overflow: hidden; font-size: 13px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      z-index: 2;
+      opacity: 0; transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+    .float-chat.active { opacity: 1; pointer-events: auto; }
+    .fc-head {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .fc-dot {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; flex-shrink: 0;
+    }
+    .fc-name { font-weight: 600; font-size: 13px; }
+    .fc-online { font-size: 10px; color: var(--green); }
+    .fc-msgs { padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+    .fc-b {
+      padding: 9px 13px; border-radius: 13px;
+      line-height: 1.45; max-width: 84%; font-size: 12px;
+    }
+    .fc-bi { background: rgba(255,255,255,0.07); border-bottom-left-radius: 4px; align-self: flex-start; }
+    .fc-bo { background: rgba(37,211,102,0.14); border-bottom-right-radius: 4px; align-self: flex-end; }
+
+    /* Floating CRM/config panel */
+    .float-panel {
+      position: absolute;
+      top: 14%; right: 8%;
+      width: 230px;
+      background: rgba(17,17,17,0.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 18px;
+      box-shadow: 0 16px 60px rgba(0,0,0,0.5);
+      z-index: 3;
+      font-size: 12px;
+      opacity: 0; transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+    .float-panel.active { opacity: 1; pointer-events: auto; }
+    .fp-title {
+      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--ts); margin-bottom: 14px;
+    }
+    .fp-list { display: flex; flex-direction: column; gap: 0; }
+    .fp-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.7);
+      font-size: 12px;
+    }
+    .fp-item:last-child { border: none; }
+    .fp-icon {
+      width: 24px; height: 24px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; flex-shrink: 0;
+    }
+    .fp-icon.green { background: rgba(37,211,102,0.15); }
+    .fp-icon.blue { background: rgba(0,153,255,0.15); }
+    .fp-icon.purple { background: rgba(139,92,246,0.15); }
+    .fp-icon.orange { background: rgba(255,140,50,0.15); }
+    .fp-item.active-item {
+      color: var(--white); font-weight: 600;
+      background: rgba(255,255,255,0.04);
+      margin: 0 -10px; padding: 9px 10px;
+      border-radius: 8px;
+    }
+
+    /* 3-COL W/ DIVIDERS */
+    .es { padding: 100px 0; background: var(--black); }
+    .eh { margin-bottom: 56px; }
+    .eh h2 { font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; letter-spacing: -1.2px; line-height: 1.12; max-width: 650px; }
+    .tc { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; }
+    .tc .vd { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--border); }
+    .tc .vd:nth-child(1) { left: 33.333%; }
+    .tc .vd:nth-child(2) { left: 66.666%; }
+    .ti { padding: 0 32px; }
+    .ti:first-of-type { padding-left: 0; }
+    .ti:last-of-type { padding-right: 0; }
+    .ti h3 { font-size: 17px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 10px; }
+    .ti p { font-size: 14px; line-height: 1.7; color: var(--ts); margin-bottom: 16px; }
+
+    /* 4-COL MARKETS */
+    .ms { padding: 100px 0; background: var(--black); }
+    .mst { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 64px; align-items: end; }
+    .mst h2 { font-size: clamp(26px, 3.2vw, 40px); font-weight: 700; letter-spacing: -1.2px; line-height: 1.12; }
+    .mst p { font-size: 14px; line-height: 1.7; color: var(--ts); }
+    .fc { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; }
+    .fc .vd { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--border); }
+    .fc .vd:nth-child(1) { left: 25%; }
+    .fc .vd:nth-child(2) { left: 50%; }
+    .fc .vd:nth-child(3) { left: 75%; }
+    .fi { padding: 0 24px; }
+    .fi:first-of-type { padding-left: 0; }
+    .fi:last-of-type { padding-right: 0; }
+    .ff { font-size: 32px; margin-bottom: 14px; display: block; }
+    .fn { font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+    .ft { display: flex; flex-direction: column; gap: 6px; }
+    .ftg { font-family: var(--mono); font-size: 11px; color: var(--ts); line-height: 1.5; }
+
+    /* ═══ SECTION 5: INSIGHTS-STYLE SPLIT (like giga Smart Insights) ═══ */
+    .insights-section {
+      padding: 100px 0 120px;
+      background: var(--black);
+    }
+    .insights-grid {
+      display: grid;
+      grid-template-columns: 0.55fr 0.45fr;
+      gap: 60px;
+      align-items: start;
+      max-width: var(--max-w); margin: 0 auto; padding: 0 20px;
+    }
+    /* Left: image + floating card */
+    .insights-visual {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      min-height: 560px;
+      background: #0a0a0a;
+    }
+    .insights-bg-img {
+      position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      filter: saturate(0.5);
+      transition: opacity 0.8s ease;
+    }
+    .insights-bg-img.active { opacity: 0.4; }
+    /* Floating insight card on image */
+    .insight-card {
+      position: absolute;
+      bottom: 24px; left: 24px; right: 24px;
+      background: rgba(17,17,17,0.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 22px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      z-index: 2;
+      opacity: 0; transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+    .insight-card.active { opacity: 1; pointer-events: auto; }
+    .ic-head {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .ic-title {
+      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      letter-spacing: 0.8px; text-transform: uppercase; color: var(--ts);
+    }
+    .ic-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+    .ic-tag {
+      padding: 4px 10px; border-radius: 9999px;
+      font-size: 11px; font-weight: 600;
+      background: rgba(37,211,102,0.12); color: var(--green);
+    }
+    .ic-tag.blue { background: rgba(0,153,255,0.12); color: var(--link); }
+    .ic-metric-title {
+      font-size: 15px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px;
+    }
+    .ic-metric-desc {
+      font-size: 12px; line-height: 1.6; color: var(--ts); margin-bottom: 16px;
+    }
+    .ic-items { display: flex; flex-direction: column; gap: 0; }
+    .ic-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px; color: rgba(255,255,255,0.75);
+    }
+    .ic-num {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: var(--white); flex-shrink: 0;
+    }
+
+    /* Right: text + steps */
+    .insights-text {
+      padding-top: 20px;
+    }
+    .insights-text h2 {
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 700; letter-spacing: -1.5px; line-height: 1.08;
+      margin-bottom: 20px;
+    }
+    .insights-text > p {
+      font-size: 14px; line-height: 1.7; color: var(--ts);
+      max-width: 420px; margin-bottom: 28px;
+    }
+    .insights-text .cta-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 24px; border-radius: 9999px;
+      font-size: 13px; font-weight: 600; color: var(--white);
+      margin-bottom: 40px; transition: background 0.2s, border-color 0.2s;
+    }
+    .insights-text .cta-pill:hover {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.35);
+    }
+    /* Steps in insights section */
+    .insights-steps {
+      display: flex; flex-direction: column;
+    }
+    .ins-step {
+      padding: 24px 0;
+      cursor: default;
+      transition: opacity 0.4s ease;
+      border-top: 1px solid var(--border);
+      position: relative;
+    }
+    .ins-step:last-child { border-bottom: 1px solid var(--border); }
+    .ins-step::before {
+      content: '';
+      position: absolute; top: -1px; left: 0;
+      width: 100%; height: 2px;
+      background: var(--white);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: none;
+    }
+    .ins-step.active::before {
+      transform: scaleX(1);
+      transition: transform var(--step-duration, 4s) linear;
+    }
+    .ins-step-title {
+      font-size: 16px; font-weight: 700;
+      letter-spacing: -0.3px;
+      color: var(--ts);
+      transition: color 0.4s ease;
+    }
+    .ins-step.active .ins-step-title { color: var(--white); }
+    .ins-step-desc {
+      font-size: 13px; line-height: 1.7;
+      color: var(--ts); max-width: 380px;
+      max-height: 0; overflow: hidden; opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.4s ease, margin-top 0.4s ease;
+    }
+    .ins-step.active .ins-step-desc {
+      max-height: 140px; opacity: 1; margin-top: 12px;
+    }
+
+    /* LIGHT CTA */
+    .lc {
+      padding: 120px 20px; background: var(--light-bg);
+      text-align: center; color: var(--black);
+    }
+    .lc h2 {
+      font-size: clamp(30px, 4.5vw, 56px); font-weight: 800;
+      letter-spacing: -2px; line-height: 1.02; margin-bottom: 20px;
+    }
+    .lc > p { font-size: 15px; line-height: 1.7; color: var(--tt); max-width: 500px; margin: 0 auto 40px; }
+    .bd {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--white);
+      padding: 12px 28px; border-radius: 9999px;
+      font-size: 13px; font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .bd:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(37,211,102,0.3); }
+    .bd svg { width: 16px; height: 16px; }
+
+    /* FOOTER */
+    footer { background: var(--light-bg); color: var(--black); padding: 0 20px 40px; }
+    .fg {
+      max-width: var(--max-w); margin: 0 auto;
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr; gap: 40px;
+      padding: 48px 0; border-top: 1px solid var(--border-l);
+    }
+    .fb-l { font-size: 17px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .fb-p { font-size: 12px; line-height: 1.6; color: var(--tt); max-width: 260px; }
+    .fcol h4 {
+      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase; color: var(--tt); margin-bottom: 14px;
+    }
+    .fcol ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .fcol a { font-size: 13px; color: #444; transition: color 0.2s; }
+    .fcol a:hover { color: var(--black); }
+    .fbot {
+      max-width: var(--max-w); margin: 0 auto; padding-top: 20px;
+      border-top: 1px solid var(--border-l);
+      display: flex; justify-content: space-between;
+      font-size: 11px; color: var(--tt);
+    }
+    .fbot-r { display: flex; gap: 16px; }
+    .fbot-r a { color: var(--tt); }
+    .fbot-r a:hover { color: var(--black); }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .canvas-grid { grid-template-columns: 1fr; }
+      .canvas-steps { padding-right: 0; margin-bottom: 40px; }
+      .canvas-visual { min-height: 450px; }
+      .insights-grid { grid-template-columns: 1fr; gap: 40px; }
+      .insights-visual { min-height: 450px; }
+      .mst { grid-template-columns: 1fr; gap: 16px; }
+    }
+    @media (max-width: 900px) {
+      .tc { grid-template-columns: 1fr; gap: 32px; }
+      .tc .vd { display: none; }
+      .ti { padding: 0 0 24px; border-bottom: 1px solid var(--border); }
+      .ti:last-of-type { border: none; padding-bottom: 0; }
+      .fc { grid-template-columns: 1fr 1fr; gap: 28px; }
+      .fc .vd { display: none; }
+      .fi { padding: 0; }
+      .fg { grid-template-columns: 1fr 1fr; }
+      .float-panel { display: none; }
+      .float-chat { transform: translate(-50%, -50%); }
+      .insights-visual { min-height: 400px; }
+    }
+    @media (max-width: 600px) {
+      .nav-links, .nr .ghost { display: none; }
+      .mob-t { display: flex; }
+      .hc h1 { letter-spacing: -1.5px; }
+      .fc { grid-template-columns: 1fr; }
+      .fg { grid-template-columns: 1fr; }
+      .fbot { flex-direction: column; gap: 10px; text-align: center; }
+      .canvas-visual { min-height: 360px; }
+      .float-chat { width: 260px; }
+      .insights-visual { min-height: 340px; }
+      .insight-card { padding: 16px; }
+    }
+
+    /* FADE */
+    .anim { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .anim.v { opacity: 1; transform: translateY(0); }
+
+    /* WhatsApp icon for SVG */
+    .wa-svg { width: 16px; height: 16px; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="n">
+  <div class="nl">
+    <a href="#" class="nav-logo"><img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe"></a>
+  </div>
+  <div class="nr">
+    <a href="https://eazybe.info/fe193a" target="_blank" class="pill">Talk to us</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hc">
+    <h1>Agente de IA de WhatsApp para Equipos de Ventas Inmobiliarias en Latam.</h1>
+    <p class="sub">Califica cada lead al instante, sincroniza cada conversación con tu CRM y automatiza seguimientos personalizados en un lenguaje regulatorio local perfecto — 24/7.</p>
+    <div class="hcta">
+      <a href="https://eazybe.info/fe193a" target="_blank" class="bp">
+        <svg viewBox="0 0 24 24" fill="currentColor" class="wa-svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.106-1.138l-.294-.176-2.866.852.852-2.866-.176-.294A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Prueba el Agente de IA en Vivo en WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: CORE CAPABILITIES — CANVAS STYLE -->
+<section class="canvas-section" id="product">
+  <div class="canvas-inner">
+
+    <div class="canvas-top anim">
+      <div class="mt">Core Capabilities</div>
+      <h2>Capture, Qualify, and Route Every Lead 24/7</h2>
+      <a href="#" class="cta-pill">Explore AI Agent <span>&rarr;</span></a>
+    </div>
+
+    <div class="canvas-grid anim">
+      <!-- Left: Steps -->
+      <div class="canvas-steps">
+        <div class="step active">
+          <div class="step-title">Calificación Instantánea de Leads</div>
+          <p class="step-desc">Identify intent, verify budgets, and ask qualifying questions the moment a lead reaches out on WhatsApp.</p>
+        </div>
+        <div class="step">
+          <div class="step-title">Inteligencia de Proyectos e Inventario</div>
+          <p class="step-desc">Provide instant, accurate answers regarding specific property details, availability, and pricing based on your live inventory.</p>
+        </div>
+        <div class="step">
+          <div class="step-title">Gestión Completa de Conversaciones</div>
+          <p class="step-desc">Automatically capture and secure every chat, image, and voice note in a central dashboard. If an agent leaves, your lead history stays.</p>
+        </div>
+        <div class="step">
+          <div class="step-title">Seguimientos Automatizados</div>
+          <p class="step-desc">Prevent leads from going cold with persistent, context-aware follow-up sequences that re-engage prospects automatically until they convert.</p>
+        </div>
+      </div>
+
+      <!-- Right: Visual with bg image + floating panels -->
+      <div class="canvas-visual">
+        <!-- One bg image per step — crossfade on step change -->
+        <div class="canvas-bg-img active" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=80')"></div>
+        <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80')"></div>
+        <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1200&q=80')"></div>
+        <div class="canvas-bg-img" style="background-image:url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=80')"></div>
+
+        <!-- Step 0: Calificación de Leads -->
+        <div class="float-chat cv-panel active">
+          <div class="fc-head">
+            <div class="fc-dot">&#128269;</div>
+            <div><div class="fc-name">Calificación de Leads</div><div class="fc-online">Online</div></div>
+          </div>
+          <div class="fc-msgs">
+            <div class="fc-b fc-bi">Hi, I'm looking for a 2BR in Polanco</div>
+            <div class="fc-b fc-bo">Great! What's your budget range?</div>
+            <div class="fc-b fc-bi">Around $300K USD</div>
+            <div class="fc-b fc-bo">Perfect. I have 3 matching units. Are you pre-approved for financing?</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel active">
+          <div class="fp-title">Lead Score</div>
+          <div class="fp-list">
+            <div class="fp-item active-item"><span class="fp-icon green">&#9989;</span>Budget verified</div>
+            <div class="fp-item active-item"><span class="fp-icon green">&#9989;</span>Location match</div>
+            <div class="fp-item"><span class="fp-icon blue">&#8987;</span>Financing check</div>
+            <div class="fp-item"><span class="fp-icon purple">&#128197;</span>Tour pending</div>
+          </div>
+        </div>
+
+        <!-- Step 1: Inventory Intelligence -->
+        <div class="float-chat cv-panel">
+          <div class="fc-head">
+            <div class="fc-dot">&#127968;</div>
+            <div><div class="fc-name">Detalles de Propiedad</div><div class="fc-online">Online</div></div>
+          </div>
+          <div class="fc-msgs">
+            <div class="fc-b fc-bi">What's available in Torre Reforma?</div>
+            <div class="fc-b fc-bo">Unit 1204: 3BR, 142m&sup2;, $485K. Unit 806: 2BR, 98m&sup2;, $310K. Both have parking.</div>
+            <div class="fc-b fc-bi">Does 1204 have a terrace?</div>
+            <div class="fc-b fc-bo">Yes, 18m&sup2; terrace facing south with city views. HOA is $4,200 MXN/mo.</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel">
+          <div class="fp-title">Live Inventory</div>
+          <div class="fp-list">
+            <div class="fp-item active-item"><span class="fp-icon green">&#128196;</span>24 units available</div>
+            <div class="fp-item"><span class="fp-icon blue">&#128176;</span>Prices synced today</div>
+            <div class="fp-item"><span class="fp-icon purple">&#128247;</span>Floor plans loaded</div>
+            <div class="fp-item"><span class="fp-icon orange">&#128205;</span>3 projects active</div>
+          </div>
+        </div>
+
+        <!-- Step 2: Conversation Ownership -->
+        <div class="float-chat cv-panel">
+          <div class="fc-head">
+            <div class="fc-dot">&#128274;</div>
+            <div><div class="fc-name">Chat Archive</div><div class="fc-online">Secured</div></div>
+          </div>
+          <div class="fc-msgs">
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128206; voice_note_03.ogg saved</div>
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128247; property_photo.jpg synced</div>
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128172; 847 messages captured</div>
+            <div class="fc-b fc-bo" style="font-size:11px;opacity:0.7">&#128100; Rep Maria left &mdash; history preserved</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel">
+          <div class="fp-title">Data Secured</div>
+          <div class="fp-list">
+            <div class="fp-item active-item"><span class="fp-icon green">&#128274;</span>All chats backed up</div>
+            <div class="fp-item active-item"><span class="fp-icon green">&#128247;</span>Media archived</div>
+            <div class="fp-item active-item"><span class="fp-icon green">&#127908;</span>Voice notes saved</div>
+            <div class="fp-item"><span class="fp-icon blue">&#128100;</span>Rep transition ready</div>
+          </div>
+        </div>
+
+        <!-- Step 3: Automated Seguimientos -->
+        <div class="float-chat cv-panel">
+          <div class="fc-head">
+            <div class="fc-dot" style="background:#ff8c32">&#128340;</div>
+            <div><div class="fc-name">Follow-Up Sequence</div><div class="fc-online">Active</div></div>
+          </div>
+          <div class="fc-msgs">
+            <div class="fc-b fc-bo">Hi Carlos! Just checking in &mdash; still interested in Torre Reforma?</div>
+            <div class="fc-b fc-bi">Yes, but I need to check financing</div>
+            <div class="fc-b fc-bo">No problem! I can connect you with our mortgage partner. They offer 90% financing for this project.</div>
+            <div class="fc-b fc-bi">That sounds great, let's do it</div>
+          </div>
+        </div>
+        <div class="float-panel cv-panel">
+          <div class="fp-title">Follow-Up Status</div>
+          <div class="fp-list">
+            <div class="fp-item active-item"><span class="fp-icon orange">&#128340;</span>Day 3 reminder sent</div>
+            <div class="fp-item"><span class="fp-icon green">&#9989;</span>Lead re-engaged</div>
+            <div class="fp-item"><span class="fp-icon blue">&#128176;</span>Financing offered</div>
+            <div class="fp-item"><span class="fp-icon purple">&#127919;</span>Conversion likely</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 3: AI ACCURACY — 3-COL EDITORIAL -->
+<section class="es">
+  <div class="w">
+    <div class="eh anim">
+      <div class="mt">Professional-Grade AI Accuracy</div>
+      <h2>Clone Your Best Rep's Performance with 0% Hallucination</h2>
+    </div>
+    <div class="tc anim">
+      <span class="vd"></span>
+      <span class="vd"></span>
+      <div class="ti">
+        <h3>Zero Hallucination</h3>
+        <p>This is a specialized agent designed to be your best rep's clone, trained exclusively on your property docs, manuals, and price lists. It only answers based on verified data, eliminating the risk of incorrect information.</p>
+        <a href="#" class="la">Más información <span>&rarr;</span></a>
+      </div>
+      <div class="ti">
+        <h3>Humanized Communication</h3>
+        <p>It avoids "robotic" responses. By analyzing your best reps' chat history, it learns to handle objections and close with your specific style.</p>
+        <a href="#" class="la">Más información <span>&rarr;</span></a>
+      </div>
+      <div class="ti">
+        <h3>Smart Escalation</h3>
+        <p>Unlike generic bots, this agent is hard-coded to stay within your training guardrails. If the information isn't in your docs, it intelligently routes the lead to a human.</p>
+        <a href="#" class="la">Más información <span>&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: LATAM MARKETS — 4-COL -->
+<section class="ms" id="markets">
+  <div class="w">
+    <div class="mst anim">
+      <h2>Fluent in Regional Regulations and Terminology</h2>
+      <p>Earn immediate trust by using an agent that understands the legal and professional landscape of your specific market. This localization ensures your AI assistant sounds like a veteran local professional, not a bot.</p>
+    </div>
+    <div class="fc anim">
+      <span class="vd"></span>
+      <span class="vd"></span>
+      <span class="vd"></span>
+      <div class="fi">
+        <span class="ff">&#127474;&#127485;</span>
+        <div class="fn">Mexico</div>
+        <div class="ft">
+          <span class="ftg">NOM-247 compliance</span>
+          <span class="ftg">Contrato de adhesi&oacute;n</span>
+          <span class="ftg">Commercial advertising standards</span>
+        </div>
+      </div>
+      <div class="fi">
+        <span class="ff">&#127464;&#127476;</span>
+        <div class="fn">Colombia</div>
+        <div class="ft">
+          <span class="ftg">Canon de arrendamiento</span>
+          <span class="ftg">Ley 820 compliance</span>
+          <span class="ftg">Property management protocols</span>
+        </div>
+      </div>
+      <div class="fi">
+        <span class="ff">&#127464;&#127473; &#127477;&#127466;</span>
+        <div class="fn">Chile &amp; Peru</div>
+        <div class="ft">
+          <span class="ftg">Copropiedad inmobiliaria</span>
+          <span class="ftg">IVA property sales regulations</span>
+          <span class="ftg">Local terminology support</span>
+        </div>
+      </div>
+      <div class="fi">
+        <span class="ff">&#127462;&#127479;</span>
+        <div class="fn">Argentina</div>
+        <div class="ft">
+          <span class="ftg">Ley de Alquileres</span>
+          <span class="ftg">Intermediaci&oacute;n para compraventa</span>
+          <span class="ftg">Rental regulation compliance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5: UNIFIED MESSAGING — INSIGHTS STYLE -->
+<section class="insights-section" id="messaging">
+  <div class="insights-grid">
+
+    <!-- Left: Image + floating insight card -->
+    <div class="insights-visual anim">
+      <!-- One bg image per step — crossfade on step change -->
+      <div class="insights-bg-img active" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=80')"></div>
+      <div class="insights-bg-img" style="background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=80')"></div>
+      <div class="insights-bg-img" style="background-image:url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=80')"></div>
+
+      <!-- Step 0: Mass Outreach -->
+      <div class="insight-card ins-card active">
+        <div class="ic-head">
+          <span class="ic-title">Outreach</span>
+          <div class="ic-tags">
+            <span class="ic-tag">100% Compatible</span>
+            <span class="ic-tag blue">A prueba de bloqueos</span>
+          </div>
+        </div>
+        <div class="ic-metric-title">3.2x Higher Reply Rates</div>
+        <div class="ic-metric-desc">AI-powered broadcasts personalized to each lead, matching your top rep's tone and pacing.</div>
+        <div class="ic-items">
+          <div class="ic-item"><span class="ic-num">1</span>Import contacts from CRM</div>
+          <div class="ic-item"><span class="ic-num">2</span>AI writes personalized messages</div>
+          <div class="ic-item"><span class="ic-num">3</span>Sends with human-like delays</div>
+        </div>
+      </div>
+
+      <!-- Step 1: Team Accountability -->
+      <div class="insight-card ins-card">
+        <div class="ic-head">
+          <span class="ic-title">Team Monitor</span>
+          <div class="ic-tags">
+            <span class="ic-tag">Panel de Control en Vivo</span>
+            <span class="ic-tag blue">Tiempo real</span>
+          </div>
+        </div>
+        <div class="ic-metric-title">100% Rep Visibility</div>
+        <div class="ic-metric-desc">Track response times, follow-up rates, and chat quality for every rep in real time.</div>
+        <div class="ic-items">
+          <div class="ic-item"><span class="ic-num">1</span>Avg response: 2 min 14 sec</div>
+          <div class="ic-item"><span class="ic-num">2</span>Follow-up rate: 94%</div>
+          <div class="ic-item"><span class="ic-num">3</span>All data secured centrally</div>
+        </div>
+      </div>
+
+      <!-- Step 2: Group Chat -->
+      <div class="insight-card ins-card">
+        <div class="ic-head">
+          <span class="ic-title">Group Chats</span>
+          <div class="ic-tags">
+            <span class="ic-tag">Sincronizado con CRM</span>
+            <span class="ic-tag blue">Vista de 360°</span>
+          </div>
+        </div>
+        <div class="ic-metric-title">Every Group, Every Deal</div>
+        <div class="ic-metric-desc">Family groups, community chats, and team threads all captured and synced to CRM records.</div>
+        <div class="ic-items">
+          <div class="ic-item"><span class="ic-num">1</span>Auto-detect deal-related groups</div>
+          <div class="ic-item"><span class="ic-num">2</span>Sync messages to contact records</div>
+          <div class="ic-item"><span class="ic-num">3</span>Flag key decisions &amp; commitments</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Text + step list -->
+    <div class="insights-text anim">
+      <div class="mt">Unified Messaging Strategy</div>
+      <h2>One Number. No Restrictions. No Risk.</h2>
+      <p>The AI Agent works seamlessly with your existing setup. Whether you prefer the WhatsApp Business App or the Official API, Eazybe connects to both&mdash;giving you the best of both worlds without the fear of getting banned.</p>
+      <a href="#" class="cta-pill">Explore Messaging <span>&rarr;</span></a>
+
+      <div class="insights-steps">
+        <div class="ins-step active">
+          <div class="ins-step-title">Humanized Mass Outreach</div>
+          <p class="ins-step-desc">Send thousands of personalized, high-converting broadcasts that sound exactly like your top reps. Scale your outreach while staying 100% compliant and safe from bans.</p>
+        </div>
+        <div class="ins-step">
+          <div class="ins-step-title">Total Team Accountability</div>
+          <p class="ins-step-desc">Automatically monitors reps' response times, follow-up volume, and chat quality in one central dashboard, ensuring every rep meets your professional standards.</p>
+        </div>
+        <div class="ins-step">
+          <div class="ins-step-title">Group Chat Visibility</div>
+          <p class="ins-step-desc">Captura y sincroniza conversaciones de chat grupal directamente con tus registros CRM. Obtén una vista de 360° de acuerdos comunitarios y familiares que generalmente se pierden en silos personales.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 6: FINAL CTA -->
+<section class="lc" id="cta">
+  <div class="mt" style="color:var(--tt)">Comenzar</div>
+  <h2>¿Listo para ver al agente de IA en acción?</h2>
+  <p>Tu agente de IA maneja la calificación, seguimientos y registro CRM automáticamente — para que tu equipo pueda enfocarse en cerrar tratos.</p>
+  <a href="https://eazybe.info/fe193a" target="_blank" class="bd">
+    <svg viewBox="0 0 24 24" fill="currentColor" class="wa-svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.96 7.96 0 01-4.106-1.138l-.294-.176-2.866.852.852-2.866-.176-.294A7.96 7.96 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+    Prueba el Agente de IA en Vivo en WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fg">
+    <div>
+      <div class="fb-l">eazybe</div>
+      <p class="fb-p">Agentes de IA de WhatsApp para equipos de ventas inmobiliarias en toda América Latina.</p>
+    </div>
+    <div class="fcol">
+      <h4>Producto</h4>
+      <ul>
+        <li><a href="#">Calificación de Leads</a></li>
+        <li><a href="#">Seguimientos</a></li>
+        <li><a href="#">Sincronización CRM</a></li>
+        <li><a href="#">Panel de Control</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h4>Mercados</h4>
+      <ul>
+        <li><a href="#">Mexico</a></li>
+        <li><a href="#">Colombia</a></li>
+        <li><a href="#">Chile</a></li>
+        <li><a href="#">Argentina</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>&copy; 2026 eazybe</span>
+    <div class="fbot-r">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Trust Center</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // nav scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('n').classList.toggle('scrolled', scrollY > 40);
+  });
+
+  // fade-in on scroll
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) e.target.classList.add('v'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.anim').forEach(el => io.observe(el));
+
+  // ── Auto-advancing step carousel with click support ──
+  const STEP_DURATION = 20000; // ms per step
+
+  function createStepCarousel(stepSelector, sectionSelector, bgSelector, panelSelector) {
+    const steps = document.querySelectorAll(stepSelector);
+    const section = document.querySelector(sectionSelector);
+    const bgImgs = bgSelector ? document.querySelectorAll(bgSelector) : [];
+    if (!steps.length || !section) return;
+
+    // group panels by step index (2 panels per step for canvas, 1 per step for insights)
+    const allPanels = panelSelector ? document.querySelectorAll(panelSelector) : [];
+    const panelsPerStep = allPanels.length / steps.length;
+
+    let current = 0;
+    let timer = null;
+    let isVisible = false;
+
+    function activate(idx) {
+      // reset all — force reflow so ::before restarts
+      steps.forEach(s => {
+        s.classList.remove('active');
+        s.style.pointerEvents = 'auto';
+      });
+      // crossfade background images
+      bgImgs.forEach((bg, i) => {
+        bg.classList.toggle('active', i === idx);
+      });
+      // crossfade floating panels
+      allPanels.forEach((p, i) => {
+        const panelStep = Math.floor(i / panelsPerStep);
+        p.classList.toggle('active', panelStep === idx);
+      });
+      // force reflow to reset the CSS transition
+      void section.offsetWidth;
+      current = idx;
+      steps[current].classList.add('active');
+    }
+
+    function next() {
+      activate((current + 1) % steps.length);
+      scheduleNext();
+    }
+
+    function scheduleNext() {
+      clearTimeout(timer);
+      timer = setTimeout(next, STEP_DURATION);
+    }
+
+    // click on any step
+    steps.forEach((s, i) => {
+      s.style.cursor = 'pointer';
+      s.addEventListener('click', () => {
+        activate(i);
+        scheduleNext(); // restart timer from this step
+      });
+    });
+
+    // only run when section is in viewport
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !isVisible) {
+          isVisible = true;
+          activate(current);
+          scheduleNext();
+        } else if (!e.isIntersecting && isVisible) {
+          isVisible = false;
+          clearTimeout(timer);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    obs.observe(section);
+    activate(0);
+  }
+
+  // set CSS variable for duration
+  document.documentElement.style.setProperty('--step-duration', STEP_DURATION + 'ms');
+
+  createStepCarousel('.step', '.canvas-section', '.canvas-visual .canvas-bg-img', '.canvas-visual .cv-panel');
+  createStepCarousel('.ins-step', '.insights-section', '.insights-visual .insights-bg-img', '.insights-visual .ins-card');
+</script>
+
+</body>
+</html>
