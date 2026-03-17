@@ -2259,3 +2259,161 @@ img {
         scroll-behavior: auto;
     }
 }
+
+/* ============================================
+   UNIFIED VIEW STYLES
+============================================ */
+.unified-view {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.unified-header {
+    margin-bottom: 1.25rem;
+}
+
+.unified-header h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.unified-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.unified-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.unified-item:hover {
+    border-color: var(--hubspot-orange);
+    box-shadow: 0 2px 8px rgba(255,122,89,0.1);
+    transform: translateX(4px);
+}
+
+.unified-icon {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.unified-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.unified-info strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.15rem;
+}
+
+.unified-info span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.unified-status {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    border-radius: 12px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.unified-item:nth-child(1) .unified-status {
+    background: rgba(0,189,165,0.1);
+    color: var(--hubspot-teal);
+}
+
+.unified-item:nth-child(2) .unified-status {
+    background: rgba(255,122,89,0.1);
+    color: var(--hubspot-orange);
+}
+
+.unified-item:nth-child(3) .unified-status {
+    background: rgba(81,111,144,0.1);
+    color: var(--text-secondary);
+}
+
+.unified-footer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: center;
+}
+
+.sync-indicator {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--hubspot-teal);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .unified-view {
+        padding: 2rem;
+    }
+
+    .unified-header h4 {
+        font-size: 1.05rem;
+    }
+
+    .unified-grid {
+        gap: 1rem;
+    }
+
+    .unified-item {
+        padding: 1rem;
+    }
+
+    .unified-icon {
+        font-size: 1.75rem;
+        width: 48px;
+        height: 48px;
+    }
+
+    .unified-info strong {
+        font-size: 0.9rem;
+    }
+
+    .unified-info span {
+        font-size: 0.8rem;
+    }
+
+    .unified-status {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.75rem;
+    }
+}
