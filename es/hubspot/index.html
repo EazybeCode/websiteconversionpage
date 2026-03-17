@@ -705,118 +705,12 @@
         </div>
     </section>
 
-    <!-- FINAL CTA WITH CALENDLY -->
-    <section class="final-cta">
-        <div class="final-cta-inner">
-            <div class="final-cta-content">
-                <h2>Deja de Perder Negocios en WhatsApp</h2>
-                <p>Ve cada conversación, monitorea cada respuesta — todo dentro de HubSpot.</p>
-                <p class="trust-line">✓ Prueba gratis 7 días &nbsp;•&nbsp; ✓ Configuración 5 min &nbsp;•&nbsp; ✓ Cancela cuando quieras</p>
-            </div>
-            <div class="final-calendly">
-                <div class="final-calendly-header" style="text-align: center; padding-bottom: 12px;">
-                    <h3 style="font-size: 26px; font-weight: 800; color: #ffffff; margin: 0 0 8px 0; letter-spacing: -0.5px;">INICIA TU PRUEBA GRATIS</h3>
-                    <div style="margin-bottom: 12px;">
-                        <span style="font-size: 13px; color: rgba(255,255,255,0.9); font-weight: 500;">⭐ 4.7 en HubSpot Marketplace</span>
-                    </div>
-                    <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-                        <span style="font-size: 13px; color: #ffffff;"><span style="color: #ffffff; font-weight: 600;">✓</span> Sin tarjeta</span>
-                        <span style="font-size: 13px; color: #ffffff;"><span style="color: #ffffff; font-weight: 600;">✓</span> 5 min</span>
-                        <span style="font-size: 13px; color: #ffffff;"><span style="color: #ffffff; font-weight: 600;">✓</span> Cancela cuando quieras</span>
-                    </div>
-                </div>
-                <!-- HubSpot Form -->
-                <div id="hubspotFormContainer2" style="max-width: 500px; margin: 0 auto; padding: 20px;"></div>
-                <!-- Calendly inline widget (hidden until form submission) -->
-                <div id="calendlyContainer2" style="display: none; max-width: 500px; margin: 0 auto;">
-                    <div class="calendly-inline-widget" data-url="https://calendly.com/eazybe/integra-hubspot-con-whatsapp-de-eazybe" style="min-width:320px;height:700px;"></div>
-                </div>
-                <div id="formFooter2" style="text-align: center; padding: 10px 20px; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 4px;">
-                    <span style="font-size: 12px; color: rgba(255,255,255,0.7); display: flex; align-items: center; justify-content: center; gap: 6px;">
-                        <span>🔒</span> Tus datos están seguros (SOC2 + GDPR)
-                    </span>
-                </div>
-                <script>
-                  // RENDER SECOND FORM (Final CTA)
-                  hbspt.forms.create({
-                    region: "na1",
-                    portalId: "40009480",
-                    formId: config.formId,
-                    target: "#hubspotFormContainer2",
-                    locale: config.locale,
-
-                    onFormReady: function($form) {
-                        var formEl = (typeof $form.get === 'function') ? $form.get(0) : $form;
-                        var btn = formEl.querySelector('input[type="submit"], .hs-button');
-                        if (btn) {
-                            btn.style.setProperty('background-color', '#ff7a59', 'important');
-                            btn.style.setProperty('color', '#ffffff', 'important');
-                            btn.style.setProperty('border', 'none', 'important');
-                            btn.style.setProperty('background-image', 'none', 'important');
-                        }
-
-                        var errorDiv = document.createElement('div');
-                        errorDiv.style.cssText = 'background:#fee2e2; color:#991b1b; padding:15px; margin-top:20px; text-align:center; display:none; font-weight:600; border-radius:8px;';
-                        errorDiv.innerText = config.errorMsg;
-                        if (btn) btn.parentNode.insertBefore(errorDiv, btn);
-
-                        var blockedValues = ['1-10', '1 - 10'];
-
-                        function runCheck() {
-                            var isBad = false;
-                            var selects = formEl.querySelectorAll('select');
-                            for (var i = 0; i < selects.length; i++) {
-                                var select = selects[i];
-                                var val = (select.value || "").toLowerCase();
-                                var text = "";
-                                if (select.options && select.selectedIndex >= 0) {
-                                    text = (select.options[select.selectedIndex].text || "").toLowerCase();
-                                }
-                                for (var j = 0; j < blockedValues.length; j++) {
-                                    if (val.indexOf(blockedValues[j]) > -1 || text.indexOf(blockedValues[j]) > -1) {
-                                        isBad = true;
-                                    }
-                                }
-                            }
-                            if (isBad) {
-                                if(btn) btn.style.display = 'none';
-                                errorDiv.style.display = 'block';
-                            } else {
-                                if(btn) btn.style.display = 'block';
-                                errorDiv.style.display = 'none';
-                            }
-                        }
-
-                        formEl.addEventListener('change', runCheck);
-                        formEl.addEventListener('input', runCheck);
-                        runCheck();
-                    },
-
-                    onFormSubmitted: function(form, data) {
-                         if (typeof fbq === 'function') { fbq('track', 'Lead'); }
-                         // Hide form and show Calendly
-                         document.getElementById('hubspotFormContainer2').style.display = 'none';
-                         document.getElementById('formFooter2').style.display = 'none';
-                         document.getElementById('calendlyContainer2').style.display = 'block';
-                         // Load Calendly widget script if not already loaded
-                         if (!document.querySelector('script[src*="calendly.com"]')) {
-                             var script = document.createElement('script');
-                             script.src = 'https://assets.calendly.com/assets/external/widget.js';
-                             script.async = true;
-                             document.head.appendChild(script);
-                         }
-                    }
-                  });
-                </script>
-            </div>
-        </div>
-    </section>
 
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-inner">
             <img src="https://cdn.prod.website-files.com/64cb8fe9dae4f2e5a069eb37/68c8ea1fa01de563ebf5b627_nav-logo.svg" alt="Eazybe" class="footer-logo">
-            <div class="footer-links"><a href="#">Privacidad</a><a href="#">Términos</a><a href="#">Contacto</a></div>
+            <div class="footer-links"><a href="https://eazybe.com/es/privacy">Privacidad</a><a href="https://eazybe.com/es/terms">Términos</a><a href="#">Contacto</a></div>
             <span class="footer-copyright">© 2026 Eazybe, Inc. Todos los derechos reservados.</span>
         </div>
     </footer>
